@@ -1,18 +1,17 @@
 ---
-layout: default
+layout: page
+title: Powered by Selenium!
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+<p>Watir, pronounced just like 'water,' is an open-source Ruby library for automating your UI tests.
+  It uses Selenium to 'drive' a browser to take actions the same way people do. It is simple and flexible
+  and allows you to write tests that are easy to read and maintain. .</p>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+<p>Watir interacts with a browser the same way people do.
+  It navigates to pages, clicks links, fills in forms and presses buttons.
+</p>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+<p><a href="demo.html">Here's a quick demonstration</a> of how easy it is to write commands to drive a browser.</p>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+<p>Check out our <a href="https://github.com/watir/watir-webdriver">code</a> and our
+  <a href="http://www.rubydoc.info/gems/watir-webdriver">documentation</a> </p>
