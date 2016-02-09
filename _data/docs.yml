@@ -33,6 +33,12 @@
     - sending-special-keys
     - wysiwyg-editors
 
+- title: Links
+  docs:
+    - api-docs
+    - source-code
+    - support 
+
 - title: Page Objects
 
 - title: Additional Info
