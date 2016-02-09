@@ -1,0 +1,47 @@
+- title: Getting Started
+  docs:
+    - home
+
+- title: Browsers
+  docs:
+    - chrome
+    - firefox
+    - headless
+    - ie
+    - mobile
+    - safari
+
+- title: Browser Elements
+  docs:
+    - elements
+    - frames
+    - waiting
+
+- title: Advanced Interactions
+  docs:
+    - basic-browser-authentication
+    - browser-certificates
+    - browser-downloads
+    - browser-popups
+    - browser-proxies
+    - cookies
+    - determining-browser
+    - javascript-dialogs
+    - measure-page-performance
+    - page-objects
+    - screenshots
+    - sending-special-keys
+    - wysiwyg-editors
+
+- title: Links
+  docs:
+    - api-docs
+    - source-code
+    - support
+
+#- title: Page Objects
+
+#- title: Additional Info
+#  docs:
+#    - companies-using-watir
+#    - watir-gems
