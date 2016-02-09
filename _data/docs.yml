@@ -37,11 +37,11 @@
   docs:
     - api-docs
     - source-code
-    - support 
+    - support
 
-- title: Page Objects
+#- title: Page Objects
 
-- title: Additional Info
-  docs:
-    - companies-using-watir
-    - watir-gems
+#- title: Additional Info
+#  docs:
+#    - companies-using-watir
+#    - watir-gems
