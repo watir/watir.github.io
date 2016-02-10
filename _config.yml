@@ -16,11 +16,6 @@ avatar: https://upload.wikimedia.org/wikipedia/commons/7/7e/Watir.gif
 #
 # Flags below are optional
 #
-repository: https://www.github.com/watir
-
-collections:
-  docs:
-    output: true
 
 # Includes an icon in the footer for each username you enter
 footer-links:
@@ -60,7 +55,7 @@ baseurl: ""
 # !! You don't need to change any of the configuration flags below !!
 #
 
-markdown: kramdown
+markdown: redcarpet
 #highlighter: pygments
 permalink: /:title/
 

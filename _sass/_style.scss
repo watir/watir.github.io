@@ -215,7 +215,16 @@ footer {
   p {
     font-size: 1.75em;
     line-height: 1em;
+    text-align: center;
     margin: 0;
+  }
+
+  .tag-line {
+    font-size: 12px;
+    line-height: 1em;
+    margin: 0;
+    text-align: center;
+    padding: 0px;
   }
 }
 
