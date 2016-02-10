@@ -1,17 +1,83 @@
 ---
-layout: page
-title: Powered by Selenium!
+layout: default
+title: Watir-Webdriver
+overview: true
 ---
 
-<p>Watir, pronounced just like 'water,' is an open-source Ruby library for automating your UI tests.
-  It uses Selenium to 'drive' a browser to take actions the same way people do. It is simple and flexible
-  and allows you to write tests that are easy to read and maintain. .</p>
+<section class="intro">
+  <div class="grid">
+    <div class="unit whole center-on-mobiles">
+      <p class="first">The <em>easiest</em> way to <b style="color: #156988;">Automate</b> your tests with <b style="color: #900d0d;">Ruby</b></p>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="unit whole center-on-mobiles tag-line">
+      <p class="second">Powered by <b style="color: #115c28;">Selenium</b></p>
+    </div>
+  </div>
+</section>
+<section class="quickstart">
+  <div class="grid">
+    <div class="unit golden-small center-on-mobiles">
+      <h3>Take a sip,<br><br>and automate with ease.</h3>
+    </div>
+    <!--
+    <div class="unit golden-large code">
+      <p class="title">Watir Test Drive</p>
+      <div class="shell">
+        <p class="line">
+          <span class="command">require 'watir-webdriver'</span>
+        </p>
+        <p class="line">
+          <span class="command">jekyll new my-awesome-site</span>
+        </p>
+        <p class="line">
+          <span class="command">cd my-awesome-site</span>
+        </p>
+        <p class="line">
+          <span class="command">jekyll serve</span>
+        </p>
+      </div>
+    -->
+      <div class="unit golden-large code">
+{% highlight ruby %}
+require 'watir-webdriver'
 
-<p>Watir interacts with a browser the same way people do.
-  It navigates to pages, clicks links, fills in forms and presses buttons.
-</p>
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
+b.text_field(:id => 'entry_1000000').set 'your name'
+b.select_list(:id => 'entry_1000001').wait_until_present
+b.select_list(:id => 'entry_1000001').select('Ruby')
+b.button(:value => 'Submit').click
+b.button(:value => 'Submit').wait_while_present
 
-<p><a href="/demo">Here's a quick demonstration</a> of how easy it is to write commands to drive a browser.</p>
-
-<p>Check out our <a href="https://github.com/watir/watir-webdriver">code</a> and our
-  <a href="http://www.rubydoc.info/gems/watir-webdriver">documentation</a> </p>
+Watir::Wait.until { b.text.include? 'Thank you' }
+{% endhighlight %}
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
+<section class="features">
+  <div class="grid">
+    <div class="unit one-third">
+      <h2>Powerful</h2>
+      <p>
+        Powered by Selenium, it 'drives' a browser to take actions the same way people do: navigating to pages, clicking links, filling in forms and pressing buttons.
+      </p>
+      <a href="/docs/how-it-works/">How it works &rarr;</a>
+    </div>
+    <div class="unit one-third">
+      <h2>Extensible</h2>
+      <p>Utilize Watir specific gems to extend your testing framework. Supports test frameworks such as RSpec and Cucumber.</p>
+      <a href="/docs/extensions/">Watir Extensions &rarr;</a>
+    </div>
+    <div class="unit one-third">
+      <h2>Easy</h2>
+      <p>
+        It is simple and flexible and allows you to write tests that are easy to read and maintain.
+      </p>
+      <a href="/docs/examples/">Examples &rarr;</a>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
