@@ -6,7 +6,7 @@ permalink: /docs/chrome/
 
 ### ChromeDriver
 
-Chrome support is through the platform specific ChromeDriver binary, which you [download](http://code.google.com/p/chromedriver/downloads/list) and put on your path.
+Chrome support is through the platform specific ChromeDriver binary, which you [download](http://chromedriver.storage.googleapis.com/index.html) and put on your path.
 {% highlight ruby %}
 b = Watir::Browser.new :chrome
 {% endhighlight %}
