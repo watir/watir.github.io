@@ -2,6 +2,7 @@
 layout: page
 title: Community
 ---
+{::options parse_block_html="true" /}
 
 ## Blogs
 
@@ -26,7 +27,7 @@ These blogs have significant Watir-related content (or content of other aspects 
 
 Watir is the creation of people committed to making testing easier. (Sorted alphabetically by last name.)
 
-<span>
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/jari1.jpg">
     <b>Jari Bakken</b> ([@jarib](http://twitter.com/jarib))
@@ -35,9 +36,9 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     <br>
     support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px" src="/images/contributors/zeljko2.jpg">
     <b>[Željko Filipin](http://filipin.eu/)</b> ([@zeljkofilipin](http://twitter.com/zeljkofilipin))
@@ -46,9 +47,9 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     <br>
     Author of the [Watir Book](http://watir.com/book/), support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir) and [Watir General](http://groups.google.com/group/watir-general/); host of [Watir Podcast](http://watirpodcast.com/)
   </p>
-</span>  
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/justin_73.png">
     <b>[Justin Ko](http://jkotests.wordpress.com/)</b>
@@ -57,9 +58,9 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     <br>
     Support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/chuck.jpg">
     <b>[Chuck van der Linden](http://stackoverflow.com/users/409820/chuck-van-der-linden)</b>
@@ -68,9 +69,9 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     <br>
     Support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir) and [Watir General](http://groups.google.com/group/watir-general/)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/dave_73.jpeg">
     <b>[Dave McNulla](http://dmcnulla.wordpress.com/)</b> ([@dmcnulla](https://twitter.com/dmcnulla))
@@ -79,9 +80,9 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     <br>
     Host of [Watir Podcast](http://watirpodcast.com/)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/joel_73.jpg">
     <b>[Joel Pearson](https://github.com/VirtuosoJoel)</b>
@@ -90,9 +91,9 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     <br>
     Support sheriff at [Ruby-Talk](http://www.ruby-lang.org/en/community/mailing-lists/)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/jarmo.jpg">
     <b>[Jarmo Pertman](http://www.itreallymatters.net/)</b> ([@jarm0](http://twitter.com/jarm0))
@@ -101,9 +102,9 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     <br>
     code monkey ([watir](https://rubygems.org/gems/watir) gem 1.x – 3.x)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/alex-rodionov.png">
     <b>[Alex Rodionov](http://p0deje.blogspot.com/)</b> ([@p0deje](http://twitter.com/p0deje))
@@ -112,14 +113,14 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     <br>
     Code monkey ([watir-webdriver](https://rubygems.org/gems/watir-webdriver) gem)
   </p>
-</span>
----
+</div>
+
 
 ### Alumni
 
 People who contributed a lot to Watir but are not active at the moment.
 
-<span>
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/charley1.jpg">
     <b>Charley Baker</b> ([@charley_baker](http://twitter.com/charley_baker))
@@ -128,9 +129,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     contributor to [watir](https://rubygems.org/gems/watir) gem 1.x
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/wesley.jpg">
     <b>[Wesley Chen](http://www.google.com/profiles/cjq.999)</b>
@@ -139,9 +140,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     support sheriff at Watir General
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/tom.jpg">
     <b>[Tom Copeland](http://tomcopeland.blogs.com/)</b> ([@tcopeland](http://twitter.com/tcopeland))
@@ -150,9 +151,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     lead developer of SafariWatir (not in active development)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/tiffany.jpg">
     <b>[Tiffany Fodor](http://tcfodor.wordpress.com/)</b> ([@tcfodor](http://twitter.com/tcfodor))
@@ -161,9 +162,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     Test Automation Bazaar conference organizer
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/dave1.jpg">
     <b>[Dave Hoover](http://redsquirrel.com/dave/)</b> ([@redsquirrel](http://twitter.com/redsquirrel))
@@ -172,9 +173,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     lead developer of SafariWatir (not in active development)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/jonathan3.jpg">
     <b>[Jonathan Kohl](http://www.kohl.ca/)</b>
@@ -183,9 +184,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     documentation, mostly Tutorial and [rdoc](http://rubydoc.info/gems/watir)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/hugh2.jpeg">
     <b>Hugh McGowan</b> ([@hmcgowan](http://twitter.com/hmcgowan))
@@ -194,9 +195,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     code monkey ([watir](https://rubygems.org/gems/watir) gem 1.x – 4.x)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/bret1.jpg">
     <b>[Bret Pettichord](http://www.pettichord.com/)</b> ([@bpettichord](http://twitter.com/bpettichord))
@@ -205,9 +206,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     founder and director, contributor to [watir](https://rubygems.org/gems/watir) gem 1.x
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/paul1.jpg">
     <b>[Paul Rogers](http://members.shaw.ca/paul_rogers/index.html)</b>
@@ -216,9 +217,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     co-creator
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/alister1.jpg">
     <b>[Alister Scott](http://watirmelon.com/)</b> ([@alisterscott](http://twitter.com/alisterscott))
@@ -227,9 +228,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     Documentation at [Watir web site](http://watir.com/), Watir wiki, [watirwebdriver.com](http://watirwebdriver.com/); support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/angrez1.jpg">
     <b>[Angrez Singh](http://angrez.blogspot.com/)</b>
@@ -238,9 +239,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     lead developer of FireWatir (replaced with [watir-webdriver](http://github.com/jarib/watir-webdriver))
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/andreas.jpeg">
     <b>[Andreas Tolf Tolfsen](http://sny.no/)</b> ([@tolfsen](http://twitter.com/tolfsen))
@@ -249,9 +250,9 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     code monkey (Opera support for [watir-webdriver](https://rubygems.org/gems/watir-webdriver) gem)
   </p>
-</span>
----
-<span>
+</div>
+
+<div style="display: list-item;">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/sai1.jpg">
     <b>[Sai Venkatakrishnan](http://developer-in-test.blogspot.com/)</b>
@@ -260,6 +261,7 @@ People who contributed a lot to Watir but are not active at the moment.
     <br>
     lead developer of ChromeWatir (replaced with [watir-webdriver](http://github.com/jarib/watir-webdriver))
   </p>
-</span>
----
+</div>
+
+
 The Watir team is all over the world.
