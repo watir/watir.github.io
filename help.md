@@ -1,6 +1,6 @@
 ---
 layout: page
-title: help
+title: Help
 ---
 
 ### The best way to get help with Watir-Webdriver:
