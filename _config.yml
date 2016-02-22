@@ -16,6 +16,9 @@ avatar: https://upload.wikimedia.org/wikipedia/commons/7/7e/Watir.gif
 #
 # Flags below are optional
 #
+collections:
+  docs:
+    output: true
 
 # Includes an icon in the footer for each username you enter
 footer-links:
