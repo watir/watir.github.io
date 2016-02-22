@@ -16,12 +16,12 @@ profile.assume_untrusted_certificate_issuer = false
 b = Watir::Browser.new :firefox, :profile => profile
 {% endhighlight %}
 
-The reason this is needed is explained [here](http://code.google.com/p/selenium/wiki/UntrustedSSLCertificates#Implementation_details).
+The reason this is needed is explained [here](https://github.com/SeleniumHQ/selenium/wiki/Untrusted-SSL-Certificates#implementation-details).
 
 ### Chrome
 
 It is easy to ignore invalid Browser certificates in Google Chrome by passing a command line switch:
 
 {% highlight ruby %}
-Watir::Browser.new :chrome, :switches => ['--ignore-certificate-errors']
+Watir::Browser.new :chrome, switches: ['--ignore-certificate-errors']
 {% endhighlight %}
