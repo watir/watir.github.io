@@ -11,6 +11,7 @@ categories: [Releases]
 Hi!
 
 Watir 2.0.3 has been released. This version has the following changes:
+
 * fix ElementCollections#[]
 * fix IE::Process.start for IE9 when opening multiple windows
 * add support for Spanish JavaScript and file upload dialogs

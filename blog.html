@@ -1,5 +1,8 @@
 ---
 layout: default
+title: Watir Blog Posts
 ---
 
-Coming Soon
+{% for post in site.posts %}
+  {% include blog_post.html %}
+{% endfor %}

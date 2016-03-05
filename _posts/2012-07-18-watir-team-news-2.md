@@ -16,23 +16,27 @@ I'm proud to be a part of Watir team and the first member from Russia. As you co
 
 Tiffany Fodor used to be support sheriff, but she did not have the time to contribute lately, so we have moved her to alumni <a href="http://watir.com/2011/10/25/watir-team-news/">last year</a>. Since she helped a lot with organizing <a href="http://watir.com/test-automation-bazaar/">Test Automation Bazaar</a> conference this year, she is back to the team, but instead of support sheriff, she is now conference organizer.
 
-<img class="alignleft" title="Tiffany Fodor" src="https://watir001.files.wordpress.com/2009/10/tiffany.jpg" alt="Tiffany Fodor" /><a href="http://tcfodor.wordpress.com/">Tiffany Fodor</a> (<a href="http://twitter.com/tcfodor">@tcfodor</a>)
+<img title="Tiffany Fodor" src="https://watir001.files.wordpress.com/2009/10/tiffany.jpg" alt="Tiffany Fodor" />
+
+<a href="http://tcfodor.wordpress.com/">Tiffany Fodor</a> (<a href="http://twitter.com/tcfodor">@tcfodor</a>)
 Boulder, Colorado, United States of America
 <a href="http://watir.com/test-automation-bazaar/">Test Automation Bazaar</a> conference organizer
 &nbsp;
 
 A few of Watir Team members are no longer active, so we have moved them to alumni section:
 
-<img class="alignleft" title="Charley Baker" src="https://watir001.files.wordpress.com/2009/10/charley1.jpg" alt="Charley Baker" />Charley Baker (<a href="http://twitter.com/charley_baker">@charley_baker</a>)
+<img class="alignleft" title="Charley Baker" src="https://watir001.files.wordpress.com/2009/10/charley1.jpg" alt="Charley Baker" />
+
+Charley Baker (<a href="http://twitter.com/charley_baker">@charley_baker</a>)
 Denver, Colorado, United States of America
 contributor to <a href="https://rubygems.org/gems/watir">watir</a> gem 1.x
 &nbsp;
 
-<img class="alignleft" title="Alister Scott" src="https://watir001.files.wordpress.com/2009/10/alister1.jpg" alt="Alister Scott" /><a href="http://watirmelon.com/">Alister Scott</a> (<a href="http://twitter.com/alisterscott">@alisterscott</a>)
+<img class="alignleft" title="Alister Scott" src="https://watir001.files.wordpress.com/2009/10/alister1.jpg" alt="Alister Scott" />
+
+<a href="http://watirmelon.com/">Alister Scott</a> (<a href="http://twitter.com/alisterscott">@alisterscott</a>)
 Brisbane, Queensland, Australia
 web master
 documentation at <a href="http://watir.com/">Watir web site</a>, <a href="http://wiki.openqa.org/display/WTR/Project+Home">Watir wiki</a>, <a href="http://watirwebdriver.com/">watirwebdriver.com</a>; support sheriff at <a href="http://stackoverflow.com/tags/watir">Stack Overflow</a>
 
 Did you know the Watir team is all over the world?
-
-[googlemaps http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=100534457194060349521.000476e79b67d5a715b4e&amp;ll=44.590467,13.359375&amp;spn=143.219683,298.828125&amp;z=1&amp;output=embed&amp;w=425&amp;h=350]

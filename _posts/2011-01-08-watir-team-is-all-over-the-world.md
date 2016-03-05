@@ -6,7 +6,6 @@ author: bpettichord
 comments: true
 categories: [Uncategorized]
 ---
-[googlemaps http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=100534457194060349521.000476e79b67d5a715b4e&amp;ll=44.590467,13.359375&amp;spn=143.219683,298.828125&amp;z=1&amp;output=embed&amp;w=600&amp;h=360]
 
 A couple of years ago, Zeljko Filipin was trying to get me to start a Watir podcast. He was telling me how to do it and why it is so important. I asked him why he didn't he do it himself? He said he didn't speak good enough English. Nonsense. At that time I had never met Zeljko but had spoken with him over Skype several times.
 

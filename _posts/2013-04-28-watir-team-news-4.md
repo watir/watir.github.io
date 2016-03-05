@@ -10,7 +10,7 @@ I have some great and some sad news. Let's start with great news.
 
 <strong>Great News! :)</strong>
 
-[caption id="attachment_1508" align="alignnone" width="295"]<a href="http://watir001.files.wordpress.com/2013/04/joel.jpg"><img src="http://watir001.files.wordpress.com/2013/04/joel.jpg" alt="Joel Pearson" width="295" height="295" class="size-full wp-image-1508" /></a> Joel Pearson[/caption]
+<a href="http://watir001.files.wordpress.com/2013/04/joel.jpg"><img src="http://watir001.files.wordpress.com/2013/04/joel.jpg" alt="Joel Pearson" width="295" height="295" class="size-full wp-image-1508" /></a> Joel Pearson
 
 Joel Pearson joins the <a href="http://watir.com/team/">team</a> as support sheriff.
 
@@ -118,15 +118,15 @@ Take care!
 
 Hugh McGowan is the last one to ask to be moved to alumni section.
 
-<blockquote>Hi all, 
+<blockquote>Hi all,
 
 Seems like it's the season...
 
-While I use Watir-Webdriver daily, it's been over a year since I've checked in or released code, so I should probably be moved to the alumni list as well. 
+While I use Watir-Webdriver daily, it's been over a year since I've checked in or released code, so I should probably be moved to the alumni list as well.
 
 It's been great fun - I've learned tons and met some awesome people. Keep up the great work Jari, Jarmo and Zelkjo!
 
-I'll still lurk on this list and am happy to help with anything y'all need so feel free to ask. Let me know if you're ever in Austin! 
+I'll still lurk on this list and am happy to help with anything y'all need so feel free to ask. Let me know if you're ever in Austin!
 
 Thanks!
 

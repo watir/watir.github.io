@@ -10,8 +10,6 @@ categories: [Blogs]
 
 <hr />
 
-[caption width="300" caption="Sydney Opera House by globetravelers, under a Creative Commons license. (Opera and water. Almost a joke.)"]<a href="http://www.flickr.com/photos/globetravelers/3553892349/"><img src="http://zeljkofilipin.com/wp-content/uploads/2010/12/opera.jpg" alt="Sydney Opera House" title="Sydney Opera House" /></a>[/caption]
-
 For about two years (since <a href="http://awta.wikispaces.com/AWTA+2009">AWTA 2009</a>) I know that people at <a href="http://www.opera.com/">Opera Software</a> are working on <a href="http://operawatir.org/">OperaWatir</a>, but the release was scheduled as "soon" all the time. And then when I almost lost any hope, <a href="http://home.e-tjenesten.org/~ato/">Andreas Tolf Tolfsen</a> published a blog post saying <a href="http://my.opera.com/core/blog/operawatir-pre-release">OperaWatir is (pre)released</a>! (One can argue is it a release or prelease, but who cares?)
 
 The source code is available on GitHub at <a href="https://github.com/operasoftware/operawatir">operasoftware/operawatir</a>.

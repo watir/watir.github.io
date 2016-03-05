@@ -20,10 +20,7 @@ Install it with
 
 <code>gem install watir-webdriver</code>
 
-As usual: 
+As usual:
 
 <li>see all the changes at <a href="https://github.com/jarib/watir-webdriver/commits/master/">github.com/jarib/watir-webdriver/commits/master</a></li>
 <li>updated API documentation is at <a href="http://rubydoc.info/gems/watir-webdriver">rubydoc.info/gems/watir-webdriver</a></li>
-</ul>
-
-

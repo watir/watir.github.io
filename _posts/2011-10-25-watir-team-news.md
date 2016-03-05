@@ -13,17 +13,19 @@ I would like to welcome Chuck van der Linden to <a href="http://watir.com/team/"
 I would also want to thank a few of Watir Team members that are no longer active, so I have moved them to alumni section:
 
 <img src="http://watir001.files.wordpress.com/2009/10/angrez1.jpg" alt="Angrez Singh" title="Angrez Singh" />
+
 Angrez Singh, lead developer of FireWatir (replaced with watir-webdriver)
 
 <img src="http://watir001.files.wordpress.com/2009/10/tom.jpg" alt="Tom Copeland" title="Tom Copeland" />
+
 Tom Copeland, lead developer of SafariWatir (not in active development any more)
 
 <img src="http://watir001.files.wordpress.com/2009/10/tiffany.jpg" alt="Tiffany Fodor" title="Tiffany Fodor" />
+
 Tiffany Fodor, support sheriff at Watir General
 
 <img src="http://watir001.files.wordpress.com/2009/10/wesley.jpg" alt="Wesley Chen" title="Wesley Chen" />
+
 Wesley Chen, support sheriff at Watir General
 
 Did you know the Watir team is all over the world?
-
-[googlemaps http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=100534457194060349521.000476e79b67d5a715b4e&amp;ll=44.590467,13.359375&amp;spn=143.219683,298.828125&amp;z=1&amp;output=embed&amp;w=425&amp;h=350]

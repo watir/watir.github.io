@@ -6,7 +6,7 @@ author: bpettichord
 comments: true
 categories: [Podcast]
 ---
-<img src="http://watirpodcast.zeljkofilipin.com/wp-content/uploads/zeljko_pencil.jpg" alt="Željko Filipin" title="Željko Filipin" /> <img src="http://watirpodcast.zeljkofilipin.com/wp-content/uploads/jarmo.jpg" alt="Jarmo Pertman" title="Jarmo Pertman" />
+
 
 Željko Filipin talks with Jarmo Pertman about the recent release of Watir 2.0.
 

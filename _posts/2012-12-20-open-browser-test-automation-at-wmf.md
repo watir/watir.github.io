@@ -6,7 +6,7 @@ author: bpettichord
 comments: true
 categories: [Blogs]
 ---
-[caption width="300"]<a title="By Roger McLassus (Picture taken and uploaded by Roger McLassus.) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3A2006-02-13_Drop-impact.jpg"><img width="256" alt="2006-02-13 Drop-impact" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f8/2006-02-13_Drop-impact.jpg/256px-2006-02-13_Drop-impact.jpg" /></a> Random photo: Impact of a drop of water[/caption]
+<a title="By Roger McLassus (Picture taken and uploaded by Roger McLassus.) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3A2006-02-13_Drop-impact.jpg"><img width="256" alt="2006-02-13 Drop-impact" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f8/2006-02-13_Drop-impact.jpg/256px-2006-02-13_Drop-impact.jpg" /></a> Random photo: Impact of a drop of water
 
 <strong>Originally posted at <a href="http://chrismcmahonsblog.blogspot.com/2012/12/open-browser-test-automation-at-wmf.html">chrismcmahonsblog.blogspot.com</a> by Chris McMahon.</strong>
 

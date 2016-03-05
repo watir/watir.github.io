@@ -14,26 +14,22 @@ I've recently been putting some amount of thought into how to write good Cucumbe
 
 <strong>An imperative (communicative) Cucumber scenario</strong>
 
-[sourcecode language="text"]
-Scenario: Submit the form with correct data (imperative)
-  Given I am on the watir example form
-  When I set &quot;What is your name?&quot; to &quot;Alister&quot;
-  And I set &quot;What is your story?&quot; to &quot;I like ruby&quot;
-  And I set &quot;What testing tool do you like?&quot; to &quot;Watir&quot;
-  And I click &quot;Submit&quot;
-  Then I should see the message &quot;Thanks! Your response has been recorded.&quot;
-[/sourcecode]
+  Scenario: Submit the form with correct data (imperative)
+    Given I am on the watir example form
+    When I set &quot;What is your name?&quot; to &quot;Alister&quot;
+    And I set &quot;What is your story?&quot; to &quot;I like ruby&quot;
+    And I set &quot;What testing tool do you like?&quot; to &quot;Watir&quot;
+    And I click &quot;Submit&quot;
+    Then I should see the message &quot;Thanks! Your response has been recorded.&quot;
 
 Each step is a command, or instruction, so it's pretty clear what is being done.
 
 <strong>A declarative (informative) Cucumber scenario</strong>
 
-[sourcecode language="text"]
-Scenario: Submit the form with correct data (declarative)
-  Given I am on the watir example form
-  When I submit the form with correct data
-  Then I should see the correct message
-[/sourcecode]
+  Scenario: Submit the form with correct data (declarative)
+    Given I am on the watir example form
+    When I submit the form with correct data
+    Then I should see the correct message
 
 Each step states an idea, so sometimes it's not really clear precisely what is being done.
 
@@ -45,14 +41,12 @@ There's some quite good articles about writing Cucumber features/scenarios aroun
 
 With the two examples above, I have kinda cheated, in that the step definitions for the declarative style calls imperative steps. For example, this is the declarative step defintion:
 
-[sourcecode language="ruby"]
-When /^I submit the form with correct data$/ do
-  When &quot;I set \&quot;What is your name?\&quot; to \&quot;Alister\&quot;&quot;
-  And &quot;I set \&quot;What is your story?\&quot; to \&quot;I like ruby\&quot;&quot;
-  And &quot;I set \&quot;What testing tool do you like?\&quot; to \&quot;Watir\&quot;&quot;
-  And &quot;I click \&quot;Submit\&quot;&quot;
-end
-[/sourcecode]
+  When /^I submit the form with correct data$/ do
+    When &quot;I set \&quot;What is your name?\&quot; to \&quot;Alister\&quot;&quot;
+    And &quot;I set \&quot;What is your story?\&quot; to \&quot;I like ruby\&quot;&quot;
+    And &quot;I set \&quot;What testing tool do you like?\&quot; to \&quot;Watir\&quot;&quot;
+    And &quot;I click \&quot;Submit\&quot;&quot;
+  end
 
 This is all well and good, as you can now have multiple cucumber steps that call the same thing, it's <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>ish, but the problem is when you run the step "When I submit the form with correct data", that's all you get.
 
@@ -67,20 +61,18 @@ Compare this to the imperative step results, which whilst calling exactly the sa
 Two table based Cucumber features I like using are <a href="https://github.com/aslakhellesoy/cucumber/wiki/scenario-outlines">scenario outlines</a>, and <a href="https://github.com/aslakhellesoy/cucumber/wiki/multiline-step-arguments">multiline step arguments</a>, but these don't make a lot of sense if you're using a declarative style.
 For example, the imperative scenario could be easily adapted to use a scenario outline, whereas the declarative style would mean writing more declarative steps.
 
-[sourcecode language="text"]
-Scenario Outline: Submit the form with correct data (imperative - outline)
-  Given I am on the watir example form
-  When I set &quot;What is your name?&quot; to &quot;&quot;
-  And I set &quot;What is your story?&quot; to &quot;&quot;
-  And I set &quot;What testing tool do you like?&quot; to &quot;&quot;
-  And I click &quot;Submit&quot;
-  Then I should see the message &quot;Thanks! Your response has been recorded.&quot;
+  Scenario Outline: Submit the form with correct data (imperative - outline)
+    Given I am on the watir example form
+    When I set &quot;What is your name?&quot; to &quot;&quot;
+    And I set &quot;What is your story?&quot; to &quot;&quot;
+    And I set &quot;What testing tool do you like?&quot; to &quot;&quot;
+    And I click &quot;Submit&quot;
+    Then I should see the message &quot;Thanks! Your response has been recorded.&quot;
 
-  Examples:
-   | name    | story       | tool     |
-   | Alister | I Like ruby | Watir    |
-   | Mozart  | I like java | Selenium |
-[/sourcecode]
+    Examples:
+     | name    | story       | tool     |
+     | Alister | I Like ruby | Watir    |
+     | Mozart  | I like java | Selenium |
 
 <strong>Writing declarative scenarios often means hidden detail</strong>
 

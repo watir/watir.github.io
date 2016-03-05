@@ -26,33 +26,31 @@ There was mainly 3 motivations to change <code>#click_no_wait</code>:
 
 Before going into the dirty details how it became faster i’m gonna give a short overview how it was working before the changes. The main parts of the <code>#click_no_wait</code> were the following methods:
 
-[sourcecode language="ruby"]
-# watir/element.rb
-def click_no_wait
-  assert_enabled
+	# watir/element.rb
+	def click_no_wait
+	  assert_enabled
 
-  highlight(:set)
-  object = &quot;#{self.class}.new(self, :unique_number, #{self.unique_number})&quot;
-  @page_container.eval_in_spawned_process(object + &quot;.click!&quot;)
-  highlight(:clear)
-end
+	  highlight(:set)
+	  object = &quot;#{self.class}.new(self, :unique_number, #{self.unique_number})&quot;
+	  @page_container.eval_in_spawned_process(object + &quot;.click!&quot;)
+	  highlight(:clear)
+	end
 
-# watir/page-container.rb
-def eval_in_spawned_process(command)
-  command.strip!
-  load_path_code = _code_that_copies_readonly_array($LOAD_PATH, '$LOAD_PATH')
-  ruby_code = &quot;require 'watir/ie'; &quot;
-  ruby_code &lt;&lt; &quot;pc = #{attach_command}; &quot; # pc = page container
-  ruby_code &lt;&lt; &quot;pc.instance_eval(#{command.inspect})&quot;
-  exec_string = &quot;start rubyw -e #{(load_path_code + '; ' + ruby_code).inspect}&quot;
-  system(exec_string)
-end
+	# watir/page-container.rb
+	def eval_in_spawned_process(command)
+	  command.strip!
+	  load_path_code = _code_that_copies_readonly_array($LOAD_PATH, '$LOAD_PATH')
+	  ruby_code = &quot;require 'watir/ie'; &quot;
+	  ruby_code &lt;&lt; &quot;pc = #{attach_command}; &quot; # pc = page container
+	  ruby_code &lt;&lt; &quot;pc.instance_eval(#{command.inspect})&quot;
+	  exec_string = &quot;start rubyw -e #{(load_path_code + '; ' + ruby_code).inspect}&quot;
+	  system(exec_string)
+	end
 
-# watir/ie.rb
-def _code_that_copies_readonly_array(array, name)
-  &quot;temp = Array.new(#{array.inspect}); #{name}.clear; temp.each {|element| #{name} &lt;&lt; element}&quot;
-end
-[/sourcecode]
+	# watir/ie.rb
+	def _code_that_copies_readonly_array(array, name)
+	  &quot;temp = Array.new(#{array.inspect}); #{name}.clear; temp.each {|element| #{name} &lt;&lt; element}&quot;
+	end
 
 <a href="https://gist.github.com/634798#file_click_no_wait.rb">gist.github.com/634798#file_click_no_wait.rb</a>
 
@@ -74,24 +72,22 @@ As also written in the <a href="http://www.itreallymatters.net/post/378669758/de
 
 I wanted to achieve some possibility to debug these problems easily without any need of using debugger or monkey-patches. I wanted to use regular Ruby’s <code>$DEBUG</code> variable. To achieve that i extracted the command, which is given to the <code>system</code> method into separate method which would return a little bit different command depending of the value of <code>$DEBUG</code>:
 
-[sourcecode language="ruby"]
-def click_no_wait
-  # ...
-  system(spawned_click_no_wait_command(ruby_code))
-end
+	def click_no_wait
+	  # ...
+	  system(spawned_click_no_wait_command(ruby_code))
+	end
 
-def spawned_click_no_wait_command(command)
-  command = &quot;-e #{command.inspect}&quot;
-  unless $DEBUG
-    &quot;start rubyw #{command}&quot;
-  else
-    puts &quot;#click_no_wait command:&quot;
-    command = &quot;ruby #{command}&quot;
-    puts command
-    command
-  end
-end
-[/sourcecode]
+	def spawned_click_no_wait_command(command)
+	  command = &quot;-e #{command.inspect}&quot;
+	  unless $DEBUG
+	    &quot;start rubyw #{command}&quot;
+	  else
+	    puts &quot;#click_no_wait command:&quot;
+	    command = &quot;ruby #{command}&quot;
+	    puts command
+	    command
+	  end
+	end
 
 <a href="https://gist.github.com/634798#file_click_no_wait_debug.rb">gist.github.com/634798#file_click_no_wait_debug.rb</a>
 
@@ -101,10 +97,9 @@ This approach also gives the opportunity to monkey-patch the executed command, w
 
 To make it plain and clear then this is the way to turn on debugging for <code>#click_no_wait</code>:
 
-[sourcecode language="ruby"]
-$DEBUG = true
-browser.button(:id =&gt; &quot;something&quot;).click_no_wait
-[/sourcecode]
+
+	$DEBUG = true
+	browser.button(:id =&gt; &quot;something&quot;).click_no_wait
 
 <a href="https://gist.github.com/634798#file_click_no_wait_debug_on.rb">gist.github.com/634798#file_click_no_wait_debug_on.rb</a>
 
@@ -112,19 +107,17 @@ browser.button(:id =&gt; &quot;something&quot;).click_no_wait
 
 The original code had some commented out code and over-generalisation. There were <code>instance_eval</code>’s and all other neat tricks which were not needed at all. The most cumbersome was the method called <code>_code_that_copies_readonly_array</code> defined in the global scope with a slightly funny comment - “why won’t this work when placed in the module (where it properly belongs)” - i even tried to move that method into the module where it actually worked. A valid case of comments getting out of sync? The change allowed to delete that method entirely and not use <code>instance_eval</code> and friends to make whole code more understandable. The resulting code is like this:
 
-[sourcecode language="ruby"]
-def click_no_wait
-  assert_exists
-  assert_enabled
-  highlight(:set)
-  element = &quot;#{self.class}.new(#{@page_container.attach_command}, :unique_number, #{self.unique_number})&quot;
-  ruby_code = &quot;require 'rubygems';&quot; &lt;&lt;
-          &quot;require '#{File.expand_path(File.dirname(__FILE__))}/core';&quot; &lt;&lt;
-          &quot;#{element}.click!&quot;
-  system(spawned_click_no_wait_command(ruby_code))
-  highlight(:clear)
-end
-[/sourcecode]
+	def click_no_wait
+	  assert_exists
+	  assert_enabled
+	  highlight(:set)
+	  element = &quot;#{self.class}.new(#{@page_container.attach_command}, :unique_number, #{self.unique_number})&quot;
+	  ruby_code = &quot;require 'rubygems';&quot; &lt;&lt;
+	          &quot;require '#{File.expand_path(File.dirname(__FILE__))}/core';&quot; &lt;&lt;
+	          &quot;#{element}.click!&quot;
+	  system(spawned_click_no_wait_command(ruby_code))
+	  highlight(:clear)
+	end
 
 <a href="https://gist.github.com/634798#file_click_no_wait_refactored.rb">gist.github.com/634798#file_click_no_wait_refactored.rb</a>
 

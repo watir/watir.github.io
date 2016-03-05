@@ -39,5 +39,3 @@ Open a command prompt to determine your Ruby version: <strong><code>ruby -v</cod
 And to determine your Watir version: <strong><code>gem list watir</code></strong>
 
 Thanks!
-
-[polldaddy poll=4630648]
