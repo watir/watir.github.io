@@ -1,26 +1,29 @@
 ---
 layout: page
-title: Help
+title: Help Us
 ---
 
-### The best way to get help with Watir-Webdriver:
-[Post a Question on StackOverflow](http://stackoverflow.com/questions/tagged/watir-webdriver)
+* Submit a reproducible [issue](https://github.com/watir/watir/issues) when you find a bug 
 
-### Alternate ways to get help:
-Send a question to the [Watir-General](https://groups.google.com/forum/#!forum/watir-general) mailing list on Google Groups. Please read these [guidelines](https://github.com/watir/watir/wiki/Guidelines-for-Posting-to-Watir-General-Google-Group) before posting.
+* Better yet, figure out how to fix the bug and make a [pull request](https://github.com/watir/watir/pulls) 
+to the [watir project](https://github.com/watir/watir).
 
-### Join our Slack channel
-Slack has created a special slack server for the Selenium and Watir communities. You can join our Slack channel by sending Slack your email [here](http://seleniumhq.herokuapp.com). You will be sent an invitation with instructions on how to join.
+* We can always use help adding to or improving our documentation. If you see something
+that could be made better, make a change and send us a [pull request](https://github.com/watir/watir.github.io/pulls)
+ to [this website](https://github.com/watir/watir.github.io)
 
-### IRC
-The [#watir](irc://chat.freenode.net/watir) IRC channel on [http://freenode.net/](http://freenode.net/) is a public group chat.
+* Have you done something interesting with Watir that you want to share with us? Let us know what you're doing.
 
-Probably the easiest way to join is to use Freenode's web gateway:
+# Help You
 
-* Go to [http://webchat.freenode.net/](http://webchat.freenode.net/)
-* In the **Nickname** text field enter a nickname you would like to use
-* In the **Channels** text field enter **#watir**
-* Input the reCAPTCHA
-* Press the **Connect** button below the text fields
-
-
+ * Ask your question on [StackOverflow](http://stackoverflow.com/questions/tagged/watir-webdriver).
+ 
+ * Send a question to the [Watir-General](https://groups.google.com/forum/#!forum/watir-general) mailing list. 
+ Please read these [guidelines](https://github.com/watir/watir/wiki/Guidelines-for-Posting-to-Watir-General-Google-Group) before posting.
+ 
+ * Join the [Watir channel](https://seleniumhq.slack.com/messages/watir/) in the Selenium Slack Room 
+ by submitting your email [here](http://seleniumhq.herokuapp.com). You will be sent an invitation with instructions on how to join.
+ 
+ * The [#watir](irc://chat.freenode.net/watir) IRC channel on [http://freenode.net/](http://freenode.net/) 
+ is a public group chat. Download an IRC client, or use [webchat](http://webchat.freenode.net/?channels=%23watir).
+ 
