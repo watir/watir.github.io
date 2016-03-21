@@ -23,6 +23,10 @@ These blogs have significant Watir-related content (or content of other aspects 
 * [Tiffany Fodor – It’s always something…](http://tcfodor.wordpress.com/)
 * [Željko Filipin’s Blog](http://filipin.eu/)
 
+## Podcast Archives
+
+Five years worth of recordings from the [Watir Podcast](https://archive.org/details/WatirPodcast) 
+
 ## Team
 
 Watir is the creation of people committed to making testing easier. (Sorted alphabetically by last name.)
@@ -262,6 +266,3 @@ People who contributed a lot to Watir but are not active at the moment.
     lead developer of ChromeWatir (replaced with [watir-webdriver](http://github.com/jarib/watir-webdriver))
   </p>
 </div>
-
-
-The Watir team is all over the world.
