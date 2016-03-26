@@ -96,42 +96,81 @@ nav {
   }
 }
 
-.mobile-nav {
+// .mobile-nav {
+//
+//   ul {
+//     overflow: hidden;
+//     width: 100%;
+//     display: table;
+//   }
+//
+//   a {
+//     float: left;
+//     width: 100%;
+//     //background-color: #333;
+//     color: #0071BC;
+//     text-align: center;
+//     text-transform: uppercase;
+//     font-size: 14px;
+//     font-weight: 900;
+//     padding: 5px;
+//     @include border-radius(5px);
+//   }
+//
+//   li {
+//     display: table-cell;
+//     width: 20%;
+//     padding: 8px 2px;
+//   }
+//
+//   .current {
+//
+//     a {
+//       background-color: #0071BC;
+//       color: #ebebeb;
+//       @include box-shadow(inset 0 1px 0 rgba(255,255,255,.5), 0 1px 5px rgba(0,0,0,.5));
+//       text-shadow: 0 1px 0 rgba(255,255,255,.3);
+//     }
+//   }
+// }
 
-  ul {
-    overflow: hidden;
-    width: 100%;
-    display: table;
-  }
+@media (max-width: 500px) {
+ .mobile-nav {
+    header div.site-links.open
 
-  a {
-    float: left;
-    width: 100%;
-    //background-color: #333;
-    color: #0071BC;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 900;
-    padding: 5px;
-    @include border-radius(5px);
-  }
+      header div.site-links {
+        padding: 0;
+        position: relative;
+      }
 
-  li {
-    display: table-cell;
-    width: 20%;
-    padding: 8px 2px;
-  }
+      header div.site-links a {
+        float: none;
+        display: none;
+        padding: 12px 24px 12px 80px;
+        font-size: 16px;
+        border-top: 1px solid #585450;
+        border-bottom: 1px solid #585450;
+      }
 
-  .current {
+      header div.site-links.open a,
+      header div.site-links a.menu,
+      header div.site-links a.selected {
+        display: block;
+      }
 
-    a {
-      background-color: #0071BC;
-      color: #ebebeb;
-      @include box-shadow(inset 0 1px 0 rgba(255,255,255,.5), 0 1px 5px rgba(0,0,0,.5));
-      text-shadow: 0 1px 0 rgba(255,255,255,.3);
+      header div.site-links a.menu {
+        background: #585450 url(/images/hamburger@2x.png) no-repeat 50% 50%;
+        background-size: 20px 20px;
+        width: 68px;
+        height: 0;
+        padding: 45px 0 0;
+        overflow: hidden;
+        border: none;
+        position: absolute;
+        left: 0;
+        top: 1px;
+      }
     }
-  }
 }
 
 /*
@@ -235,29 +274,35 @@ footer {
 /* Quickstart */
 
 .quickstart {
-  background-color: #0071BC;
+  background-color: #1585ec;
   color: #fff;
   //margin: 80px 0;
-  //@include box-shadow(inset 0 3px 10px rgba(0,0,0,.4));
+  //@include box-shadow(inset 0 3px 50px rgba(0,0,0,.4));
+  @include box-shadow(inset 0 10px 80px #41a7eb);
 
   .content { padding: 0; }
 
   h3 {
     font-size: 14px;
-    line-height: 24px;
-    margin-top: 20px;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 1);
   }
 
   p {
     font-size: 12px;
-    line-height: 14px;
+    font-weight: bold;
+    line-height: 12px;
     text-align: center;
   }
 
   .code {
     font-size: 12px;
     display: block;
+    margin-top: -40px;
+    margin-bottom: -40px;
   }
 }
 
@@ -265,17 +310,18 @@ footer {
   .quickstart {
 
     .code {
-      font-size: 16px;
-      margin-top: -30px;
-      margin-bottom: -30px;
+      font-size: 14px;
+      margin-top: -40px;
+      margin-bottom: -40px;
       float: right;
-      padding-bottom: -20px;
+      //padding-bottom: 20px;
     }
 
     h3 {
       //margin: 20px 0 0;
       font-size: 16px;
       text-align: center;
+      margin-bottom: 20px;
     }
 
     p {
@@ -539,8 +585,9 @@ li > code,
 li> pre,
 h5 > code,
 .note > code {
-  background-color: #525252;
-  color: #fff;
+  background-color: #c1c1c1;
+  //color: #fff;
+  color: #393939;
   max-width: 100%;
   overflow-x: auto;
   vertical-align: middle;
@@ -570,12 +617,12 @@ h5 > code,
 h1, h2, h3, h4, h5, h6 { margin: 0; }
 
 a {
-  color: #3894b8;
+  color: #75d8ff;
   text-decoration: none;
   @include transition(all .25s);
 
   &:hover {
-    color: #79daff;
+    color: #d1f2ff;
   }
 }
 
