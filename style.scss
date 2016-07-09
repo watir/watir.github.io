@@ -284,15 +284,39 @@ footer {
   text-align: center;
 }
 
-#title {
-  text-align: right;
-  font-style: italic;
-  margin-bottom: -45px;
-  margin-top: -15px;
+// CUSTOM CSS:
 
-  @include mobile {
-    text-align: left;
-  }
+#page-title {
+  font-style: italic;
+  margin-bottom: -30px;
+  margin-top: -5px;
+
+    @include mobile {
+      text-align: left;
+    }
+}
+
+#top-banner {
+  padding-top: 10px;
+}
+
+#powered-by {
+  position: relative;
+  font-style: italic;
+  font-weight: bold;
+  font-family: 'Droid Sans';
+  font-size: .75em;
+}
+
+#top-navbar {
+  background-color: $blue;
+  border-radius: 0 0 0 20px;
+  text-align: center;
+  /*box-shadow: 5px 5px grey;*/
+}
+
+#homepage-snippet {
+  font-size: .6em;
 }
 
 
