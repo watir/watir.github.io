@@ -8,22 +8,27 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/gridism.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
+  <header id="top-banner">
+    <div class="container">
+      <div class="grid">
+        <div class="unit one-third">
+          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="/images/watir_logo.png"/></a>
+          <span id="powered-by">Powered by Selenium</span>
+        </div>
+      </div>
 
-  <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <div style="float: left; position: relative"><a href="{{ site.baseurl }}/" class="site-avatar"><img src="/images/Watir_logo.png" /></a>
-            <span  style="position: absolute; bottom: 25px; font-style: italic; font-weight: bold; font-family: 'Droid Sans'">Powered by Selenium</span>
-          </div>
-
-          <nav>
+      <div class="grid">
+        <div class="unit whole" id="top-navbar">
+          <nav id="nav-links">
             <a href="/blog">News</a>
             <a href="{{ site.baseurl }}/docs/home">Documentation</a>
             <a href="{{ site.baseurl }}/about">About</a>
@@ -31,22 +36,25 @@
             <a href="{{ site.baseurl }}/help">Help</a>
             <a href="{{ site.baseurl }}/contributing">Contributing</a>
           </nav>
-        </header>
+        </div>
       </div>
     </div>
+  </header>
 
+  <body>
     <div id="main" role="main" class="container">
       {{ content }}
     </div>
-
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
-
-    {% include analytics.html %}
   </body>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        {% include svg-icons.html %}
+      </footer>
+    </div>
+  </div>
+
+  {% include analytics.html %}
+</body>
 </html>

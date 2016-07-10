@@ -25,7 +25,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 740px;
+  max-width: 800px;
   padding: 0 10px;
   width: 100%;
 }
@@ -73,7 +73,7 @@ a {
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: antiquewhite;
   }
 }
 
@@ -165,10 +165,10 @@ img {
 
 .site-avatar {
   float: left;
-  width: 25%;
-  height: 25%;
-  margin-right: 15px;
-  padding-bottom: 10px;
+  // width: 25%;
+  // height: 25%;
+  // margin-right: 15px;
+  // padding-bottom: 10px;
 
   @include mobile {
     float: none;
@@ -212,8 +212,8 @@ img {
 }
 
 nav {
-  float: right;
-  margin-top: 10px; // @TODO: Vertically middle align
+  // float: right;
+  // margin-top: 10px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
   font-size: 18px;
 
@@ -226,14 +226,14 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $darkGray;
+    color: $white;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
 
     @include mobile {
       margin: 0 10px;
-      color: $blue;
+      color: $white;
     }
   }
 }
@@ -283,6 +283,42 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
+
+// CUSTOM CSS:
+
+#page-title {
+  font-style: italic;
+  margin-bottom: -30px;
+  margin-top: -5px;
+
+    @include mobile {
+      text-align: left;
+    }
+}
+
+#top-banner {
+  padding-top: 10px;
+}
+
+#powered-by {
+  position: relative;
+  font-style: italic;
+  font-weight: bold;
+  font-family: 'Droid Sans';
+  font-size: .75em;
+}
+
+#top-navbar {
+  background-color: $blue;
+  border-radius: 0 0 0 20px;
+  text-align: center;
+  /*box-shadow: 5px 5px grey;*/
+}
+
+#homepage-snippet {
+  font-size: .6em;
+}
+
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
