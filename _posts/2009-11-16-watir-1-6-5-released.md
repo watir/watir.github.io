@@ -6,9 +6,9 @@ author: bpettichord
 comments: true
 categories: [Release, Releases, Watir]
 ---
-<h2>Version 1.6.5</h2>
+<h3>Version 1.6.5</h3>
 For the latest version of release notes, please see <a href="http://github.com/bret/watir/blob/master/watir/NEWCHANGES">http://github.com/bret/watir/blob/master/watir/NEWCHANGES</a>
-<h3>New Features (Both IE and Firefox)</h3>
+<h4>New Features (Both IE and Firefox)</h4>
 <ul>
 	<li>Browser.attach is now available.</li>
 	<li>Browser.options and Browser.set_options are now available.</li>
@@ -42,7 +42,7 @@ For the latest version of release notes, please see <a href="http://github.com/b
 	<li>Added ElementCollections#{first,last}. (Jarib)</li>
 	<li>Fixes for running on Ruby 1.9. (Jarib)</li>
 </ul>
-<h3>Firefox Improvements</h3>
+<h4>Firefox Improvements</h4>
 <ul>
 	<li>SelectList#set is now defined for Firefox. Like with IE, it is an alias for SelectList#select. [271]</li>
 	<li>Element collections are now enumerable. This allows methods such as @select@ and @map@ to be used with methods such as @divs@ and @links@.</li>
@@ -62,7 +62,7 @@ For the latest version of release notes, please see <a href="http://github.com/b
 	<li>When an &lt;a tag has no href then element_type was returning nil.</li>
 	<li>Fix bug in Firefox#document. change creating error class by eval in jssh socket to creating class with ruby.</li>
 </ul>
-<h3>IE Improvements</h3>
+<h4>IE Improvements</h4>
 <ul>
 	<li>Allow attach timeout to be accessed as an option. Thus:
 <ul>
@@ -80,12 +80,12 @@ For the latest version of release notes, please see <a href="http://github.com/b
 	<li><a>Fix for Browser#execute_script on IE7. (Jarib)</a></li>
 	<li><a>Removed ActiveSupport dependency. (Jari</a></li>
 </ul>
-<h3>Structure Improvements</h3>
+<h4>Structure Improvements</h4>
 <ul>
 	<li><a>Lots of rework of the FireWatir code, including removing duplication and</a><a> dead code, renaming variables, and simplifying code. Also a few performance</a><a>improvements.</a></li>
 	<li><a>Rename source file names for consistency.</a></li>
 </ul>
-<h3><a>Unit Tests</a></h3>
+<h4><a>Unit Tests</a></h4>
 <ul>
 	<li><a>Add tests demonstrating known bugs.</a></li>
 	<li><a>Make the "window" tests run more reliably.</a></li>

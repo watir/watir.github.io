@@ -22,7 +22,7 @@ There was mainly 3 motivations to change <code>#click_no_wait</code>:
 	<li>Make the code itself cleaner and better!</li>
 </ul>
 
-<h2>Making it Faster</h2>
+<h3>Making it Faster</h3>
 
 Before going into the dirty details how it became faster i’m gonna give a short overview how it was working before the changes. The main parts of the <code>#click_no_wait</code> were the following methods:
 
@@ -66,7 +66,7 @@ The most time consuming part is not directly visible from the code above, but it
 
 I inspected <code>watir/ie.rb</code> file and started to pick out all the require statements which might be needed in that sandbox. I ended up creating a separate file called <code>watir/core.rb</code> where only necessary files would be loaded. The file itself is loaded also by <code>watir/ie.rb</code> so everything would be available if using Watir normally. In other words, <code>core.rb</code> is a subset of files needed by Watir. This change itself made <code>#click_no_wait</code> to perform <a href="http://jira.openqa.org/browse/WTR-449">2-3 times faster</a> on my machine! That was enough for the time.
 
-<h2>Making it Easier to Debug</h2>
+<h3>Making it Easier to Debug</h3>
 
 As also written in the <a href="http://www.itreallymatters.net/post/378669758/debugging-watirs-click-no-wait-method-problems">previous post</a> then the fact that everything is done in a separate Ruby process is giving the feature of not blocking, but taking away the advantage of seeing any errors on the console window as you’d normally expect. This means that usually nothing is clicked and nothing is shown on the console in case of some problem. Using debugger would not help much either since the problem itself was happening on a spawned Ruby process with no visible output on the screen (yes, you could have set a breakpoint to <code>Element#click!</code>, but that wouldn’t have helped much if the error occurred before getting to that point). Also, for trying to change anything to happen differently in that spawned process with monkey-patching would have involved of overriding the whole contents of <code>#eval_in_spawned_process_method</code>. Not a nice way to solve problems, i’d say.
 
@@ -103,7 +103,7 @@ To make it plain and clear then this is the way to turn on debugging for <code>#
 
 <a href="https://gist.github.com/634798#file_click_no_wait_debug_on.rb">gist.github.com/634798#file_click_no_wait_debug_on.rb</a>
 
-<h2>Making the Code Itself Cleaner and Better</h2>
+<h3>Making the Code Itself Cleaner and Better</h3>
 
 The original code had some commented out code and over-generalisation. There were <code>instance_eval</code>’s and all other neat tricks which were not needed at all. The most cumbersome was the method called <code>_code_that_copies_readonly_array</code> defined in the global scope with a slightly funny comment - “why won’t this work when placed in the module (where it properly belongs)” - i even tried to move that method into the module where it actually worked. A valid case of comments getting out of sync? The change allowed to delete that method entirely and not use <code>instance_eval</code> and friends to make whole code more understandable. The resulting code is like this:
 

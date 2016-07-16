@@ -9,7 +9,7 @@ categories: [Conferences]
 Want to learn about Page Objects and Cucumber?  Do you like the idea of supporting local charities in the Austin area?  Then join us at one or both of our charity workshops before the Test Automation Bazaar!
 
 We're offering an afternoon workshop on March 22 - the day before the Test Automation Bazaar officially gets underway.  To join in, just donate $50 to one of the list of charities below and sign up using the email form below.  Then, bring a receipt for your donation to gain entry on the day of the workshop.
-<h2><strong>Charities</strong></h2>
+<h3><strong>Charities</strong></h3>
 <ul>
 	<li><a href="http://www.austinfree.net/" target="_blank">Austin Free-Net</a></li>
 	<li><a href="http://www.livestrong.org/" target="_blank">Lance Armstrong Foundation</a></li>
@@ -18,7 +18,7 @@ We're offering an afternoon workshop on March 22 - the day before the Test Autom
 	<li><a href="http://www.texasenvironment.org/" target="_blank">Texas Campaign for the Environment</a></li>
 	<li><a href="http://www.zachtheatre.org/" target="_blank">Zachary Scott Theatre Center</a></li>
 </ul>
-<h2><strong>Location</strong></h2>
+<h3><strong>Location</strong></h3>
 The workshop will be held at the <a href="http://www.greenlights.org/resources/nonprofit-meeting-space/mitte-carriage-house" target="_blank">Mitte Carriage House</a>:
 
 The Mitte Carriage House is located at 1008C West Avenue at the corner of West Avenue and 11th Street in downtown Austin, situated behind the Mitte Foundation Offices and accessible from 11th Street. <a href="http://maps.google.com/maps/place?hl=&amp;rlz=1B3GGGL_enUS351US351&amp;um=1&amp;ie=UTF-8&amp;q=mitte+carriage+house&amp;fb=1&amp;gl=us&amp;hq=mitte+carriage+house&amp;hnear=0x8644b599a0cc032f:0x5d9b464bd469d57a,Austin,+TX&amp;cid=13442861952052542802" target="_blank">Map and directions</a> to Mitte.

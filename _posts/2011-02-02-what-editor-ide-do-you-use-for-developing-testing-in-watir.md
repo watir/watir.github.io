@@ -11,13 +11,13 @@ categories: [Blogs]
 <hr />
 
 A quick poll on <a href="http://rubyforge.org/pipermail/wtr-development/2011-January/002865.html">wtr-development</a> indicated a number of different applications to achieve such a task, each having their own pros and cons. It really depends on what features appeal to you. My personal experience has led me to try a lot of different editors and development environments in the past including:
-<h2>Editors</h2>
+<h3>Editors</h3>
 SciTE
 NotePad++
 TextMate
 VIM
 Emacs (actually I haven't used this one)
-<h2>IDEs</h2>
+<h3>IDEs</h3>
 RubyMine
 NetBeans
 

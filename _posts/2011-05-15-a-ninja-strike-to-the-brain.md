@@ -23,5 +23,5 @@ To add some context, here are excerpts from the twitter livestream during the ta
 	<li><a title="Michael Larsen" href="http://twitter.com/#%21/mkltesthead">@mkltesthead</a>Michael Larsen — "The best keynotes Ninja your brain!" <a href="http://twitter.com/hugs" rel="nofollow">@hugs</a>, in response to <a href="http://twitter.com/bpettichord" rel="nofollow">@bpettichord</a> keynote <a title="#SeConf" href="http://twitter.com/#%21/search?q=%23SeConf" rel="nofollow">#SeConf</a></li>
 </ul>
 <iframe width="584" height="359" src="https://www.youtube.com/embed/s_CUPs6xAWw" frameborder="0" allowfullscreen></iframe>
-<h3>Update</h3>
+<h4>Update</h4>
 The talk is now also available as a <a href="http://watirpodcast.com/45-bret-pettichords-opening-keynote-at-selenium-conference-2011/" target="_blank">podcast</a>.
