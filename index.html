@@ -20,3 +20,11 @@ title: Watir is...
     <li>See what <a href="/users">companies are using Watir</a></li></ul>
   </div>
 </article>
+<div style="width: 70%; margin-top: 50px">
+{% for post in site.posts %}
+{% capture year %}{{post.date | date: "%Y"}}{% endcapture %}
+{% if year == "2010" %}
+{% include blog_post.html %}
+{% endif %}
+{% endfor %}
+</div>
