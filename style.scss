@@ -25,14 +25,28 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 740px;
+  max-width: 950px;
   padding: 0 10px;
   width: 100%;
 }
 
+.background {
+  background-image: url("/images/waves_background.png");
+  padding: 1px;
+}
+
+.entry {
+  font-size: larger;
+}
+
+.nav {
+  background-color: #9fd0ef;
+  padding: 20px 20px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
-  color: $darkerGray;
+  color: #0071bc;
   font-weight: bold;
 
   line-height: 1.7;
@@ -45,22 +59,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 36px;
   a {
     color: inherit;
   }
 }
 
 h2 {
-  font-size: 24px;
+  text-align: center;
+  font-size: 30px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 20px;
   color: $gray;
 }
 
@@ -273,15 +288,15 @@ nav {
 }
 
 .wrapper-footer {
-  margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
 }
 
 footer {
-  padding: 20px 0;
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0 10px 0;
   text-align: center;
+  background-color: #e7f8fd;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS

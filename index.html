@@ -1,16 +1,22 @@
 ---
-layout: page
+layout: default
 title: Watir is...
 ---
 
-<div style="width: 51%; float: right; padding-left: 20px; margin-top: -70px">
-  <pre><span class="inner-pre" style="font-size: 11px"><code>{% include demo.html %}</code></span></pre>
-</div>
+<article class="page background">
+  <h1>{{ page.title }}</h1>
 
-<p>An open source Ruby library for automating tests. Watir interacts with a
-browser the same way people do: clicking links, filling out forms and validating
-text.</p>
+  <div class="entry">
+    <div style="width: 47%; float: right; padding-left: 20px; margin-top: -70px">
+      <pre style="font-size: 12px">{% include demo.html %}</pre>
+    </div>
 
-<ul>
-<li>Read our <a href="http://www.rubydoc.info/gems/watir-webdriver">documentation</a> to get started</li>
-<li>See what <a href="/users">companies are using Watir</a></li></ul>
+    <p>An open source Ruby library for automating tests. Watir interacts with a
+    browser the same way people do: clicking links, filling out forms and validating
+    text.</p>
+
+    <ul>
+    <li>Read our <a href="http://www.rubydoc.info/gems/watir-webdriver">documentation</a> to get started</li>
+    <li>See what <a href="/users">companies are using Watir</a></li></ul>
+  </div>
+</article>

@@ -4,7 +4,7 @@ title: Community
 ---
 {::options parse_block_html="true" /}
 
-## Blogs
+### Blogs
 
 These blogs have significant Watir-related content (or content of other aspects of Ruby, etc that Watir users will benefit from):
 
@@ -23,11 +23,11 @@ These blogs have significant Watir-related content (or content of other aspects 
 * [Tiffany Fodor – It’s always something…](http://tcfodor.wordpress.com/)
 * [Željko Filipin’s Blog](http://filipin.eu/)
 
-## Podcast Archives
+### Podcast Archives
 
 Five years worth of recordings from the [Watir Podcast](https://archive.org/details/WatirPodcast) 
 
-## Team
+### Team
 
 Watir is the creation of people committed to making testing easier. (Sorted alphabetically by last name.)
 
