@@ -9,11 +9,23 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/gridism.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
+
+  <header id="top-banner">
+    <div class="container">
+      <div class="grid">
+        <div class="unit one-third">
+          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/></a>
+          <span id="powered-by">Powered by Selenium</span>
+        </div>
+      </div>
 
   <body>
     <div class="wrapper-masthead">
