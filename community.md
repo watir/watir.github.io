@@ -4,43 +4,7 @@ title: Community
 ---
 {::options parse_block_html="true" /}
 
-### Blogs
-
-These blogs have significant Watir-related content (or content of other aspects of Ruby, etc that Watir users will benefit from):
-
-* [Alister Scott – WatirMelon](http://watirmelon.com/)
-* [Angrez Singh’s blog](http://angrez.blogspot.com/)
-* [Bret Pettichord – Testing Hotlist Update](http://www.prismnet.com/~wazmo/blog/)
-* [Dave McNulla – Software Quality Assurance and Test](http://dmcnulla.wordpress.com/)
-* [Jared Quinert’s Blog about Ruby and Watir](http://www.software-testing.com.au/blog/)
-* [Jarmo Pertman – IT Really Matters](http://www.itreallymatters.net/)
-* [Jeff Morgan – CheezyWorld](http://www.cheezyworld.com/)
-* [Jim Matthews – Testing the Limits](http://jimhmatthews.wordpress.com/)
-* [Justin Ko – Testing by Justin Ko](http://jkotests.wordpress.com/)
-* [MarekJ – RubyTester Blog](http://rubytester.github.com/)
-* [Nathaniel Ritmeyer – Nat On Testing](http://www.natontesting.com/)
-* [Sai Venkatakrishnan – Agile Tester](http://developer-in-test.blogspot.com/)
-* [Tiffany Fodor – It’s always something…](http://tcfodor.wordpress.com/)
-* [Željko Filipin’s Blog](http://filipin.eu/)
-
-### Podcast Archives
-
-Five years worth of recordings from the [Watir Podcast](https://archive.org/details/WatirPodcast) 
-
-### Team
-
-Watir is the creation of people committed to making testing easier. (Sorted alphabetically by last name.)
-
-<div style="display: list-item;">
-  <p style="font-size: 10pt;">
-    <img style="float: left; padding-right: 10px;" src="/images/contributors/jari1.jpg">
-    <b>Jari Bakken</b> ([@jarib](http://twitter.com/jarib))
-    <br>
-    Oslo, Norway code monkey ([watir-webdriver gem](https://rubygems.org/gems/watir-webdriver), [watirspec](https://github.com/watir/watirspec))
-    <br>
-    support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir)
-  </p>
-</div>
+### Current Team
 
 <div style="display: list-item;">
   <p style="font-size: 10pt;">
@@ -50,6 +14,18 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
     Zagreb, Croatia
     <br>
     Author of the [Watir Book](http://watir.com/book/), support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir) and [Watir General](http://groups.google.com/group/watir-general/); host of [Watir Podcast](http://watirpodcast.com/)
+  </p>
+</div>
+
+<div style="display: list-item;">
+  <p style="font-size: 10pt;">
+    <img style="float: left; padding-right: 10px" src="/images/contributors/titus.jpg">
+    <b>[Titus Fortner](http://watirtight.com/)</b> ([@titusfortner](http://twitter.com/titusfortner))
+    <br>
+    Austin, Texas
+    <br>
+    Code monkey ([watir-webdriver](https://rubygems.org/gems/watir-webdriver) gem) and support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir)
+
   </p>
 </div>
 
@@ -88,23 +64,23 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
 
 <div style="display: list-item;">
   <p style="font-size: 10pt;">
-    <img style="float: left; padding-right: 10px;" src="/images/contributors/joel_73.jpg">
-    <b>[Joel Pearson](https://github.com/VirtuosoJoel)</b>
-    <br>
-    Northampton, England
-    <br>
-    Support sheriff at [Ruby-Talk](http://www.ruby-lang.org/en/community/mailing-lists/)
-  </p>
-</div>
-
-<div style="display: list-item;">
-  <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/jarmo.jpg">
     <b>[Jarmo Pertman](http://www.itreallymatters.net/)</b> ([@jarm0](http://twitter.com/jarm0))
     <br>
     Tallinn, Estonia
     <br>
     code monkey ([watir](https://rubygems.org/gems/watir) gem 1.x – 3.x)
+  </p>
+</div>
+
+<div style="display: list-item;">
+  <p style="font-size: 10pt;">
+    <img style="float: left; padding-right: 10px;" src="/images/contributors/bret1.jpg">
+    <b>[Bret Pettichord](http://www.pettichord.com/)</b> ([@bpettichord](http://twitter.com/bpettichord))
+    <br>
+    Austin, Texas, United States of America
+    <br>
+    founder and director, contributor to [watir](https://rubygems.org/gems/watir) gem 1.x
   </p>
 </div>
 
@@ -119,10 +95,20 @@ Watir is the creation of people committed to making testing easier. (Sorted alph
   </p>
 </div>
 
+<p>&nbsp;</p>
 
-### Alumni
+### Team Alumni
 
-People who contributed a lot to Watir but are not active at the moment.
+<div style="display: list-item;">
+  <p style="font-size: 10pt;">
+    <img style="float: left; padding-right: 10px;" src="/images/contributors/jari1.jpg">
+    <b>Jari Bakken</b> ([@jarib](http://twitter.com/jarib))
+    <br>
+    Oslo, Norway code monkey ([watir-webdriver gem](https://rubygems.org/gems/watir-webdriver), [watirspec](https://github.com/watir/watirspec))
+    <br>
+    support sheriff at [Stack Overflow](http://stackoverflow.com/tags/watir)
+  </p>
+</div>
 
 <div style="display: list-item;">
   <p style="font-size: 10pt;">
@@ -203,12 +189,12 @@ People who contributed a lot to Watir but are not active at the moment.
 
 <div style="display: list-item;">
   <p style="font-size: 10pt;">
-    <img style="float: left; padding-right: 10px;" src="/images/contributors/bret1.jpg">
-    <b>[Bret Pettichord](http://www.pettichord.com/)</b> ([@bpettichord](http://twitter.com/bpettichord))
+    <img style="float: left; padding-right: 10px;" src="/images/contributors/joel_73.jpg">
+    <b>[Joel Pearson](https://github.com/VirtuosoJoel)</b>
     <br>
-    Austin, Texas, United States of America
+    Northampton, England
     <br>
-    founder and director, contributor to [watir](https://rubygems.org/gems/watir) gem 1.x
+    Support sheriff at [Ruby-Talk](http://www.ruby-lang.org/en/community/mailing-lists/)
   </p>
 </div>
 
@@ -266,3 +252,30 @@ People who contributed a lot to Watir but are not active at the moment.
     lead developer of ChromeWatir (replaced with [watir-webdriver](http://github.com/jarib/watir-webdriver))
   </p>
 </div>
+
+<p>&nbsp;</p>
+
+### Blogs
+
+These blogs have significant Watir-related content (or content of other aspects of Ruby, etc that Watir users will benefit from):
+
+* [Alister Scott – WatirMelon](http://watirmelon.com/)
+* [Angrez Singh’s blog](http://angrez.blogspot.com/)
+* [Bret Pettichord – Testing Hotlist Update](http://www.prismnet.com/~wazmo/blog/)
+* [Dave McNulla – Software Quality Assurance and Test](http://dmcnulla.wordpress.com/)
+* [Jared Quinert’s Blog about Ruby and Watir](http://www.software-testing.com.au/blog/)
+* [Jarmo Pertman – IT Really Matters](http://www.itreallymatters.net/)
+* [Jeff Morgan – CheezyWorld](http://www.cheezyworld.com/)
+* [Jim Matthews – Testing the Limits](http://jimhmatthews.wordpress.com/)
+* [Justin Ko – Testing by Justin Ko](http://jkotests.wordpress.com/)
+* [MarekJ – RubyTester Blog](http://rubytester.github.com/)
+* [Nathaniel Ritmeyer – Nat On Testing](http://www.natontesting.com/)
+* [Sai Venkatakrishnan – Agile Tester](http://developer-in-test.blogspot.com/)
+* [Tiffany Fodor – It’s always something…](http://tcfodor.wordpress.com/)
+* [Željko Filipin’s Blog](http://filipin.eu/)
+
+<p>&nbsp;</p>
+
+### Podcast Archives
+
+Five years worth of recordings from the [Watir Podcast](https://archive.org/details/WatirPodcast) 
