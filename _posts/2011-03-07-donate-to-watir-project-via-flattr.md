@@ -9,6 +9,7 @@ categories: [Donations]
 <a href="https://flattr.com/thing/141470/Watir"><img src="http://watir001.files.wordpress.com/2011/03/flattr-logo-thumb.jpg" alt="Flattr logo" title="Flattr logo" /></a>
 
 <a href="http://home.e-tjenesten.org/~ato/">Andreas Tolf Tolfsen</a> (of <a href="http://www.opera.com/developer/tools/operawatir/">OperaWatir</a> fame) suggested that we add <a href="http://flattr.com/">Flattr</a> donations to our web site.
+<!--more-->
 
 From their <a href="https://flattr.com/about">about</a> page:
 

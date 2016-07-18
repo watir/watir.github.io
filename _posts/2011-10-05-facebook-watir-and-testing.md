@@ -2,10 +2,13 @@
 layout: post
 title: Facebook, Watir And Testing
 date: 2011-10-05 20:18
-author: bpettichord
+author: Jarmo Pertman
+author_url: http://www.itreallymatters.net
 comments: true
 categories: [Blogs]
 ---
+<!--more-->
+
 <strong>Originally posted at <a href="http://itreallymatters.net/post/10991877834/facebook-watir-and-testing">itreallymatters.net</a> by <a href="http://www.itreallymatters.net/">Jarmo Pertman</a>.</strong>
 
 <hr />

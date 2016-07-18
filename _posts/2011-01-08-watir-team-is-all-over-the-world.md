@@ -8,6 +8,7 @@ categories: [Uncategorized]
 ---
 
 A couple of years ago, Zeljko Filipin was trying to get me to start a Watir podcast. He was telling me how to do it and why it is so important. I asked him why he didn't he do it himself? He said he didn't speak good enough English. Nonsense. At that time I had never met Zeljko but had spoken with him over Skype several times.
+<!--more-->
 
 Zeljko speaks Global English, whereas I speak American English. I told Zeljko that English is a second language for most <a title="Watir Users" href="http://wiki.openqa.org/display/WTR/Watir+Users">Watir users</a>, so his dialect, which is a simplified version that is known around world, would actually be more suitable for a podcast than mine. I agreed to do the first podcast, and from there Zeljko <a title="Watir Podcast" href="http://watirpodcast.zeljkofilipin.com/">hasn't stopped</a>.
 

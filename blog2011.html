@@ -8,6 +8,20 @@ title: 2011 Archives
 {% for post in site.posts %}
 {% capture year %}{{post.date | date: "%Y"}}{% endcapture %}
 {% if year == "2011" %}
-{% include blog_post.html %}
+<li>
+    <strong><a href="{{ post.url }}">{{ post.title }}</a></strong>
+    <p>
+      {% if post.author_url == null %}
+        Written by: {{ post.author }}
+      {% else %}
+        Written by: <a href="{{ post.author_url }}"> {{ post.author }}</a>
+    {% endif %}
+      on {{ post.date | date: "%B %e, %Y" }}</p>
+    {{ post.excerpt | strip_html }}
+    <br />
+    <a href="{{ post.url }}">Continue Reading...</a>
+</li>
+<hr />
+<br />
 {% endif %}
 {% endfor %}

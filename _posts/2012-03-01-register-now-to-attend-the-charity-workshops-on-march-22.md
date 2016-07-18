@@ -7,6 +7,7 @@ comments: true
 categories: [Conferences]
 ---
 Want to learn about Page Objects and Cucumber?  Do you like the idea of supporting local charities in the Austin area?  Then join us at one or both of our charity workshops before the Test Automation Bazaar!
+<!--more-->
 
 We're offering an afternoon workshop on March 22 - the day before the Test Automation Bazaar officially gets underway.  To join in, just donate $50 to one of the list of charities below and sign up using the email form below.  Then, bring a receipt for your donation to gain entry on the day of the workshop.
 <h3><strong>Charities</strong></h3>

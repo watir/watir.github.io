@@ -11,6 +11,7 @@ categories: [Releases]
 Hello everyone!
 
 I'm happy to announce that Watir-Classic 3.4.0 has been released!
+<!--more-->
 
 Put it into your Gemfile:
 

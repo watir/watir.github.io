@@ -7,6 +7,7 @@ comments: true
 categories: [Blogs]
 ---
 I have read <a href="https://www.ohloh.net/blog/Commit_Volume_and_Commit_Highlights">Commit Volume and Commit Highlights</a> blog post from the <a href="https://www.ohloh.net/blog">Ohloh Blog</a>.
+<!--more-->
 
 Of course, I have immediately took a look at <a href="https://www.ohloh.net/p/watir/analyses/latest">Watir Code Analysis</a>.
 

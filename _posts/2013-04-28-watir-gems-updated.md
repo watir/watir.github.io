@@ -11,6 +11,7 @@ categories: [Releases]
 Hi everybody!
 
 A few Watir gems got updated recently. I just wanted to make sure everybody is up to date. :)
+<!--more-->
 
 <a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver</a>:
 <ul>

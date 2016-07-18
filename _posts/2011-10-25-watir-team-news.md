@@ -9,6 +9,7 @@ categories: [Team]
 <img src="http://watir001.files.wordpress.com/2011/10/chuck.jpg" alt="Chuck van der Linden" title="Chuck van der Linden" />
 
 I would like to welcome Chuck van der Linden to <a href="http://watir.com/team/">the Watir Team</a>. He is very active recently on both <a href="http://stackoverflow.com/tags/watir/topusers">Stack Overflow</a> and <a href="http://groups.google.com/group/watir-general/about">Watir General</a> and he has agreed to wear Watir support sheriff star. If you were looking for Watir support recently, you probably got (at least one) answer from him. He should probably add this to his e-mail signature: <a href="http://en.wikipedia.org/wiki/Sir_Mix-a-Lot">Sir <del datetime="2011-10-25T09:55:07+00:00">Mix</del> Write-a-Lot</a>. :)
+<!--more-->
 
 I would also want to thank a few of Watir Team members that are no longer active, so I have moved them to alumni section:
 

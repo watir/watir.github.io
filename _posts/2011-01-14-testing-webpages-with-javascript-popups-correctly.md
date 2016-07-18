@@ -2,11 +2,13 @@
 layout: post
 title: Testing webpages with JavaScript popups correctly
 date: 2011-01-14 13:11
-author: bpettichord
+author: Jarmo Pertman
+author_url: http://www.itreallymatters.net
 comments: true
 categories: [Blogs]
 ---
 <strong>Originally posted at <a href="http://www.itreallymatters.net/post/1482786902/testing-webpages-with-javascript-popups-correctly">itreallymatters.net</a> by <a href="http://www.itreallymatters.net/">Jarmo Pertman</a>.</strong>
+<!--more-->
 
 <hr />
 

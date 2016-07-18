@@ -7,6 +7,7 @@ comments: true
 categories: [Conferences, Watir Day]
 ---
 That's right, it's this Sunday. You can get your <a href="http://watirday.eventbrite.com/">last minute ticket online</a> for $72 + booking fee.
+<!--more-->
 
 There is a <a href="http://bit.ly/watir-day-wiki">Watir Day Wiki</a> on OpenQA, where you can share anything on or before the day. Please start by <a href="http://wiki.openqa.org/display/WTR/Watir+Day+Attendees">sharing some information about yourself</a>.
 

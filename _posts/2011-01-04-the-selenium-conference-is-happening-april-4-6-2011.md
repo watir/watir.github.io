@@ -8,6 +8,7 @@ categories: [Conferences, San Francisco, SeConf, SeConf2011, Selenium, Selenium]
 ---
 <h1><strong>The Selenium Conference Is Happening</strong></h1>
 And we want you to be part of it. Join members of the growing Selenium community for 3 jam-packed days of talks, workshops, lightning talks, and hack sessions. Hear speakers from around the world talk about the present and future of automated testing, share ideas with fellow Selenium developers, including Core Committers, and take part in shaping the future success of the Selenium project.
+<!--more-->
 
 <strong>We are planning a Watir Day on Sunday 3rd April - so stay tuned</strong>
 

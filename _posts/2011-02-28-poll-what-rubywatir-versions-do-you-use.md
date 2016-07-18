@@ -7,6 +7,7 @@ comments: true
 categories: [Polls]
 ---
 The Watir Team is trying to work out which versions of Ruby and which versions of Watir to support, and it was suggested we run a poll to see.
+<!--more-->
 
 I didn't realize there's been so many <a href="http://rubygems.org/gems/watir/versions">versions</a> of Watir:
 <div>

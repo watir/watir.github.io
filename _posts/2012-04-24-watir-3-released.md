@@ -11,6 +11,7 @@ Hello everyone!
 I'm happy to announce that Watir 3 has been finally released!
 Its biggest goal is to conform even better with WatirSpec making it more
 compliant with Watir-WebDriver.
+<!--more-->
 
 Changelog is quite long, but reading it makes your life easier:
 

@@ -7,6 +7,7 @@ comments: true
 categories: [Uncategorized]
 ---
 I am pleased to announce the speakers list for Watir Day 2011 in San Francisco on April 3rd 2011.
+<!--more-->
 
 For full details please see the <a href="http://watir.com/watir-day/speakers/">speakers page</a>. In alphabetical order:
 <ul>

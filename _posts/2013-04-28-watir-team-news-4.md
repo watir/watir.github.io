@@ -7,6 +7,7 @@ comments: true
 categories: [Team]
 ---
 I have some great and some sad news. Let's start with great news.
+<!--more-->
 
 <strong>Great News! :)</strong>
 

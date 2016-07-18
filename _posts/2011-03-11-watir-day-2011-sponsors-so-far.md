@@ -7,6 +7,7 @@ comments: true
 categories: [3qilabs, altentee, Conferences, convio, facebook, opera, opera software, sponsors, Watir Day, zazzle]
 ---
 I am pleased to announce the following sponsors for Watir Day 2011 (listed in alphabetical order):
+<!--more-->
 
 <a href="http://www.3qilabs.com/"><img class="size-thumbnail wp-image-705 " title="3QiLabs" src="http://watir001.files.wordpress.com/2011/02/3qilabs.png?w=150" alt="3QiLabs" width="150" height="43" /></a>
 

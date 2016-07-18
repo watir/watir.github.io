@@ -9,7 +9,7 @@ categories: [1.6.6, Releases]
 Hello (fire)watirists!
 
 We are happy to announce that a (very) long-waited (Fire)Watir 1.6.6 final gem is out!
-
+<!--more-->
 You can check out changelog at <a href="http://github.com/bret/watir/blob/master/CHANGES">http://github.com/bret/watir/blob/master/CHANGES</a>
 
 Feel free to give it a test drive. Here are the basic instructions.

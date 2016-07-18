@@ -9,6 +9,7 @@ categories: [Team]
 <a href="http://watir001.files.wordpress.com/2009/10/alex-rodionov.png"><img class="alignnone size-full wp-image-1288" title="Alex Rodionov" src="http://watir001.files.wordpress.com/2009/10/alex-rodionov.png" alt="Alex Rodionov" width="200" height="200" /></a>
 
 A couple of weeks ago I have been added to <a href="http://watir.com/team/">Watir team</a>. My name is <a title="Alex Rodionov" href="https://twitter.com/p0deje" target="_blank">Alex Rodionov</a> and I am a software tester with 2 years experience in building test automation for web applications in Ruby.
+<!--more-->
 
 As I was using Watir-WebDriver more and more, I was thinking about the ways I can improve it, so my activity on <a title="Github" href="https://github.com/p0deje" target="_blank">Github</a> has finally brought me here.
 

@@ -7,6 +7,7 @@ comments: true
 categories: [conference, Conferences, Watir Day, Watir Day, watir-day-2011]
 ---
 <a href="http://watir.com/watir-day/">Watir Day 2011</a> went well on Sunday in San Francisco. We had about 60 attendees from various places, and 10 sponsors.
+<!--more-->
 
 Most of the presentations are available online on <a href="http://wiki.openqa.org/display/WTR/Watir+Day+Presentations">the Watir Day Wiki</a>.
 

@@ -9,6 +9,7 @@ categories: [Releases]
 <a href="http://www.flickr.com/photos/viamoi/3535257124/" title="~ Drip - &quot;?&quot; ~ by ViaMoi, on Flickr"><img src="http://farm3.staticflickr.com/2244/3535257124_21f0d92d17_m.jpg" width="240" height="240" alt="~ Drip - &quot;?&quot; ~"></a>
 
 <a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver 0.4.1</a> has been released.
+<!--more-->
 
 Major changes since the last release:
 <ul>

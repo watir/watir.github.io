@@ -1,11 +1,14 @@
 ---
 layout: post
-title: Alister Scott on 'How to set up Cucumber and Watir on OSX'
+title: 'How to set up Cucumber and Watir on OSX'
 date: 2010-12-10 09:54
-author: bpettichord
+author: Alister Scott
+author_url: http://watirmelon.com
 comments: true
 categories: [Blogs, Cucumber, Firewatir, osx, Watir]
 ---
+<!--more-->
+
 <strong>Guest post by <a href="http://watirmelon.com">Alister Scott</a></strong>
 
 <hr />

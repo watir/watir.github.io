@@ -8,11 +8,11 @@ categories: [Uncategorized]
 ---
 
 I am pleased to announce that the Test Automation Bazaar will be held in Austin, Texas on  January 16-17, 2015 (Fri – Sat). I am convening this event with [Zeljko Filipin](https://twitter.com/zeljkofilipin) and the Austin Homebrew Testers, and we are pleased that the event will be sponsored by the [Open Information Foundation](http://www.openinformationfoundation.org/), a non-profit which we have recently joined and which also sponsors the [Citcon](http://citconf.com/) conferences.
+<!--more-->
 This is a follow up to the [2012 Test Automation Bazaar](http://watir.com/test-automation-bazaar/), also held in Austin.
 Like all OIF events, this conference will be free and open to the public, but we also will be asking for donations and sponsors to cover the expenses of the event. We are currently confirming a location in the Domain.
 We invite people to come, share their experiences with test automation and learn from others. The organizers have a bias for Ruby, Webdriver (Watir/Selenium), and open-source tools, but we invite people to share whatever has worked for them. The theme of the event is “show us your tests”.
 The event will be organized with an [open-space format](http://citconf.com/openspace.php), which means the session topics will be hammered out Friday evening (1/15).
-
 ##SCHEDULE
 
 ###Friday

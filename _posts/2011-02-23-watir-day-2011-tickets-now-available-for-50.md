@@ -7,6 +7,7 @@ comments: true
 categories: [$50, Conferences, San Francisco, Watir, Watir Day, Watir Day, watir-day-2011]
 ---
 Tickets to Watir Day 2011 on Sunday 3rd April 2011 in San Francisco are <a href="http://watirday.eventbrite.com/"><strong>now on sale for $50 each</strong></a>.
+<!--more-->
 
 Don't forget about the <a href="http://watir.com/watir-day/sponsorship/">sponsorship deal</a> where your employer or company can be a sponsor for just <strong>$175</strong> and receive four free tickets. This sponsorship can be purchased through the <a href="http://watirday.eventbrite.com/">main ticket page</a> too.
 

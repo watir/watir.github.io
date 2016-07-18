@@ -10,7 +10,8 @@ categories: [Releases]
 
 Hi!
 
-Watir 2.0.4 has been released. This version has the following changes:
+Watir 2.0.4 has been released. <!--more-->
+This version has the following changes:
 
 * <code>IE#execute_script</code> escapes multi-line JavaScript scripts
 * allow <code>css</code> and <code>xpath</code> locators for element collection methods, fixes <a href="http://jira.openqa.org/browse/WTR-493">WTR-493</a>

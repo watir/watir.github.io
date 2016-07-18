@@ -7,6 +7,7 @@ comments: true
 categories: [Conferences, Selenium, Uncategorized]
 ---
 Last month, I gave a keynote address at the Selenium conference, and the video has just been posted to Youtube. The talk is about many things, including the persistent attraction of test recorders even though no one ever really believes in them. Although I used to speak at conferences a lot, I haven't done much for the last several years, and this is really my first talk on Youtube. So I am interested in seeing what kind of reception it gets from people who weren't at the conference.
+<!--more-->
 
 I feel like it may be the best talk I've ever given, but I'm not sure how well it plays out of context. In it, I make several references to earlier talks at the conference, and in particular the keynotes by <a href="http://youtu.be/opk49J0fQOs" target="_blank">Jason Huggins</a> and <a href="http://youtu.be/yb0m2xxWEg8" target="_blank">Patrick Lightbody</a>. When I say it was my best, what I mean is that I don't think I've ever captured the attention of the audience the way I did this time. But the video doesn't capture the audience reaction so you can't see that. There were also some great questions at the end, but those got edited out too.
 

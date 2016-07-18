@@ -9,6 +9,7 @@ categories: [Releases]
 <a href="http://www.flickr.com/photos/johnkay/5528593758/" title="Playing with water: The rabbit and the ball by Images by John 'K', on Flickr"><img src="http://farm6.static.flickr.com/5176/5528593758_cc05248691_m.jpg" width="240" height="159" alt="Playing with water: The rabbit and the ball"></a>
 
 <a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver 0.3.6</a> has been released.
+<!--more-->
 
 This version has the following changes:
 <ul>

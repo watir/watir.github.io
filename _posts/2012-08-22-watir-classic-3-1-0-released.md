@@ -11,6 +11,7 @@ categories: [Releases]
 Hello everyone!
 
 I'm happy to announce that another version of Watir-Classic has just been released - 3.1.0.
+<!--more-->
 
 Changelog:
 <ul>

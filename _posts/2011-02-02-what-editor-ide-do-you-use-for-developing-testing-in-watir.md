@@ -2,10 +2,13 @@
 layout: post
 title: What Editor / IDE do you use for Developing / Testing in Watir?
 date: 2011-02-02 22:06
-author: bpettichord
+author: Tim Koopmans
+author_url: http://twitter.com/#!/90kts
 comments: true
 categories: [Blogs]
 ---
+<!--more-->
+
 <strong>Originally posted at <a href="http://altentee.com/blogs/2011/what-editor-ide-do-you-use-for-developing-testing-in-watir/">altentee.com</a> by <a href="http://twitter.com/#!/90kts">Tim Koopmans</a>.</strong>
 
 <hr />
@@ -22,7 +25,7 @@ RubyMine
 NetBeans
 
 Pros and Cons for each (subject to personal opinion) are as follows.
-<!--more--><strong><a href="http://www.scintilla.org/SciTE.html">SciTE</a></strong> binaries (with Ruby specific syntax support) come packaged with older versions of the Ruby installer, particularly 1.8.6 variants favoured by Watir. It's a simple text editor which supports Windows and Linux. I used it for a long time on Windows, even going so far as <a href="http://altentee.com/blogs/2009/my-favourite-scite-settings/">customising</a> settings but lost some of its shine when I started to use platforms other than Windows … This editor is also free.
+<strong><a href="http://www.scintilla.org/SciTE.html">SciTE</a></strong> binaries (with Ruby specific syntax support) come packaged with older versions of the Ruby installer, particularly 1.8.6 variants favoured by Watir. It's a simple text editor which supports Windows and Linux. I used it for a long time on Windows, even going so far as <a href="http://altentee.com/blogs/2009/my-favourite-scite-settings/">customising</a> settings but lost some of its shine when I started to use platforms other than Windows … This editor is also free.
 
 <strong><a href="http://macromates.com/">TextMate</a></strong> was "<em>Created by a closet UNIX geek who was lured to the Mac platform by its ease of use and elegance, TextMate has been referred to as the culmination of Emacs and OS X and has resulted in countless requests for both a Windows and Linux port, but TextMate remains exclusive for the Mac, and that is how we like it</em>". This editor costs about €39.
 

@@ -9,6 +9,7 @@ categories: [Releases]
 <a href="http://www.flickr.com/photos/johnkay/3305073331/" title="Shower Water Snake feeding :) by Images by John 'K', on Flickr"><img src="http://farm4.staticflickr.com/3546/3305073331_149a4d746f_m.jpg" width="240" height="240" alt="Shower Water Snake feeding :)"></a>
 
 <a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver 0.5.2</a> has been released.
+<!--more-->
 
 Please note that watir-webdriver 0.5.0 brings some backwards incompatible changes:
 

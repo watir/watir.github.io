@@ -1,11 +1,14 @@
 ---
 layout: post
-title: Alister Scott - A simple Cucumber + Watir page object pattern framework
+title: A simple Cucumber + Watir page object pattern framework
 date: 2011-01-22 04:44
-author: bpettichord
+author: Alister Scott
+author_url: http://watirmelon.com
 comments: true
 categories: [Alister Scott, Blogs, Cucumber, Page Object, Page Object Pattern, Watir, watirmelon]
 ---
+<!--more-->
+
 This post by Alister Scott originally appeared on <a href="http://watirmelon.com/2011/01/21/my-simple-cucumber-watir-page-object-pattern-framework/">watirmelon.com</a>. Please leave all comments on the original article.
 
 <hr />

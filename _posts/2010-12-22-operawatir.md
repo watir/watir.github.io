@@ -2,12 +2,13 @@
 layout: post
 title: OperaWatir
 date: 2010-12-22 10:18
-author: bpettichord
+author: Željko Filipin
+author_url: http://zeljkofilipin.com
 comments: true
 categories: [Blogs]
 ---
+<!--more-->
 <strong>Originally posted at <a href="http://zeljkofilipin.com/operawatir/">zeljkofilipin.com</a> by <a href="http://zeljkofilipin.com/">Željko Filipin</a>.</strong>
-
 <hr />
 
 For about two years (since <a href="http://awta.wikispaces.com/AWTA+2009">AWTA 2009</a>) I know that people at <a href="http://www.opera.com/">Opera Software</a> are working on <a href="http://operawatir.org/">OperaWatir</a>, but the release was scheduled as "soon" all the time. And then when I almost lost any hope, <a href="http://home.e-tjenesten.org/~ato/">Andreas Tolf Tolfsen</a> published a blog post saying <a href="http://my.opera.com/core/blog/operawatir-pre-release">OperaWatir is (pre)released</a>! (One can argue is it a release or prelease, but who cares?)

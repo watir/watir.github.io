@@ -7,6 +7,7 @@ comments: true
 categories: [Team]
 ---
 A couple of people got added to the <a href="http://watir.com/team/">team</a> recently, Justin Ko and Dave McNulla.
+<!--more-->
 
 <img src="http://watir001.files.wordpress.com/2009/10/justin_200.png?w=150" alt="Justin Ko" width="150" height="150" class="size-thumbnail wp-image-1447" /> Justin Ko
 

@@ -9,7 +9,7 @@ categories: [1.6.7, Releases]
 Hello, everyone!
 
 Watir 1.6.7 got just released!
-
+<!--more-->
 <strong>General improvements</strong>
 <ul>
 	<li> added new waiting methods for Watir::Element: #when_present, #wait_until_present and #wait_while_present (Jari Bakken and Jarmo Pertman)</li>

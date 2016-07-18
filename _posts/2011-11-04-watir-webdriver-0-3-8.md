@@ -11,6 +11,7 @@ categories: [Releases]
 Time flies when you're having fun! It feels like I blogged about <a href="http://watir.com/2011/11/03/watir-webdriver-0-3-6/">watir-webdriver 0.3.6 release</a> yesterday.
 
 <a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver 0.3.8</a> has been released.
+<!--more-->
 
 This version has the following changes:
 <ul>

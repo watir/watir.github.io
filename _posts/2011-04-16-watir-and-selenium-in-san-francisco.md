@@ -7,6 +7,7 @@ comments: true
 categories: [Conferences, Selenium, Uncategorized, Watir Day]
 ---
 I've been back home for a week after a very busy week in San Francisco. I hosted a one-day Watir conference and then attended a three-day Selenium conference where I gave a keynote talk. After the conference was over we parked our car in a sketchy part of town for dinner, and me and three others had our laptops stolen out of our rental van. Some one broke the window and snatched our bags.. I also spent a day in Convio's Berkeley office where I got a chance to catch up with several of my colleagues there. This week I've been catching up on my day job and replacing the things that were stolen.
+<!--more-->
 
 There has been increasing cooperation between the Watir and Selenium teams, both on our projects and in organizing the conferences. Although we sold our own tickets to Watir Day (Sunday), the Selenium conference team made the hotel arrangements for us (both conferences were at the same hotel); and in the end, ended up subsidizing some of our costs. They also wanted to make sure that some one from the Watir team was on the Selenium conference committee. Charley Baker was generous to volunteer to help them select talks for the program. And of course, they invited me to keynote the Selenium conference. That talk should show up on Youtube at some point. I'll talk more about the points I made in my keynote some other day.
 

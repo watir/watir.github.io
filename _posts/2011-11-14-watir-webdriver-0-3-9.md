@@ -9,6 +9,7 @@ categories: [Releases]
 <a href="http://www.flickr.com/photos/mothernaturephotos/3368353605/" title="Water Droplets by Elliotphotos, on Flickr"><img src="http://farm4.static.flickr.com/3660/3368353605_61886c4bfa_m.jpg" width="240" height="180" alt="Water Droplets"></a>
 
 <a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver 0.3.9</a> has been released.
+<!--more-->
 
 This version has the following changes:
 <ul>

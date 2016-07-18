@@ -10,7 +10,8 @@ categories: [Releases]
 
 Hi!
 
-Watir 2.0.3 has been released. This version has the following changes:
+Watir 2.0.3 has been released. <!--more-->
+This version has the following changes:
 
 * fix ElementCollections#[]
 * fix IE::Process.start for IE9 when opening multiple windows

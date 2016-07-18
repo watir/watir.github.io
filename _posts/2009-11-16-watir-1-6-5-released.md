@@ -6,6 +6,7 @@ author: bpettichord
 comments: true
 categories: [Release, Releases, Watir]
 ---
+<!--more-->
 <h3>Version 1.6.5</h3>
 For the latest version of release notes, please see <a href="http://github.com/bret/watir/blob/master/watir/NEWCHANGES">http://github.com/bret/watir/blob/master/watir/NEWCHANGES</a>
 <h4>New Features (Both IE and Firefox)</h4>

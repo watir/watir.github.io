@@ -7,6 +7,8 @@ comments: true
 categories: [Uncategorized]
 ---
 The planning for the Watir Day 2011 in San Francisco on Sunday April 3rd is progressing well.
+<!--more-->
+
 <h3>Propose a Talk</h3>
 You can propose a 30 minute talk from now until Sunday 27th February 2011 using the <a href="http://watir.com/watir-day/propose-a-talk/">online form</a>. Speakers will be notified and announced within a week of the closing date.
 <h3>Be a Sponsor</h3>
