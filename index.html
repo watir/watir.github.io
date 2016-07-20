@@ -3,14 +3,11 @@ layout: default
 title: Watir is...
 ---
 
-<article class="page background" xmlns="http://www.w3.org/1999/html">
-  <h1>{{ page.title }}</h1>
-
-  <div class="entry">
-    <div style="width: 47%; float: right; padding-left: 20px; margin-top: -70px">
-      <pre style="font-size: 12px">{% include demo.html %}</pre>
-    </div>
-
+<div class="intro">
+  <div class="background"></div>
+  <div class="grid">
+  <div class="unit half align-left">
+    <h1>{{ page.title }}</h1>
     <p>An open source Ruby library for automating tests. Watir interacts with a
     browser the same way people do: clicking links, filling out forms and validating
     text.</p>
@@ -19,7 +16,13 @@ title: Watir is...
     <li>Read our <a href="http://www.rubydoc.info/gems/watir-webdriver">documentation</a> to get started</li>
     <li>See what <a href="/users">companies are using Watir</a></li></ul>
   </div>
-</article>
+
+  <div class="unit half demo">
+    <pre>{% include demo.html %}</pre>
+  </div>
+</div>
+</div>
+
 <div style="width: 70%; margin-top: 50px">
 
   {% for post in site.posts %}

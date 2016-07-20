@@ -5,8 +5,8 @@ title: Community
 {::options parse_block_html="true" /}
 
 ### Current Team
-
-<div style="display: list-item;">
+<div class="community-list">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px" src="/images/contributors/zeljko2.jpg">
     <b>[Željko Filipin](http://filipin.eu/)</b> ([@zeljkofilipin](http://twitter.com/zeljkofilipin))
@@ -17,7 +17,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px" src="/images/contributors/titus.jpg">
     <b>[Titus Fortner](http://watirtight.com/)</b> ([@titusfortner](http://twitter.com/titusfortner))
@@ -29,7 +29,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/justin_73.png">
     <b>[Justin Ko](http://jkotests.wordpress.com/)</b>
@@ -40,7 +40,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/chuck.jpg">
     <b>[Chuck van der Linden](http://stackoverflow.com/users/409820/chuck-van-der-linden)</b>
@@ -51,7 +51,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/dave_73.jpeg">
     <b>[Dave McNulla](http://dmcnulla.wordpress.com/)</b> ([@dmcnulla](https://twitter.com/dmcnulla))
@@ -62,7 +62,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/jarmo.jpg">
     <b>[Jarmo Pertman](http://www.itreallymatters.net/)</b> ([@jarm0](http://twitter.com/jarm0))
@@ -73,7 +73,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/bret1.jpg">
     <b>[Bret Pettichord](http://www.pettichord.com/)</b> ([@bpettichord](http://twitter.com/bpettichord))
@@ -84,7 +84,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/alex-rodionov.png">
     <b>[Alex Rodionov](http://p0deje.blogspot.com/)</b> ([@p0deje](http://twitter.com/p0deje))
@@ -99,7 +99,7 @@ title: Community
 
 ### Team Alumni
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/jari1.jpg">
     <b>Jari Bakken</b> ([@jarib](http://twitter.com/jarib))
@@ -110,7 +110,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/charley1.jpg">
     <b>Charley Baker</b> ([@charley_baker](http://twitter.com/charley_baker))
@@ -121,7 +121,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/wesley.jpg">
     <b>[Wesley Chen](http://www.google.com/profiles/cjq.999)</b>
@@ -132,7 +132,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/tom.jpg">
     <b>[Tom Copeland](http://tomcopeland.blogs.com/)</b> ([@tcopeland](http://twitter.com/tcopeland))
@@ -143,7 +143,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/tiffany.jpg">
     <b>[Tiffany Fodor](http://tcfodor.wordpress.com/)</b> ([@tcfodor](http://twitter.com/tcfodor))
@@ -154,7 +154,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/dave1.jpg">
     <b>[Dave Hoover](http://redsquirrel.com/dave/)</b> ([@redsquirrel](http://twitter.com/redsquirrel))
@@ -165,7 +165,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/jonathan3.jpg">
     <b>[Jonathan Kohl](http://www.kohl.ca/)</b>
@@ -176,7 +176,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/hugh2.jpeg">
     <b>Hugh McGowan</b> ([@hmcgowan](http://twitter.com/hmcgowan))
@@ -187,7 +187,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/joel_73.jpg">
     <b>[Joel Pearson](https://github.com/VirtuosoJoel)</b>
@@ -198,7 +198,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/paul1.jpg">
     <b>[Paul Rogers](http://members.shaw.ca/paul_rogers/index.html)</b>
@@ -209,7 +209,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/alister1.jpg">
     <b>[Alister Scott](http://watirmelon.com/)</b> ([@alisterscott](http://twitter.com/alisterscott))
@@ -220,7 +220,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/angrez1.jpg">
     <b>[Angrez Singh](http://angrez.blogspot.com/)</b>
@@ -231,7 +231,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/andreas.jpeg">
     <b>[Andreas Tolf Tolfsen](http://sny.no/)</b> ([@tolfsen](http://twitter.com/tolfsen))
@@ -242,7 +242,7 @@ title: Community
   </p>
 </div>
 
-<div style="display: list-item;">
+<div style="display: list-item; list-style: none; padding-bottom: 1px">
   <p style="font-size: 10pt;">
     <img style="float: left; padding-right: 10px;" src="/images/contributors/sai1.jpg">
     <b>[Sai Venkatakrishnan](http://developer-in-test.blogspot.com/)</b>
@@ -251,6 +251,7 @@ title: Community
     <br>
     lead developer of ChromeWatir (replaced with [watir-webdriver](http://github.com/jarib/watir-webdriver))
   </p>
+</div>
 </div>
 
 <p>&nbsp;</p>
@@ -278,4 +279,4 @@ These blogs have significant Watir-related content (or content of other aspects 
 
 ### Podcast Archives
 
-Five years worth of recordings from the [Watir Podcast](https://archive.org/details/WatirPodcast) 
+Five years worth of recordings from the [Watir Podcast](https://archive.org/details/WatirPodcast)

@@ -9,28 +9,68 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
-  <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <div style="float: left; position: relative"><a href="{{ site.baseurl }}/" class="site-avatar"><img src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/></a>
-            <span  style="position: absolute; bottom: 25px; font-style: italic; font-weight: bold; font-family: 'Droid Sans'">Powered by Selenium</span>
+  <body class="wrap">
+      <div class="header">
+        <div class="grid">
+          <div class="logo unit one-third hide-on-mobiles">
+            <a href="{{ site.baseurl }}/">
+              <img src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/>
+            </a>
+            <!-- Hiding on mobile devices for now. -->
+            <span  class="hide-on-mobiles tag-line">Powered by Selenium</span>
           </div>
 
-          <nav class="nav">
-            <a href="/blog">News</a>
-            <a href="{{ site.baseurl }}/docs/home">Documentation</a>
-            <a href="{{ site.baseurl }}/community">Community</a>
-            <a href="{{ site.baseurl }}/help">Help</a>
-            <a href="{{ site.baseurl }}/contributing">Contributing</a>
+          <div class="logo unit whole only-on-mobiles">
+            <a href="{{ site.baseurl }}/">
+              <img src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/>
+            </a>
+          </div>
+
+          <nav class="unit two-thirds hide-on-mobiles main-nav">
+            <ul>
+              <li class="{% if page.url contains '/blog/' %}current{% endif %}">
+                <a href="/blog">News</a>
+                </li>
+              <li class="{% if page.url contains '/docs/' %}current{% endif %}">
+                <a href="{{ site.baseurl }}/docs/home">Documentation</span></a>
+              </li>
+              <li class="{% if page.url contains '/community/' %}current{% endif %}">
+                <a href="{{ site.baseurl }}/community">Community</a>
+              </li>
+              <li class="{% if page.url contains '/help/' %}current{% endif %}">
+                <a href="{{ site.baseurl }}/help">Help</a>
+              </li>
+              <li class="{% if page.url contains '/contributing/' %}current{% endif %}">
+                <a href="{{ site.baseurl }}/contributing">Contributing</a>
+              </li>
+            </ul>
           </nav>
-        </header>
+
+          <nav class="unit whole only-on-mobiles mobile-nav">
+            <li class="{% if page.url contains '/blog/' %}current{% endif %}">
+              <a href="/blog">News</a>
+            </li>
+            <li class="{% if page.url contains '/docs/' %}current{% endif %}">
+              <a href="{{ site.baseurl }}/docs/home">Docs</a>
+            </li>
+            <li class="{% if page.url contains '/community/' %}current{% endif %}">
+              <a href="{{ site.baseurl }}/community">Community</a>
+            </li>
+            <li class="{% if page.url contains '/help/' %}current{% endif %}">
+              <a href="{{ site.baseurl }}/help">Help</a>
+            </li>
+            <li class="{% if page.url contains '/contributing/' %}current{% endif %}">
+              <a href="{{ site.baseurl }}/contributing">Contribute</a>
+            </li>
+          </nav>
+        </div>
       </div>
     </div>
 
