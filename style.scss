@@ -7,6 +7,7 @@
 
 @import "reset";
 @import "variables";
+@import "gridism";
 // Syntax highlighting @import is at the bottom of this file
 
 /**************/
@@ -15,11 +16,13 @@
 
 html {
   font-size: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 body {
 	background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 18px/1.4 $body_font;
   color: $darkGray;
 }
 
@@ -30,32 +33,14 @@ body {
   width: 100%;
 }
 
-.background {
-  background-image: url("/images/waves_background.png");
-  padding: 1px;
-}
-
-.entry {
-  font-size: larger;
-}
-
-.nav {
-  background-color: #9fd0ef;
-  padding: 20px 20px;
-}
-
 h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: #0071bc;
+  font-family: $header_font;
+  color: #51b1ee;
   font-weight: bold;
 
   line-height: 1.7;
-  margin: 0.5em 0 15px;
+  //margin: 0.5em 0 15px;
   padding: 0;
-
-  @include mobile {
-    line-height: 1.4;
-  }
 }
 
 h1 {
@@ -81,14 +66,15 @@ h4 {
 
 p {
   margin: 15px 0;
+  font-size: 19px;
 }
 
 a {
-  color: $blue;
+  color: #5aa7d7;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: #58beff;
   }
 }
 
@@ -162,94 +148,130 @@ img {
 /*********************/
 
 //
-// .masthead
+// header/nav
 //
 
-.wrapper-masthead {
-  margin-bottom: 10px;
+header {
+
+  h1,
+  nav { display: inline-block; }
+
 }
 
-.masthead {
-  padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
+.logo {
 
-  @include mobile {
-    text-align: center;
-  }
-}
-
-.site-avatar {
-  float: left;
-  width: 25%;
-  height: 25%;
-  margin-right: 15px;
-  padding-bottom: 10px;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0;
-  }
-
-  img {
-    border-radius: 5px;
-  }
-}
-
-.site-info {
-  float: left;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-.site-name {
-  margin: 0;
-  color: $darkGray;
-  cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 1px;
-}
-
-.site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
-
-  @include mobile {
-    margin: 3px 0;
+  .tag-line {
+    position: relative;
+    top: -25px;
+    left: 105px;
+    color: #56819c;
+    font-family: $header_font;
   }
 }
 
 nav {
-  float: right;
-  margin-top: 10px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
-  font-size: 18px;
 
-  @include mobile {
-    margin-top: 9px;
-    display: block;
-    font-size: 16px;
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li { display: inline-block; }
+}
+
+.main-nav {
+  margin-top: 52px;
+
+  li {
+    margin-right: 10px;
+
+    a {
+      font-weight: 900;
+      font-size: 14px;
+      padding: 0.5em 1em;
+      text-shadow: none;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: #5aa7d7;
+        color: #ebebeb;
+        text-shadow: 0 1px 3px rgba(0,0,0,.5);
+      }
+    }
+
+    &.current {
+
+      a {
+        background-color: #5aa7d7;
+        color: #ebebeb;
+        text-shadow: 0 1px 0 rgba(255,255,255,.3);
+      }
+    }
+  }
+}
+
+.mobile-nav {
+
+  ul {
+    overflow: hidden;
+    margin: 0 auto;
+    //display: table;
+    text-align: center;
   }
 
   a {
-    margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 5px;
+  }
 
-    @include mobile {
-      margin: 0 10px;
-      color: $blue;
+  li {
+    display: table-cell;
+    padding: 5px 2px;
+    display: inline-block;
+  }
+
+  .current {
+
+    a {
+      background-color: #5aa7d7;
+      color: #ebebeb;
+      text-shadow: 0 1px 0 rgba(255,255,255,.3);
     }
   }
+}
+
+//
+// intro
+//
+
+.intro {
+  position: relative;
+  padding: 1px;
+  border-style: solid;
+  border: 2px;
+  border-color: black;
+
+  li {
+    font-size: 18px;
+  }
+}
+
+.intro .background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url("/images/waves_background.png");
+  opacity: .4;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
 }
 
 //
@@ -286,6 +308,10 @@ nav {
   }
 }
 
+//
+// footer
+//
+
 .wrapper-footer {
 }
 
@@ -293,9 +319,20 @@ footer {
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  padding: 15px 0 10px 0;
+  padding: 5px 0 0 0;
   text-align: center;
-  background-color: #e7f8fd;
+  background-color: #9fd0ef;
+}
+
+//
+// Code Demo Block
+//
+
+.demo {
+  font-size: 12px;
+  text-align: left;
+  vertical-align: center;
+  margin-top: 25px;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS

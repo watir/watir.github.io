@@ -14,10 +14,12 @@ $gray: #666;
 $lightGray: #eee;
 $white: #fff;
 
+// Google Fonts
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto';
+
 // Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+$body_font: 'Roboto', sans-serif;
+$header_font: 'Open Sans', sans-serif;
 
 // Mobile breakpoints
 @mixin mobile {
