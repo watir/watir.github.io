@@ -19,7 +19,7 @@
   <body class="wrap">
       <div class="header">
         <div class="grid">
-          <div class="logo unit one-third hide-on-mobiles">
+          <div class="logo unit whole hide-on-mobiles">
             <a href="{{ site.baseurl }}/">
               <img src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/>
             </a>
@@ -27,19 +27,41 @@
             <span  class="hide-on-mobiles tag-line">Powered by Selenium</span>
           </div>
 
-          <div class="logo unit whole only-on-mobiles">
+          <div class="mobile-logo unit whole only-on-mobiles">
             <a href="{{ site.baseurl }}/">
-              <img src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/>
+              <img  style="size: 40%;" src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/>
             </a>
+            <span  class="only-on-mobiles tag-line">Powered by Selenium</span>
           </div>
+        </div>
 
-          <nav class="unit two-thirds hide-on-mobiles main-nav">
-            <ul>
+          <div class="grid">
+            <nav class="unit whole hide-on-mobiles main-nav">
+              <ul>
+                <li class="{% if page.url contains '/blog/' %}current{% endif %}">
+                  <a href="/blog">News</a>
+                  </li>
+                <li class="{% if page.url contains '/docs/' %}current{% endif %}">
+                  <a href="{{ site.baseurl }}/docs/home">Documentation</span></a>
+                </li>
+                <li class="{% if page.url contains '/community/' %}current{% endif %}">
+                  <a href="{{ site.baseurl }}/community">Community</a>
+                </li>
+                <li class="{% if page.url contains '/help/' %}current{% endif %}">
+                  <a href="{{ site.baseurl }}/help">Help</a>
+                </li>
+                <li class="{% if page.url contains '/contributing/' %}current{% endif %}">
+                  <a href="{{ site.baseurl }}/contributing">Contributing</a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav class="unit whole only-on-mobiles mobile-nav">
               <li class="{% if page.url contains '/blog/' %}current{% endif %}">
                 <a href="/blog">News</a>
-                </li>
+              </li>
               <li class="{% if page.url contains '/docs/' %}current{% endif %}">
-                <a href="{{ site.baseurl }}/docs/home">Documentation</span></a>
+                <a href="{{ site.baseurl }}/docs/home">Docs</a>
               </li>
               <li class="{% if page.url contains '/community/' %}current{% endif %}">
                 <a href="{{ site.baseurl }}/community">Community</a>
@@ -48,28 +70,10 @@
                 <a href="{{ site.baseurl }}/help">Help</a>
               </li>
               <li class="{% if page.url contains '/contributing/' %}current{% endif %}">
-                <a href="{{ site.baseurl }}/contributing">Contributing</a>
+                <a href="{{ site.baseurl }}/contributing">Contribute</a>
               </li>
-            </ul>
-          </nav>
-
-          <nav class="unit whole only-on-mobiles mobile-nav">
-            <li class="{% if page.url contains '/blog/' %}current{% endif %}">
-              <a href="/blog">News</a>
-            </li>
-            <li class="{% if page.url contains '/docs/' %}current{% endif %}">
-              <a href="{{ site.baseurl }}/docs/home">Docs</a>
-            </li>
-            <li class="{% if page.url contains '/community/' %}current{% endif %}">
-              <a href="{{ site.baseurl }}/community">Community</a>
-            </li>
-            <li class="{% if page.url contains '/help/' %}current{% endif %}">
-              <a href="{{ site.baseurl }}/help">Help</a>
-            </li>
-            <li class="{% if page.url contains '/contributing/' %}current{% endif %}">
-              <a href="{{ site.baseurl }}/contributing">Contribute</a>
-            </li>
-          </nav>
+            </nav>
+          </div>
         </div>
       </div>
     </div>

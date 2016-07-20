@@ -160,13 +160,40 @@ header {
 
 .logo {
 
+  img {
+    float: left;
+    height: 35%;
+    width: 35%;
+  }
+
   .tag-line {
     position: relative;
-    top: -25px;
-    left: 105px;
+    top: 105px;
+    left: -125px;
     color: #56819c;
     font-family: $header_font;
   }
+}
+
+.mobile-logo {
+
+  img {
+    display: block;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tag-line {
+    display: block;
+    position: relative;
+    text-align: center;
+    top: -25px;
+    left: 50px;
+    color: #56819c;
+    font-family: $header_font;
+  }
+
 }
 
 nav {
@@ -180,7 +207,6 @@ nav {
 }
 
 .main-nav {
-  margin-top: 52px;
 
   li {
     margin-right: 10px;
@@ -204,7 +230,7 @@ nav {
       a {
         background-color: #5aa7d7;
         color: #ebebeb;
-        text-shadow: 0 1px 0 rgba(255,255,255,.3);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
       }
     }
   }
@@ -226,6 +252,12 @@ nav {
     font-size: 14px;
     font-weight: 900;
     padding: 5px;
+
+    &:hover {
+      background-color: #5aa7d7;
+      color: #ebebeb;
+      text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    }
   }
 
   li {
@@ -239,7 +271,7 @@ nav {
     a {
       background-color: #5aa7d7;
       color: #ebebeb;
-      text-shadow: 0 1px 0 rgba(255,255,255,.3);
+      text-shadow: 0 1px 0 rgba(0,0,0,.5);
     }
   }
 }
@@ -333,6 +365,10 @@ footer {
   text-align: left;
   vertical-align: center;
   margin-top: 25px;
+
+  @media screen and (max-width: 900px) {
+    margin-top: -15px;
+  }
 }
 
 //
