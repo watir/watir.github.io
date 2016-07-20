@@ -335,6 +335,48 @@ footer {
   margin-top: 25px;
 }
 
+//
+// contributors
+//
+
+.member-pic {
+  float: left;
+  padding-right: 5px;
+  border-radius: 50%;
+}
+
+.member-text {
+
+  margin-top: -15px;
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    margin-top: -5px;
+  }
+}
+
+.member-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.member-handle {
+  font-size: 14px;
+}
+
+.member-location {
+  font-size: 12px;
+}
+
+.member-description {
+  font-size: 12px;
+  margin-top: -7px;
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
