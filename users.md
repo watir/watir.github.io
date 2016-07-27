@@ -6,6 +6,7 @@ title: Companies Using Watir
 #### Some Watir users include (in alphabetical order):
 
 <div style="text-align: center">
+    <p><a href="https://3qilabs.com/"><img src="/images/companies/3qilabs.png" height="51"></a></p>
     <p><a href="https://appmint.co/"><img src="/images/companies/appmint.png" height="51"></a></p>
     <p><a href="https://www.blackbaud.com/"><img src="/images/companies/blackbaud.png" height="51"></a></p>
     <p><a href="https://codeborne.com/"><img src="/images/companies/codeborne.gif" height="51"></a></p>
