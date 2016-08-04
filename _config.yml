@@ -19,6 +19,8 @@ avatar: https://upload.wikimedia.org/wikipedia/commons/7/7e/Watir.gif
 # Flags below are optional
 #
 collections:
+  contributors:
+    foo: bar
   docs:
     output: true
 
