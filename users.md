@@ -12,9 +12,10 @@ title: Companies Using Watir
     <p><a href="https://codeborne.com/"><img src="/images/companies/codeborne.gif" height="51"></a></p>
     <p><a href="https://www.homeaway.com/"><img src="/images/companies/homeaway.png" height="51"></a></p>
     <p><a href="https://www.honest.com/"><img src="/images/companies/honest.png" height="75"></a></p>
+    <p><a href="https://www.munchery.com/"><img src="/images/companies/munchery.png" height="75"></a></p>
     <p><a href="https://recurly.com/"><img src="/images/companies/recurly.jpg" height="51"></a></p>
     <p><a href="https://slack.com/"><img src="/images/companies/slack.png" height="51"></a></p>
-    <p><a href="http://www.spiceworks.com/"><img src="/images/companies/spiceworks.png" height="51"></a></p>
+    <p><a href="https://www.spiceworks.com/"><img src="/images/companies/spiceworks.png" height="51"></a></p>
     <p><a href="https://www.toptal.com/"><img src="/images/companies/toptal.jpg" height="51"></a></p>
     <p><a href="https://www.wikimedia.org/"><img src="/images/companies/wikimedia.png" height="75"></a></p>
     <p><a href="https://www.yahoo.com/"><img src="/images/companies/yahoo.gif" height="51"></a></p>
