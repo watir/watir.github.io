@@ -13,7 +13,7 @@ Alex did some great work on this one, with significant updates to element locato
  
 <!--more-->
 
-[Read the full Changelog](https://github.com/watir/watir-webdriver/blob/master/CHANGES.md).
+[Read the full Changelog](https://github.comwatir/watir/blob/master/CHANGES.md).
 
 The previous `ElementLocator` class 
 was very unwieldy, so it has been broken up for better separation of concerns. 

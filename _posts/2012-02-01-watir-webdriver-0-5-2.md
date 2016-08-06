@@ -14,8 +14,8 @@ categories: [Releases]
 Please note that watir-webdriver 0.5.0 brings some backwards incompatible changes:
 
 <ul>
-<li><a href="https://github.com/watir/watir-webdriver/issues/21"><code>Watir::Select#selected_options</code> no longer returns array of strings, but array of <code>Watir::Option</code> objects</a></li>
-<li><a href="https://github.com/watir/watir-webdriver/issues/36">Finding elements by <code>:class</code> now matches partial class attributes.</a></li>
+<li><a href="https://github.comwatir/watir/issues/21"><code>Watir::Select#selected_options</code> no longer returns array of strings, but array of <code>Watir::Option</code> objects</a></li>
+<li><a href="https://github.comwatir/watir/issues/36">Finding elements by <code>:class</code> now matches partial class attributes.</a></li>
 </ul>
 
 Additionally, watir-webdriver 0.5.1 removes the following deprecated methods:
@@ -28,7 +28,7 @@ Additionally, watir-webdriver 0.5.1 removes the following deprecated methods:
 And deprecates the following methods:
 
 <ul>
-<li><a href="https://github.com/watir/watir-webdriver/issues/24"><code>Browser#clear_cookies</code> - replaced by <code>Browser#cookies</code> API</a></li>
+<li><a href="https://github.comwatir/watir/issues/24"><code>Browser#clear_cookies</code> - replaced by <code>Browser#cookies</code> API</a></li>
 </ul>
 
 Install it with
@@ -38,8 +38,8 @@ Install it with
 As usual: 
 
 <ul>
-<li>see build history at <a href="http://travis-ci.org/#!/watir/watir-webdriver/builds">travis-ci.org/#!/watir/watir-webdriver/builds</a> (wait for a few seconds until older builds appear)</li>
-<li>see all the changes at <a href="https://github.com/watir/watir-webdriver/commits/master/">github.com/watir/watir-webdriver/commits/master/</a></li>
+<li>see build history at <a href="http://travis-ci.org/#!watir/watir/builds">travis-ci.org/#!watir/watir/builds</a> (wait for a few seconds until older builds appear)</li>
+<li>see all the changes at <a href="https://github.comwatir/watir/commits/master/">github.comwatir/watir/commits/master/</a></li>
 <li>updated API documentation is at <a href="http://rubydoc.info/gems/watir-webdriver">rubydoc.info/gems/watir-webdriver</a></li>
 </ul>
 

@@ -4,7 +4,7 @@ title: Contributing
 ---
 
 ### I think I found a bug:
-Submit an [issue](https://github.com/watir/watir-webdriver/issues) or [pull request](https://github.com/watir/watir-webdriver/pulls) to the [watir-webdriver project](https://github.com/watir/watir-webdriver).
+Submit an [issue](https://github.comwatir/watir/issues) or [pull request](https://github.comwatir/watir/pulls) to the [watir-webdriver project](https://github.com/watir/watir-webdriver).
 
 ### I want to contribute to the documentation:
 The public webpage is maintaned as a GitHub page written in Jekyll. To contribute, send a PR at [our webpage](https://github.com/waitr/watir.github.io). 

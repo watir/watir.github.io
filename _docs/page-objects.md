@@ -4,7 +4,7 @@ title: Page Objects
 permalink: /docs/page-objects/
 ---
 
-The Page Object pattern is a way to represent pages and their elements in reusable classes. The watir-webdriver wiki has a [thorough explanation](https://github.com/watir/watir-webdriver/wiki/Page-Objects) of the concept.
+The Page Object pattern is a way to represent pages and their elements in reusable classes. The watir-webdriver wiki has a [thorough explanation](https://github.comwatir/watir/wiki/Page-Objects) of the concept.
 
 There are several gems that help you implement page objects:
 

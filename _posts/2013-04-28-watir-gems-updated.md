@@ -15,7 +15,7 @@ A few Watir gems got updated recently. I just wanted to make sure everybody is u
 
 <a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver</a>:
 <ul>
-<li>0.6.3 April 10, 2013 (<a href="https://github.com/watir/watir-webdriver/blob/master/CHANGES.md#063">release notes</a>)</li>
+<li>0.6.3 April 10, 2013 (<a href="https://github.comwatir/watir/blob/master/CHANGES.md#063">release notes</a>)</li>
 </ul>
 
 <a href="https://rubygems.org/gems/watir-classic">watir-classic</a>:
