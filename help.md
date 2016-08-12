@@ -3,7 +3,7 @@ layout: page
 title: Help
 ---
 
-### The best way to get help with Watir-Webdriver:
+### The best way to get help with Watir:
 [Post a Question on StackOverflow](http://stackoverflow.com/questions/tagged/watir-webdriver)
 
 ### Alternate ways to get help:
