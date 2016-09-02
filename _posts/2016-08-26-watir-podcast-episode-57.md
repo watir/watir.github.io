@@ -10,7 +10,7 @@ categories: [Podcast]
 
 Welcome to the Watir Podcast Episode 57 with Dave McNulla and former Watir Zeljko Filipin.
 
-You can listen to the podcast at [SoundCloud](https://soundcloud.com/the-watir-podcast/episode57).
+You can listen to the podcast at [SoundCloud](https://soundcloud.com/the-watir-podcast/episode-57).
 
 <!--more-->
 Zeljko discusses the needs of WikiMedia to support two test code bases. The discussion ends on the topic of conferences and preferences.
