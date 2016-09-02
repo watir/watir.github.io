@@ -1,18 +1,18 @@
 ---
 layout: post
-title: New Podcast Episode 46
-date: 2016-08-24
+title: New Podcast Episode 57
+date: 2016-09-01
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
 categories: [Podcast]
 ---
 
-Welcome to the Watir Podcast Episode 56 with Dave McNulla and Watir code monkey and support sheriff Titus Fortner.
+Welcome to the Watir Podcast Episode 57 with Dave McNulla and former Watir Zeljko Filipin.
 
-You can listen to the podcast at [SoundCloud](https://soundcloud.com/the-watir-podcast/episode56-titusfortner).
+You can listen to the podcast at [SoundCloud](https://soundcloud.com/the-watir-podcast/episode57).
 
 <!--more-->
-In the most recent release of Firefox (v 48), the new Geckodriver will be required to run Firefox from either Selenium or Watir. Titus sets expectations for the Watir 6 beta release including where to get help.
+Zeljko discusses the needs of WikiMedia to support two test code bases. The discussion ends on the topic of conferences and preferences.
 
-Please give feedback on this podcast on [SoundCloud](https://soundcloud.com/the-watir-podcast/episode56-titusfortner), as well as what you would like to hear about on future Watir Podcasts.
+Please give feedback on this podcast on [SoundCloud](https://soundcloud.com/the-watir-podcast/episode-57), as well as what you would like to hear about on future Watir Podcasts.
