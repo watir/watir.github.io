@@ -4,7 +4,7 @@ title: Watir 6 FAQ
 ---
 ### Frequently Asked Questions
 
-* [What about watir-webdriver?](#A)
+* [What happened to watir-webdriver?](#A)
 * [Why are my tests failing because of a chromedriver error?](#B)
 * [Why are my tests failing because of a geckodriver error?](#C)
 * [Why are my Internet Explorer tests failing?](#D)
@@ -12,7 +12,8 @@ title: Watir 6 FAQ
 * [Why am I getting warnings about \#when_present and \#while_present being deprecated?](#F)
 * [Why am I getting warnings about keywords versus arguments?](#G)
 * [Why are my tests taking so long?](#H)
-* [What else is new?](#I)
+* [What is with this "&:" symbols in the wait documentation?](#I)
+* [What else is new?](#J)
 
 ### Answers
 
@@ -66,7 +67,7 @@ browser.element.when_enabled.click
 to these:
 
 {% highlight ruby %}
-browser.element.wait_until_present.click
+browser.element.wait_until(&:present?).click
 browser.element.wait_until(&:enabled?).click
 {% endhighlight %}
 <br><br>
@@ -107,7 +108,7 @@ element.wait_until(message: "Oops not not there") { |el| el.present? }
 begin
   browser.element.click
   take_action_if_present
-rescue Exception UnknownObjectException
+rescue Watir::Exception::UnknownObjectException
   take_action_if_not_present
 end
 {% endhighlight %}
@@ -129,12 +130,29 @@ Watir.relaxed_locate = false
 {% endhighlight %}
 <br><br>
 
-<span id="I">**What else is new?**</span><br>
+<span id="I">**What is with the "&:" symbols in the new wait documentation?**</span><br>
+This notation makes use of one of Ruby's more powerful features with 
+regards to blocks (also known as closures). The ampersand ("&") attempts to convert 
+whatever object it is in front of into a block. In the case of this:
+{% highlight ruby %}
+browser.div(id: 'foo').wait_until(&:present?) 
+{% endhighlight %}
+The object is a symbol (`:present?`), and symbols have a `#to_proc` method.
+This method makes the above code equivalent to this:
+{% highlight ruby %}
+browser.div(id: 'foo').wait_until { |element| element.present? } 
+{% endhighlight %}
+It's a powerful way to abbreviate unnecessarily long lines of code.
+There are plenty of tutorials and descriptions of Ruby's `#to_proc` methods
+if you'd like to learn more.
+<br><br>
+
+<span id="J">**What else is new?**</span><br>
     Take a look at the [changelog](https://github.com/watir/watir/blob/master/CHANGES.md)
     for all of the updates, but a list of new features:
 
 1. Collections do not go stale on DOM refresh
 2. Elements can be located with a visible filter
-3. Wait messages have gotten more specific
+3. Error messages include more specific details about elements that aren't found
 4. Watir automatically waits for elements to be ready before taking actions on them
-5. Additional form types can be accessed using text_field method
+5. The `text_field` method can now be used to locate most HTML5 inputs
