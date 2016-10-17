@@ -19,15 +19,15 @@ title: Watir 6 FAQ
 
 <span id="A">**What about watir-webdriver?**</span><br>
     All of the watir-webdriver code has been moved to the watir gem.
-    The future of Watir is using the w3c specification for automating
+    The future of Watir is using the W3C specification for automating
     browsers, and that means basing the active implementation of Watir 
     on Selenium.
 <br><br>
 
 <span id="B">**Why are my tests failing because of a chromedriver error?**</span><br>
     Due to the changes Mozilla has made recently, it makes more sense for
-    chrome to be the default browser.
-    [Download Chromedriver](http://chromedriver.storage.googleapis.com/index.html)
+    Chrome to be the default browser.
+    [Download ChromeDriver](http://chromedriver.storage.googleapis.com/index.html)
     and place it somewhere on your PATH. 
     [See here for more information](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver).
 <br><br>
