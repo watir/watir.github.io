@@ -9,7 +9,7 @@ title: Watir 6 FAQ
 * [Why are my tests failing because of a geckodriver error?](#C)
 * [Why are my Internet Explorer tests failing?](#D)
 * [Why am I getting warnings about #always_locate and/or #prefer_css?](#E)
-* [Why am I getting warnings about \#when_present and \#while_present being deprecated?](#F)
+* [Why am I getting warnings about \#when_present being deprecated?](#F)
 * [Why am I getting warnings about keywords versus arguments?](#G)
 * [Why are my tests taking so long?](#H)
 * [What is with this "&:" symbols in the wait documentation?](#I)
@@ -18,18 +18,18 @@ title: Watir 6 FAQ
 ### Answers
 
 <span id="A">**What about watir-webdriver?**</span><br>
-    All of the watir-webdriver code has been moved to the watir gem.
-    The future of Watir is using the w3c specification for automating
-    browsers, and that means basing the active implementation of Watir 
+    All of the watir-webdriver code has been moved into the watir gem.
+    The future of Watir is using the W3C specification for browser
+    automation, and that means basing the active implementation of Watir 
     on Selenium.
 <br><br>
 
 <span id="B">**Why are my tests failing because of a chromedriver error?**</span><br>
     Due to the changes Mozilla has made recently, it makes more sense for
-    chrome to be the default browser.
-    [Download Chromedriver](http://chromedriver.storage.googleapis.com/index.html)
+    Chrome to be the default browser.
+    [Download ChromeDriver](http://chromedriver.storage.googleapis.com/index.html)
     and place it somewhere on your PATH. 
-    [See here for more information](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver).
+    [See here for more information](https://sites.google.com/a/chromium.org/chromedriver/downloads).
 <br><br>
 
 <span id="C">**Why are my tests failing because of a geckodriver error?**</span><br>
@@ -43,7 +43,7 @@ title: Watir 6 FAQ
 <span id="D">**Why are my Internet Explorer tests failing?**</span><br>
     Watir now relies on the Selenium driver for Internet Explorer. If 
     you are having issues updating your tests to get them to pass, please 
-    [ask us for help](http://watir.github.io/help/)
+    [ask us for help](http://watir.github.io/help/).
 <br><br>
 
 <span id="E">**Why am I getting warnings about #always_locate and/or #prefer_css?**</span><br>
@@ -54,10 +54,11 @@ title: Watir 6 FAQ
 
 <span id="F">**Why am I getting warnings about #when_present being deprecated?**</span><br>
     Watir by default now automatically calls `#when_present` and
-    `#when_enabled` before taking actions on elements where appropriate,
-     so their use is redundant. If you have decided to change the
-     recommended settings to use `Watir.relaxed_locate = false`, then
-     you can just swap out from these:
+    `#when_enabled` before taking actions on elements as appropriate,
+     so their use is redundant. If you are using the default settings you can just
+      delete these methods from your tests. If you have decided to change away from the
+     recommended settings (by explicitly setting `Watir.relaxed_locate = false`), then
+     swap out from these:
      
 {% highlight ruby %}
 browser.element.when_present.click
@@ -73,8 +74,9 @@ browser.element.wait_until(&:enabled?).click
 <br><br>
 
 <span id="G">**Why am I getting warnings about keywords versus arguments?**</span><br>
-    #wait_until and #wait_while now take keyword arguments instead of
-    ordered parameters. Previously, you would do this:
+    In order to make it more explicit what the method is doing, `#wait_until` and 
+    `#wait_while` methods now accept keyword arguments, and the use of ordered parameters
+    is deprecated. Previously, you would do this:
     
 {% highlight ruby %}
 # Specify both parameters:
@@ -85,7 +87,7 @@ element.wait_until(5) { |el| el.present? }
 element.wait_until(nil, "Oops not not there") { |el| el.present? }
 {% endhighlight %}
 
-Whereas now you need to explicitly specify the timeout and the message keywords
+Whereas now you need to explicitly specify the timeout and/or the message keywords:
 
 {% highlight ruby %}
 # Specify both parameters:
