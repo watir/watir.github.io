@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Podcast Replay Episode 59 - SauceLabs
+title: Podcast Episode 59 - SauceLabs
 date: 2016-09-23
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
