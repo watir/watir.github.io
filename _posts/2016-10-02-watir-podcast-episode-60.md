@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Podcast Replay Episode 60 - Tales of Starting a Watir Project
+title: Podcast Episode 60 - Tales of Starting a Watir Project
 date: 2016-10-02
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com

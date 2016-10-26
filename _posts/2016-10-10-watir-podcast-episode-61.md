@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Podcast Replay Episode 61 - WatirSome Page Objects
+title: Podcast Episode 61 - WatirSome Page Objects
 date: 2016-10-10
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
@@ -8,7 +8,7 @@ comments: true
 categories: [Podcast]
 ---
 
-Welcome to the Watir Podcast. In this week's episode, code monkey Alex Radionov of the Watir Team tells us about the page object gem he created called WatirSome.
+Welcome to the Watir Podcast. In this week's episode, code monkey Alex Rodionov of the Watir Team tells us about the page object gem he created called WatirSome.
 
 You can listen to this podcast at [SoundCloud](https://soundcloud.com/the-watir-podcast/episode-61-watirsome).
 
