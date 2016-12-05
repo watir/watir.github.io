@@ -3,7 +3,7 @@ layout: page
 title: Companies Using Watir
 ---
 
-#### Some Watir users include (in alphabetical order):
+#### Companies who use or who have used Watir (in alphabetical order):
 
 <div style="text-align: center">
     <p><a href="https://3qilabs.com/"><img src="/images/companies/3qilabs.png" height="51"></a></p>
@@ -13,6 +13,7 @@ title: Companies Using Watir
     <p><a href="https://www.homeaway.com/"><img src="/images/companies/homeaway.png" height="51"></a></p>
     <p><a href="https://www.honest.com/"><img src="/images/companies/honest.png" height="75"></a></p>
     <p><a href="https://www.munchery.com/"><img src="/images/companies/munchery.png" height="75"></a></p>
+    <p><a href="https://www.eoriginal.com/"><img src="/images/companies/eoriginal.png" height="51"></a></p>
     <p><a href="https://recurly.com/"><img src="/images/companies/recurly.jpg" height="51"></a></p>
     <p><a href="https://slack.com/"><img src="/images/companies/slack.png" height="51"></a></p>
     <p><a href="https://www.spiceworks.com/"><img src="/images/companies/spiceworks.png" height="51"></a></p>
