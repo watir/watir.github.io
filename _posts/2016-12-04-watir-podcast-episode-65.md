@@ -26,9 +26,9 @@ Book: [Cucumber & Cheeze](https://leanpub.com/cucumber_and_cheese)
 Conference: [Agile Days in Potsdam](http://www.agiletestingdays.com/program-2016/)
 
 
-You can listen to this podcast at [SoundCloud](https://soundcloud.com/the-watir-podcast/episode-65).
+You can listen to this podcast at [SoundCloud](https://soundcloud.com/the-watir-podcast/episode-65-cheezy-returns).
 <!--more-->
-Please give feedback on this podcast on [SoundCloud](https://soundcloud.com/the-watir-podcast/episode-65), as well as what you would like to hear about on future Watir Podcasts.
+Please give feedback on this podcast on [SoundCloud](https://soundcloud.com/the-watir-podcast/episode-65-cheezy-returns), as well as what you would like to hear about on future Watir Podcasts.
 
 You can subscribe to [The Watir Podcast feed](http://feeds.soundcloud.com/users/soundcloud:users:248873479/sounds.rss).
 
