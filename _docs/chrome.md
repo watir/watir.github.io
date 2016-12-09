@@ -27,7 +27,7 @@ b = Watir::Browser.new :chrome, :prefs => prefs
 {% highlight ruby %}
 b = Watir::Browser.new :chrome, :switches => %w[--ignore-certificate-errors --disable-popup-blocking --disable-translate]
 {% endhighlight %}
-See the full list of switches [here](http://src.chromium.org/svn/trunk/src/chrome/common/pref_names.cc)
+See the full list of switches [here](https://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/pref_names.cc)
 
 
 ### Using a proxy with Chrome
