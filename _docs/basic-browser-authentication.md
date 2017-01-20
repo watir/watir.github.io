@@ -7,7 +7,7 @@ permalink: /docs/basic-browser-authentication/
 The easiest and most elegant way to handle [basic browser authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) is to supply the username and password in the URL, bypassing the dialog altogether.
 
 {% highlight ruby %}
-require 'watir-webdriver'
+require 'watir'
 b = Watir::Browser.start 'http://admin:password@yourwebsite.com'
 {% endhighlight %}
 
