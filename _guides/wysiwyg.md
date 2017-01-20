@@ -5,7 +5,7 @@ permalink: /guides/wysiwyg/
 redirect_from: /docs/wysiwyg/
 ---
 
-There are two ways to enter text into a WYSIWYG editor using Watir-WebDriver:
+There are two ways to enter text into a WYSIWYG editor using Watir:
 
 * Locate the iFrame, and use .send_keys to enter text (downside is browser must be in the foreground)
 * Execute javascript on the browser object that sets the value of the WYSIWYG editor (most reliable method)

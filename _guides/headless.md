@@ -5,7 +5,7 @@ permalink: /guides/headless/
 redirect_from: /docs/headless/
 ---
 
-The headless gem is a ruby wrapper for Xvfb that makes it super easy to run graphical applications (such as real web browsers) on a headless Linux machine. This gem is perfect for running headless Watir-WebDriver tests using a real browser.
+The headless gem is a ruby wrapper for Xvfb that makes it super easy to run graphical applications (such as real web browsers) on a headless Linux machine. This gem is perfect for running headless Watir tests using a real browser.
 
 ### An Example
 
