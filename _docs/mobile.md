@@ -15,9 +15,9 @@ Running against real and emulated devices (either iOS or Android) is both costly
 A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. This is extremely easy to do with the webdriver-user-agent gem:
 
 {% highlight ruby %}
-require 'watir-webdriver'
+require 'watir'
 require 'webdriver-user-agent'
-driver = Webdriver::UserAgent.driver(:browser => :chrome, :agent => :iphone, :orientation => :landscape)
+driver = Webdriver::UserAgent.driver(browser: :chrome, agent: :iphone, orientation: :landscape)
 browser = Watir::Browser.new driver
 browser.goto 'tiffany.com'
 browser.url.should == 'http://m.tiffany.com/International.aspx'

@@ -36,7 +36,7 @@ browser.alert.close
 
 {% highlight ruby %}
 # Enter text to prompt
-browser.alert.set "Prompt answer"
+browser.alert.set 'Prompt answer'
 
 # Accept prompt
 browser.alert.ok
@@ -51,20 +51,20 @@ If you’re having trouble using the above method, you can override the JavaScri
 
 {% highlight ruby %}
 # don't return anything for alert
-browser.execute_script("window.alert = function() {}")
+browser.execute_script('window.alert = function() {}')
 
 # return some string for prompt to simulate user entering it
 browser.execute_script("window.prompt = function() {return 'my name'}")
 
 # return null for prompt to simulate clicking Cancel
-browser.execute_script("window.prompt = function() {return null}")
+browser.execute_script('window.prompt = function() {return null}')
 
 # return true for confirm to simulate clicking OK
-browser.execute_script("window.confirm = function() {return true}")
+browser.execute_script('window.confirm = function() {return true}')
 
 # return false for confirm to simulate clicking Cancel
-browser.execute_script("window.confirm = function() {return false}")
+browser.execute_script('window.confirm = function() {return false}')
 
 # don't return anything for leave page popup
-browser.execute_script("window.onbeforeunload = null")
+browser.execute_script('window.onbeforeunload = null')
 {% endhighlight %}

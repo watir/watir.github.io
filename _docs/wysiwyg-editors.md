@@ -12,19 +12,19 @@ There are two ways to enter text into a WYSIWYG editor using Watir-WebDriver:
 ### CKEditor
 
 {% highlight ruby %}
-require 'watir-webdriver'
+require 'watir'
 b = Watir::Browser.new :firefox
 b.goto 'http://ckeditor.com/demo'
 b.execute_script("CKEDITOR.instances['editor1'].setData('hello world');")
-b.frame(:title => 'Rich text editor, editor1, press ALT 0 for help.').send_keys 'hello world again'
+b.frame(title: 'Rich text editor, editor1, press ALT 0 for help.').send_keys 'hello world again'
 {% endhighlight %}
 
 ### TinyMCE Editor
 
 {% highlight ruby %}
-require 'watir-webdriver'
+require 'watir'
 b = Watir::Browser.new
 b.goto 'http://tinymce.moxiecode.com/tryit/full.php'
 b.execute_script("tinyMCE.get('content').execCommand('mceSetContent',false, 'hello world' );")
-b.frame(:id => "content_ifr").send_keys 'hello world again
+b.frame(id: 'content_ifr').send_keys 'hello world again'
 {% endhighlight %}
