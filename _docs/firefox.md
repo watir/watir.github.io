@@ -46,7 +46,7 @@ Watir::Browser.new :firefox, profile: profile
 {% endhighlight %}
 
 
-### Using Firebug with Watir-WebDriver
+### Using Firebug with Watir
 
 First download the Firebug xpi file, then use the following code:
 

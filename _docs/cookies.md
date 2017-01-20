@@ -4,7 +4,7 @@ title: Cookies
 permalink: /docs/cookies/
 ---
 
-There is a cookie API in Watir-WebDriver 0.5.2 onwards, that is easy to use.
+There is a cookie API in Watir 0.5.2 onwards, that is easy to use.
 
 {% highlight ruby %}
 require 'watir'

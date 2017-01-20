@@ -4,7 +4,7 @@ title: Mobile Devices
 permalink: /docs/mobile/
 ---
 
-There are three options for using watir-webdriver to test mobile sites:
+There are three options for using Watir to test mobile sites:
 
 * Running tests against an embedded browser on a real device;
 * Running tests against an embedded browser on a device emulator on a desktop machine; or

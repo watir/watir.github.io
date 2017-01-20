@@ -4,7 +4,7 @@ title: Screenshots
 permalink: /docs/screenshots/
 ---
 
-Watir-WebDriver has a pretty awesome screenshot capability, built right in.
+Watir has a pretty awesome screenshot capability, built right in.
 
 {% highlight ruby %}
 # Save screenshot to file

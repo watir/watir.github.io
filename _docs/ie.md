@@ -14,4 +14,4 @@ b = Watir::Browser.new :ie
 
 ###Internet Explorer Config
 
-Watir-WebDriver uses your standard IE settings and config, so you should manually adjust IE to how you want it before running your tests, which will pick up these settings.
+Watir uses your standard IE settings and config, so you should manually adjust IE to how you want it before running your tests, which will pick up these settings.

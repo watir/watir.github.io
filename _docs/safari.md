@@ -4,7 +4,7 @@ title: Safari
 permalink: /docs/safari/
 ---
 
-Watir-WebDriver supports Safari thanks to the release of [SafariDriver](http://code.google.com/p/selenium/wiki/SafariDriver).
+Watir supports Safari thanks to the release of [SafariDriver](http://code.google.com/p/selenium/wiki/SafariDriver).
 
 The downside is the set up is quite lengthy at the moment as it requires a Safari extension (version 5+) and until someone publishes the extension to the online gallery, you’ll have to build it yourself.
 
@@ -34,7 +34,7 @@ cd selenium
     $SELENIUM_CHECKOUT_LOCATION/build/javascript/safari-driver/SafariDriver.safariextension
     {% endhighlight %}
 
-### Using Safari with Watir-WebDriver
+### Using Safari with Watir
 
 It’s exactly the same as any other browser:
 

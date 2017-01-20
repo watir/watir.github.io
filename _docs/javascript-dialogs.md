@@ -6,7 +6,7 @@ permalink: /docs/javascript-dialogs/
 
 JavaScript dialogs are fairly common in web applications.
 
-Watir-WebDriver has an inbuilt library for handling the dialogs, and capturing values from the dialogs.
+Watir has an inbuilt library for handling the dialogs, and capturing values from the dialogs.
 
 ### Javascript Alerts
 
