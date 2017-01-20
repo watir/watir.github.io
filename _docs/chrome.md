@@ -14,23 +14,24 @@ b = Watir::Browser.new :chrome
 ### Chrome Preferences
 {% highlight ruby %}
 prefs = {
-  :download => {
-    :prompt_for_download => false,
-    :default_directory => "/path/to/dir"
+  download: {
+    prompt_for_download: false,
+    default_directory: '/path/to/dir'
   }
 }
 
-b = Watir::Browser.new :chrome, :prefs => prefs
+b = Watir::Browser.new :chrome, prefs: prefs
 {% endhighlight %}
 
 ### Chrome Switches
 {% highlight ruby %}
-b = Watir::Browser.new :chrome, :switches => %w[--ignore-certificate-errors --disable-popup-blocking --disable-translate]
+b = Watir::Browser.new :chrome,
+                       switches: %w(--ignore-certificate-errors --disable-popup-blocking --disable-translate)
 {% endhighlight %}
 See the full list of switches [here](https://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/pref_names.cc)
 
 
 ### Using a proxy with Chrome
 {% highlight ruby %}
-b = Watir::Browser.new :chrome, :switches => %w[--proxy-server=myproxy.com:8080]
+b = Watir::Browser.new :chrome, switches: %w(--proxy-server=myproxy.com:8080)
 {% endhighlight %}
