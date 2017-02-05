@@ -39,7 +39,7 @@ cd selenium
 It’s exactly the same as any other browser:
 
 {% highlight ruby %}
-require 'watir-webdriver'
+require 'watir'
 b = Watir::Browser.new :safari
 {% endhighlight %}
 

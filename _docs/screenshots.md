@@ -22,7 +22,7 @@ The great thing about this is it gives you a screen shot of the entire page, not
 If you’re using Cucumber also, you can easily embed this in your html report output by adding the following to your env.rb file:
 
 {% highlight ruby %}
-After do |scenario|
+After do |_scenario|
   browser.screenshot.save 'screenshot.png'
   embed 'screenshot.png', 'image/png'
 end

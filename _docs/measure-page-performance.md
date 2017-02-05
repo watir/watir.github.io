@@ -7,14 +7,14 @@ permalink: /docs/measure-page-performance/
 The [Watir-WebDriver-Performance gem](http://rubygems.org/gems/watir-webdriver-performance) aims to provide a set of navigation timing metrics for Watir-WebDriver actions using a [W3C page performance standard](http://w3c-test.org/webperf/specs/NavigationTiming/). This is a perfect solution to capture response time metrics, and it’s very straightforward to do but currently only works in Chrome and IE9l, so there’s no Firefox support.
 
 {% highlight ruby %}
-require 'watir-webdriver'
+require 'watir'
 require 'watir-webdriver-performance'
 
 b = Watir::Browser.new :chrome
 
 10.times do
   b.goto 'http://watir.com'
-  load_secs = b.performance.summary[:response_time]/1000
+  load_secs = b.performance.summary[:response_time] / 1000
   puts "Load Time: #{load_secs} seconds."
 end
 {% endhighlight %}

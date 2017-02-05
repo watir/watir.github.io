@@ -7,8 +7,8 @@ permalink: /docs/browser-popups/
 When a new browser window is opened, you can then ‘use’ the new window.
 
 {% highlight ruby %}
-browser.window(:title => "annoying popup").use do
-  browser.button(:id => "close").click
+browser.window(title: 'annoying popup').use do
+  browser.button(id: 'close').click
 end
 {% endhighlight %}
 

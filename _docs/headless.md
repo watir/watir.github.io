@@ -9,7 +9,7 @@ The headless gem is a ruby wrapper for Xvfb that makes it super easy to run grap
 ### An Example
 
 {% highlight ruby %}
-require 'watir-webdriver'
+require 'watir'
 require 'headless'
 headless = Headless.new
 headless.start

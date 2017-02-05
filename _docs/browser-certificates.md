@@ -13,7 +13,7 @@ If you have a trusted certificate, but there is some other certificate error suc
 {% highlight ruby %}
 profile = Selenium::WebDriver::Firefox::Profile.new
 profile.assume_untrusted_certificate_issuer = false
-b = Watir::Browser.new :firefox, :profile => profile
+b = Watir::Browser.new :firefox, profile: profile
 {% endhighlight %}
 
 The reason this is needed is explained [here](https://github.com/SeleniumHQ/selenium/wiki/Untrusted-SSL-Certificates#implementation-details).
