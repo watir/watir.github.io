@@ -10,6 +10,8 @@ categories: [Blogs]
 I have recently written [an introduction](https://binarapps.com/blog/browser-automation-with-watir-guide)
 to Watir for testers who have hardly any experience with test automation.
 
+<!--more-->
+
 The post covers everything necessary to get started - 
 covering both fundamentals (the testing pyramid and choosing the right test cases for automation)
 and technical details - Watir setup and most important methods.
