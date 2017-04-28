@@ -13,7 +13,7 @@ to Watir for testers who have hardly any experience with test automation.
 <!--more-->
 
 The post covers everything necessary to get started - 
-covering both fundamentals (the testing pyramid and choosing the right test cases for automation)
+including both fundamentals (the testing pyramid and choosing the right test cases for automation)
 and technical details - Watir setup and most important methods.
 
 I hope it will be helpful in introducing people to an awesome tool that Watir really is.
