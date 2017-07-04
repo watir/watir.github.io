@@ -35,3 +35,10 @@ See the full list of switches [here](https://src.chromium.org/viewvc/chrome/trun
 {% highlight ruby %}
 b = Watir::Browser.new :chrome, switches: %w(--proxy-server=myproxy.com:8080)
 {% endhighlight %}
+
+
+### Using chrome on Heroku
+
+You can drive the chrome browser on heroku with a cedar-14 stack.  Check out this sample repo for more information on how to do this:
+
+https://github.com/jormon/minimal-chrome-on-heroku-xvfb
