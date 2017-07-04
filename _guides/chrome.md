@@ -64,3 +64,11 @@ See the full list of options [here](https://sites.google.com/a/chromium.org/chro
 {% highlight ruby %}
 b = Watir::Browser.new :chrome, options: {options: {detach: true}}
 {% endhighlight %}
+
+### Using chrome on Heroku
+
+You can drive the chrome browser on heroku with a cedar-14 stack.  Check out this sample repo for more information on how to do this:
+https://github.com/jormon/minimal-chrome-on-heroku-xvfb
+
+You can also run using a headless chrome on the heroku-16 stack.  Here's an example of that working: 
+https://github.com/jormon/minimal-chrome-on-heroku
