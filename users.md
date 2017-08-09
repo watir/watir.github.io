@@ -20,6 +20,7 @@ title: Companies Using Watir
     <p><a href="https://www.toptal.com/"><img src="/images/companies/toptal.jpg" height="51"></a></p>
     <p><a href="https://www.wikimedia.org/"><img src="/images/companies/wikimedia.png" height="75"></a></p>
     <p><a href="https://www.yahoo.com/"><img src="/images/companies/yahoo.gif" height="51"></a></p>
+    <p><a href="https://www.typeform.com/"><img src="/images/companies/typeform.png" height="51"></a></p>
 </div>
 
 If you would like to add your company to the list send us a logo, link to the home page and (if possible) a link to the page that says you are using Watir.
