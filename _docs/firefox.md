@@ -6,7 +6,7 @@ permalink: /docs/firefox/
 
 ### It Just Works™
 
-Firefox is supported through a JavaScript driver, therefore ‘it just works™’ on all platforms.
+Firefox is supported through a JavaScript driver, therefore ‘it just works™’ on all platforms provided you've installed [https://github.com/mozilla/geckodriver/releases](geckodriver).
 
 {% highlight ruby %}
 b = Watir::Browser.new :firefox
