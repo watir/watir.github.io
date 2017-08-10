@@ -6,7 +6,7 @@ permalink: /docs/safari/
 
 ### SafariDriver
 
-To use Safari, ensure you're [using the appropriate driver](../docs/drivers)
+To use Safari, ensure you're [using the appropriate driver](../drivers)
 
 * safaridriver requires using Safari 10 on either El Capitan or Sierra.
 

@@ -64,7 +64,7 @@ a grid with a server acting as a "hub" on one computer, and a server acting as a
 each major browser vendor (Google, Microsoft, Apple, and Mozilla) has committed to 
 implementing their own driver for their respective browser. The driver is an executable
 file that lives on the same machine as the browser that is being automated. Read the 
-[Drivers documentation](../docs/drivers) to see how to download and store the driver so that
+[Drivers documentation](../drivers) to see how to download and store the driver so that
 Selenium can find and use it. The driver accepts the standardized information from Selenium 
 code and translates it into code needed by the particular browser to take the action specified.
 

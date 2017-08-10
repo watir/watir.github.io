@@ -89,4 +89,4 @@ s.text
 
 ### WYSIWYG Editors
 
-See: [WYSIWYG Editors](../wysiwyg-editors) page
+See: [WYSIWYG Editors](../wysiwyg) page

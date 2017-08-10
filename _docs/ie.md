@@ -6,7 +6,7 @@ permalink: /docs/ie/
 
 ### IEDriverServer
 
-To use Internet Explorer, ensure you're [using the appropriate driver](../docs/drivers).
+To use Internet Explorer, ensure you're [using the appropriate driver](../drivers).
 Note that for technical reasons it is recommended to *always* use the 32 bit version of the driver,
 regardless of your operating system.
 

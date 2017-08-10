@@ -6,7 +6,7 @@ permalink: /docs/chrome/
 
 ### ChromeDriver
 
-To use Chrome, ensure you're [using the appropriate driver](../docs/drivers)
+To use Chrome, ensure you're [using the appropriate driver](../drivers)
 
 ### Starting Chrome
 

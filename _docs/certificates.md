@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Browser Certificates
-permalink: /docs/browser-certificates/
+permalink: /docs/certificates/
 ---
 
 ### Firefox

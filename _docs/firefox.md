@@ -6,7 +6,7 @@ permalink: /docs/firefox/
 
 ### GeckoDriver
 
-To use Firefox, ensure you're [using the appropriate driver](../docs/drivers)
+To use Firefox, ensure you're [using the appropriate driver](../drivers)
 Geckodriver is attempting to be 100% compliant with the soon to be released
 [W3C WebDriver Specification](https://w3c.github.io/webdriver/webdriver-spec.html),
 so it is not yet feature complete. It is recommended that you use the latest browser 

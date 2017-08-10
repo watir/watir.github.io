@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Browser Popups
-permalink: /docs/browser-popups/
+permalink: /docs/windows/
 ---
 
 When a new browser window is opened, you can then ‘use’ the new window.

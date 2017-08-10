@@ -6,7 +6,7 @@ permalink: /docs/session/
 
 ### Opening a Browser
 
-Once you've [installed Watir](../docs/installation), and your [desired drivers](../docs/drivers),
+Once you've [installed Watir](../installation), and your [desired drivers](../drivers),
 and have an open irb session, you can try out opening a browser with:
 
 {% highlight ruby %}

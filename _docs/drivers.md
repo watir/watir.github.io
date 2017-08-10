@@ -4,7 +4,7 @@ title: Drivers
 permalink: /docs/drivers/
 ---
 
-As described in the [Automation Pipeline](../docs/overview) document, a driver
+As described in the [Automation Pipeline](../overview) document, a driver
 must be present on the same machine as the browser you are automating.
 
 If you are running locally, you can use the [webdrivers gem](https://github.com/titusfortner/webdrivers)

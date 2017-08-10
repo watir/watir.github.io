@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Browser Downloads
-permalink: /docs/browser-downloads/
+permalink: /docs/downloads/
 ---
 
 The easiest and best way of dealing with file downloads is to avoid the pesky file download dialogs altogether.

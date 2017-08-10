@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Browser Proxies
-permalink: /docs/browser-proxies/
+permalink: /docs/proxies/
 ---
 
 ### Example: setting a http and https proxy for Firefox

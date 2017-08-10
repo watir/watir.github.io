@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Microsoft Edge
-permalink: /docs/safari/
+permalink: /docs/edge/
 ---
 
 ### Microsoft WebDriver
 
-To use Edge, ensure you're [using the appropriate driver](../docs/drivers)
+To use Edge, ensure you're [using the appropriate driver](../drivers)
 
 * Microsoft's WebDriver is still under active development, so there are a number of
 things that aren't implemented relative to what is available on other browsers.
