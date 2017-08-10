@@ -6,12 +6,38 @@ permalink: /docs/chrome/
 
 ### ChromeDriver
 
-Chrome support is through the platform specific ChromeDriver binary, which you [download](https://sites.google.com/a/chromium.org/chromedriver/downloads) and put on your path.
+To use Chrome, ensure you're [using the appropriate driver](../docs/drivers)
+
+### Starting Chrome
+
 {% highlight ruby %}
-b = Watir::Browser.new :chrome
+b = Watir::Browser.new
 {% endhighlight %}
 
-### Chrome Preferences
+
+### Headless
+Chrome has a new headless feature that can be accessed directly with: 
+
+`Watir::Browser.new :chrome, headless: true`
+
+It is still under active development so not all features work yet (alerts, window
+switching, etc)
+
+### Chrome Options
+
+The options hash can be created with the following parameters:
+
+* :args - an Array of command-line arguments to use when starting Chrome
+* :binary - a String representing the Path to the Chrome Browser executable to use
+* :prefs - a Hash with each entry consisting of the name of the preference and its value
+* :extensions - an Array of Strings listing the paths to (.crx) Chrome extensions to install on startup
+* :options - a Hash for raw options
+* :emulation -  A Hash for raw emulation options
+
+
+### Preferences
+Information on configuring preferences can be found [here](https://www.chromium.org/administrators/configuring-other-preferences)
+
 {% highlight ruby %}
 prefs = {
   download: {
@@ -20,18 +46,20 @@ prefs = {
   }
 }
 
-b = Watir::Browser.new :chrome, prefs: prefs
+b = Watir::Browser.new :chrome, options: {prefs: prefs}
 {% endhighlight %}
 
-### Chrome Switches
+### Switches
+See the full list of switches [here](https://peter.sh/experiments/chromium-command-line-switches/)
+
 {% highlight ruby %}
-b = Watir::Browser.new :chrome,
-                       switches: %w(--ignore-certificate-errors --disable-popup-blocking --disable-translate)
+args = ['--ignore-certificate-errors', '--disable-popup-blocking', '--disable-translate']
+b = Watir::Browser.new :chrome, options: {args: args}
 {% endhighlight %}
-See the full list of switches [here](https://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/pref_names.cc)
 
+### Raw Options
+See the full list of options [here](https://sites.google.com/a/chromium.org/chromedriver/capabilities#TOC-chromeOptions-object)
 
-### Using a proxy with Chrome
 {% highlight ruby %}
-b = Watir::Browser.new :chrome, switches: %w(--proxy-server=myproxy.com:8080)
+b = Watir::Browser.new :chrome, options: {options: {detach: true}}
 {% endhighlight %}

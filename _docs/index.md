@@ -1,30 +1,39 @@
 ---
 layout: page
 title: Documentation
-permalink: docs/home
+permalink: docs/index.html
 ---
-### Browsers
+### Getting Started
+* [Installing Ruby](../docs/ruby)
+* [Installing Watir](../docs/installation)
+* [Automation Pipeline](../docs/overview)
+* [Installing Drivers](../docs/drivers)
+* [Starting a Session](../docs/session)
+
+### Working with Different Browsers
 * [Chrome](../docs/chrome)
 * [Firefox](../docs/firefox)
-* [Headless](../docs/headless)
 * [Internet Explorer](../docs/ie)
-* [Mobile Site & Device Testing](../docs/mobile)
 * [Safari](../docs/safari)
+* [Edge](../docs/edge)
 
-### Browser Elements
-* [Elements](../docs/elements)
+### Working With Elements
+* [Supported Elements](../docs/elements)
+* [Locating elements](../docs/locating)
 * [Frames](../docs/frames)
-* [Waiting](../docs/waiting)
 
 ### Advanced Interactions
+* [Waiting](../docs/waiting)
+* [Headless](../docs/headless)
+* [Mobile Site & Device Testing](../docs/mobile)
 * [Basic Browser Authentication](../docs/basic-browser-authentication)
 * [Browser Certificates](../docs/browser-certificates)
 * [Browser Downloads](../docs/browser-downloads)
-* [Browser Popups](../docs/browser-popups)
+* [Browser Windows](../docs/windows)
 * [Browser Proxies](../docs/browser-proxies)
 * [Cookies](../docs/cookies)
 * [Determining Browser](../docs/determining-browser)
-* [Javascript Dialogs](../docs/javascript-dialogs)
+* [Alerts](../docs/alerts)
 * [Measure Page Performance](../docs/measure-page-performance)
 * [Page Objects](../docs/page-objects)
 * [Screenshots](../docs/screenshots)

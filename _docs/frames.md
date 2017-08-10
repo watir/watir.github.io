@@ -4,8 +4,12 @@ title: Frames
 permalink: /docs/frames/
 ---
 
-Frames are fairly easy to deal with in Watir-WebDriver, just use them the same way as any other element.
+Browser Context switching is handled for you in Watir.
+The only requirement is that when defining an element, it must include any iframes
+it is nested inside.
 
 {% highlight ruby %}
-b.frame(id: 'content_ifr').send_keys 'hello world'
+b.iframe(id: 'outside').iframe(id: 'inside').div.text
+b.iframe(id: 'second').text_field.set 'foo"
+b.iframe(id: 'outside').button.click
 {% endhighlight %}
