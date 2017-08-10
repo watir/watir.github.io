@@ -10,7 +10,7 @@ categories: [Blogs]
 
 [Documentation](/docs) for [Getting Started](/docs#getting-started), 
  [Working with Different Browsers](/docs#working-with-different-browsers),
- and [Working with Elements](working-with-elements) has been updated. 
+ and [Working with Elements](/docs#working-with-elements) has been updated. 
  Please help review the information there or help us with updates on the
  remaining pages.
 
