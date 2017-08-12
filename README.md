@@ -4,7 +4,7 @@ Watir.com is generated from the code in this repository using [Jekyll](https://g
 
 ### Contributing
 Please help us keep our examples and tutorials up to date. 
-Each article can be found in the `_docs` directory
+These articles can be found in the `_articles` directory
 
 Do you have Watir specific information you'd like to share?
 Create a post in the `_posts` directory

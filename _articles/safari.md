@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Safari
-permalink: /docs/safari/
+permalink: /articles/safari/
+redirect_from: /docs/safari/
 ---
 
 ### SafariDriver

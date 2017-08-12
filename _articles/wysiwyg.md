@@ -1,7 +1,8 @@
 ---
 layout: page
 title: WYSIWYG Editors
-permalink: /docs/wysiwyg/
+permalink: /articles/wysiwyg/
+redirect_from: /docs/wysiwyg/
 ---
 
 There are two ways to enter text into a WYSIWYG editor using Watir-WebDriver:

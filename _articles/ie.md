@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Internet Explorer
-permalink: /docs/ie/
+permalink: /articles/ie/
+redirect_from: /docs/ie/
 ---
 
 ### IEDriverServer

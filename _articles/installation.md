@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Installing Watir
-permalink: /docs/installation/
+permalink: /articles/installation/
+redirect_from: /docs/installation/
 ---
 
 Once you have [installed Ruby](../ruby), installing and using Watir is easy.

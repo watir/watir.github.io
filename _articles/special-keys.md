@@ -1,7 +1,9 @@
 ---
 layout: page
-title: Send Special Keys
-permalink: /docs/sending-special-keys/
+title: Sending Special Keys
+permalink: /articles/special-keys/
+redirect_from: 
+ - /docs/sending-special-keys/
 ---
 
 To send special keys to an element or browser page, you use the .send_keys method, with a symbolic representation of what you would like to send.

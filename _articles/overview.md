@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Automation Pipeline
-permalink: /docs/overview/
+permalink: /articles/overview/
+redirect_from: /docs/overview/
 ---
 
 Watir is a user focused way to test your websites. It mostly uses Selenium for

@@ -8,6 +8,6 @@ active: false
 ---
 
 Documentation at 
-<a href="http://watir.com/docs/home">Watir website</a>
+<a href="http://watir.com/articles/home">Watir website</a>
 Support sheriff at
 <a href="http://stackoverflow.com/tags/watir">Stack Overflow</a>

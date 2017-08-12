@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Waiting
-permalink: /docs/waiting/
+permalink: /articles/waiting/
+redirect_from: /docs/waiting/
 ---
 
 Waiting is usually problematic when you have dynamic web interfaces, eg. web sites that have lots of AJAX.

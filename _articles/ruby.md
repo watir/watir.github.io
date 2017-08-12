@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Installing Ruby
-permalink: /docs/ruby/
+permalink: /articles/ruby/
+redirect_from: /docs/ruby/
 ---
 
 ### Windows

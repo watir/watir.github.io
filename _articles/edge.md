@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Microsoft Edge
-permalink: /docs/edge/
+permalink: /articles/edge/
+redirect_from: /docs/edge/
 ---
 
 ### Microsoft WebDriver

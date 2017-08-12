@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Mobile Devices
-permalink: /docs/mobile/
+permalink: /articles/mobile/
+redirect_from: /docs/mobile/
 ---
 
 There are three options for using watir-webdriver to test mobile sites:

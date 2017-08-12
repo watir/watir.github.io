@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Web Elements
-permalink: /docs/elements/
+permalink: /articles/elements/
+redirect_from: /docs/elements/
 ---
 
 Watir automatically generates classes and methods for all HTML5.1 and SVG2 supported elements and 

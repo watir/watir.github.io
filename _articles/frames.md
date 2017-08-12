@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Frames
-permalink: /docs/frames/
+permalink: /articles/frames/
+redirect_from: /docs/frames/
 ---
 
 Browser Context switching is handled for you in Watir.

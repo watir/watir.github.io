@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Locating Elements
-permalink: /docs/locating/
+permalink: /articles/locating/
+redirect_from: /docs/locating/
 ---
 
 One of the biggest features of Watir is all of the ways it allows you to locate elements.

@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Screenshots
-permalink: /docs/screenshots/
+permalink: /articles/screenshots/
+redirect_from: /docs/screenshots/
 ---
 
 Watir-WebDriver has a pretty awesome screenshot capability, built right in.

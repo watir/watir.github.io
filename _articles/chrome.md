@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Chrome
-permalink: /docs/chrome/
+permalink: /articles/chrome/
+redirect_from: /docs/chrome/
 ---
 
 ### ChromeDriver

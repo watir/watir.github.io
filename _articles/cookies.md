@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Cookies
-permalink: /docs/cookies/
+permalink: /articles/cookies/
+redirect_from: /docs/cookies/
 ---
 
 There is a cookie API in Watir-WebDriver 0.5.2 onwards, that is easy to use.

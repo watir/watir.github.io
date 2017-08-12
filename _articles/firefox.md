@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Firefox
-permalink: /docs/firefox/
+permalink: /articles/firefox/
+redirect_from: /docs/firefox/
 ---
 
 ### GeckoDriver

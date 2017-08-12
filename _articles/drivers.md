@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Drivers
-permalink: /docs/drivers/
+permalink: /articles/drivers/
+redirect_from: /docs/drivers/
 ---
 
 As described in the [Automation Pipeline](../overview) document, a driver

@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Starting a Session
-permalink: /docs/session/
+permalink: /articles/session/
+redirect_from: /docs/session/
 ---
 
 ### Opening a Browser

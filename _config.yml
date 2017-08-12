@@ -21,8 +21,11 @@ avatar: https://upload.wikimedia.org/wikipedia/commons/7/7e/Watir.gif
 collections:
   contributors:
     foo: bar
-  docs:
+  articles:
     output: true
+
+gems:
+  - jekyll-redirect-from
 
 # Includes an icon in the footer for each username you enter
 footer-links:

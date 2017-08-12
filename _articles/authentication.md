@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Basic Browser Authentication
-permalink: /docs/authentication/
+permalink: /articles/authentication/
+redirect_from: /docs/authentication/
 ---
 
 The easiest and most elegant way to handle [basic browser authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) is to supply the username and password in the URL, bypassing the dialog altogether.
