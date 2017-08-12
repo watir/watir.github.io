@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Automation Pipeline
 permalink: /articles/overview/
 redirect_from: /docs/overview/

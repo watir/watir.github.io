@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Browser Certificates
 permalink: /articles/certificates/
 redirect_from: /docs/certificates/

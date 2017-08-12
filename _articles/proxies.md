@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Browser Proxies
 permalink: /articles/proxies/
 redirect_from: /docs/proxies/

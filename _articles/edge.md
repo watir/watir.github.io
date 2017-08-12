@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Microsoft Edge
 permalink: /articles/edge/
 redirect_from: /docs/edge/

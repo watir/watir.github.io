@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Browser Popups
 permalink: /articles/windows/
 redirect_from: /docs/windows/

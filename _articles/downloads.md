@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Browser Downloads
 permalink: /articles/downloads/
 redirect_from: /docs/downloads/

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Mobile Devices
 permalink: /articles/mobile/
 redirect_from: /docs/mobile/

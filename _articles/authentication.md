@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Basic Browser Authentication
 permalink: /articles/authentication/
 redirect_from: /docs/authentication/

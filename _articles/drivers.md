@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Drivers
 permalink: /articles/drivers/
 redirect_from: /docs/drivers/

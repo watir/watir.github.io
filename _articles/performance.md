@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Measure Page Performance
 permalink: /articles/performance/
 redirect_from: /docs/performance/

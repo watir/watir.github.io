@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: WYSIWYG Editors
 permalink: /articles/wysiwyg/
 redirect_from: /docs/wysiwyg/

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Starting a Session
 permalink: /articles/session/
 redirect_from: /docs/session/

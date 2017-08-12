@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Installing Watir
 permalink: /articles/installation/
 redirect_from: /docs/installation/

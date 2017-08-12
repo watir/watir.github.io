@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Waiting
 permalink: /articles/waiting/
 redirect_from: /docs/waiting/

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Sending Special Keys
 permalink: /articles/special-keys/
 redirect_from: 

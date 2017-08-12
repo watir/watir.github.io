@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Technical Articles
 permalink: articles/index.html
 redirect_from: docs/index.html

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Locating Elements
 permalink: /articles/locating/
 redirect_from: /docs/locating/

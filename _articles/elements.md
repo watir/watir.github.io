@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Web Elements
 permalink: /articles/elements/
 redirect_from: /docs/elements/

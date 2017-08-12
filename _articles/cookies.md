@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Cookies
 permalink: /articles/cookies/
 redirect_from: /docs/cookies/

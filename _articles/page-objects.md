@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Page Objects
 permalink: /articles/page-objects/
 redirect_from: /docs/page-objects/

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Firefox
 permalink: /articles/firefox/
 redirect_from: /docs/firefox/

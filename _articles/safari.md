@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Safari
 permalink: /articles/safari/
 redirect_from: /docs/safari/

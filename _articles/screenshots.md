@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Screenshots
 permalink: /articles/screenshots/
 redirect_from: /docs/screenshots/

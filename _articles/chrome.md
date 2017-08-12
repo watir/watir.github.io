@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Chrome
 permalink: /articles/chrome/
 redirect_from: /docs/chrome/

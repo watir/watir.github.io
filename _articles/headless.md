@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Headless
 permalink: /articles/headless/
 redirect_from: /docs/headless/

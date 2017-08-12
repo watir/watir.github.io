@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Internet Explorer
 permalink: /articles/ie/
 redirect_from: /docs/ie/

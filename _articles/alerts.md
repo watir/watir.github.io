@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Javascript Dialogs
 permalink: /docs/alerts/
 ---

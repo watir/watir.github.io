@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Frames
 permalink: /articles/frames/
 redirect_from: /docs/frames/
