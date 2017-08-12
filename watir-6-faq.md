@@ -43,13 +43,13 @@ title: Watir 6 FAQ
 <span id="D">**Why are my Internet Explorer tests failing?**</span><br>
     Watir now relies on the Selenium driver for Internet Explorer. If 
     you are having issues updating your tests to get them to pass, please 
-    [ask us for help](http://watir.github.io/help/).
+    [ask us for help](http://watir.com/help/).
 <br><br>
 
 <span id="E">**Why am I getting warnings about #always_locate and/or #prefer_css?**</span><br>
     Based on recent changes, neither of these options added significant 
     additional functionality so they have been removed. 
-    Read [this post](http://watir.github.io/watir-6-beta4/) for more information.
+    Read [this post](http://watir.com/watir-6-beta4/) for more information.
 <br><br>
 
 <span id="F">**Why am I getting warnings about #when_present being deprecated?**</span><br>
