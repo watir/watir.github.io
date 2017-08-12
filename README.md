@@ -11,3 +11,12 @@ Create a post in the `_posts` directory
 
 If you know Jekyll / HTML / CSS and would like to help improve our
 site's look and feel, by all means contact us.
+
+### Example Pages
+HTML used for Watirspecs is mirrored on the Watir site in the /examples directory
+To update this code with the latest in the watir repository:
+```git
+$ git remote add -f -t master --no-tags watirhtml https://github.com/watir/watir.git
+$ git rm -rf examples
+$ git read-tree --prefix=examples/ -u watirhtml/master:spec/watirspec/html
+```
