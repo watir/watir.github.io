@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Waiting
-permalink: /articles/waiting/
+permalink: /guides/waiting/
 redirect_from: /docs/waiting/
 ---
 

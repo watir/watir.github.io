@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Locating Elements
-permalink: /articles/locating/
+permalink: /guides/locating/
 redirect_from: /docs/locating/
 ---
 

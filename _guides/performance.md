@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Measure Page Performance
-permalink: /articles/performance/
+permalink: /guides/performance/
 redirect_from: /docs/performance/
 ---
 

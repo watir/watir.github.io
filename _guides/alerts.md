@@ -1,7 +1,8 @@
 ---
-layout: article
+layout: guide
 title: Javascript Dialogs
-permalink: /docs/alerts/
+permalink: /guides/alerts/
+redirect_from: /docs/alerts/
 ---
 
 JavaScript dialogs are fairly common in web applications.

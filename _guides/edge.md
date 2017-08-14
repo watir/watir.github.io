@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Microsoft Edge
-permalink: /articles/edge/
+permalink: /guides/edge/
 redirect_from: /docs/edge/
 ---
 

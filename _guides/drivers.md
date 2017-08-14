@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Drivers
-permalink: /articles/drivers/
+permalink: /guides/drivers/
 redirect_from: /docs/drivers/
 ---
 

@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Installing Watir
-permalink: /articles/installation/
+permalink: /guides/installation/
 redirect_from: /docs/installation/
 ---
 

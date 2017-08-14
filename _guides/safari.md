@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Safari
-permalink: /articles/safari/
+permalink: /guides/safari/
 redirect_from: /docs/safari/
 ---
 

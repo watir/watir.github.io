@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Web Elements
-permalink: /articles/elements/
+permalink: /guides/elements/
 redirect_from: /docs/elements/
 ---
 

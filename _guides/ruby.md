@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Installing Ruby
-permalink: /articles/ruby/
+permalink: /guides/ruby/
 redirect_from: /docs/ruby/
 ---
 

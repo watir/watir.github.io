@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Firefox
-permalink: /articles/firefox/
+permalink: /guides/firefox/
 redirect_from: /docs/firefox/
 ---
 

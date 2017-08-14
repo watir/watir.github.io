@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Cookies
-permalink: /articles/cookies/
+permalink: /guides/cookies/
 redirect_from: /docs/cookies/
 ---
 

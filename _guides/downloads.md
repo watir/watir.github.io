@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Browser Downloads
-permalink: /articles/downloads/
+permalink: /guides/downloads/
 redirect_from: /docs/downloads/
 ---
 

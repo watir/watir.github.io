@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Internet Explorer
-permalink: /articles/ie/
+permalink: /guides/ie/
 redirect_from: /docs/ie/
 ---
 

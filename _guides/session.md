@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Starting a Session
-permalink: /articles/session/
+permalink: /guides/session/
 redirect_from: /docs/session/
 ---
 

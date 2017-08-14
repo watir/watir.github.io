@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Mobile Devices
-permalink: /articles/mobile/
+permalink: /guides/mobile/
 redirect_from: /docs/mobile/
 ---
 

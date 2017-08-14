@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Basic Browser Authentication
-permalink: /articles/authentication/
+permalink: /guides/authentication/
 redirect_from: /docs/authentication/
 ---
 

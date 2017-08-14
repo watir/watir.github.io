@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Page Objects
-permalink: /articles/page-objects/
+permalink: /guides/page-objects/
 redirect_from: /docs/page-objects/
 ---
 

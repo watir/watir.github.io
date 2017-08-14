@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Frames
-permalink: /articles/frames/
+permalink: /guides/frames/
 redirect_from: /docs/frames/
 ---
 

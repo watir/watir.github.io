@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Screenshots
-permalink: /articles/screenshots/
+permalink: /guides/screenshots/
 redirect_from: /docs/screenshots/
 ---
 

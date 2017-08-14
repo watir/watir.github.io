@@ -21,7 +21,7 @@ avatar: https://upload.wikimedia.org/wikipedia/commons/7/7e/Watir.gif
 collections:
   contributors:
     foo: bar
-  articles:
+  guides:
     output: true
 
 gems:

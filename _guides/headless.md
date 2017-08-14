@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Headless
-permalink: /articles/headless/
+permalink: /guides/headless/
 redirect_from: /docs/headless/
 ---
 

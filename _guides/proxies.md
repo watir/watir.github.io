@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Browser Proxies
-permalink: /articles/proxies/
+permalink: /guides/proxies/
 redirect_from: /docs/proxies/
 ---
 

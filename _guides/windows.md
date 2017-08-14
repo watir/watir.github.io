@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Browser Popups
-permalink: /articles/windows/
+permalink: /guides/windows/
 redirect_from: /docs/windows/
 ---
 

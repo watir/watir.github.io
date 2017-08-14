@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Sending Special Keys
-permalink: /articles/special-keys/
+permalink: /guides/special-keys/
 redirect_from: 
  - /docs/sending-special-keys/
 ---

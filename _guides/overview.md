@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Automation Pipeline
-permalink: /articles/overview/
+permalink: /guides/overview/
 redirect_from: /docs/overview/
 ---
 

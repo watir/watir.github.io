@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Browser Certificates
-permalink: /articles/certificates/
+permalink: /guides/certificates/
 redirect_from: /docs/certificates/
 ---
 

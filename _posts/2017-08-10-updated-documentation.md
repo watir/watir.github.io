@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Updated Technical Articles and Request for Help
+title: Updated Guides and Request for Help
 date: 2017-08-10
 author: Titus Fortner
 author_url: http://watirtight.com/
@@ -8,15 +8,15 @@ comments: true
 categories: [Blogs]
 ---
 
-[Technical Articles](/articles) for [Getting Started](/articles#getting-started), 
- [Working with Different Browsers](/articles#working-with-different-browsers),
- and [Working with Elements](/articles#working-with-elements) have been updated. 
+[Guides](/guides) for [Getting Started](/guides#getting-started), 
+ [Working with Different Browsers](/guides#working-with-different-browsers),
+ and [Working with Elements](/guides#working-with-elements) have been updated. 
  Please help review the information there or help us with updates on the
  remaining pages.
 
 <!--more-->
 
-Note: We've renamed our "Documentation" section to "Technical Articles", and this
+Note: We've renamed our "Documentation" section to "Guides", and this
  post has been updated accordingly.
 
 Watir is ideally suited for people who are just getting started in Test

@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: Chrome
-permalink: /articles/chrome/
+permalink: /guides/chrome/
 redirect_from: /docs/chrome/
 ---
 

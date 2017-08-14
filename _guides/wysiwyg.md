@@ -1,7 +1,7 @@
 ---
-layout: article
+layout: guide
 title: WYSIWYG Editors
-permalink: /articles/wysiwyg/
+permalink: /guides/wysiwyg/
 redirect_from: /docs/wysiwyg/
 ---
 
