@@ -34,7 +34,7 @@ environment.
 2. **Test Code.** Whether Cucumber Steps or RSpec "it" blocks, the code here should be
 focused on succinctly representing the business requirement for the test. This is the
 higher level "what" code that references other objects (like page objects) for the actual implementation.
-Ruby is more readable than most langauges, so name page objects and methods well 
+Ruby is more readable than most languages, so name page objects and methods well 
 and a quick skim will allow to the purpose of the test to be easily understood.
 
 3. **Page Object.** This is where the implementation ("how") code belongs. 
