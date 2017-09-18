@@ -18,5 +18,3 @@ Now you can try it out by opening up an Interactive Ruby (irb) session.
 * If you’re using Windows, open Interactive Ruby.
 
 Now you only need to require the gem to [start using it](../session).
-
-`require 'watir'`
