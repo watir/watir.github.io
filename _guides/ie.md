@@ -22,7 +22,7 @@ b = Watir::Browser.new :ie
 Internet Explorer is Windows only and only works if you ensure that Protected Mode settings for each zone are set to the same value.
 Additional set up suggestions can be found [here](https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver#required-configuration)
 
-###Internet Explorer Options
+### Internet Explorer Options
 
 Watir uses your standard IE settings and config, so you can manually adjust IE to how you want it before running your tests, 
 and it will pick up these settings.
