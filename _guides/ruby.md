@@ -17,9 +17,12 @@ related Ruby technologies without making significant alterations to them.
 
 There are different options for supplying
 a good Ruby interpreter, but we have chosen rbenv as the most
-suitable Ruby interpreter.  Note that rbenv cannot be 
-run simultaneously with RVM. 
-RVM is an acceptable Ruby interpreter if you prefer to use it.
+suitable Ruby interpreter.  
+
+Note that rbenv cannot exist on the same system as RVM.
+RVM is an acceptable Ruby interpreter if you prefer to use it,
+but if you prefer to use rbenv, be sure to uninstall RVM 
+completely.
 
 
 ### Windows
