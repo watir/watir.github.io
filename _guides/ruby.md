@@ -5,6 +5,23 @@ permalink: /guides/ruby/
 redirect_from: /docs/ruby/
 ---
 
+### Introduction
+
+In order to run Ruby code you need to install a Ruby interpreter. 
+
+Installing a Ruby interpreter for Windows is straightforward, but for
+Mac and Linux it is slightly more complicated. 
+The default Ruby interpreters normally supplied on Mac 
+and Linux are not adequate for running Watir and
+related Ruby technologies without making significant alterations to them.
+
+There are different options for supplying
+a good Ruby interpreter, but we have chosen rbenv as the most
+suitable Ruby interpreter.  Note that rbenv cannot be 
+run simultaneously with RVM. 
+RVM is an acceptable Ruby interpreter if you prefer to use it.
+
+
 ### Windows
 * Download and install the latest version from [rubyinstaller](https://rubyinstaller.org/downloads/)
 <br />
