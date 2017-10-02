@@ -12,10 +12,18 @@ redirect_from: /docs/ruby/
 
 ### Mac
 
-**Install [HomeBrew](http://brew.sh)**
-
 Hold down the Command key and press the spacebar to open Spotlight search
 Type Terminal and hit enter
+
+**Install XCode command-line tools**
+
+Copy and paste this into the terminal and hit enter:
+
+```
+xcode-select --install
+```
+
+**Install [HomeBrew](http://brew.sh)**
 
 Copy and paste this into the terminal and hit enter:
 ```
