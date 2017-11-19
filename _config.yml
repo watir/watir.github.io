@@ -24,7 +24,7 @@ collections:
   guides:
     output: true
 
-plugins:
+gems:
   - jekyll-redirect-from
 
 # Includes an icon in the footer for each username you enter
