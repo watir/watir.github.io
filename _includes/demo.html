@@ -1,11 +1,10 @@
 {% highlight ruby %}
 browser = Watir::Browser.new :chrome
 
-browser.goto 'google.com'
-browser.text_field(title: 'Search').set 'Hello World!'
-browser.button(type: 'submit').click
+browser.goto 'watir.com'
+browser.link(text: 'Documentation').click
 
 puts browser.title
-# => 'Hello World! - Google Search'
-browser.quit
+# => 'Documentation – Watir Project...'
+browser.close
 {% endhighlight %}
