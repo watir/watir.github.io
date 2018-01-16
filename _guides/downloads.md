@@ -32,11 +32,14 @@ If you want to know a way to work out the file types (eg. application/pdf) then 
 download_directory = "#{Dir.pwd}/downloads"
 download_directory.tr!('/', '\\') if Selenium::WebDriver::Platform.windows?
 
-profile = Selenium::WebDriver::Chrome::Profile.new
-profile['download.prompt_for_download'] = false
-profile['download.default_directory'] = download_directory
+options = {
+  prefs: {
+    "download.prompt_for_download" => false,
+    "download.default_directory" => download_directory
+  }
+}
 
-b = Watir::Browser.new :chrome, profile: profile
+b = Watir::Browser.new :chrome, options: options
 {% endhighlight %}
 
 See a full list of Chrome [preferences](http://codesearch.google.com/codesearch#OAMlx_jo-ck/src/chrome/common/pref_names.cc&exact_package=chromium)
