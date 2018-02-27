@@ -19,3 +19,11 @@ browser = Watir::Browser.new :firefox, profile: profile
 switches = '--proxy-server=my.proxy.com:8080'
 browser = Watir::Browser.new :chrome, switches: switches
 {% endhighlight %}
+
+### Example: setting a http and https proxy for Remote Chrome
+
+{% highlight ruby %}
+proxy = 'my.proxy.com:8080'
+browser = Watir::Browser.new :chrome, url: REMOTE_URL, proxy: {http: proxy, ssl: proxy}
+{% endhighlight %}
+
