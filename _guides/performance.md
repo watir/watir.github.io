@@ -5,7 +5,7 @@ permalink: /guides/performance/
 redirect_from: /docs/performance/
 ---
 
-The [Watir-Performance gem](http://rubygems.org/gems/watir-performance) aims to provide a set of navigation timing metrics for Watir actions using a [W3C page performance standard](http://w3c-test.org/webperf/specs/NavigationTiming/). This is a perfect solution to capture response time metrics, and it’s very straightforward to do but currently only works in Chrome, Firefox, Edge and IE9 and up. Currently no Safari support.
+The [Watir-Performance gem](http://rubygems.org/gems/watir-performance) aims to provide a set of navigation timing metrics for Watir actions using a [W3C page performance standard](http://w3c-test.org/webperf/specs/NavigationTiming/). This is a perfect solution to capture response time metrics, and it’s very straightforward to do.  Works in Chrome, Firefox, Edge and IE9 and up. Currently no Safari support.
 
 {% highlight ruby %}
 require 'watir'
