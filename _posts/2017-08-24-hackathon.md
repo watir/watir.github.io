@@ -5,7 +5,7 @@ date: 2017-08-24
 author: Titus Fortner
 author_url: http://watirtight.com/
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 
 Join us September 22 & 23 in Toronto and help us shape the future of functional UI testing in Ruby.

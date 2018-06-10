@@ -4,7 +4,7 @@ title: Watir Team News
 date: 2013-04-28 00:44
 author: bpettichord
 comments: true
-categories: [Team]
+tags: [Team]
 ---
 I have some great and some sad news. Let's start with great news.
 <!--more-->

@@ -5,7 +5,7 @@ date: 2017-08-10
 author: Titus Fortner
 author_url: http://watirtight.com/
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 
 [Guides](/guides) for [Getting Started](/guides#getting-started), 

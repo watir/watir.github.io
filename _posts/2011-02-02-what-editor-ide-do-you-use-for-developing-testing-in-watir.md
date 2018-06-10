@@ -5,7 +5,7 @@ date: 2011-02-02 22:06
 author: Tim Koopmans
 author_url: http://twitter.com/#!/90kts
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 <!--more-->
 

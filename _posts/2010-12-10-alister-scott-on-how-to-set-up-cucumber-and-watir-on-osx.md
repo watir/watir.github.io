@@ -5,7 +5,7 @@ date: 2010-12-10 09:54
 author: Alister Scott
 author_url: http://watirmelon.com
 comments: true
-categories: [Blogs, Cucumber, Firewatir, osx, Watir]
+tags: [Blogs, Cucumber, Firewatir, osx, Watir]
 ---
 <!--more-->
 

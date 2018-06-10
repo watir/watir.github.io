@@ -4,7 +4,7 @@ title: Announcing Test Automation Bazaar Jan 16-17 in Austin
 date: 2014-12-16 15:38
 author: bpettichord
 comments: true
-categories: [Uncategorized]
+tags: [Uncategorized]
 ---
 
 I am pleased to announce that the Test Automation Bazaar will be held in Austin, Texas on  January 16-17, 2015 (Fri – Sat). I am convening this event with [Zeljko Filipin](https://twitter.com/zeljkofilipin) and the Austin Homebrew Testers, and we are pleased that the event will be sponsored by the [Open Information Foundation](http://www.openinformationfoundation.org/), a non-profit which we have recently joined and which also sponsors the [Citcon](http://citconf.com/) conferences.

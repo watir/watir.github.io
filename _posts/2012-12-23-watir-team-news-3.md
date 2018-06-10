@@ -4,7 +4,7 @@ title: Watir Team News
 date: 2012-12-23 02:12
 author: bpettichord
 comments: true
-categories: [Team]
+tags: [Team]
 ---
 A couple of people got added to the <a href="http://watir.com/team/">team</a> recently, Justin Ko and Dave McNulla.
 <!--more-->

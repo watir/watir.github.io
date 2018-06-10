@@ -5,7 +5,7 @@ date: 2016-08-02
 author: Titus Fortner
 author_url: http://watirtight.com/
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 
 Watir-WebDriver 0.9.2 and 0.9.3 (which is a minor bug fix to 0.9.2) have been released!

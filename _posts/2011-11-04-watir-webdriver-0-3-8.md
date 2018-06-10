@@ -4,7 +4,7 @@ title: watir-webdriver 0.3.8
 date: 2011-11-04 20:54
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a href="http://www.flickr.com/photos/jcarlosn/3933670165/" title="Water can be art by jcarlosn, on Flickr"><img src="http://farm4.static.flickr.com/3522/3933670165_d22c7dfeec_m.jpg" width="240" height="188" alt="Water can be art"></a>
 

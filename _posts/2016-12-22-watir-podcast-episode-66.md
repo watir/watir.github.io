@@ -5,7 +5,7 @@ date: 2016-12-22
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this episode of the Watir Podcast, the Watir Team's primary Support Sherriff talks about support questions, his book Watir Ways, how he started using Watir, and why he likes Watir Classic.

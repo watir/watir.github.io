@@ -5,7 +5,7 @@ date: 2016-10-02
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this week's episode, Jon Franchi tells us about getting started in Watir. He talks about the decision process, joys, pains, and plans.

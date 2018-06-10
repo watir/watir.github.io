@@ -5,7 +5,7 @@ date: 2010-12-10 09:42
 author: Alister Scott
 author_url: http://watirmelon.com
 comments: true
-categories: [ATDD, Blogs, Cucumber, Declarative, Imperative, RSpec, Ruby]
+tags: [ATDD, Blogs, Cucumber, Declarative, Imperative, RSpec, Ruby]
 ---
 <!--more-->
 <strong>Guest post by <a href="http://watirmelon.com">Alister Scott</a></strong>

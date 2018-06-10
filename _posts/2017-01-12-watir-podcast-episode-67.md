@@ -5,7 +5,7 @@ date: 2017-01-12
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this episode of the Watir Podcast, we talk to Mark Barzilay, developer are SpriteCloud about how they use their library Lapis_Lazuli to support their automation development and how it can help you too.

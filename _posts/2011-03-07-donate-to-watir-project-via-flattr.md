@@ -4,7 +4,7 @@ title: Donate to Watir project via Flattr
 date: 2011-03-07 13:32
 author: bpettichord
 comments: true
-categories: [Donations]
+tags: [Donations]
 ---
 <a href="https://flattr.com/thing/141470/Watir"><img src="http://watir001.files.wordpress.com/2011/03/flattr-logo-thumb.jpg" alt="Flattr logo" title="Flattr logo" /></a>
 

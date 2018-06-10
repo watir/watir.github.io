@@ -5,7 +5,7 @@ date: 2016-09-06
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast Episode 58 with Dave McNulla and Mob Programming expert Woody Zuill.

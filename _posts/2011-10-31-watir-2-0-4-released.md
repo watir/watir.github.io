@@ -4,7 +4,7 @@ title: Watir 2.0.4 Released
 date: 2011-10-31 21:02
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a href="http://www.flickr.com/photos/slinky2000/410507015/" title="Water Splash 1 by slinky2000, on Flickr"><img src="http://farm1.static.flickr.com/124/410507015_0e5f85604b_m.jpg" width="240" height="160" alt="Water Splash 1"></a>
 

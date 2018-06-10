@@ -4,7 +4,7 @@ title: Watir 3 Released!
 date: 2012-04-24 18:46
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 Hello everyone!
 

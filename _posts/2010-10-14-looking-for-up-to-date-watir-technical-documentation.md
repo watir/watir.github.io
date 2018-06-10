@@ -4,7 +4,7 @@ title: Looking for up-to-date Watir technical documentation?
 date: 2010-10-14 22:19
 author: bpettichord
 comments: true
-categories: [Documentation, rdoc, yard]
+tags: [Documentation, rdoc, yard]
 ---
 Up-to-date technical documentation about the Watir library is accessible on <a href="http://rdoc.info/gems/watir/1.6.6/frames">rdoc.info</a>, in the user-friendly yard format. The <a href="http://watir.com/documentation/">Watir documentation page</a> also includes a link to this. Every time a new version of Watir is released, this site will be updated automatically.
 <!--more-->

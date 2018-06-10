@@ -5,7 +5,7 @@ date: 2016-09-01
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast Episode 57 with Dave McNulla and former Watir Zeljko Filipin.

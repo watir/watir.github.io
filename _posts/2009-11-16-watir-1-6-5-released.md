@@ -4,7 +4,7 @@ title: Watir 1.6.5 Released
 date: 2009-11-16 09:16
 author: bpettichord
 comments: true
-categories: [Release, Releases, Watir]
+tags: [Release, Releases, Watir]
 ---
 <!--more-->
 <h3>Version 1.6.5</h3>

@@ -4,7 +4,7 @@ title: watir-webdriver 0.3.9
 date: 2011-11-14 22:10
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a href="http://www.flickr.com/photos/mothernaturephotos/3368353605/" title="Water Droplets by Elliotphotos, on Flickr"><img src="http://farm4.static.flickr.com/3660/3368353605_61886c4bfa_m.jpg" width="240" height="180" alt="Water Droplets"></a>
 

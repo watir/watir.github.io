@@ -4,7 +4,7 @@ title: Browser automation with Watir - guide for testers
 date: 2017-04-27 12:30
 author: Maciej Stanisz
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 
 I have recently written [an introduction](https://binarapps.com/blog/browser-automation-with-watir-guide)

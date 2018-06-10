@@ -5,7 +5,7 @@ date: 2016-09-23
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this week's episode, Neil Manvar from SauceLabs tells us about the advantages of use SauceLabs, how to get started, and what mistakes can lead to trouble.

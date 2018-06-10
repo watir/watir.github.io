@@ -4,7 +4,7 @@ title: Watir-Classic 3.4.0 Released!
 date: 2013-01-20 04:00
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a title="By böhringer friedrich (Own work) [CC-BY-SA-2.5 (http://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3ATauTropfenGerbera1.JPG"><img width="256" alt="TauTropfenGerbera1" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6e/TauTropfenGerbera1.JPG/256px-TauTropfenGerbera1.JPG" /></a>
 

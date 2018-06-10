@@ -4,7 +4,7 @@ title: All Watir Gems Updated
 date: 2012-12-08 22:16
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a title="By Humanfeather / Michelle Jo (Own work) [CC-BY-3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3AGem_inside_gem.JPG"><img width="256" alt="Gem inside gem" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Gem_inside_gem.JPG/256px-Gem_inside_gem.JPG" /></a>
 

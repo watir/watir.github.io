@@ -4,7 +4,7 @@ title: Watir-Classic 3.2.0 Released!
 date: 2012-09-20 20:25
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a href="http://www.flickr.com/photos/laszlo-photo/4093575863/" title="When Water Drops Collide by laszlo-photo, on Flickr"><img src="http://farm3.staticflickr.com/2648/4093575863_9ba39f1a07.jpg" width="500" height="333" alt="When Water Drops Collide"></a>
 

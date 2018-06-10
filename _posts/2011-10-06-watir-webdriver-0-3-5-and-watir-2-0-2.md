@@ -4,7 +4,7 @@ title: watir-webdriver 0.3.5 and watir 2.0.2
 date: 2011-10-06 18:38
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a href="http://www.flickr.com/photos/afternoon_sunlight/134987402/" title="finger-gems by afternoon_sunlight, on Flickr"><img src="http://farm1.static.flickr.com/11/134987402_1bafffa6ef.jpg" width="500" height="358" alt="finger-gems"></a>
 
