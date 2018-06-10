@@ -4,7 +4,7 @@ title: Test Automation Conference in Austin in March 2012
 date: 2011-10-28 18:38
 author: bpettichord
 comments: true
-categories: [Conferences]
+tags: [Conferences]
 ---
 <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/7F3CVH6q2LJ5Lg4j6JastQ?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-ouW0B48R384/SXHplakGCTI/AAAAAAAADQs/-MZB8w-BmV4/s288/P1150054.JPG" height="215" width="288" /></a></td></tr><tr><td style="font-family:arial, sans-serif;font-size:11px;text-align:right;">From <a href="https://picasaweb.google.com/zeljko.filipin/Austin?authuser=0&amp;feat=embedwebsite">Austin</a></td></tr></table>
 

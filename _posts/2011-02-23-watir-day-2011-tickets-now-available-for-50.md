@@ -4,7 +4,7 @@ title: Watir Day 2011 Tickets now available for $50
 date: 2011-02-23 05:36
 author: bpettichord
 comments: true
-categories: [$50, Conferences, San Francisco, Watir, Watir Day, Watir Day, watir-day-2011]
+tags: [$50, Conferences, San Francisco, Watir, Watir Day, Watir Day, watir-day-2011]
 ---
 Tickets to Watir Day 2011 on Sunday 3rd April 2011 in San Francisco are <a href="http://watirday.eventbrite.com/"><strong>now on sale for $50 each</strong></a>.
 <!--more-->

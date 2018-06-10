@@ -5,7 +5,7 @@ date: 2017-01-22
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this episode of the Watir Podcast, we talk to Chris McMahon, an experience Watir developer that (may have been) was the first watir tester to use it in production.

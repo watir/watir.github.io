@@ -5,7 +5,7 @@ date: 2016-11-29
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this week's episode, Justin Watts, leader of the automation team at Loblaw Digital, talks about the decisions they made in their automation framework. We covered a lot of ground in a short time, so buckle up!

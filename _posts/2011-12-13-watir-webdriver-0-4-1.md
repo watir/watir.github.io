@@ -4,7 +4,7 @@ title: watir-webdriver 0.4.1
 date: 2011-12-13 20:22
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a href="http://www.flickr.com/photos/viamoi/3535257124/" title="~ Drip - &quot;?&quot; ~ by ViaMoi, on Flickr"><img src="http://farm3.staticflickr.com/2244/3535257124_21f0d92d17_m.jpg" width="240" height="240" alt="~ Drip - &quot;?&quot; ~"></a>
 

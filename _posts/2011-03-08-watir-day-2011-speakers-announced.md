@@ -4,7 +4,7 @@ title: Watir Day 2011 Speakers Announced!
 date: 2011-03-08 04:55
 author: bpettichord
 comments: true
-categories: [Uncategorized]
+tags: [Uncategorized]
 ---
 I am pleased to announce the speakers list for Watir Day 2011 in San Francisco on April 3rd 2011.
 <!--more-->

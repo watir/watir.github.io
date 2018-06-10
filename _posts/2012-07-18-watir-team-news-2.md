@@ -4,7 +4,7 @@ title: Watir Team News
 date: 2012-07-18 20:57
 author: bpettichord
 comments: true
-categories: [Team]
+tags: [Team]
 ---
 <a href="http://watir001.files.wordpress.com/2009/10/alex-rodionov.png"><img class="alignnone size-full wp-image-1288" title="Alex Rodionov" src="http://watir001.files.wordpress.com/2009/10/alex-rodionov.png" alt="Alex Rodionov" width="200" height="200" /></a>
 

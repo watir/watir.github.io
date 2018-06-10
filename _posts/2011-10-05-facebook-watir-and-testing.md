@@ -5,7 +5,7 @@ date: 2011-10-05 20:18
 author: Jarmo Pertman
 author_url: http://www.itreallymatters.net
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 <!--more-->
 

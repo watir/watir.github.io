@@ -4,7 +4,7 @@ title: Watir Day 2011 Sponsors so far!
 date: 2011-03-11 11:47
 author: bpettichord
 comments: true
-categories: [3qilabs, altentee, Conferences, convio, facebook, opera, opera software, sponsors, Watir Day, zazzle]
+tags: [3qilabs, altentee, Conferences, convio, facebook, opera, opera software, sponsors, Watir Day, zazzle]
 ---
 I am pleased to announce the following sponsors for Watir Day 2011 (listed in alphabetical order):
 <!--more-->

@@ -4,7 +4,7 @@ title: Watir team is all over the world
 date: 2011-01-08 23:10
 author: bpettichord
 comments: true
-categories: [Uncategorized]
+tags: [Uncategorized]
 ---
 
 A couple of years ago, Zeljko Filipin was trying to get me to start a Watir podcast. He was telling me how to do it and why it is so important. I asked him why he didn't he do it himself? He said he didn't speak good enough English. Nonsense. At that time I had never met Zeljko but had spoken with him over Skype several times.

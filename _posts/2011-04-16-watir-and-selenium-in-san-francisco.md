@@ -4,7 +4,7 @@ title: Watir and Selenium in San Francisco
 date: 2011-04-16 19:41
 author: bpettichord
 comments: true
-categories: [Conferences, Selenium, Uncategorized, Watir Day]
+tags: [Conferences, Selenium, Uncategorized, Watir Day]
 ---
 I've been back home for a week after a very busy week in San Francisco. I hosted a one-day Watir conference and then attended a three-day Selenium conference where I gave a keynote talk. After the conference was over we parked our car in a sketchy part of town for dinner, and me and three others had our laptops stolen out of our rental van. Some one broke the window and snatched our bags.. I also spent a day in Convio's Berkeley office where I got a chance to catch up with several of my colleagues there. This week I've been catching up on my day job and replacing the things that were stolen.
 <!--more-->

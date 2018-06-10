@@ -5,7 +5,7 @@ date: 2010-12-22 10:18
 author: Željko Filipin
 author_url: http://zeljkofilipin.com
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 <!--more-->
 <strong>Originally posted at <a href="http://zeljkofilipin.com/operawatir/">zeljkofilipin.com</a> by <a href="http://zeljkofilipin.com/">Željko Filipin</a>.</strong>

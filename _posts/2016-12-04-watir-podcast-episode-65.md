@@ -5,7 +5,7 @@ date: 2016-12-04
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this episode of the Watir Podcast, Jeff "Cheezy" Morgan joins the Watir Podcast to talk about his Page Object gem, other significant gems used for Acceptance Test Driven Development, his book Cucumber & Cheeze, and agile.

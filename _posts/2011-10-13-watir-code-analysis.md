@@ -4,7 +4,7 @@ title: Watir Code Analysis
 date: 2011-10-13 07:09
 author: bpettichord
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 I have read <a href="https://www.ohloh.net/blog/Commit_Volume_and_Commit_Highlights">Commit Volume and Commit Highlights</a> blog post from the <a href="https://www.ohloh.net/blog">Ohloh Blog</a>.
 <!--more-->

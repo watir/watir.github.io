@@ -5,7 +5,7 @@ date: 2016-08-24
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast Episode 56 with Dave McNulla and Watir code monkey and support sheriff Titus Fortner.

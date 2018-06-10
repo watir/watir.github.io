@@ -4,7 +4,7 @@ title: Watir Team News
 date: 2011-10-25 20:20
 author: bpettichord
 comments: true
-categories: [Team]
+tags: [Team]
 ---
 <img src="http://watir001.files.wordpress.com/2011/10/chuck.jpg" alt="Chuck van der Linden" title="Chuck van der Linden" />
 

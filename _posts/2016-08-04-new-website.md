@@ -5,7 +5,7 @@ date: 2016-08-04
 author: Titus Fortner
 author_url: http://watirtight.com/
 comments: true
-categories: [Website]
+tags: [Website]
 ---
 
 Welcome to the new Watir website! Content from [watir.com](http://watir.com) and 

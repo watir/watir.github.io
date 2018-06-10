@@ -4,7 +4,7 @@ title: Register now to attend the Charity Workshop on March 22!
 date: 2012-03-01 09:20
 author: bpettichord
 comments: true
-categories: [Conferences]
+tags: [Conferences]
 ---
 Want to learn about Page Objects and Cucumber?  Do you like the idea of supporting local charities in the Austin area?  Then join us at one or both of our charity workshops before the Test Automation Bazaar!
 <!--more-->

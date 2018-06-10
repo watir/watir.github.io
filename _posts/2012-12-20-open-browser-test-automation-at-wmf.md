@@ -5,7 +5,7 @@ date: 2012-12-20 07:34
 author: Chris McMahon
 author_url: http://chrismcmahonsblog.blogspot.com
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 <!--more-->
 

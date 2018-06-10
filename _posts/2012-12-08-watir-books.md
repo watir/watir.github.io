@@ -4,7 +4,7 @@ title: Watir Books
 date: 2012-12-08 21:55
 author: bpettichord
 comments: true
-categories: [Books]
+tags: [Books]
 ---
 <a title="By Ryan Franklin from Gilbert, AZ, US of A (Old Les Mis  Uploaded by guillom) [CC-BY-2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3AOld_book_-_Les_Miserables.jpg"><img width="256" alt="Old book - Les Miserables" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Old_book_-_Les_Miserables.jpg/256px-Old_book_-_Les_Miserables.jpg" /></a>
 

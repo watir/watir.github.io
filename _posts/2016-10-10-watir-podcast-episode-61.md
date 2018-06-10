@@ -5,7 +5,7 @@ date: 2016-10-10
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this week's episode, code monkey Alex Rodionov of the Watir Team tells us about the page object gem he created called WatirSome.

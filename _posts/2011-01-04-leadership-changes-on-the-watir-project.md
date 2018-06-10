@@ -4,7 +4,7 @@ title: Leadership Changes on the Watir Project
 date: 2011-01-04 02:50
 author: bpettichord
 comments: true
-categories: [Uncategorized]
+tags: [Uncategorized]
 ---
 Charley Baker and I have decided on some changes in how we will be leading the Watir project. For many years, we have shared this responsibility and have shared the "Lead Developer" title. At my request, Charley has agreed to take over as Lead Developer. As such he will be responsible for the day-to-day technical decisions and managing the various contributions. He has actually already taken on most of the responsibility so this is really a reflection of reality.
 <!--more-->

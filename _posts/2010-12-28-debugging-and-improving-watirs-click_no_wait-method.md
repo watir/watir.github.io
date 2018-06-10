@@ -5,7 +5,7 @@ date: 2010-12-28 10:56
 author: Jarmo Pertman
 author_url: http://www.itreallymatters.net
 comments: true
-categories: [Blogs]
+tags: [Blogs]
 ---
 <!--more-->
 <strong>Originally posted at <a href="http://www.itreallymatters.net/post/1366392123/debugging-and-improving-watirs-click-no-wait-method">itreallymatters.net</a> by <a href="http://www.itreallymatters.net/">Jarmo Pertman</a>.</strong>

@@ -5,7 +5,7 @@ date: 2016-09-15
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. We didn't have a new episode for you so here is one of my favorites from the past, Episode 30 with Gregg Yows, Zeljko Filipin and Jim Knowlton.

@@ -4,7 +4,7 @@ title: Speakers at the Test Automation Bazaar
 date: 2012-03-05 06:44
 author: bpettichord
 comments: true
-categories: [Uncategorized]
+tags: [Uncategorized]
 ---
 In less than three weeks, the Watir team will be assembling in Austin Texas to kick off our first <a href="http://watir.com/test-automation-bazaar/">Watir Conference and Test Automation Bazaar</a>. This event is pulling together Watir users and other Ruby lovers to share techniques and create better tools for automating testing.
 <!--more-->

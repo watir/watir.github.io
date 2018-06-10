@@ -5,7 +5,7 @@ date: 2016-10-25
 author: David McNulla
 author_url: http://dmcnulla.wordpress.com
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 Welcome to the Watir Podcast. In this week's episode, Titus Fortner, leader of the Watir 6 project, tells us why he created the page object gem Watir_drops.

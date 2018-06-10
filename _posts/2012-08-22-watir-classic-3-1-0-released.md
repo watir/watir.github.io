@@ -4,7 +4,7 @@ title: Watir-Classic 3.1.0 Released!
 date: 2012-08-22 22:30
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a href="http://www.flickr.com/photos/stewartho/2855517943/" title="Water Bomber by Stewart Ho, on Flickr"><img src="http://farm4.staticflickr.com/3076/2855517943_3336e61690.jpg" width="500" height="349" alt="Water Bomber"></a>
 

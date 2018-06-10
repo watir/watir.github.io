@@ -4,7 +4,7 @@ title: Watir Bazaar was Kick Ass!
 date: 2012-04-05 12:26
 author: bpettichord
 comments: true
-categories: [Uncategorized]
+tags: [Uncategorized]
 ---
 <p>I've been regularly hosting small conferences for over a decade, starting with the LAWST format and slowly evolving over the years. I just finished hosting the Watir Bazaar. I feel real good about it. One of the best conferences I've ever been to. Really excited: everyone had a good time, learned a lot, met a lot of new people, and shared stories about how people are really using Watir to kick ass.</p>
 <!--more-->

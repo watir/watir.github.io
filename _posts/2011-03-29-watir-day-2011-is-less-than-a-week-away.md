@@ -4,7 +4,7 @@ title: Watir Day 2011 is less than a week away!
 date: 2011-03-29 01:58
 author: bpettichord
 comments: true
-categories: [Conferences, Watir Day]
+tags: [Conferences, Watir Day]
 ---
 That's right, it's this Sunday. You can get your <a href="http://watirday.eventbrite.com/">last minute ticket online</a> for $72 + booking fee.
 <!--more-->

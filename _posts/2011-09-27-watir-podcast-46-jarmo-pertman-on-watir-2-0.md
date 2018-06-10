@@ -4,7 +4,7 @@ title: Watir Podcast #46: Jarmo Pertman on Watir 2.0
 date: 2011-09-27 00:40
 author: bpettichord
 comments: true
-categories: [Podcast]
+tags: [Podcast]
 ---
 
 

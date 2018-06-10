@@ -4,7 +4,7 @@ title: Watir Gems Updated
 date: 2013-04-28 00:05
 author: bpettichord
 comments: true
-categories: [Releases]
+tags: [Releases]
 ---
 <a title="By Humanfeather / Michelle Jo (Own work) [CC-BY-3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3AMulti_Colour_CubicZirconia.JPG"><img width="512" alt="Multi Colour CubicZirconia" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Multi_Colour_CubicZirconia.JPG/512px-Multi_Colour_CubicZirconia.JPG" /></a>
 
