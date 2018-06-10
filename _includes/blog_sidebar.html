@@ -1,12 +1,36 @@
-<div style="width: 25%; float: right; padding-left: 20px; margin-top: -20px; background-color: #9fd0ef;">
-    <h4 style="text-decoration: underline">Archives by Year</h4>
-
-    <p><a href="/blog2017">2017 Archives</a></p>
-    <p><a href="/blog2016">2016 Archives</a></p>
-    <p><a href="/blog2014">2014 Archives</a></p>
-    <p><a href="/blog2013">2013 Archives</a></p>
-    <p><a href="/blog2012">2012 Archives</a></p>
-    <p><a href="/blog2011">2011 Archives</a></p>
-    <p><a href="/blog2010">2010 Archives</a></p>
-    <p><a href="/blog2009">2009 Archives</a></p>
+<div>
+  <h4 style = 'text-decoration: underline'>Archives by Year</h4>
+  <div>
+    {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+    {% for year in postsByYear %}
+    <div class = 'archive'>
+      <h4 class = 'archive__title'>
+        <span>{{ year.name }} Archives</span>
+        <span class = 'archive__toggle'><i class = 'fas fa-plus' aria-hidden = 'true'></i></span>
+      </h4>
+      <ul class = 'archive__yearly'>
+        {% assign postsByMonth = year.items | group_by_exp:"post", "post.date | date: '%B'" %}
+        {% for month in postsByMonth %}
+        <li class = 'archive'>
+          <h4 class = 'archive__title blue'>
+            <span>{{ month.name }} {{ year.name }}</span>
+            <span class = 'archive__toggle'><i class = 'fas fa-plus' aria-hidden = 'true'></i></span>
+          </h4>
+          <ul class = 'archive__monthly'>
+          {%- for post in month.items -%}
+            <li class = 'archive__item'><a href = '{{post.url}}'>{{ post.title }}</a></li>
+          {%- endfor -%}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  <h4 style = 'text-decoration: underline'>Archives by Tags</h4>   
+  {%- for tag in site.tags | sort | unique -%}
+  {% capture tag_name %}{{ tag | first }}{% endcapture %}
+  <a class = 'more' href = '/tag/{{tag_name | slugify | downcase }}'>{{ tag_name | capitalize }}</a>
+  {%- endfor -%}
+  
 </div>
