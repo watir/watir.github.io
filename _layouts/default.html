@@ -1,95 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-
-    {% include meta.html %}
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+    {% include partials/head.html %}
   </head>
-
-  <body class="wrap">
-      <div class="header">
-        <div class="grid">
-          <div class="logo unit whole hide-on-mobiles">
-            <a href="{{ site.baseurl }}/">
-              <img src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/>
-            </a>
-            <!-- Hiding on mobile devices for now. -->
-            <span  class="hide-on-mobiles tag-line">Powered by Selenium</span>
-          </div>
-
-          <div class="mobile-logo unit whole only-on-mobiles">
-            <a href="{{ site.baseurl }}/">
-              <img  style="size: 40%;" src="https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png"/>
-            </a>
-            <span  class="only-on-mobiles tag-line">Powered by Selenium</span>
-          </div>
-        </div>
-
-          <div class="grid">
-            <nav class="unit whole hide-on-mobiles main-nav">
-              <ul>
-                <li class="{% if page.url contains '/blog/' %}current{% endif %}">
-                  <a href="/blog">News</a>
-                  </li>
-                <li class="{% if page.url contains '/guides/' %}current{% endif %}">
-                  <a href="{{ site.baseurl }}/guides">Guides</span></a>
-                </li>
-                <li class="{% if page.url contains '/community/' %}current{% endif %}">
-                  <a href="{{ site.baseurl }}/community">Community</a>
-                </li>
-                <li class="{% if page.url contains '/help/' %}current{% endif %}">
-                  <a href="{{ site.baseurl }}/help">Help</a>
-                </li>
-                <li class="{% if page.url contains '/contributing/' %}current{% endif %}">
-                  <a href="{{ site.baseurl }}/contributing">Contributing</a>
-                </li>
-              </ul>
-            </nav>
-
-            <nav class="unit whole only-on-mobiles mobile-nav">
-              <li class="{% if page.url contains '/blog/' %}current{% endif %}">
-                <a href="/blog">News</a>
-              </li>
-              <li class="{% if page.url contains '/guides/' %}current{% endif %}">
-                <a href="{{ site.baseurl }}/guides/">Guides</a>
-              </li>
-              <li class="{% if page.url contains '/community/' %}current{% endif %}">
-                <a href="{{ site.baseurl }}/community">Community</a>
-              </li>
-              <li class="{% if page.url contains '/help/' %}current{% endif %}">
-                <a href="{{ site.baseurl }}/help">Help</a>
-              </li>
-              <li class="{% if page.url contains '/contributing/' %}current{% endif %}">
-                <a href="{{ site.baseurl }}/contributing">Contribute</a>
-              </li>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="main" role="main" class="container">
+  <body class = 'wrap'>
+    <header>
+      {%- include partials/header.html -%}
+    </header>
+    <main id = 'main' role = 'main' class = 'container'>
       {{ content }}
-    </div>
-
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
-
-    {% include analytics.html %}
+    </main>
+    <footer class = 'footer'>
+      {%- include partials/footer.html -%}
+    </footer>
+    {%- include analytics.html -%}
+    {%- include partials/scripts.html -%}
   </body>
 </html>

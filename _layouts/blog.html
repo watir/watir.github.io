@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<div class = 'blog'>
+  <div class = 'blog__content'>
+    <h2>{{ page.title }}</h2>
+    <ul>
+      {% assign current_year = site.time | date: '%Y' %}
+      {%- for post in paginator.posts -%}
+      {%- assign post_year = post.date | date: '%Y' -%}
+        <li class = 'blog__post'>
+          <h3><a href = '{{ post.url }}'>{{ post.title }}</a></h3>
+          <p class = 'blog__meta'>
+            {% if post.author_url == null %}
+              Written by: {{ post.author }}
+            {% else %}
+              Written by: <a href = '{{ post.author_url }}'> {{ post.author }}</a>
+            {% endif %}
+            on {{ post.date | date: '%B %e, %Y' }}
+          </p>
+          {{ post.excerpt | strip_html }}
+          <br />
+          <a href = '{{ post.url }}' class = 'more'>Continue Reading...</a>
+        </li>
+      {%- endfor -%}
+      {%- include paginator.html -%}
+    </ul>
+  </div>
+  <div class = 'blog__sidebar'>{%- include blog_sidebar.html -%}</div>
+</div>

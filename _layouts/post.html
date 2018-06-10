@@ -4,20 +4,27 @@ layout: default
 
 <article>
   <h3>
-    <a href="{{ post.url }}">
+    <a href = '{{ post.url }}'>
       {{ page.title }}
     </a>
   </h3>
-  <h5>Written by: {{ page.author }} on {{ page.date | date: "%B %e, %Y" }}</h5>
-  <div class="post-content">
+  <p class = 'blog__meta'>
+    {% if page.author_url == null %}
+      Written by: {{ page.author }}
+    {% else %}
+      Written by: <a href = '{{ page.author_url }}'> {{ page.author }}</a>
+    {% endif %}
+    on {{ page.date | date: '%B %e, %Y' }}
+  </p>
+  <div class = 'post-content'>
     <p>
     {{ page.content }}
     </p>
   </div>
-  <span class="post-category">
-    <span class="label">
-      <p>Categories: {{ page.categories }}</p>
-    </span>
-  </span>
-  <hr>
+  <div class = 'pager'>   
+    <h4>Tags:</h4>
+    {%- for tag in page.tags -%}
+      <a href = '/tag/{{ tag | slugify | downcase }}/' class = 'more more--round'>{{ tag }}</a>
+    {%- endfor -%}
+  </div>
 </article>
