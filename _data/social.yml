@@ -1,0 +1,11 @@
+- name: 'github'
+  url: 'https://github.com/watir'
+  icon: 'fab fa-github' 
+  
+- name: 'twitter'
+  url: 'https://www.twitter.com/watir_team'
+  icon: 'fab fa-twitter'
+  
+- name: 'stackoverflow' 
+  url: 'http://stackoverflow.com/tags/watir'
+  icon: 'fab fa-stack-overflow'
