@@ -1,17 +1,13 @@
 
-.highlighter-rouge {
-  background-color: #efefef;
-  border: 1px solid #ddd;
-  padding: 0px 3px 0px 3px;
-}
 
 .highlight {
-  background-color: #efefef;
-  padding: 7px 7px 7px 10px;
-  border: 1px solid #ddd;
-  -moz-box-shadow: 3px 3px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 3px 3px rgba(0,0,0,0.1);
-  box-shadow: 3px 3px rgba(0,0,0,0.1);
+  &,
+  &-rouge{
+    background-color: #f7f7f7;
+    border: 1px solid transparent;
+    padding: 20px;
+  }
+  box-shadow: 0px 8px 15px 0 rgba(158,174,221,0.1);
   margin: 20px 0 20px 0;
   overflow: auto;
 }
