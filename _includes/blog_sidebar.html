@@ -1,5 +1,5 @@
 <div>
-  <h4 style = 'text-decoration: underline'>Archives by Year</h4>
+  <h4 class = 'mb-2'>Archives by Year</h4>
   <div>
     {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
     {% for year in postsByYear %}
@@ -27,10 +27,10 @@
     </div>
     {% endfor %}
   </div>
-  <h4 style = 'text-decoration: underline'>Archives by Tags</h4>   
+  <h4 class = 'mb-2 mt-2'>Archives by Tags</h4>   
   {%- for tag in site.tags | sort | unique -%}
   {% capture tag_name %}{{ tag | first }}{% endcapture %}
-  <a class = 'more' href = '/tag/{{tag_name | slugify | downcase }}'>{{ tag_name | capitalize }}</a>
+  <a class = 'more more--round' href = '/tag/{{tag_name | slugify | downcase }}'>{{ tag_name | capitalize }}</a>
   {%- endfor -%}
   
 </div>
