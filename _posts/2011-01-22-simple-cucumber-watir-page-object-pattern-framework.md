@@ -5,7 +5,7 @@ date: 2011-01-22 04:44
 author: Alister Scott
 author_url: http://watirmelon.com
 comments: true
-tags: [Alister Scott, Blogs, Cucumber, Page Object, Page Object Pattern, Watir, watirmelon]
+tags: [Alister Scott, Blogs, Cucumber, Page Object, Watir, watirmelon]
 ---
 <!--more-->
 
