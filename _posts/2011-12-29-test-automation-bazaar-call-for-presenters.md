@@ -4,7 +4,7 @@ title: Test Automation Bazaar! Call for presenters.
 date: 2011-12-29 08:55
 author: bpettichord
 comments: true
-tags: [Conferences, Test Automation Bazaar]
+tags: [Conferences, Test Automation]
 ---
 The <a title="Test Automation Bazaar: call for presenters" href="http://watir.com/test-automation-bazaar/call-for-speakers/">call for presenters</a> for the <a title="Test Automation Bazaar!" href="http://watir.com/test-automation-bazaar/"><strong>Test Automation Bazaar</strong></a> is now live. <!--more-->
 This conference is happening in Austin, Texas from 23-24 March, 2012.
