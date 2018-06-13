@@ -23,7 +23,7 @@ layout: default
   </div>
   <div class = 'mb-2'>   
     <h4>Tags:</h4>
-    <div class = 'mb-2'>
+    <div class = 'mb-2 mt-2'>
       {%- for tag in page.tags -%}
         <a href = '/tag/{{ tag | slugify | downcase }}/' class = 'more more--round'>{{ tag }}</a>
       {%- endfor -%}
