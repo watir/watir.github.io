@@ -1,15 +1,18 @@
 
 
 .highlight {
+  box-shadow: 0px 8px 15px 0 rgba(158,174,221,0.1);
+  margin: 20px 0 20px 0;
+  overflow: auto;
   &,
   &-rouge{
     background-color: #f5f5f5;
     border: 1px solid transparent;
     padding: 20px;
   }
-  box-shadow: 0px 8px 15px 0 rgba(158,174,221,0.1);
-  margin: 20px 0 20px 0;
-  overflow: auto;
+  .highlight{
+    box-shadow: none;
+  }
 }
 
 code {
