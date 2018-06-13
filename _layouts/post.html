@@ -21,10 +21,12 @@ layout: default
     {{ page.content }}
     </p>
   </div>
-  <div class = 'pager'>   
+  <div class = 'mb-2'>   
     <h4>Tags:</h4>
-    {%- for tag in page.tags -%}
-      <a href = '/tag/{{ tag | slugify | downcase }}/' class = 'more more--round'>{{ tag }}</a>
-    {%- endfor -%}
+    <div class = 'mb-2'>
+      {%- for tag in page.tags -%}
+        <a href = '/tag/{{ tag | slugify | downcase }}/' class = 'more more--round'>{{ tag }}</a>
+      {%- endfor -%}
+    </div>
   </div>
 </article>
