@@ -247,6 +247,7 @@
   box-shadow: 0 0 60px rgba(0,0,0,0.1);
   margin-bottom: 25px;
   *{
+    -webkit-appearance: none;
     &,&:focus,&:hover{
       border: 1px solid transparent !important;
       outline: none !important;
@@ -258,6 +259,7 @@
     opacity: 0.8;
     transition: opacity 0.3s ease-out;
     &:hover{
+      background-color: $black;
       opacity: 1;
     }
   }
