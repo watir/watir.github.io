@@ -1,0 +1,9 @@
+<h3>Blogs</h3>
+<p>These blogs have significant Watir-related content (or content of other aspects of Ruby, etc that Watir users will benefit from):</p>
+<ul>
+  {% for blog in site.data.blogs %}
+  <li><a href = '{{ blog.link }}' target='_blank' rel = 'noopener'>{{ blog.description }}</a></li>
+  {% endfor %}
+</ul>
+<h3>Podcast Archives</h3>
+<p>Five years worth of recordings from the <a href="https://archive.org/details/WatirPodcast">Watir Podcast</a>.</p>
