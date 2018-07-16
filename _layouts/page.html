@@ -2,9 +2,14 @@
 layout: default
 ---
 
-<article class = 'page'>
-  <h2>{{ page.title }}</h2>
-  <div class = 'wrap'>
+<div class = 'page grid'>
+  <article>
+    <h2>{{ page.title }}</h2>
     {{ content }}
-  </div>
-</article>
+  </article>
+  <aside>
+  {% unless page.lean %}
+    {% include sidebar.html %}
+  {% endunless %}
+  </aside>
+</div>
