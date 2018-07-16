@@ -4,12 +4,12 @@
       <img class = 'member__pic' src = '{{ contributor.image }}'>
     </div>
     <ul>
-      <li><a class = 'member__name' href = '{{ contributor.website }}'>{{
+      <li><a class = 'member__name' href = '{{ contributor.website }}' target = '_blank' rel = 'noopener'>{{
         contributor.name}}</a>
       <li>
       <li>
         {% if contributor.twitter != null %}
-        <a class = 'member__handle' href = 'http://twitter.com/{{ contributor.twitter }}'>@{{contributor.twitter}}</a>
+        <a class = 'member__handle' href = 'http://twitter.com/{{ contributor.twitter }}' target = '_blank' rel = 'noopener'>@{{contributor.twitter}}</a>
         {% else %}
         &nbsp;
         {% endif %}

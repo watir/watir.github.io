@@ -3,11 +3,12 @@
   <head>
     {% include partials/head.html %}
   </head>
-  <body class = 'wrap'>
+  <body>
     <header>
       {%- include partials/header.html -%}
     </header>
     <main id = 'main' role = 'main' class = 'container'>
+      {%- include search.html -%}
       {{ content }}
     </main>
     <footer class = 'footer'>
