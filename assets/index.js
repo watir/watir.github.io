@@ -95,5 +95,14 @@
       }
     })
   })();
+
+  (function loadSVGFont(){
+      var font = document.createElement('link'); 
+      font.type = 'text/css'; 
+      font.rel = 'stylesheet';
+      font.href = '/assets/svg-icons.css';
+      var s = document.getElementsByTagName('link')[0]; 
+      s.parentNode.insertBefore(font, s);
+  })();
   
 })();
