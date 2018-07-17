@@ -24,9 +24,6 @@ collections:
   guides:
     output: true
 
-gems:
-  - jekyll-redirect-from
-
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
@@ -80,6 +77,7 @@ sass:
 plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-redirect-from
 
 # Exclude these files from your production _site
 exclude:
