@@ -1,4 +1,6 @@
-*{
+*,
+*:before,
+*:after{
   box-sizing: border-box;
 }
 html {
@@ -132,35 +134,6 @@ img {
 header {
   h1,
   nav { display: inline-block; }
-}
-
-.main-nav {
-  li {
-    margin-right: 10px;
-
-    a {
-      font-weight: 900;
-      font-size: 14px;
-      padding: 0.5em 1em;
-      text-shadow: none;
-      text-transform: uppercase;
-
-      &:hover {
-        background-color: #5aa7d7;
-        color: #ebebeb;
-        text-shadow: 0 1px 3px rgba(0,0,0,.5);
-      }
-    }
-
-    &.current {
-
-      a {
-        background-color: #5aa7d7;
-        color: #ebebeb;
-        text-shadow: 0 1px 0 rgba(0,0,0,.5);
-      }
-    }
-  }
 }
 
 .intro {
