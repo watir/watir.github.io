@@ -245,7 +245,6 @@
 .gsc-control-cse{
   padding: 0 !important;
   box-shadow: 0 0 60px rgba(0,0,0,0.1);
-  margin-bottom: 25px;
   *{
     -webkit-appearance: none;
     &,&:focus,&:hover{
@@ -262,6 +261,25 @@
       background-color: $black;
       opacity: 1;
     }
+  }
+}
+.custom_search{
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  @media screen and (min-width: 667px) {
+    position: absolute;
+    top: 35px;
+    right: 25px;
+  }
+}
+.flex-out{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  a{
+    font-size: 1.25rem;
   }
 }
 
