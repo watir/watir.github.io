@@ -92,7 +92,16 @@ ol ul, ul ol, ul ul, ol ol {
 em, i {
   font-style: italic;
 }
-
+pre, figure,code{
+  max-width: 100%;
+}
+pre{
+  word-break: break-all;
+  word-wrap: break-word;
+}
+code{
+  white-space: pre-wrap;
+}
 strong, b {
   font-weight: bold;
 }
