@@ -10,17 +10,18 @@ layout: default
     {%- assign post_year = post.date | date: '%Y' -%}
       <li class = 'blog__post'>
         <h3><a href = '{{ post.url }}'>{{ post.title }}</a></h3>
-        <p class = 'blog__meta'>
-          {% if post.author_url == null %}
-            Written by: {{ post.author }}
-          {% else %}
-            Written by: <a href = '{{ post.author_url }}'> {{ post.author }}</a>
-          {% endif %}
-          on {{ post.date | date: '%B %e, %Y' }}
-        </p>
         {{ post.excerpt | strip_html }}
         <br />
         <a href = '{{ post.url }}' class = 'more'>Continue Reading...</a>
+        <br />
+        <span class = 'blog__meta'>
+          {% if post.author_url == null %}
+          Written by: {{ post.author }}
+          {% else %}
+          Written by: <a href = '{{ post.author_url }}'> {{ post.author }}</a>
+          {% endif %}
+          on {{ post.date | date: '%B %e, %Y' }}
+        </span>
       </li>
     {%- endfor -%}
     {%- include paginator.html -%}

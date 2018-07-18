@@ -14,19 +14,19 @@ available on [RubyDoc](http://www.rubydoc.info/gems/watir), often with examples.
 * [Automation Pipeline](../guides/overview)
 * [Installing Drivers](../guides/drivers)
 * [Starting a Session](../guides/session)
-
+<p />
 ### Working with Different Browsers
 * [Chrome](../guides/chrome)
 * [Firefox](../guides/firefox)
 * [Internet Explorer](../guides/ie)
 * [Safari](../guides/safari)
 * [Edge](../guides/edge)
-
+<p />
 ### Working With Elements
 * [Supported Elements](../guides/elements)
 * [Locating elements](../guides/locating)
 * [Frames](../guides/frames)
-
+<p />
 ### Advanced Interactions
 * [Waiting](../guides/waiting)
 * [Headless](../guides/headless)
