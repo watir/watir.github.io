@@ -7,6 +7,6 @@ image: /images/contributors/titus.jpg
 active: true
 ---
 
+Watir Steering Committee Member<br />
 Code monkey for
-<a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver</a> gem<br />
-Support sheriff at <a href="http://stackoverflow.com/tags/watir">Stack Overflow</a>
+<a href="https://rubygems.org/gems/watir">watir gem</a>
