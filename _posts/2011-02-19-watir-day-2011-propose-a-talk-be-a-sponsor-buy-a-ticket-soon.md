@@ -4,7 +4,7 @@ title: Watir Day 2011 - Propose a talk, be a sponsor, buy a ticket
 date: 2011-02-19 13:03
 author: bpettichord
 comments: true
-tags: [Uncategorized]
+tags: [Conferences]
 ---
 The planning for the Watir Day 2011 in San Francisco on Sunday April 3rd is progressing well.
 <!--more-->

@@ -5,7 +5,7 @@ date: 2018-01-24
 author: Josh Grant
 author_url: http://simplythetest.tumblr.com
 comments: true
-tags: [Python]
+tags: [Nerodia, Addons]
 ---
 
 Attention Pythonistas: now you too can use Watir! There is now a Python implementation of Watir called [Nerodia](https://github.com/watir/nerodia). 

@@ -4,7 +4,7 @@ title: Poll - what Ruby/Watir versions do you use?
 date: 2011-02-28 10:43
 author: bpettichord
 comments: true
-tags: [Polls]
+tags: [Users]
 ---
 The Watir Team is trying to work out which versions of Ruby and which versions of Watir to support, and it was suggested we run a poll to see.
 <!--more-->

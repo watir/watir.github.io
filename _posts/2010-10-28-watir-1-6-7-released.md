@@ -4,7 +4,7 @@ title: Watir 1.6.7 released
 date: 2010-10-28 06:36
 author: bpettichord
 comments: true
-tags: [1.6.7, Releases]
+tags: [Releases]
 ---
 Hello, everyone!
 

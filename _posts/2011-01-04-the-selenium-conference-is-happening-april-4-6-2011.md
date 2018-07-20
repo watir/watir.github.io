@@ -4,7 +4,7 @@ title: The Selenium Conference is happening April 4-6, 2011
 date: 2011-01-04 11:06
 author: bpettichord
 comments: true
-tags: [Conferences, San Francisco, SeConf, Selenium]
+tags: [Conferences]
 ---
 <h1><strong>The Selenium Conference Is Happening</strong></h1>
 And we want you to be part of it. Join members of the growing Selenium community for 3 jam-packed days of talks, workshops, lightning talks, and hack sessions. Hear speakers from around the world talk about the present and future of automated testing, share ideas with fellow Selenium developers, including Core Committers, and take part in shaping the future success of the Selenium project.

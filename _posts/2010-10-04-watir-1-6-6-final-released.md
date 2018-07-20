@@ -4,7 +4,7 @@ title: Watir 1.6.6 final released
 date: 2010-10-04 14:04
 author: bpettichord
 comments: true
-tags: [1.6.6, Releases]
+tags: [Releases]
 ---
 Hello (fire)watirists!
 

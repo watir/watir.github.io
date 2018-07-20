@@ -4,7 +4,7 @@ title: Watir Day 2011 Questionnaire Results
 date: 2011-04-06 20:19
 author: bpettichord
 comments: true
-tags: [conference, Conferences, Watir Day, Watir Day]
+tags: [Conferences]
 ---
 <a href="http://watir.com/watir-day/">Watir Day 2011</a> went well on Sunday in San Francisco. We had about 60 attendees from various places, and 10 sponsors.
 <!--more-->

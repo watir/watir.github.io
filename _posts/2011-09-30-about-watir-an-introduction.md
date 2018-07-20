@@ -4,7 +4,7 @@ title: About Watir – An Introduction
 date: 2011-09-30 21:01
 author: bpettichord
 comments: true
-tags: [Blogs, Books]
+tags: [Blogs]
 ---
 <a href="http://www.flickr.com/photos/softwaretestingclub/4830570110/" title="Testing Planet Emblem  by Software Testing Club, on Flickr"><img src="http://farm5.static.flickr.com/4138/4830570110_c3031e7a13.jpg" width="500" height="212" alt="Testing Planet Emblem "></a>
 

@@ -4,7 +4,7 @@ title: A Ninja Strike to the Brain
 date: 2011-05-15 01:16
 author: bpettichord
 comments: true
-tags: [Conferences, Selenium, Uncategorized]
+tags: [Conferences]
 ---
 Last month, I gave a keynote address at the Selenium conference, and the video has just been posted to Youtube. The talk is about many things, including the persistent attraction of test recorders even though no one ever really believes in them. Although I used to speak at conferences a lot, I haven't done much for the last several years, and this is really my first talk on Youtube. So I am interested in seeing what kind of reception it gets from people who weren't at the conference.
 <!--more-->
