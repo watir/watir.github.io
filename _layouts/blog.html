@@ -5,12 +5,13 @@ layout: default
   <div class = 'blog__content'>
     <h2>{{ page.title }}</h2>
     <ul class = 'fit'>
-    {%- for post in paginator.posts -%}
+    {%- for post in site.posts -%}
       <li class = 'blog__post'>
         <h3><a href = '{{ post.url }}'>{{ post.title }}</a></h3>
         <a href = '{{ post.url }}' class = 'more'>Continue Reading...</a>
       </li>
     {%- endfor -%}
+    {%- include paginator.html -%}
     </ul>
   </div>
   <div class = 'blog__sidebar'>{%- include blog_sidebar.html -%}</div>
