@@ -17,13 +17,9 @@
   description: Jim Matthews – Testing the Limits
 - link: http://jkotests.wordpress.com/
   description: Justin Ko – Testing by Justin Ko
-- link: http://rubytester.github.com/
-  description: MarekJ – RubyTester Blog
-- link: http://www.natontesting.com/
-  description: Nathaniel Ritmeyer – Nat On Testing
-- link: http://developer-in-test.blogspot.com/
-  description: Sai Venkatakrishnan – Agile Tester
 - link: http://tcfodor.wordpress.com/
   description: Tiffany Fodor – It’s always something…
+- link: http://watirtight.com/
+  description: Titus Fortner – Watirtight Testing
 - link: http://filipin.eu/
-  description: Željko Filipin’s Blo
+  description: Željko Filipin’s Blog
