@@ -72,7 +72,7 @@
   (function currentYear() {
     let date = new Date();
     let year = date.getFullYear();
-    $el('#year').innerHTML = '2009-' + year;
+    $el('#year').innerHTML = year;
   })();
 
   (function toggleMenu() {
