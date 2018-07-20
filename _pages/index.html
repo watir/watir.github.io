@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Watir is...
 permalink: '/'
 ---
 
@@ -11,16 +10,19 @@ permalink: '/'
   {% if post_year == current_year %}
   <div>
     <h3><a href = '{{ post.url }}'>{{ post.title }}</a></h3>
-    <p class = 'blog__meta'>
+    {{ post.excerpt | strip_html }}
+    <br />
+    <a href = '{{ post.url }}' class = 'more'>Continue Reading...</a>
+    <br />
+    <span class = 'blog__meta'>
       {% if post.author_url == null %}
         Written by: {{ post.author }}
       {% else %}
         Written by: <a href = '{{ post.author_url }}'> {{ post.author }}</a>
-    {% endif %}
-      on {{ post.date | date: '%B %e, %Y' }}</p>
-    {{ post.excerpt | strip_html }}
-    <p><a href = '{{ post.url }}' class = 'more'>Continue Reading...</a></p>
-    </div>
+      {% endif %}
+      on {{ post.date | date: '%B %e, %Y' }}</span>
+    <p></p>
+  </div>
   {% endif %}
   {% endfor %}
   <div class = 'pager'>
