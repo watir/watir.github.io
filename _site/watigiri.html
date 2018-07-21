@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watigiri – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="The initial version of the Watigiri gem has 
+just been released. Watigiri is an add-on to Watir that allows actions to be taken using 
+Nokogiri (an HTML parser that uses 
+native C or Java libraries) instead of Selenium in the places it makes sense to do so.
+
+" />
+    <meta property="og:description" content="The initial version of the Watigiri gem has 
+just been released. Watigiri is an add-on to Watir that allows actions to be taken using 
+Nokogiri (an HTML parser that uses 
+native C or Java libraries) instead of Selenium in the places it makes sense to do so.
+
+" />
+    
+    <meta name="author" content="Watir Project" />
+
+    
+    <meta property="og:title" content="Watigiri" />
+    <meta property="twitter:title" content="Watigiri" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/community/'
+      
+      >
+      Community
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/contribute/'
+      
+      >
+      Contribute
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watigiri
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'http://watirtight.com/' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on September  7, 2017
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>The initial version of the <a href="https://github.com/titusfortner/watigiri">Watigiri gem</a> has 
+just been released. Watigiri is an add-on to Watir that allows actions to be taken using 
+<a href="https://github.com/sparklemotion/nokogiri">Nokogiri</a> (an HTML parser that uses 
+native C or Java libraries) instead of Selenium in the places it makes sense to do so.
+<!--more--></p>
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watigiri</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watigiri"</span><span class="p">,</span> <span class="s2">"~&gt; 0.2"</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="text-bang">Text Bang</h3>
+
+<p>The major feature of <strong>Watigiri</strong> is <code class="highlighter-rouge">Watir::Element#text!</code>. A common pattern in testing is to verify that the 
+information that was entered into a form has correctly been sent to a view or list page.
+Rather than making several dozen wire calls to locate and obtain text information from each, 
+you can make a single wire call to obtain the DOM and then quickly locate and obtain all of 
+the information necessary at each element location.</p>
+
+<p>The most important distinction between <code class="highlighter-rouge">Element#text!</code> and <code class="highlighter-rouge">Element#text</code> is that <code class="highlighter-rouge">#text!</code>
+returns what is in the DOM regardless of whether the text is actually visible (present)
+on the page. So if the element being present on the page matters, do not use <code class="highlighter-rouge">#text!</code>.</p>
+
+<p>Also of note, <strong>Watigiri</strong> automatically flushes the cached DOM whenever a user takes an 
+action that might have changed the DOM (clicks, navigations, etc). 
+So the performance improvement will only come with the number of successive calls
+ of <code class="highlighter-rouge">#text!</code> before taking other actions.</p>
+
+<h3 id="regular-expression-location">Regular Expression Location</h3>
+
+<p>Watir supports using a <code class="highlighter-rouge">Regexp</code> for all locators that accept a <code class="highlighter-rouge">String</code>.
+Watir implements this by locating a subset of elements that might be a match and 
+then making wire calls on each of those to check if they actually match the provided 
+regular expression. With <strong>Watigiri</strong>, iterating through this list of potentially
+matching elements is done using Nokogiri. Depending on the DOM and the kind
+of regular expression, this can be a small or slighly less small performance improvement.</p>
+
+<h3 id="additional-features-and-support">Additional Features and Support</h3>
+
+<p><strong>Watigiri</strong> is still effectively in Beta and the implementation and the the method names might
+change (for reasons). There are a number of other potential features that will be tracked
+in the <a href="https://github.com/titusfortner/watigiri/issues">Watigiri Issue Tracker</a>. Please add
+additional feature requests or issues you find with this gem. Support for and discussion
+ about this gem can be found in the #watir channel of <a href="http://seleniumhq.herokuapp.com">Selenium Slack</a>.</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/addons/' class = 'more more--round'>Addons</a></div>
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watigiri',
+		  'title': 'Watigiri'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Simple Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="this is a test page" />
+    <link rel="stylesheet" href="watirspec.css" type="text/css" media="screen" title="no title" charset="utf-8">
+      
+    <script>
+        function newWindow() {
+            var opened = window.open("");
+
+            opened.document.write("<html><head><title>Results</title></head><body>Test</body></html>");
+        }
+
+        function results() {
+            var opened = window.open("");
+
+            var line1 = "Hello " + document.user_new.new_user_first_name.value +
+                " " + document.user_new.new_user_last_name.value + ",";
+            var news = document.user_new.new_user_newsletter.value == "yes" ? "will" : "will not";
+            var line2 = "You " + news + " be receiving our newsletter at " +
+                document.user_new.new_user_email.value;
+            var checkedValues = [];
+            var interestElements = document.getElementsByName('new_user_interests');
+            for(var i=0; interestElements[i]; ++i){
+                if(interestElements[i].checked){
+                    checkedValues.push(interestElements[i].value);
+                }
+            }
+            var countries = document.getElementById("new_user_country");
+            var line3 = "We hope you enjoy " + checkedValues.join(', ') +
+                    " in " + countries.options[countries.selectedIndex].text;
+            var html = "<h3>Response</h3><div id=\"results\"><p id=\"name\">" + line1 +
+                "</p><p id=\"newsletter\">" + line2 + "</p><p id=\"activities\">" + line3 + "</p></div>";
+            opened.document.write(html);
+        }
+    </script>
+  </head>
+  <body>
+    <h2>Add user</h2>
+    <form name="user_new" id="new_user" class="user">
+        <fieldset>
+            <label for="new_user_first_name" id="first_label" onclick="WatirSpec.addMessage('label')">First name</label>
+            <input name="new_user_first_name" id="new_user_first_name" class="name" /> <br />
+            <label for="new_user_last_name">Last name</label>
+            <input type="no_such_type" name="new_user_last_name" id="new_user_last_name" class="name" /> <br />
+            <label for="new_user_email">Email address</label>
+            <input type="text" name="new_user_email" id="new_user_email" /> <br />
+            <label for="new_user_country">Country</label>
+            <select name="new_user_country" id="new_user_country" class="country">
+                <option value="" disabled selected>select your country</option>
+                <option class="scandinavia" value="1">Denmark</option>
+                <option id="nor" class="scandinavia" value="2">Norway</option>
+                <option class="scandinavia" value="3">Sweden</option>
+            </select> <br />
+        </fieldset>
+
+        <fieldset>
+            <legend>Interests</legend>
+            <input type="checkbox" name="new_user_interests" id="new_user_interests_books" value="books" /> <label for="new_user_interests_books">Books</label>
+            <input type="checkbox" name="new_user_interests" value="bowling" /> <label>Bowling</label>
+            <input type="checkbox" name="new_user_interests" id="new_user_interests_cars" value="cars" /> <label for="new_user_interests_cars">Cars</label>
+            <input type="checkbox" name="new_user_interests" id="new_user_interests_dancing" value="dancing" class="fun" title="Dancing is fun!" /> <label for="new_user_interests_dancing">Dancing</label>
+            <input type="checkbox" name="new_user_interests" id="new_user_interests_dentistry" value="dentistry" /> <label for="new_user_interests_dentistry">Dentistry</label>
+        </fieldset>
+        <fieldset>
+            <legend>Preferences</legend>
+            <p>Do you want to recieve our newslettter?</p>
+            <input type="radio" name="new_user_newsletter" id="new_user_newsletter_yes" value="yes" checked="checked" class="huge" onclick="WatirSpec.addMessage('clicked: ' + this.id)"/>
+            <label for="new_user_newsletter_yes">Yes</label>
+            <input type="radio" name="new_user_newsletter" id="new_user_newsletter_no" value="no"/>
+            <label for="new_user_newsletter_no">No</label>
+        </fieldset>
+
+        <input type="submit" id="submitButton" onclick="results()"/>
+    </form>
+
+  </body>
+</html>

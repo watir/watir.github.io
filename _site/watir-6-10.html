@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 6.10 Released! – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir 6.10.0 is now available on RubyGems! It features a new locator and other element location improvements.
+
+" />
+    <meta property="og:description" content="Watir 6.10.0 is now available on RubyGems! It features a new locator and other element location improvements.
+
+" />
+    
+    <meta name="author" content="Watir Project" />
+
+    
+    <meta property="og:title" content="Watir 6.10 Released!" />
+    <meta property="twitter:title" content="Watir 6.10 Released!" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/community/'
+      
+      >
+      Community
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/contribute/'
+      
+      >
+      Contribute
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watir 6.10 Released!
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'http://watirtight.com/' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on November 23, 2017
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>Watir 6.10.0 is now available on RubyGems! It features a new locator and other element location improvements.
+<!--more--></p>
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watir</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watir"</span><span class="p">,</span> <span class="s2">"~&gt; 6.10"</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="locating-elements-by-text">Locating Elements by Text</h3>
+
+<p>Currently, the <code class="highlighter-rouge">:text</code> locator behaves differently depending on whether it is provided a value of <code class="highlighter-rouge">RegExp</code>
+or <code class="highlighter-rouge">String</code>. A <code class="highlighter-rouge">String</code> value will match any text in the DOM, but a <code class="highlighter-rouge">RegExp</code> will only match
+visible text.</p>
+
+<p>We have decided to change the <code class="highlighter-rouge">RegExp</code> behavior to match the <code class="highlighter-rouge">String</code> behavior and locate
+based on any text found in the DOM, and create a new locator <code class="highlighter-rouge">:visible_text</code> that will filter
+on only text that is actually displayed on the screen. As such the <code class="highlighter-rouge">:text</code> locator will be effectively 
+equivalent to the <code class="highlighter-rouge">#text_content</code> method, and the <code class="highlighter-rouge">:visible_text</code> locator is effectively equivalent 
+to the <code class="highlighter-rouge">#text</code> method.</p>
+
+<p>The actual change to the behavior of <code class="highlighter-rouge">text: &lt;RegExp&gt;</code> will not be made until a future release, 
+but as of this release, if Watir sees that the update might be a breaking change in your code, 
+it will give a deprecation warning with a suggestion to change to using <code class="highlighter-rouge">:visible_text</code>.</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div&gt;</span>Foo<span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"display:none;"</span><span class="nt">&gt;</span>Bar<span class="nt">&lt;/span&gt;&lt;/div&gt;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">element1</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">text: </span><span class="s1">'FooBar'</span><span class="p">)</span>
+<span class="n">element2</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">visible_text: </span><span class="s1">'Foo'</span><span class="p">)</span>
+<span class="n">element1</span> <span class="o">==</span> <span class="n">element2</span> <span class="c1"># =&gt; true</span>
+
+<span class="n">element2</span><span class="p">.</span><span class="nf">text_content</span> <span class="c1"># =&gt; 'FooBar'</span>
+<span class="n">element1</span><span class="p">.</span><span class="nf">text</span> <span class="c1"># =&gt; 'Foo'</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="custom-attributes">Custom Attributes</h3>
+
+<p>One of the impressive things Watir does is to parse the HTML5 IDL to obtain a list of all of the
+valid attributes for each valid html element in the spec. This allows Watir to provide classes that
+correspond to each element, allows those 
+classes to be initialized with its corresponding attributes as locators, and provides those classes with
+custom methods to obtain each attribute’s value.</p>
+
+<p>For this release we decided to remove the restriction on only being able to locate elements with
+a limited number of valid HTML5 attributes. Methods will still only be created for valid attributes, but any
+locator that Watir doesn’t recognize it will now assume that it is an attribute and attempt to locate an
+element with it like:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">custom-attribute=</span><span class="s">"custom"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">element</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">custom_attribute: </span><span class="s1">'custom'</span><span class="p">)</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">attribute_value</span><span class="p">(</span><span class="s1">'custom-attribute'</span><span class="p">)</span> <span class="c1"># =&gt; 'custom' </span></code></pre></figure>
+
+<p><br /></p>
+
+<p>As a result, people can now locate custom Angular elements without needing to use 
+<a href="https://github.com/titusfortner/watir_angular/">watir_angular</a>, and can locate various <code class="highlighter-rouge">div</code> and <code class="highlighter-rouge">span</code>
+elements that (incorrectly) use the <code class="highlighter-rouge">name</code> attribute.</p>
+
+<h3 id="selenium-vs-watir-locators-implementation">Selenium vs Watir Locators (Implementation)</h3>
+
+<p>Watir’s powerful location strategy is implemented by default by converting some of the locators 
+provided by the user into a complicated XPath call, and then, if necessary, filtering the results of that call
+with the remaining locators. Until now, Watir has provided limited support for the 
+standard Selenium locators. This release will rely more heavily on using the Selenium locators 
+directly without any XPath conversion where possible (a minor performance enhancement). 
+Additionally, while most of the Selenium locators can be used with any <code class="highlighter-rouge">Watir::Element</code> subclass and
+can be mixed and matched with any other Watir locators and will accept either <code class="highlighter-rouge">String</code> or <code class="highlighter-rouge">RegExp</code> values, 
+there are three Selenium supported locators that can’t do any of these things. As of this release,
+ <code class="highlighter-rouge">:link</code>, <code class="highlighter-rouge">:link_text</code>, and <code class="highlighter-rouge">:partial_link_text</code> are deprecated in favor of the new <code class="highlighter-rouge">:visible_text</code> 
+locator which behaves like all of the other Watir locators.</p>
+
+<p><br /></p>
+
+<p>See the <a href="https://github.com/watir/watir/blob/master/CHANGES.md">Changelog</a> 
+for the complete history of updates.</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watir-6-10',
+		  'title': 'Watir 6.10 Released!'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>
