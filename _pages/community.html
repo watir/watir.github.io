@@ -1,0 +1,24 @@
+---
+layout: default
+lean: true # doesn't have a sidebar
+title: Contributors
+permalink: /community/
+---
+
+{% assign active_contributors = site.contributors | where: 'active', 'true' %}
+{% assign alumni_contributors = site.contributors | where: 'active', 'false' %}
+
+
+<h3>Current Team</h3>
+<div class = 'members'>
+{% for contributor in active_contributors %}
+  {% include contributor.html %}
+{% endfor %}
+</div>
+
+<h3>Team Alumni</h3>
+<div class = 'members'>
+{% for contributor in alumni_contributors %}
+  {% include contributor.html %}
+{% endfor %}
+</div>

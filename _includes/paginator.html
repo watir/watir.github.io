@@ -1,0 +1,23 @@
+
+<!-- Pagination links -->
+<nav class = 'pager'>
+{% if paginator.previous_page %}
+  <a href = '{{ paginator.previous_page_path | relative_url }}' class = 'previous pager__label'>
+    <i class="fas fa-arrow-circle-left"></i> Prev
+  </a>
+{% else %}
+  <span class = 'previous pager__label'>
+    <i class="fas fa-arrow-circle-left"></i> Prev
+  </span>
+{% endif %}
+<span>{{ paginator.page }} of {{ paginator.total_pages }}</span>
+{% if paginator.next_page %}
+  <a href = '{{ paginator.next_page_path | relative_url }}' class = 'next pager__label'>
+    Next <i class="fas fa-arrow-circle-right"></i>
+  </a>
+{% else %}
+  <span class = 'next pager__label'>
+    Next <i class="fas fa-arrow-circle-right"></i>
+  </span>
+{% endif %}
+</nav>

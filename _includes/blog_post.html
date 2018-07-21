@@ -1,0 +1,19 @@
+<article>
+  <h3>
+    <a href="{{ post.url }}">
+      {{ post.title }}
+    </a>
+  </h3>
+  <h5>Written by: {{ post.author }} on {{ post.date | date: "%B %e, %Y" }}</h5>
+  <div class="post-content">
+    <p>
+    {{ post.content }}
+    </p>
+  </div>
+  <span class="post-category">
+    <span class="label">
+      <p>Categories: {{ post.categories }}</p>
+    </span>
+  </span>
+  <hr>
+</article>

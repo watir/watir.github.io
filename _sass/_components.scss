@@ -1,0 +1,294 @@
+.header{
+  display: flex;
+  max-width: 1084px;
+  margin: 0 auto;
+  padding: 10px 25px;
+  justify-content: space-between;
+  flex-flow: column;
+  align-items: flex-start;
+  overflow: hidden;
+  position: relative;
+  a{
+    color: $black;
+    &:hover{
+      color: $blue;
+    }
+  }
+  .current{
+    color: $blue;
+  }
+}
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+    width: 180px;
+  }
+  .tag-line{
+    position: absolute;
+    top: 65px;
+    left: 84px;
+    font-size: 0.7rem;
+    color: #56819c;
+    font-family: $header_font;
+  }
+}
+.nav{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.25s ease-out, opacity 0.5s 0.25s ease-out; 
+  @media screen and (min-width: 769px) {
+    flex-flow: row;
+    justify-content: flex-start;
+    height: initial;
+    opacity: 1;
+  }
+  a{
+    padding: 10px 15px;
+  }
+  &__toggle{
+    cursor: pointer;
+    padding: 5px;
+    @media screen and (min-width: 769px){
+      display: none;
+    }
+  }
+  &__open{
+    height: initial;
+    opacity: 1;
+  }
+}
+
+.footer{
+  padding: 25px;
+  background: rgba(158, 174, 221, 0.2);
+  text-align: center;
+  &__link {
+    font-size: 1.33rem;
+    margin: 5px;
+  }
+}
+
+.blog{
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  &__content,
+  &__sidebar{
+    width: 100%;
+  }
+  &__content{
+    @media screen and (min-width: 769px) {
+      width: 67%;
+    }
+  }
+  &__meta{
+    padding: 7.5px 0;
+    opacity: 0.8;
+    font-size: 0.96rem;
+  }
+  &__sidebar{
+    @media screen and (min-width: 769px) {
+      width: 30%;
+    }
+  }
+  &__post{
+    padding:15px 0 15px;
+  }
+}
+
+// archives
+
+.archive{
+  &__item{
+    padding: 7.5px 15px;
+  }
+  &__yearly,
+  &__monthly{
+    height: 0;
+    overflow: hidden;
+    padding:0 15px;
+  }
+  &__expanded{
+    animation: 0.4s expand ease-out forwards; 
+    padding: 15px 0 15px 15px;
+  }
+  &__title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    background: rgba(158, 174, 221, 0.1);
+    cursor: pointer;
+    margin: 5px 0;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
+// contributors
+.member{
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.1);
+  margin: 20px 0;
+  @media screen and (min-width: 667px) {
+    width: 48%;
+  }
+  @media screen and (min-width: 992px) {
+    width: 32%;
+  }
+  &s{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  &__pic {
+    padding-right: 5px;
+    border-radius: 50%;
+  }
+
+  .list {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &__handle {
+    font-size: 0.96rem;
+  }
+
+  &__location {
+    font-size: 0.9rem;
+  }
+
+  &__description {
+    font-size: 1rem;
+  }
+}
+
+.pager{
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__label{
+    padding: 7.5px 12.5px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.17);
+    border-radius: 3px;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
+// utilities
+.blue {
+  background: $blue;
+  color: #fff;
+}
+.mb-2{
+  margin-bottom: 25px;
+}
+.mt-2{
+  margin-top: 25px;
+}
+.more{
+  background: rgba(158, 174, 221, 0.2);
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px 0;
+  border-radius: 5px;
+  color: $black;
+  transition: color 0.3s ease-out;
+  text-decoration: none !important;
+  &:hover{
+    color: $blue;
+  }
+  &--round{
+    border-radius: 30px;
+    padding: 7.5px 20px;
+    margin: 0 10px 15px 0;
+  }
+}
+
+.page{
+  grid-template-columns: 3fr 1fr;
+  a{
+    text-decoration: underline;
+    color: $gray;
+    &:visited{
+      color: #5aa7d7;
+    }
+  }
+  ul,li{
+    list-style-type: square;
+  }
+  ul{
+    padding-left: 20px; 
+  }
+}
+.gsc-control-cse{
+  padding: 0 !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.1);
+  *{
+    -webkit-appearance: none;
+    &,&:focus,&:hover{
+      border: 1px solid transparent !important;
+      outline: none !important;
+    }
+  }
+  .gsc-search-button{
+    cursor: pointer;
+    background-color: $black;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-out;
+    &:hover{
+      background-color: $black;
+      opacity: 1;
+    }
+  }
+}
+.custom_search{
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  @media screen and (min-width: 667px) {
+    position: absolute;
+    top: 35px;
+    right: 25px;
+  }
+}
+.flex-out{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  a{
+    font-size: 1.25rem;
+  }
+}
+
+@keyframes expand {
+  0%{
+    height: 0;
+  }
+  100%{
+    height: initial;
+  }
+}
