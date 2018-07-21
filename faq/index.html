@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 6 FAQ – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+    <meta name="author" content="Watir Project" />
+
+    
+    <meta property="og:title" content="Watir 6 FAQ" />
+    <meta property="twitter:title" content="Watir 6 FAQ" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/community/'
+      
+      >
+      Community
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/contribute/'
+      
+      >
+      Contribute
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <div class = 'page grid'>
+  <article>
+    <h2 class = 'flex-out'>Watir 6 FAQ
+    </h2>
+    <h3 id="frequently-asked-questions">Frequently Asked Questions</h3>
+
+<ul>
+  <li><a href="#A">What happened to watir-webdriver?</a></li>
+  <li><a href="#B">Why are my tests failing because of a chromedriver error?</a></li>
+  <li><a href="#C">Why are my tests failing because of a geckodriver error?</a></li>
+  <li><a href="#D">Why are my Internet Explorer tests failing?</a></li>
+  <li><a href="#E">Why am I getting warnings about #always_locate and/or #prefer_css?</a></li>
+  <li><a href="#F">Why am I getting warnings about #when_present being deprecated?</a></li>
+  <li><a href="#G">Why am I getting warnings about keywords versus arguments?</a></li>
+  <li><a href="#H">Why are my tests taking so long?</a></li>
+  <li><a href="#I">What is with this “&amp;:” symbols in the wait documentation?</a></li>
+  <li><a href="#J">What else is new?</a></li>
+</ul>
+
+<h3 id="answers">Answers</h3>
+
+<p><span id="A"><strong>What about watir-webdriver?</strong></span><br />
+    All of the watir-webdriver code has been moved into the watir gem.
+    The future of Watir is using the W3C specification for browser
+    automation, and that means basing the active implementation of Watir 
+    on Selenium.
+<br /><br /></p>
+
+<p><span id="B"><strong>Why are my tests failing because of a chromedriver error?</strong></span><br />
+    Due to the changes Mozilla has made recently, it makes more sense for
+    Chrome to be the default browser.
+    <a href="http://chromedriver.storage.googleapis.com/index.html">Download ChromeDriver</a>
+    and place it somewhere on your PATH. 
+    <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">See here for more information</a>.
+<br /><br /></p>
+
+<p><span id="C"><strong>Why are my tests failing because of a geckodriver error?</strong></span><br />
+    Mozilla has updated Firefox to no longer allow the previous implementation
+    of Firefox Driver to function. The replacement implementation is 
+    geckodriver. <a href="https://github.com/mozilla/geckodriver/releases">Download geckodriver</a>
+    and place it somewhere on your PATH. 
+    <a href="https://github.com/mozilla/geckodriver/blob/master/README.md">See here for more information</a>.
+<br /><br /></p>
+
+<p><span id="D"><strong>Why are my Internet Explorer tests failing?</strong></span><br />
+    Watir now relies on the Selenium driver for Internet Explorer. If 
+    you are having issues updating your tests to get them to pass, please 
+    <a href="http://watir.com/help/">ask us for help</a>.
+<br /><br /></p>
+
+<p><span id="E"><strong>Why am I getting warnings about #always_locate and/or #prefer_css?</strong></span><br />
+    Based on recent changes, neither of these options added significant 
+    additional functionality so they have been removed. 
+    Read <a href="http://watir.com/watir-6-beta4/">this post</a> for more information.
+<br /><br /></p>
+
+<p><span id="F"><strong>Why am I getting warnings about #when_present being deprecated?</strong></span><br />
+    Watir by default now automatically calls <code class="highlighter-rouge">#when_present</code> and
+    <code class="highlighter-rouge">#when_enabled</code> before taking actions on elements as appropriate,
+     so their use is redundant. If you are using the default settings you can just
+      delete these methods from your tests. If you have decided to change away from the
+     recommended settings (by explicitly setting <code class="highlighter-rouge">Watir.relaxed_locate = false</code>), then
+     swap out from these:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">element</span><span class="p">.</span><span class="nf">when_present</span><span class="p">.</span><span class="nf">click</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">element</span><span class="p">.</span><span class="nf">when_enabled</span><span class="p">.</span><span class="nf">click</span></code></pre></figure>
+
+<p>to these:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">element</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:present?</span><span class="p">).</span><span class="nf">click</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">element</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:enabled?</span><span class="p">).</span><span class="nf">click</span></code></pre></figure>
+
+<p><br /><br /></p>
+
+<p><span id="G"><strong>Why am I getting warnings about keywords versus arguments?</strong></span><br />
+    In order to make it more explicit what the method is doing, <code class="highlighter-rouge">#wait_until</code> and 
+    <code class="highlighter-rouge">#wait_while</code> methods now accept keyword arguments, and the use of ordered parameters
+    is deprecated. Previously, you would do this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Specify both parameters:</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">"Oops not not there"</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">el</span><span class="o">|</span> <span class="n">el</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span>
+<span class="c1"># Specify only timeout:</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">el</span><span class="o">|</span> <span class="n">el</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span>
+<span class="c1"># Specify only error message:</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">"Oops not not there"</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">el</span><span class="o">|</span> <span class="n">el</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span></code></pre></figure>
+
+<p>Whereas now you need to explicitly specify the timeout and/or the message keywords:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Specify both parameters:</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="ss">timeout: </span><span class="mi">5</span><span class="p">,</span> <span class="ss">message: </span><span class="s2">"Oops not not there"</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">el</span><span class="o">|</span> <span class="n">el</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span>
+<span class="c1"># Specify only timeout:</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="ss">timeout: </span><span class="mi">5</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">el</span><span class="o">|</span> <span class="n">el</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span>
+<span class="c1"># Specify only error message:</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="ss">message: </span><span class="s2">"Oops not not there"</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">el</span><span class="o">|</span> <span class="n">el</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span></code></pre></figure>
+
+<p><br /><br /></p>
+
+<p><span id="H"><strong>Why are my tests taking so long?</strong></span><br />
+    If you are seeing an error like: “this code has slept for the 
+    duration of the default timeout” then you have an issue with the
+    new automatic waits. The most likely cause is that you are taking
+    an action on an element that is not there and rescuing the exception, 
+    like this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">begin</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">element</span><span class="p">.</span><span class="nf">click</span>
+  <span class="n">take_action_if_present</span>
+<span class="k">rescue</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Exception</span><span class="o">::</span><span class="no">UnknownObjectException</span>
+  <span class="n">take_action_if_not_present</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Ideally this gets replaced with:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">element</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="nf">element</span>
+  <span class="k">if</span> <span class="n">element</span><span class="p">.</span><span class="nf">present?</span>
+    <span class="n">take_action_if_present</span>
+  <span class="k">else</span>
+    <span class="n">take_action_if_not_present</span>
+  <span class="k">end</span></code></pre></figure>
+
+<p>The other alternative is to set</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Watir</span><span class="p">.</span><span class="nf">relaxed_locate</span> <span class="o">=</span> <span class="kp">false</span> </code></pre></figure>
+
+<p><br /><br /></p>
+
+<p><span id="I"><strong>What is with the “&amp;:” symbols in the new wait documentation?</strong></span><br />
+This notation makes use of one of Ruby’s more powerful features with 
+regards to blocks (also known as closures). The ampersand (“&amp;”) attempts to convert 
+whatever object it is in front of into a block. In the case of this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'foo'</span><span class="p">).</span><span class="nf">wait_until</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:present?</span><span class="p">)</span> </code></pre></figure>
+
+<p>The object is a symbol (<code class="highlighter-rouge">:present?</code>), and symbols have a <code class="highlighter-rouge">#to_proc</code> method.
+This method makes the above code equivalent to this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'foo'</span><span class="p">).</span><span class="nf">wait_until</span> <span class="p">{</span> <span class="o">|</span><span class="n">element</span><span class="o">|</span> <span class="n">element</span><span class="p">.</span><span class="nf">present?</span> <span class="p">}</span> </code></pre></figure>
+
+<p>It’s a powerful way to abbreviate unnecessarily long lines of code.
+There are plenty of tutorials and descriptions of Ruby’s <code class="highlighter-rouge">#to_proc</code> methods
+if you’d like to learn more.
+<br /><br /></p>
+
+<p><span id="J"><strong>What else is new?</strong></span><br />
+    Take a look at the <a href="https://github.com/watir/watir/blob/master/CHANGES.md">changelog</a>
+    for all of the updates, but a list of new features:</p>
+
+<ol>
+  <li>Collections do not go stale on DOM refresh</li>
+  <li>Elements can be located with a visible filter</li>
+  <li>Error messages include more specific details about elements that aren’t found</li>
+  <li>Watir automatically waits for elements to be ready before taking actions on them</li>
+  <li>The <code class="highlighter-rouge">text_field</code> method can now be used to locate most HTML5 inputs</li>
+</ol>
+
+  </article>
+  <aside>
+  
+    <h4>Getting Started</h4>
+  <ul>
+    <li><a href="/guides/">Watir Guides</a></li>
+    <li><a href="http://www.rubydoc.info/gems/watir/">Watir Documentation</a></li>
+    <li><a href="/watir-6-faq/">Watir 6 FAQ</a></li>
+    <li>Watir Tutorial (Coming soon)</li>
+  </ul>
+<br />
+<h4 style="display: none"><a href="">Donations</a></h4>
+<h4 style="display: none"><a href="">Sponsors</a></h4>
+<h4><a href="/users/">Companies Using Watir</a></h4>
+<br />
+<h4><a href="https://soundcloud.com/the-watir-podcast/">The Watir Podcast</a></h4>
+<br />
+<h4>Blogs</h4>
+  <p>Resources with Watir, Ruby or otherwise useful content:</p>
+<ul>
+  
+  <li ><a href = 'http://watirmelon.com/' target='_blank' rel = 'noopener'>Alister Scott – WatirMelon</a></li>
+  
+  <li ><a href = 'http://angrez.blogspot.com/' target='_blank' rel = 'noopener'>Angrez Singh’s blog</a></li>
+  
+  <li ><a href = 'http://www.prismnet.com/~wazmo/blog/' target='_blank' rel = 'noopener'>Bret Pettichord – Testing Hotlist Update</a></li>
+  
+  <li ><a href = 'http://dmcnulla.wordpress.com/' target='_blank' rel = 'noopener'>Dave McNulla – Software Quality Assurance and Test</a></li>
+  
+  <li ><a href = 'http://www.software-testing.com.au/blog/' target='_blank' rel = 'noopener'>Jared Quinert’s Blog about Ruby and Watir</a></li>
+  
+  <li ><a href = 'http://www.itreallymatters.net/' target='_blank' rel = 'noopener'>Jarmo Pertman – IT Really Matters</a></li>
+  
+  <li ><a href = 'http://www.cheezyworld.com/' target='_blank' rel = 'noopener'>Jeff Morgan – CheezyWorld</a></li>
+  
+  <li ><a href = 'http://jimhmatthews.wordpress.com/' target='_blank' rel = 'noopener'>Jim Matthews – Testing the Limits</a></li>
+  
+  <li ><a href = 'http://jkotests.wordpress.com/' target='_blank' rel = 'noopener'>Justin Ko – Testing by Justin Ko</a></li>
+  
+  <li ><a href = 'http://tcfodor.wordpress.com/' target='_blank' rel = 'noopener'>Tiffany Fodor – It’s always something…</a></li>
+  
+  <li ><a href = 'http://watirtight.com/' target='_blank' rel = 'noopener'>Titus Fortner – Watirtight Testing</a></li>
+  
+  <li ><a href = 'http://filipin.eu/' target='_blank' rel = 'noopener'>Željko Filipin’s Blog</a></li>
+  
+</ul>
+
+  
+  </aside>
+</div>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/faq/',
+		  'title': 'Watir 6 FAQ'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-07-21T18:34:53+00:00</updated><id>/</id><title type="html">Watir Project</title><subtitle>Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</subtitle><entry><title type="html">Element Existentialism</title><link href="/element-existentialism" rel="alternate" type="text/html" title="Element Existentialism" /><published>2018-07-17T00:00:00+00:00</published><updated>2018-07-17T00:00:00+00:00</updated><id>/element-existentialism</id><content type="html" xml:base="/element-existentialism">&lt;p&gt;To Be, or Not to Be… an Element
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tldr&quot;&gt;TL/DR&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#visible?&lt;/code&gt; will soon do the same thing as &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#present?&lt;/code&gt;, which has the potential to cause problems if
+you rescue &lt;code class=&quot;highlighter-rouge&quot;&gt;UnknownObjectException&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;UnknownFrameException&lt;/code&gt; in your code. While we aren’t officially 
+deprecating &lt;code class=&quot;highlighter-rouge&quot;&gt;#visible?&lt;/code&gt;, we recommend that you make sure that you need to be using any existence check in the first place 
+(see point #1 in the next section), and if you do, switch to using &lt;code class=&quot;highlighter-rouge&quot;&gt;#present?&lt;/code&gt; instead.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-matters&quot;&gt;What Matters&lt;/h3&gt;
+
+&lt;p&gt;There are a bunch of different terms that mean slightly different things when it comes to whether an element “exists”.
+See the &lt;a href=&quot;#terminology&quot;&gt;Terminology section&lt;/a&gt; below for the meaning of the terms used in quotes in this article.&lt;/p&gt;
+
+&lt;p&gt;There are two major use cases for evaluating whether an element is there.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Ensure it is usable before taking an action on it
+    &lt;ul&gt;
+      &lt;li&gt;This is what we implemented as the default for Watir 6. We intentionally maintained a distinction 
+between taking an action on an element and locating the element. The goal is to allow the instantaneous querying of 
+the condition or status of an element at any time, while also making every effort to take the requested action. If
+you are using the &lt;code class=&quot;highlighter-rouge&quot;&gt;#visible?&lt;/code&gt; method as part of a wait, it is likely an unnecessary call at this point and safe to remove.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Validate the user can see it
+    &lt;ul&gt;
+      &lt;li&gt;For this we don’t actually care if an element “exists” in the DOM, if it isn’t also “displayed,” so we need to explore
+what this means.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Justin Ko has a &lt;a href=&quot;https://jkotests.wordpress.com/2012/11/02/checking-for-an-element-exists-visible-present/&quot;&gt;great synopsis&lt;/a&gt;
+of the three applicable predicate methods for a Watir element. Of these three, “exist” is typically insufficient
+for our needs and “visible” is redundant. In the US Legislature, a Representative has three options for a vote: 
+“aye”, “no,” and “present.” I like that this connotation of “present” is the one that Watir chose to use, as it 
+indicates that the member is in plain sight on the floor of Congress and in a state ready and able to take action.&lt;/p&gt;
+
+&lt;p&gt;For comparison, &lt;a href=&quot;https://github.com/teamcapybara/capybara/&quot;&gt;Capybara&lt;/a&gt; makes no distinction between &lt;code class=&quot;highlighter-rouge&quot;&gt;#exist?&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#visible?&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#present?&lt;/code&gt;, 
+there is only &lt;code class=&quot;highlighter-rouge&quot;&gt;#find&lt;/code&gt; and this method will only locate “displayed” elements. 
+To locate an element that “exists” but is not “displayed,” the
+user must pass in &lt;code class=&quot;highlighter-rouge&quot;&gt;hidden: true&lt;/code&gt;. I like that Watir makes it easier to locate and query elements without needing to 
+know their state ahead of time, but we also have more options and more confusion than we want or need.&lt;/p&gt;
+
+&lt;h3 id=&quot;clarifying-confusions&quot;&gt;Clarifying Confusions&lt;/h3&gt;
+
+&lt;h5 id=&quot;q-what-does-watirelementvisible-do-that-watirelementpresent-does-not&quot;&gt;Q: What does &lt;code class=&quot;highlighter-rouge&quot;&gt;Watir::Element#visible?&lt;/code&gt; do that &lt;code class=&quot;highlighter-rouge&quot;&gt;Watir::Element#present?&lt;/code&gt; does not?&lt;/h5&gt;
+&lt;p&gt;A: Nothing except throw an exception when the element does not “exist” in the DOM.&lt;/p&gt;
+
+&lt;h5 id=&quot;q-does-present-or-visible-change-if-i-scroll-the-element-out-of-view&quot;&gt;Q: Does &lt;code class=&quot;highlighter-rouge&quot;&gt;#present?&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;#visible?&lt;/code&gt; change if I scroll the element out of view?&lt;/h5&gt;
+&lt;p&gt;A: No. These methods are ultimately implemented by the atom &lt;code class=&quot;highlighter-rouge&quot;&gt;isShown&lt;/code&gt;, and only attempts to answer the question of whether it 
+ can be seen by the user assuming that the element is moved into the viewport first, even if it has not been.&lt;/p&gt;
+
+&lt;h5 id=&quot;q-if-present-returns-true-does-that-mean-the-element-is-interactable&quot;&gt;Q: If &lt;code class=&quot;highlighter-rouge&quot;&gt;#present?&lt;/code&gt; returns &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;, does that mean the element is interactable?&lt;/h5&gt;
+&lt;p&gt;A: Unfortunately, not necessarily. It is possible that attempting to click the element will give a “click intercepted” error 
+or an “element not interactable” error. Future versions of the w3c specification are likely going to provide
+ endpoints to evaluate whether this is true without taking the action, and future versions of Watir will make it easier
+ to set default handling behaviors for these issues. At this point it might still be messy, so 
+ &lt;a href=&quot;http://watir.com/help/&quot;&gt;reach out to us&lt;/a&gt; if you get stuck trying to handle this situation.&lt;/p&gt;
+
+&lt;h5 id=&quot;q-if-present-returns-true-does-that-mean-the-element-is-actually-able-to-be-seen-by-the-user&quot;&gt;Q: If &lt;code class=&quot;highlighter-rouge&quot;&gt;#present?&lt;/code&gt; returns &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;, does that mean the element is actually able to be seen by the user?&lt;/h5&gt;
+&lt;p&gt;A: Unfortunately, also not necessarily. The W3C WebDriver specification ended up not even trying to determine
+&lt;a href=&quot;https://w3c.github.io/webdriver/#element-displayedness&quot;&gt;what makes an element displayed&lt;/a&gt;. For more details, you
+can watch David Burns &lt;a href=&quot;https://www.youtube.com/watch?v=hTa1KI6fQpg&amp;amp;index=12&amp;amp;list=PLPJWVzLeEy93T9EBvfn9KAmrYYez3oGcD&quot;&gt;speak about this&lt;/a&gt;
+ at the Selenium Conference in London a couple years ago.&lt;/p&gt;
+
+&lt;h3 id=&quot;terminology&quot;&gt;Terminology&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://drafts.csswg.org/css-device-adapt/#the-viewport&quot;&gt;viewport&lt;/a&gt; - 
+the subset of the page that can be viewed by the user at a given time (this will vary by device, window size, etc)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementiddisplayed&quot;&gt;displayed&lt;/a&gt; - 
+Selenium’s JSON Wire Protocol Endpoint called from &lt;code class=&quot;highlighter-rouge&quot;&gt;isDisplayed&lt;/code&gt; method&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/SeleniumHQ/selenium/blob/e09e28f016c9f53196cf68d6f71991c5af4a35d4/javascript/atoms/dom.js#L437&quot;&gt;shown&lt;/a&gt; - 
+The JavaScript atom used by most of the drivers is called &lt;code class=&quot;highlighter-rouge&quot;&gt;isShown&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;exists - Watir’s oldest boolean method that determines if an element is in the DOM regardless of state&lt;/li&gt;
+  &lt;li&gt;visible - Assuming that an element “exists,” Watir uses Selenium to determine if it is “displayed”&lt;/li&gt;
+  &lt;li&gt;present - Watir determines if the element both “exists” and is “visible”&lt;/li&gt;
+  &lt;li&gt;hidden - A filtering option used by Watir &amp;amp; Capybara for elements that are “displayed”&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://w3c.github.io/webdriver/#dfn-interactable&quot;&gt;interactable&lt;/a&gt; - Attempting to determine if an action can be taken&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><summary type="html">To Be, or Not to Be… an Element</summary></entry><entry><title type="html">Watir 6.11</title><link href="/watir-6-11" rel="alternate" type="text/html" title="Watir 6.11" /><published>2018-05-18T00:00:00+00:00</published><updated>2018-05-18T00:00:00+00:00</updated><id>/watir-6-11</id><content type="html" xml:base="/watir-6-11">&lt;p&gt;Watir 6.11.0 is now available on RubyGems. This is the production version of the
+ performance release you’ve been promised.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watir&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 6.11&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;performance&quot;&gt;Performance!&lt;/h3&gt;
+
+&lt;p&gt;See our &lt;a href=&quot;/watir-6-11-beta1/&quot;&gt;previous post&lt;/a&gt; about the intention of this release. While 6.11
+decreases the number of wire calls made in our watirspecs by over 40%, we haven’t had any
+reports of significant real-world performance improvements. This will have the biggest
+impact on those who are running remotely with high latency network connections, 
+and for those who use complicated locator strategies. 
+Everyone else should see some minor speed improvements.
+Let us know if you find any bugs that we didn’t catch with our beta releases, and 
+definitely let us know if you see some solid real-world performance improvements with this.&lt;/p&gt;
+
+&lt;p&gt;Regardless, this update has done a lot to simplify our code as we move toward Watir 7.0.&lt;/p&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.11.0 is now available on RubyGems. This is the production version of the performance release you’ve been promised.</summary></entry><entry><title type="html">Watir 6.11 Beta</title><link href="/watir-6-11-beta1" rel="alternate" type="text/html" title="Watir 6.11 Beta" /><published>2018-05-04T00:00:00+00:00</published><updated>2018-05-04T00:00:00+00:00</updated><id>/watir-6-11-beta1</id><content type="html" xml:base="/watir-6-11-beta1">&lt;p&gt;Watir 6.11.0.beta1 is now available on RubyGems. This is another major performance
+release. Please help us test this new code before the official release.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pre&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;= 6.11.0.beta1&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;performance&quot;&gt;Performance!&lt;/h3&gt;
+
+&lt;p&gt;Similar to the Watir 6.4 release last Summer, this release is solely focused on improving
+peformance. Thanks to the work done mostly by Justin Ko, our approach to locating
+elements has been significantly simplified and optimized.&lt;/p&gt;
+
+&lt;p&gt;The changes in this Beta - (&lt;a href=&quot;https://github.com/watir/watir/pull/719/files&quot;&gt;#719&lt;/a&gt; &amp;amp; 
+&lt;a href=&quot;https://github.com/watir/watir/pull/720/files&quot;&gt;#720&lt;/a&gt;) appear to decrease the number of
+wire calls in the element tests of our suite by about 40%, which appears to drop 
+local execution time (on Travis) by over 15%. This means that when running on a Remote server
+like Sauce Labs, depending on what kinds of element calls dominate your tests, you
+could see some impressive performance improvements.&lt;/p&gt;
+
+&lt;p&gt;Please try out the new gem on your test suites. We’re interested in finding out about new
+unexpected exceptions as a result of this change, but feedback on how much it speeds up your tests.&lt;/p&gt;
+
+&lt;p&gt;Thanks!&lt;/p&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.11.0.beta1 is now available on RubyGems. This is another major performance release. Please help us test this new code before the official release.</summary></entry><entry><title type="html">Introducing Nerodia</title><link href="/introducing-nerodia" rel="alternate" type="text/html" title="Introducing Nerodia" /><published>2018-01-24T00:00:00+00:00</published><updated>2018-01-24T00:00:00+00:00</updated><id>/introducing-nerodia</id><content type="html" xml:base="/introducing-nerodia">&lt;p&gt;Attention Pythonistas: now you too can use Watir! There is now a Python implementation of Watir called &lt;a href=&quot;https://github.com/watir/nerodia&quot;&gt;Nerodia&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This project is early in development, but as of its latest release (as of this writing) Nerodia is feature complete with the latest released version of Watir (6.10.2) . There is ongoing work to get Nerodia as up-to-date with Watir as possible while keeping the Python implementation as Pythonic as possible.&lt;/p&gt;
+
+&lt;p&gt;Nerodia is tested against Python 2.7 and 3.4+ and has support for Chrome, Firefox, Internet Explorer, Edge, and Safari. It can be installed via &lt;code class=&quot;highlighter-rouge&quot;&gt;pip&lt;/code&gt; by&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nerodia&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Nerodia is the first implementation of Selenium based Watir outside of Ruby, which is pretty exciting for the Watir project overall. This is an opportunity to see what translates well from Ruby to other languages.&lt;/p&gt;
+
+&lt;h3 id=&quot;designed-for-browser-test-automation&quot;&gt;Designed for Browser Test Automation&lt;/h3&gt;
+&lt;p&gt;Watir is a tool designed for browser test automation first. It is built from the perspective of developers and testers who want reliable browser automation that can scale with a browser automation project. Nerodia is designed from the same perspective, matching Watir’s approaches to browser handling, synchronizing actions, and providing flexible locators for working with DOM elements.&lt;/p&gt;
+
+&lt;h3 id=&quot;powered-by-selenium&quot;&gt;Powered by Selenium&lt;/h3&gt;
+&lt;p&gt;Being a browser test automation tool, Nerodia uses the Selenium WebDriver internally. Nerodia takes advantage of all the capabilities of the Selenium WebDriver while providing a better user experience for writing automated browser tests. As well, Nerodia is compatible with using existing WebDriver instances or options that may be used to construct a Nerodia instance directly.&lt;/p&gt;
+
+&lt;p&gt;If you’re interested in automated browser testing, or have been interested in Watir but using Python, check it out! Information on how to get involved or how to ask a question can be found in the GitHub link above.&lt;/p&gt;</content><author><name>Josh Grant</name></author><category term="Nerodia" /><category term="Addons" /><summary type="html">Attention Pythonistas: now you too can use Watir! There is now a Python implementation of Watir called Nerodia.</summary></entry><entry><title type="html">Watir 6.10 Released!</title><link href="/watir-6-10" rel="alternate" type="text/html" title="Watir 6.10 Released!" /><published>2017-11-23T00:00:00+00:00</published><updated>2017-11-23T00:00:00+00:00</updated><id>/watir-6-10</id><content type="html" xml:base="/watir-6-10">&lt;p&gt;Watir 6.10.0 is now available on RubyGems! It features a new locator and other element location improvements.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watir&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 6.10&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;locating-elements-by-text&quot;&gt;Locating Elements by Text&lt;/h3&gt;
+
+&lt;p&gt;Currently, the &lt;code class=&quot;highlighter-rouge&quot;&gt;:text&lt;/code&gt; locator behaves differently depending on whether it is provided a value of &lt;code class=&quot;highlighter-rouge&quot;&gt;RegExp&lt;/code&gt;
+or &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;. A &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; value will match any text in the DOM, but a &lt;code class=&quot;highlighter-rouge&quot;&gt;RegExp&lt;/code&gt; will only match
+visible text.&lt;/p&gt;
+
+&lt;p&gt;We have decided to change the &lt;code class=&quot;highlighter-rouge&quot;&gt;RegExp&lt;/code&gt; behavior to match the &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; behavior and locate
+based on any text found in the DOM, and create a new locator &lt;code class=&quot;highlighter-rouge&quot;&gt;:visible_text&lt;/code&gt; that will filter
+on only text that is actually displayed on the screen. As such the &lt;code class=&quot;highlighter-rouge&quot;&gt;:text&lt;/code&gt; locator will be effectively 
+equivalent to the &lt;code class=&quot;highlighter-rouge&quot;&gt;#text_content&lt;/code&gt; method, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;:visible_text&lt;/code&gt; locator is effectively equivalent 
+to the &lt;code class=&quot;highlighter-rouge&quot;&gt;#text&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;The actual change to the behavior of &lt;code class=&quot;highlighter-rouge&quot;&gt;text: &amp;lt;RegExp&amp;gt;&lt;/code&gt; will not be made until a future release, 
+but as of this release, if Watir sees that the update might be a breaking change in your code, 
+it will give a deprecation warning with a suggestion to change to using &lt;code class=&quot;highlighter-rouge&quot;&gt;:visible_text&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;Foo&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display:none;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Bar&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;text: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'FooBar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;element2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;visible_text: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Foo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;element1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element2&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;element2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;text_content&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 'FooBar'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;element1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 'Foo'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;custom-attributes&quot;&gt;Custom Attributes&lt;/h3&gt;
+
+&lt;p&gt;One of the impressive things Watir does is to parse the HTML5 IDL to obtain a list of all of the
+valid attributes for each valid html element in the spec. This allows Watir to provide classes that
+correspond to each element, allows those 
+classes to be initialized with its corresponding attributes as locators, and provides those classes with
+custom methods to obtain each attribute’s value.&lt;/p&gt;
+
+&lt;p&gt;For this release we decided to remove the restriction on only being able to locate elements with
+a limited number of valid HTML5 attributes. Methods will still only be created for valid attributes, but any
+locator that Watir doesn’t recognize it will now assume that it is an attribute and attempt to locate an
+element with it like:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;custom-attribute=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;custom&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;custom_attribute: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'custom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;attribute_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'custom-attribute'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 'custom' &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;As a result, people can now locate custom Angular elements without needing to use 
+&lt;a href=&quot;https://github.com/titusfortner/watir_angular/&quot;&gt;watir_angular&lt;/a&gt;, and can locate various &lt;code class=&quot;highlighter-rouge&quot;&gt;div&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;span&lt;/code&gt;
+elements that (incorrectly) use the &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; attribute.&lt;/p&gt;
+
+&lt;h3 id=&quot;selenium-vs-watir-locators-implementation&quot;&gt;Selenium vs Watir Locators (Implementation)&lt;/h3&gt;
+
+&lt;p&gt;Watir’s powerful location strategy is implemented by default by converting some of the locators 
+provided by the user into a complicated XPath call, and then, if necessary, filtering the results of that call
+with the remaining locators. Until now, Watir has provided limited support for the 
+standard Selenium locators. This release will rely more heavily on using the Selenium locators 
+directly without any XPath conversion where possible (a minor performance enhancement). 
+Additionally, while most of the Selenium locators can be used with any &lt;code class=&quot;highlighter-rouge&quot;&gt;Watir::Element&lt;/code&gt; subclass and
+can be mixed and matched with any other Watir locators and will accept either &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;RegExp&lt;/code&gt; values, 
+there are three Selenium supported locators that can’t do any of these things. As of this release,
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;:link&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;:link_text&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;:partial_link_text&lt;/code&gt; are deprecated in favor of the new &lt;code class=&quot;highlighter-rouge&quot;&gt;:visible_text&lt;/code&gt; 
+locator which behaves like all of the other Watir locators.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.10.0 is now available on RubyGems! It features a new locator and other element location improvements.</summary></entry><entry><title type="html">Watir 6.9 Released!</title><link href="/watir-6-9" rel="alternate" type="text/html" title="Watir 6.9 Released!" /><published>2017-11-18T00:00:00+00:00</published><updated>2017-11-18T00:00:00+00:00</updated><id>/watir-6-9</id><content type="html" xml:base="/watir-6-9">&lt;p&gt;Watir 6.9.0 is now available on RubyGems! Several minor features and bug fixes from several new committers.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watir&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 6.9&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;updates&quot;&gt;Updates&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#flash&lt;/code&gt; had some browser compatibility issues with white backgrounds that has been fixed&lt;/li&gt;
+  &lt;li&gt;Firefox updated to the latest W3C supported Alert exceptions which Watir did not previously handle&lt;/li&gt;
+  &lt;li&gt;When working with multi-select lists, #select and #select_all will now accept an array of multiple options:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_user_languages&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Danish&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Swedish&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The new &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#set!&lt;/code&gt; method can now handle multiple inputs. Note that the key combinations
+that are available in &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#set&lt;/code&gt; are still not supported&lt;/li&gt;
+  &lt;li&gt;Mozilla has also implemented a headless mode for Firefox, and it can now be accessed just like Chrome:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Watir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:firefox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headless: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cookies now now be set by String instead of just by &lt;code class=&quot;highlighter-rouge&quot;&gt;Time&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'foo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;expires: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The generic &lt;code class=&quot;highlighter-rouge&quot;&gt;Browser#element&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Browser#elements&lt;/code&gt; methods can now take advantage of the new class locators:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;class: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;!c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If an element can not be located, and the page contains IFrames, Watir will append a note to the 
+error message to: “Maybe look in an iframe?”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.9.0 is now available on RubyGems! Several minor features and bug fixes from several new committers.</summary></entry><entry><title type="html">Watigiri</title><link href="/watigiri" rel="alternate" type="text/html" title="Watigiri" /><published>2017-09-07T00:00:00+00:00</published><updated>2017-09-07T00:00:00+00:00</updated><id>/watigiri</id><content type="html" xml:base="/watigiri">&lt;p&gt;The initial version of the &lt;a href=&quot;https://github.com/titusfortner/watigiri&quot;&gt;Watigiri gem&lt;/a&gt; has 
+just been released. Watigiri is an add-on to Watir that allows actions to be taken using 
+&lt;a href=&quot;https://github.com/sparklemotion/nokogiri&quot;&gt;Nokogiri&lt;/a&gt; (an HTML parser that uses 
+native C or Java libraries) instead of Selenium in the places it makes sense to do so.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watigiri&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watigiri&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 0.2&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;text-bang&quot;&gt;Text Bang&lt;/h3&gt;
+
+&lt;p&gt;The major feature of &lt;strong&gt;Watigiri&lt;/strong&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;Watir::Element#text!&lt;/code&gt;. A common pattern in testing is to verify that the 
+information that was entered into a form has correctly been sent to a view or list page.
+Rather than making several dozen wire calls to locate and obtain text information from each, 
+you can make a single wire call to obtain the DOM and then quickly locate and obtain all of 
+the information necessary at each element location.&lt;/p&gt;
+
+&lt;p&gt;The most important distinction between &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#text!&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#text&lt;/code&gt; is that &lt;code class=&quot;highlighter-rouge&quot;&gt;#text!&lt;/code&gt;
+returns what is in the DOM regardless of whether the text is actually visible (present)
+on the page. So if the element being present on the page matters, do not use &lt;code class=&quot;highlighter-rouge&quot;&gt;#text!&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also of note, &lt;strong&gt;Watigiri&lt;/strong&gt; automatically flushes the cached DOM whenever a user takes an 
+action that might have changed the DOM (clicks, navigations, etc). 
+So the performance improvement will only come with the number of successive calls
+ of &lt;code class=&quot;highlighter-rouge&quot;&gt;#text!&lt;/code&gt; before taking other actions.&lt;/p&gt;
+
+&lt;h3 id=&quot;regular-expression-location&quot;&gt;Regular Expression Location&lt;/h3&gt;
+
+&lt;p&gt;Watir supports using a &lt;code class=&quot;highlighter-rouge&quot;&gt;Regexp&lt;/code&gt; for all locators that accept a &lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;.
+Watir implements this by locating a subset of elements that might be a match and 
+then making wire calls on each of those to check if they actually match the provided 
+regular expression. With &lt;strong&gt;Watigiri&lt;/strong&gt;, iterating through this list of potentially
+matching elements is done using Nokogiri. Depending on the DOM and the kind
+of regular expression, this can be a small or slighly less small performance improvement.&lt;/p&gt;
+
+&lt;h3 id=&quot;additional-features-and-support&quot;&gt;Additional Features and Support&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Watigiri&lt;/strong&gt; is still effectively in Beta and the implementation and the the method names might
+change (for reasons). There are a number of other potential features that will be tracked
+in the &lt;a href=&quot;https://github.com/titusfortner/watigiri/issues&quot;&gt;Watigiri Issue Tracker&lt;/a&gt;. Please add
+additional feature requests or issues you find with this gem. Support for and discussion
+ about this gem can be found in the #watir channel of &lt;a href=&quot;http://seleniumhq.herokuapp.com&quot;&gt;Selenium Slack&lt;/a&gt;.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Addons" /><summary type="html">The initial version of the Watigiri gem has just been released. Watigiri is an add-on to Watir that allows actions to be taken using Nokogiri (an HTML parser that uses native C or Java libraries) instead of Selenium in the places it makes sense to do so.</summary></entry><entry><title type="html">Watir 6.8 Released!</title><link href="/watir-6-8" rel="alternate" type="text/html" title="Watir 6.8 Released!" /><published>2017-08-29T00:00:00+00:00</published><updated>2017-08-29T00:00:00+00:00</updated><id>/watir-6-8</id><content type="html" xml:base="/watir-6-8">&lt;p&gt;Watir 6.8.0 is now available on RubyGems! Several new features including new methods to increase performance.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watir&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 6.8&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;bang-methods&quot;&gt;Bang Methods&lt;/h3&gt;
+
+&lt;p&gt;Drivers are slow when it comes to typing text. Typically the intent of a 
+test that enters text into a field is to verify:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;the user can type into the field&lt;/li&gt;
+  &lt;li&gt;the actions associated with events get fired&lt;/li&gt;
+  &lt;li&gt;the application properly handles the data&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;None of these three things require that a driver type each character.&lt;/p&gt;
+
+&lt;p&gt;By using a &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#set!&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#set&lt;/code&gt;, Watir will:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;send clear via the applicable driver command to ensure the user
+ can interact with the field&lt;/li&gt;
+  &lt;li&gt;use JavaScript to quickly fill the field with the specified text&lt;/li&gt;
+  &lt;li&gt;type the last character via the applicable driver command to ensure that
+  appropriate events get fired&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Depending on how much text is being entered, this could provide a huge
+performance improvement without negatively impacting the effectiveness of the test.&lt;/p&gt;
+
+&lt;p&gt;Along with &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#set!&lt;/code&gt;, Watir now supports bang (&lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;) methods with 
+JavaScript implementations for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#click!&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#double_click!&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Select#select!&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Select#select_all!&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The clicks are unlikely to provide a performance improvement and should be used sparingly.
+ The Select methods have the potential to decrease the time it takes to 
+ interact with especially large select lists.&lt;/p&gt;
+
+&lt;p&gt;Let us know what kind of performance improvements you see with these methods.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;radio-sets&quot;&gt;Radio Sets&lt;/h3&gt;
+
+&lt;p&gt;Input elements of &lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;radio&quot;&lt;/code&gt; are not independent (clicking one radio button in a
+set will de-select another radio button in the set), but until now Watir has required 
+ users to treat them independently. &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#radio_set&lt;/code&gt; now allows users to 
+ identify the collection of related radio buttons and interact with it
+ similarly to how one currently interacts with a Select List.&lt;/p&gt;
+
+&lt;p&gt;A &lt;code class=&quot;highlighter-rouge&quot;&gt;RadioSet&lt;/code&gt; is initialized with a locator for any of the constituent radio buttons.
+ When the &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; value is the same between radio buttons, the &lt;code class=&quot;highlighter-rouge&quot;&gt;RadioSet&lt;/code&gt; initialized
+ by their locators will be the same:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;radio_set_yes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radio_set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_user_newsletter_yes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;radio_set_no&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radio_set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_user_newsletter_no&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;radio_set_yes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radio_set_no&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;A &lt;code class=&quot;highlighter-rouge&quot;&gt;RadioSet&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Can be iterated over&lt;/li&gt;
+  &lt;li&gt;Returns currently selected radio button with &lt;code class=&quot;highlighter-rouge&quot;&gt;#selected&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Returns text and value of the selected radio button with &lt;code class=&quot;highlighter-rouge&quot;&gt;#text&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#value&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Returns whether the radio button with the provided label/text is
+ currently selected with &lt;code class=&quot;highlighter-rouge&quot;&gt;#selected?(#{label})&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Selects the radio button with the specified label/text with: &lt;code class=&quot;highlighter-rouge&quot;&gt;#select(#{label})&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;selecting-drop-down-options&quot;&gt;Selecting drop down options&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Select#select_value&lt;/code&gt; has been deprecated. &lt;code class=&quot;highlighter-rouge&quot;&gt;Select#select&lt;/code&gt; will now allow users
+to locate elements by text, label or value. Having one primary way to select
+options both matches the original Watir implementation as well as making it
+easier to support automatic form filling methods in Page Object libraries.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;input-label&quot;&gt;Input Label&lt;/h3&gt;
+
+&lt;p&gt;Sometimes a user might want to click on the label of an input element instead of the
+element itself. With the new &lt;code class=&quot;highlighter-rouge&quot;&gt;Input#label&lt;/code&gt;, a user can now do:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;radio_button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;new_user_newsletter_yes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;radio_button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;click&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.8.0 is now available on RubyGems! Several new features including new methods to increase performance.</summary></entry><entry><title type="html">Ruby Open Source Testing Code Hackathon</title><link href="/hackathon" rel="alternate" type="text/html" title="Ruby Open Source Testing Code Hackathon" /><published>2017-08-24T00:00:00+00:00</published><updated>2017-08-24T00:00:00+00:00</updated><id>/hackathon</id><content type="html" xml:base="/hackathon">&lt;p&gt;Join us September 22 &amp;amp; 23 in Toronto and help us shape the future of functional UI testing in Ruby.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.eventbrite.com/e/ruby-open-source-testing-code-hackathon-tickets-36985700225&quot;&gt;Register here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;featured-participants&quot;&gt;Featured Participants&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bret Pettichord - Founder of &lt;a href=&quot;http://watir.com&quot;&gt;Watir&lt;/a&gt; and member of original launch team for &lt;a href=&quot;http://seleniumhq.org&quot;&gt;Selenium&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Jeff “Cheezy” Morgan - Author of the &lt;a href=&quot;https://github.com/cheezy/page-object&quot;&gt;Page Object gem&lt;/a&gt; (and a host of other testing gems)&lt;/li&gt;
+  &lt;li&gt;Titus Fortner - Current maintainer of the &lt;a href=&quot;https://github.com/SeleniumHQ/selenium/wiki/Ruby-Bindings&quot;&gt;Ruby Selenium Bindings&lt;/a&gt; 
+and project lead for &lt;a href=&quot;http://watir.com&quot;&gt;Watir&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ruby is an excellent language in which to write automated browser tests. It is easy to read, fun to use, and has dozens of different gems that do all kinds of different things that make it easier to write and maintain test suites at all levels of complexity. We’d like to improve how some of these gems work together and be able to provide a packaged collection of code that makes it easier for people to ramp up their automated test suites from scratch.
+I’ve been calling this idea the “Rails of Automated Testing.” In the same way that Rails made it easy and fun for people without much domain experience to create a web application, there is a more specialized need to provide a solution like this for people tasked with writing automated tests.&lt;/p&gt;
+
+&lt;p&gt;This might not be a typical hackathon, but we will be deciding on objectives and splitting up into groups to dig into code to make it happen. Project owners will be on hand to answer questions or provide deep dives into the code bases. Options for exploration will include things like: test data management, session configuration, mobile APIs, page modeling and project scaffolding.&lt;/p&gt;
+
+&lt;p&gt;Please bring your testing experience and/or your coding skills and join us in Toronto.&lt;/p&gt;
+
+&lt;h3 id=&quot;tentative-schedule&quot;&gt;Tentative Schedule&lt;/h3&gt;
+
+&lt;h4 id=&quot;friday&quot;&gt;Friday&lt;/h4&gt;
+&lt;p&gt;11:30 - Doors open&lt;br /&gt;
+12 - Introductions and Overview&lt;br /&gt;
+1 - Coding!&lt;br /&gt;
+5 - Break for dinner/drinks&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;saturday&quot;&gt;Saturday&lt;/h4&gt;
+&lt;p&gt;9:30 - Doors open (breakfast)&lt;br /&gt;
+10:00 - Recap previous day&lt;br /&gt;
+11 - Coding!&lt;br /&gt;
+1 - Lunch Break&lt;br /&gt;
+2 - Coding!&lt;br /&gt;
+4 - Presentations, What nexts and Departing thoughts&lt;br /&gt;
+5 - Break for dinner/drinks&lt;/p&gt;
+
+&lt;h3 id=&quot;sponsors&quot;&gt;Sponsors&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://loblawdigital.co/&quot;&gt;Loblaw Digital&lt;/a&gt;:
+Loblaw Digital is the team building and operating the digital businesses for Canada’s largest and most successful retailer. We create leading responsive e-commerce experiences, including Loblaws Click &amp;amp; Collect, an innovative online grocery shopping experience. We’ve also built and now operate the award-winning JoeFresh.com, along with the iPad/iPhone app. We are based in downtown Toronto and operate like a startup with the resources of a much larger company. We are an entrepreneurial, fast-paced, collaborative, and fun team working towards transforming the way Canadians shop.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://saucelabs.com&quot;&gt;Sauce Labs&lt;/a&gt;:
+Sauce Labs makes automated testing awesome. Our cloud-based platform helps developers test native &amp;amp; hybrid mobile and web applications across hundreds of browser / OS platforms, including iOS, Android &amp;amp; Mac OS X. Sauce supports Selenium, Appium and popular JavaScript unit testing frameworks, and integrates with all of the top programming languages, test frameworks and CI systems. With built-in video recording and screenshots of every test case, debugging tools, and secure tunneling for local or firewalled testing. Sauce makes running, debugging and scaling test suites quick and easy. To get started for free, visit saucelabs.com.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Blogs" /><summary type="html">Join us September 22 &amp;amp; 23 in Toronto and help us shape the future of functional UI testing in Ruby.</summary></entry><entry><title type="html">Watir 6.7 Released!</title><link href="/watir-6-7" rel="alternate" type="text/html" title="Watir 6.7 Released!" /><published>2017-08-14T00:00:00+00:00</published><updated>2017-08-14T00:00:00+00:00</updated><id>/watir-6-7</id><content type="html" xml:base="/watir-6-7">&lt;p&gt;Watir 6.7.0 is now available on RubyGems! A bunch of new features.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To install:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;watir&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;or in your Gemfile:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;watir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 6.7&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;html51-and-svg2-support&quot;&gt;HTML5.1 and SVG2 Support&lt;/h3&gt;
+&lt;p&gt;There have been some bugs and inconsistencies with these features, but they
+have been addressed in this release.&lt;/p&gt;
+
+&lt;p&gt;Watir now parses the latest official W3C HTML &amp;amp; SVG standards to automatically 
+generate Element classes with their officially supported attributes.&lt;/p&gt;
+
+&lt;p&gt;These can be used for both element location and obtaining attribute values in a
+properly encapsulated fashion:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;text_field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;tabindex: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tabindex&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Non-standard attributes for elements can still be located and returned with:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;css: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;div[notstandard='foo']&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;attribute_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'notstandard'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 'foo'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;table-features&quot;&gt;Table Features&lt;/h3&gt;
+
+&lt;p&gt;Working with tables can be a challenge. Often it is easy enough to get the
+Table cell you need, but have to interact with elements in relation to it.
+Here are two useful ways to make this easier:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Get the title of the first row for the located cell&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cell_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;text: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John Smith&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cell_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;column_header&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &quot;Full Name&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Interact with a sibling cell based on the header&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cell_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sibling_from_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;text: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Opted In&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;checkbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;click&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;iterating-with-elements&quot;&gt;Iterating with Elements&lt;/h3&gt;
+
+&lt;p&gt;Some elements can in some respects be considered Collections.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;OList&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;UList&lt;/code&gt; each effectively have a collection of &lt;code class=&quot;highlighter-rouge&quot;&gt;LI&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Table&lt;/code&gt; effectively has a collection of &lt;code class=&quot;highlighter-rouge&quot;&gt;TableRow&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TableRow&lt;/code&gt; effectively has a collection of &lt;code class=&quot;highlighter-rouge&quot;&gt;TableCell&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now you can iterate over them as if they were a collection like:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'countries'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; ['USA', 'Canada', 'France']&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;siblings&quot;&gt;Siblings&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#siblings&lt;/code&gt; returns an &lt;code class=&quot;highlighter-rouge&quot;&gt;HTMLCollection&lt;/code&gt; of all of the elements that are
+direct children of the calling element’s parent. Note that the element
+calling this method is included in the results. As with all adjacent methods,
+this method accepts a hash that will filter the results by any valid Watir locator.
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;original-window&quot;&gt;Original Window&lt;/h3&gt;
+
+&lt;p&gt;We can have long debates about this, and you are free to disagree, 
+but I am not a fan of using Ruby blocks when they are merely
+used to manage a simple order of code execution 
+(as opposed to using it to reference variables not defined until the 
+context of the calling method).&lt;/p&gt;
+
+&lt;p&gt;To switch to a window, take an action, and return to the original 
+window you can currently:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Foo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; 
+  &lt;span class=&quot;n&quot;&gt;do_the_things&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# or&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;original_window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Foo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;use&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;do_the_things&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;handle: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;original_window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;use&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;With this update you can now use a second window procedurally without having to
+explicitly store a variable:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Foo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;use&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;do_the_things&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;original_window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;use&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;stealing-from-the-page-object-gem&quot;&gt;Stealing From the Page Object Gem&lt;/h3&gt;
+
+&lt;p&gt;While going through Cheezy’s updated &lt;a href=&quot;https://github.com/cheezy/page-object&quot;&gt;Page Object gem&lt;/a&gt;, I found a number of 
+features that deserve be included directly in Watir. If you already
+use &lt;code class=&quot;highlighter-rouge&quot;&gt;page-object.gem&lt;/code&gt;, you likely won’t see anything new from this.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Checkbox&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;#set&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#set?&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;#clear&lt;/code&gt; can now be handled with &lt;code class=&quot;highlighter-rouge&quot;&gt;#check&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#checked?&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#uncheck&lt;/code&gt; respectively&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Element#attribute_value&lt;/code&gt; can now be accessed with &lt;code class=&quot;highlighter-rouge&quot;&gt;Element#attribute&lt;/code&gt; (also like Selenium)&lt;/li&gt;
+  &lt;li&gt;Added support for &lt;code class=&quot;highlighter-rouge&quot;&gt;Element&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;#scroll_into_view&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#location&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#size&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#height&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;#width&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#center&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;#centre&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Radio&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;#set&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#set&lt;/code&gt; can now be handled with &lt;code class=&quot;highlighter-rouge&quot;&gt;#select&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;#selected?&lt;/code&gt; respectively&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;https://github.com/watir/watir/blob/master/CHANGES.md&quot;&gt;Changelog&lt;/a&gt; 
+for the complete history of updates.&lt;/p&gt;</content><author><name>Titus Fortner</name></author><category term="Releases" /><summary type="html">Watir 6.7.0 is now available on RubyGems! A bunch of new features.</summary></entry></feed>
