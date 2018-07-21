@@ -32,6 +32,7 @@ echo "Build content with Jekyll"
 doCompile
 
 echo "Set Git information"
+touch deploy_key
 cd _site
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
@@ -53,9 +54,13 @@ ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
 ENCRYPTED_KEY=${!ENCRYPTED_KEY_VAR}
 ENCRYPTED_IV=${!ENCRYPTED_IV_VAR}
 
-echo "Set the Key"
+echo "Create the Key"
 openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in ../deploy_key.enc -out ../deploy_key -d
+
+echo "Set permissions for the Key"
 chmod 600 ../deploy_key
+
+echo "SSH Add key"
 eval `ssh-agent -s`
 ssh-add deploy_key
 
