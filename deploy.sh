@@ -52,4 +52,4 @@ eval `ssh-agent -s`
 ssh-add deploy_key
 
 echo "Push to Repo"
-git push $SSH_REPO
+git push $SSH_REPO HEAD:master
