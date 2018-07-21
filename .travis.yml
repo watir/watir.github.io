@@ -15,5 +15,5 @@ exclude: [vendor]
 sudo: false
 env:
   global:
-  - ENCRYPTION_LABEL: "1dd176ece64a_iv"
+  - ENCRYPTION_LABEL: "1dd176ece64a"
   - COMMIT_AUTHOR_EMAIL: "watir.team@gmail.com"

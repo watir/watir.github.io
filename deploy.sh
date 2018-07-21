@@ -10,7 +10,7 @@ function doCompile {
 }
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-if [ "$TRAVIS_PULL_REQUEST" == "true"]; then
+if [ $TRAVIS_PULL_REQUEST == "true" ]; then
     echo "Skipping deploy; just doing a build."
     doCompile
     exit 0
@@ -21,17 +21,17 @@ REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
-# cleanup "_site"
+echo "cleanup _site"
 rm -rf _site
 mkdir _site
 
-# Clone the existing code for this repo into _site/
+echo "Clone the existing code for this repo into _site/"
 git clone $REPO _site
 
-# build with Jekyll into "_site"
+echo "Build content with Jekyll"
 doCompile
 
-# Now let's go have some fun with the cloned repo
+echo "Set Git information"
 cd _site
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
@@ -42,7 +42,7 @@ if git diff --quiet; then
     exit 0
 fi
 
-# Commit the "changes", i.e. the new version.
+echo "Commit the changes"
 # The delta will show diffs between new and old versions.
 git add -A .
 git commit -m "Deploy Generated Content from Travis ${TRAVIS_BUILD_NUMBER}: ${SHA}"
@@ -52,10 +52,12 @@ ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
 ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
 ENCRYPTED_KEY=${!ENCRYPTED_KEY_VAR}
 ENCRYPTED_IV=${!ENCRYPTED_IV_VAR}
+
+echo "Set the Key"
 openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in ../deploy_key.enc -out ../deploy_key -d
 chmod 600 ../deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
 
-# Now that we're all set up, we can push.
+echo "Push to Repo"
 git push $SSH_REPO
