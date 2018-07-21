@@ -4,7 +4,7 @@ branches:
   only:
   - master
 rvm:
-- 2.3.7
+- 2.3.4
 # set execution permission on our build script
 before_script:
  - chmod +x ./deploy.sh
