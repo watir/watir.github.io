@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include partials/head.html %}
+  </head>
+  <body>
+    <header>
+      {%- include partials/header.html -%}
+    </header>
+    {%- if page.permalink == '/' -%} 
+      {%- include introduction.html -%}
+    {%- endif -%}
+    <main id = 'main' role = 'main' class = 'container'>
+      {{ content }}
+    </main>
+    <footer class = 'footer'>
+      {%- include partials/footer.html -%}
+    </footer>
+    {%- include analytics.html -%}
+    {%- include partials/scripts.html -%}
+  </body>
+</html>

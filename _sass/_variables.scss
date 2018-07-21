@@ -1,0 +1,29 @@
+
+//
+// VARIABLES
+//
+
+// Colors
+$blue: #4183C4;
+
+// Grays
+$black: #000;
+$darkerGray: #222;
+$darkGray: #333;
+$gray: #666;
+$lightGray: #eee;
+$white: #fff;
+
+// Google Fonts
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto';
+
+// Font stacks
+$body_font: 'Muli', sans-serif;
+$header_font: 'Muli', sans-serif;
+
+// Mobile breakpoints
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}

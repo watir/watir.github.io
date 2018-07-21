@@ -1,0 +1,36 @@
+<div>
+  <h4 class = 'mb-2'>Archives by Year</h4>
+  <div>
+    {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+    {% for year in postsByYear %}
+    <div class = 'archive'>
+      <h4 class = 'archive__title'>
+        <span>{{ year.name }} Archives</span>
+        <span class = 'archive__toggle'><i class = 'fas fa-plus' aria-hidden = 'true'></i></span>
+      </h4>
+      <ul class = 'archive__yearly'>
+        {% assign postsByMonth = year.items | group_by_exp:"post", "post.date | date: '%B'" %}
+        {% for month in postsByMonth %}
+        <li class = 'archive'>
+          <h4 class = 'archive__title blue'>
+            <span>{{ month.name }} {{ year.name }}</span>
+            <span class = 'archive__toggle'><i class = 'fas fa-plus' aria-hidden = 'true'></i></span>
+          </h4>
+          <ul class = 'archive__monthly'>
+          {%- for post in month.items -%}
+            <li class = 'archive__item'><a href = '{{post.url}}'>{{ post.title }}</a></li>
+          {%- endfor -%}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  <h4 class = 'mb-2 mt-2'>Archives by Tags</h4>   
+  {%- for tag in site.tags | sort | unique -%}
+  {% capture tag_name %}{{ tag | first }}{% endcapture %}
+  <a class = 'more more--round' href = '/tag/{{tag_name | slugify | downcase }}'>{{ tag_name | capitalize }}</a>
+  {%- endfor -%}
+  
+</div>

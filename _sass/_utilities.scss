@@ -1,0 +1,14 @@
+// uses latest css grid spec
+.grid{
+  display: grid;
+  @media screen and (max-width: 768px){
+    grid-template-columns: 1fr !important;
+  }
+  &-2{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fit {
+  padding: 0 !important;
+}
