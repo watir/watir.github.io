@@ -62,7 +62,7 @@ chmod 600 ../deploy_key
 
 echo "SSH Add key"
 eval `ssh-agent -s`
-ssh-add deploy_key
+ssh-add ../deploy_key
 
 echo "Push to Repo"
 git push $SSH_REPO
