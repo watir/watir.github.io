@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 6.0 Beta 4 – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir 6.0 Beta 4 is now available on rubygems! Watir 6.0 depends on
+Selenium 3.0, and it will have its production release once Selenium 3 is 
+released. We’re continuing to update and simplify the code in the meantime. 
+This release adds two new methods and removes two outdated feature toggles.
+
+" />
+    <meta property="og:description" content="Watir 6.0 Beta 4 is now available on rubygems! Watir 6.0 depends on
+Selenium 3.0, and it will have its production release once Selenium 3 is 
+released. We’re continuing to update and simplify the code in the meantime. 
+This release adds two new methods and removes two outdated feature toggles.
+
+" />
+    
+    <meta name="author" content="Watir Project" />
+
+    
+    <meta property="og:title" content="Watir 6.0 Beta 4" />
+    <meta property="twitter:title" content="Watir 6.0 Beta 4" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/community/'
+      
+      >
+      Community
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/contribute/'
+      
+      >
+      Contribute
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watir 6.0 Beta 4
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'http://watirtight.com/' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on September 12, 2016
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>Watir 6.0 Beta 4 is now available on rubygems! Watir 6.0 depends on
+Selenium 3.0, and it will have its production release once Selenium 3 is 
+released. We’re continuing to update and simplify the code in the meantime. 
+This release adds two new methods and removes two outdated feature toggles.</p>
+
+<!--more-->
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watir</span> <span class="o">--</span><span class="n">pre</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watir"</span><span class="p">,</span> <span class="s2">"&gt;= 6.0.0.beta4"</span></code></pre></figure>
+
+<h1 id="new-methods">New Methods</h1>
+
+<p><strong><code class="highlighter-rouge">Element#stale?</code></strong> - Returns true if a previously located element is no longer attached to DOM
+<strong><code class="highlighter-rouge">Element#wait_until_stale</code></strong> - Waits until an element has gone stale</p>
+
+<h1 id="always-locate">Always Locate</h1>
+
+<p>The in depth details of the history and reasoning for this change are discussed in this 
+<a href="http://watirtight.com/2016/09/11/always-locate.html">Watirtight Testing post</a>.</p>
+
+<p>If you currently override the default settings and use 
+<strong><code class="highlighter-rouge">Watir.always_locate = false</code></strong>, know that <strong><code class="highlighter-rouge">#exist?</code></strong> and <strong><code class="highlighter-rouge">#present?</code></strong> will
+no longer return false for stale elements. Please update your code to 
+use <strong><code class="highlighter-rouge">#stale?</code></strong> and <strong><code class="highlighter-rouge">#wait_until_stale</code></strong> as appropriate.</p>
+
+<h1 id="prefer-css">Prefer CSS</h1>
+
+<p>At one point XPath was considered significantly slower (especially on Windows / IE)
+than CSS as a means of locating elements. 
+<a href="http://elementalselenium.com/tips/32-xpath-vs-css">Recent benchmarks in Windows</a>,
+and our own <a href="https://travis-ci.org/watir/watir/builds/159034274">Watirspecs on Linux</a>
+have shown that this is no longer the case. The <strong><code class="highlighter-rouge">Watir#prefer_css</code></strong> toggle
+has been deprecated and all elements that can not be passed directly as 
+Selenium locators will be translated to XPath.</p>
+
+<p>If you currently override the default settings and use 
+<strong><code class="highlighter-rouge">Watir.prefer_css = true</code></strong>, and have reason to believe that this is 
+important for your situation, thanks to Alex’s recent work 
+<a href="http://watir.com/watir-release/">making element location extensible</a>,
+you can use the new <a href="https://github.com/watir/watir_css">watir_css gem</a> to
+obtain the same behavior.</p>
+
+<p>See the <a href="https://github.com/watir/watir/blob/master/CHANGES.md">Changelog</a> for
+all of the updates.</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watir-6-beta4',
+		  'title': 'Watir 6.0 Beta 4'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

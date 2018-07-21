@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 6.2 Released! – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir 6.2.0 is now available on RubyGems! Several exciting new features 
+have been added for this release.
+
+" />
+    <meta property="og:description" content="Watir 6.2.0 is now available on RubyGems! Several exciting new features 
+have been added for this release.
+
+" />
+    
+    <meta name="author" content="Watir Project" />
+
+    
+    <meta property="og:title" content="Watir 6.2 Released!" />
+    <meta property="twitter:title" content="Watir 6.2 Released!" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/community/'
+      
+      >
+      Community
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/contribute/'
+      
+      >
+      Contribute
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watir 6.2 Released!
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'http://watirtight.com/' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on February 20, 2017
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>Watir 6.2.0 is now available on RubyGems! Several exciting new features 
+have been added for this release.
+<!--more--></p>
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watir</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watir"</span><span class="p">,</span> <span class="s2">"~&gt; 6.2"</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="adjacent-element-location">Adjacent Element Location</h3>
+
+<p>One of the goals of Watir is to keep users from ever having to write XPath.
+Why? Because it is difficult to read and difficult to write well enough to avoid
+brittleness. Until now, accessing adjacent elements required users to write XPath.</p>
+
+<p>Locating Single Elements:</p>
+<ul>
+  <li><code class="highlighter-rouge">Element#parent</code> returns the element that exists one level up in the DOM 
+from the base element.</li>
+  <li><code class="highlighter-rouge">Element#preceding_sibling</code> returns the <code class="highlighter-rouge">Element</code> that exists at the same level 
+in the DOM immediately prior to the base element.</li>
+  <li><code class="highlighter-rouge">Element#following_sibling</code> returns the <code class="highlighter-rouge">Element</code> that exists at the same level 
+in the DOM immediately after the base element.</li>
+  <li><code class="highlighter-rouge">Element#child</code> returns the <code class="highlighter-rouge">Element</code> that exists one level down in the DOM from
+ the base element.</li>
+</ul>
+
+<p>Locating Element Collections</p>
+<ul>
+  <li><code class="highlighter-rouge">Element#preceding_siblings</code> returns an <code class="highlighter-rouge">ElementCollection</code> of all elements 
+that exists at the same level in the DOM immediately prior to the base element.</li>
+  <li><code class="highlighter-rouge">Element#following_siblings</code> returns an <code class="highlighter-rouge">ElementCollection</code> of all elements 
+that exists at the same level in the DOM immediately after to the base element.</li>
+  <li><code class="highlighter-rouge">Element#children</code> returns an <code class="highlighter-rouge">ElementCollection</code> of all elements 
+that exists one level down in the DOM from the base element.</li>
+</ul>
+
+<p>All of these methods accept both <code class="highlighter-rouge">:index</code> and <code class="highlighter-rouge">:tag_name</code> parameters.</p>
+
+<p>For instance, this code:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">table_cell</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="nf">td</span><span class="p">(</span><span class="ss">text: </span><span class="s1">'My data'</span><span class="p">)</span>
+<span class="n">grandparent_table</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="nf">parent</span><span class="p">(</span><span class="ss">tag_name: </span><span class="s1">'table'</span><span class="p">,</span> <span class="ss">index: </span><span class="mi">2</span><span class="p">)</span></code></pre></figure>
+
+<p>Note that index is base 1 here. Assuming this cell is in a nested table, 
+then <code class="highlighter-rouge">index: 1</code> returns the parent <code class="highlighter-rouge">HTMLElement::Table</code>,
+and <code class="highlighter-rouge">index: 2</code> returns the grandparent <code class="highlighter-rouge">HTMLElement::Table</code>.
+Either way it skips past all of the <code class="highlighter-rouge">tr</code> and <code class="highlighter-rouge">tbody</code> elements to match
+the correct <code class="highlighter-rouge">tag_name</code>.</p>
+
+<p>No More XPath!
+<br /></p>
+
+<h3 id="keyword-support">Keyword Support</h3>
+
+<p>If you’ve ever gotten an <code class="highlighter-rouge">UnknownObjectException</code> with an obscure locator
+that’s required you to hunt through a bunch of files trying to figure out
+which one is broken, this is the fix. You can now set a keyword on an 
+element which will show up in the error allowing for easier identification.</p>
+
+<p>This code:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">element</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'foo'</span><span class="p">)</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">keyword</span> <span class="o">=</span> <span class="s1">'foo'</span>
+<span class="n">element</span><span class="p">.</span><span class="nf">click</span></code></pre></figure>
+
+<p>Now gives this error:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Watir</span><span class="o">::</span><span class="no">Exception</span><span class="o">::</span><span class="no">UnknownObjectException</span><span class="p">:</span> <span class="n">timed</span> <span class="n">out</span> <span class="n">after</span> <span class="mi">1</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">waiting</span> <span class="k">for</span> 
+<span class="c1">#&lt;Watir::Div: keyword: foo located: false; {:id=&gt;"foo", :tag_name=&gt;"div"}&gt; to be located</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="behavior-of-elementwait_while_present">Behavior of <code class="highlighter-rouge">Element#wait_while_present</code></h3>
+
+<p>As of this release, <code class="highlighter-rouge">Element#wait_while(&amp;:present?)</code> and <code class="highlighter-rouge">Element#wait_while_present</code>
+will have slightly different behaviors. The scenario is when you locate an element by a
+specific selector, and while the element itself is still there, the signature by which
+you located it has changed. For instance if you locate:</p>
+
+<p><code class="highlighter-rouge">&lt;div class='foo'&gt;</code></p>
+
+<p>with:</p>
+
+<p><code class="highlighter-rouge">foo = browser.div(class: foo)</code></p>
+
+<p>but some javascript or CSS transition happens 
+to change the class name to something like:</p>
+
+<p><code class="highlighter-rouge">&lt;div class='bar'&gt;</code></p>
+
+<p>In one sense the element object is still there, but the Watir way of evaluating an element 
+is whatever element is at the provided address, in which case this element no longer exists. 
+With this update, <code class="highlighter-rouge">Element#wait_while(&amp;:present?)</code> will timeout because it continues 
+to see the element object; and <code class="highlighter-rouge">Element#wait_while_present</code> will exit because it is 
+evaluating the selector is as expected and not just the object. 
+Feel free to ask us on the Watir channel in
+<a href="https://seleniumirc.herokuapp.com/">Selenium Slack</a> if you have specific questions 
+about the reasons behind this particular implementation.
+<br /></p>
+
+<p>See the <a href="https://github.com/watir/watir/blob/master/CHANGES.md">Changelog</a> 
+for the complete history of updates.</p>
+
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watir-6-2',
+		  'title': 'Watir 6.2 Released!'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

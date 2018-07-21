@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Waiting – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Waiting is usually problematic when you have dynamic web interfaces, eg. web sites that have lots of AJAX.
+
+Explicit waits
+
+There are four built in methods that you can use to make your waiting experience more pleasant (and remove those evil sleep statements from your code)
+
+
+  Watir::Wait.until { ... } where you can wait for a block to be true
+  object.set where you can do something when it’s present
+  object.wait_until_present where you just wait until something is present
+  object.wait_while_present where you just wait until something disappears
+  The default timeout for all these methods is 30 seconds, but your can pass an argument to any of these to increase (or decrease) it as needed.
+
+
+require 'watir'
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
+b.text_field(id: 'entry_1000000').set 'your name'
+b.select_list(id: 'entry_1000001').wait_until_present
+b.select_list(id: 'entry_1000001').select('Ruby')
+b.button(value: 'Submit').click
+b.button(value: 'Submit').wait_while_present
+Watir::Wait.until { b.text.include? 'Thank you' }
+
+Implicit waits
+
+As an alternative, you can use the WebDriver’s implicit waits to specify a maximum time (in seconds) the script will try to find an element before timing out. This is done by setting the property of the underlying driver:
+
+require 'watir'
+b = Watir::Browser.new
+b.driver.manage.timeouts.implicit_wait = 3 # 3 seconds
+# Note that using implicit waits can make your tests slower
+# and more difficult to understand when they fail.
+
+" />
+    <meta property="og:description" content="Waiting is usually problematic when you have dynamic web interfaces, eg. web sites that have lots of AJAX.
+
+Explicit waits
+
+There are four built in methods that you can use to make your waiting experience more pleasant (and remove those evil sleep statements from your code)
+
+
+  Watir::Wait.until { ... } where you can wait for a block to be true
+  object.set where you can do something when it’s present
+  object.wait_until_present where you just wait until something is present
+  object.wait_while_present where you just wait until something disappears
+  The default timeout for all these methods is 30 seconds, but your can pass an argument to any of these to increase (or decrease) it as needed.
+
+
+require 'watir'
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
+b.text_field(id: 'entry_1000000').set 'your name'
+b.select_list(id: 'entry_1000001').wait_until_present
+b.select_list(id: 'entry_1000001').select('Ruby')
+b.button(value: 'Submit').click
+b.button(value: 'Submit').wait_while_present
+Watir::Wait.until { b.text.include? 'Thank you' }
+
+Implicit waits
+
+As an alternative, you can use the WebDriver’s implicit waits to specify a maximum time (in seconds) the script will try to find an element before timing out. This is done by setting the property of the underlying driver:
+
+require 'watir'
+b = Watir::Browser.new
+b.driver.manage.timeouts.implicit_wait = 3 # 3 seconds
+# Note that using implicit waits can make your tests slower
+# and more difficult to understand when they fail.
+
+" />
+    
+    <meta name="author" content="Watir Project" />
+
+    
+    <meta property="og:title" content="Waiting" />
+    <meta property="twitter:title" content="Waiting" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/community/'
+      
+      >
+      Community
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/contribute/'
+      
+      >
+      Contribute
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <div class = 'page grid'>
+  <article>
+    <h2 class = 'flex-out'>Waiting
+     <a href = 'https://github.com/watir/watir.github.io/edit/master/_guides/waiting.md'> <i class ='fas fa-edit' title = 'Edit on GitHub'></i></a></h2>
+    <p>Waiting is usually problematic when you have dynamic web interfaces, eg. web sites that have lots of AJAX.</p>
+
+<h3 id="explicit-waits">Explicit waits</h3>
+
+<p>There are four built in methods that you can use to make your waiting experience more pleasant (and remove those evil sleep statements from your code)</p>
+
+<ul>
+  <li><code>Watir::Wait.until { ... }</code> where you can wait for a block to be true</li>
+  <li><code>object.set</code> where you can do something when it’s present</li>
+  <li><code>object.wait_until_present</code> where you just wait until something is present</li>
+  <li><code>object.wait_while_present</code> where you just wait until something disappears</li>
+  <li>The default timeout for all these methods is 30 seconds, but your can pass an argument to any of these to increase (or decrease) it as needed.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">start</span> <span class="s1">'bit.ly/watir-webdriver-demo'</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'entry_1000000'</span><span class="p">).</span><span class="nf">set</span> <span class="s1">'your name'</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">select_list</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'entry_1000001'</span><span class="p">).</span><span class="nf">wait_until_present</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">select_list</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'entry_1000001'</span><span class="p">).</span><span class="nf">select</span><span class="p">(</span><span class="s1">'Ruby'</span><span class="p">)</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">value: </span><span class="s1">'Submit'</span><span class="p">).</span><span class="nf">click</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">value: </span><span class="s1">'Submit'</span><span class="p">).</span><span class="nf">wait_while_present</span>
+<span class="no">Watir</span><span class="o">::</span><span class="no">Wait</span><span class="p">.</span><span class="nf">until</span> <span class="p">{</span> <span class="n">b</span><span class="p">.</span><span class="nf">text</span><span class="p">.</span><span class="nf">include?</span> <span class="s1">'Thank you'</span> <span class="p">}</span></code></pre></figure>
+
+<h3 id="implicit-waits">Implicit waits</h3>
+
+<p>As an alternative, you can use the WebDriver’s implicit waits to specify a maximum time (in seconds) the script will try to find an element before timing out. This is done by setting the property of the underlying driver:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">driver</span><span class="p">.</span><span class="nf">manage</span><span class="p">.</span><span class="nf">timeouts</span><span class="p">.</span><span class="nf">implicit_wait</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># 3 seconds</span>
+<span class="c1"># Note that using implicit waits can make your tests slower</span>
+<span class="c1"># and more difficult to understand when they fail.</span></code></pre></figure>
+
+
+  </article>
+  <aside>
+  
+    <h4>Getting Started</h4>
+  <ul>
+    <li><a href="/guides/">Watir Guides</a></li>
+    <li><a href="http://www.rubydoc.info/gems/watir/">Watir Documentation</a></li>
+    <li><a href="/watir-6-faq/">Watir 6 FAQ</a></li>
+    <li>Watir Tutorial (Coming soon)</li>
+  </ul>
+<br />
+<h4 style="display: none"><a href="">Donations</a></h4>
+<h4 style="display: none"><a href="">Sponsors</a></h4>
+<h4><a href="/users/">Companies Using Watir</a></h4>
+<br />
+<h4><a href="https://soundcloud.com/the-watir-podcast/">The Watir Podcast</a></h4>
+<br />
+<h4>Blogs</h4>
+  <p>Resources with Watir, Ruby or otherwise useful content:</p>
+<ul>
+  
+  <li ><a href = 'http://watirmelon.com/' target='_blank' rel = 'noopener'>Alister Scott – WatirMelon</a></li>
+  
+  <li ><a href = 'http://angrez.blogspot.com/' target='_blank' rel = 'noopener'>Angrez Singh’s blog</a></li>
+  
+  <li ><a href = 'http://www.prismnet.com/~wazmo/blog/' target='_blank' rel = 'noopener'>Bret Pettichord – Testing Hotlist Update</a></li>
+  
+  <li ><a href = 'http://dmcnulla.wordpress.com/' target='_blank' rel = 'noopener'>Dave McNulla – Software Quality Assurance and Test</a></li>
+  
+  <li ><a href = 'http://www.software-testing.com.au/blog/' target='_blank' rel = 'noopener'>Jared Quinert’s Blog about Ruby and Watir</a></li>
+  
+  <li ><a href = 'http://www.itreallymatters.net/' target='_blank' rel = 'noopener'>Jarmo Pertman – IT Really Matters</a></li>
+  
+  <li ><a href = 'http://www.cheezyworld.com/' target='_blank' rel = 'noopener'>Jeff Morgan – CheezyWorld</a></li>
+  
+  <li ><a href = 'http://jimhmatthews.wordpress.com/' target='_blank' rel = 'noopener'>Jim Matthews – Testing the Limits</a></li>
+  
+  <li ><a href = 'http://jkotests.wordpress.com/' target='_blank' rel = 'noopener'>Justin Ko – Testing by Justin Ko</a></li>
+  
+  <li ><a href = 'http://tcfodor.wordpress.com/' target='_blank' rel = 'noopener'>Tiffany Fodor – It’s always something…</a></li>
+  
+  <li ><a href = 'http://watirtight.com/' target='_blank' rel = 'noopener'>Titus Fortner – Watirtight Testing</a></li>
+  
+  <li ><a href = 'http://filipin.eu/' target='_blank' rel = 'noopener'>Željko Filipin’s Blog</a></li>
+  
+</ul>
+
+  
+  </aside>
+</div>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/guides/waiting/',
+		  'title': 'Waiting'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

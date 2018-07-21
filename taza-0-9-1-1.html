@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Taza 0.9.1.1 – Watir Project – Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="
+
+It is with great pleasure that we announce Taza 0.9.1.1 has been released. We hope you find this release stable, and that you like the small improvements we made. We added support to software we think are the way you should go when it comes to automating tests in Ruby. If you haven’t tried it, I encourage you to give it a shot.
+
+" />
+    <meta property="og:description" content="
+
+It is with great pleasure that we announce Taza 0.9.1.1 has been released. We hope you find this release stable, and that you like the small improvements we made. We added support to software we think are the way you should go when it comes to automating tests in Ruby. If you haven’t tried it, I encourage you to give it a shot.
+
+" />
+    
+    <meta name="author" content="Watir Project" />
+
+    
+    <meta property="og:title" content="Taza 0.9.1.1" />
+    <meta property="twitter:title" content="Taza 0.9.1.1" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/community/'
+      
+      >
+      Community
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/contribute/'
+      
+      >
+      Contribute
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Taza 0.9.1.1
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: bpettichord
+    
+    on November 15, 2011
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p><a href="http://www.flickr.com/photos/denimandela/162857252/" title="taza y bandeja by deniman, on Flickr"><img src="http://farm1.static.flickr.com/45/162857252_fee8917cf9_m.jpg" width="180" height="240" alt="taza y bandeja" /></a></p>
+
+<p>It is with great pleasure that we announce <a href="https://rubygems.org/gems/taza">Taza 0.9.1.1</a> has been released. We hope you find this release stable, and that you like the small improvements we made. We added support to software we think are the way you should go when it comes to automating tests in Ruby. If you haven’t tried it, I encourage you to give it a shot. <!--more-->
+In this release, we added:</p>
+
+<ul>
+<li>Ruby 1.9 support</li>
+<li>Watir Webdriver support</li>
+<li>RSpec 2.x support</li>
+<li>Bundler support</li>
+</ul>
+
+<p>Among the features we want to improve next are fixtures. I personally find them hard to maintain, and especially in Taza, a little too much on the magic side. We’ve stablished a roadmap regarding those:</p>
+
+<ul>
+<li>Add support for factories i.e. FactoryGirl</li>
+<li>Deprecate current fixtures in Taza</li>
+<li>Come up with a simpler solution to fixtures</li>
+</ul>
+
+<p>We welcome any suggestions to this roadmap, and anything you might find worth telling us.</p>
+
+<p>Also, there is a nice <a href="https://github.com/hammernight/etsy_cucumber_taza_tutorial">tutorial about using it with rspec and cucumber</a>.
+Master branch uses watir. Watir-webdriver branch is there for people not using windows (but it runs on windows, too).</p>
+
+<p>Just run <code>bundle</code>, then <code>bundle exec cucumber</code> and <code>bundle exec rspec spec</code> to run the tests.</p>
+
+<p>There are some failing tests because Etsy changed their website. We haven’t updated the tutorial yet, but I guess fixing it might be a good way of learning it, if you’re interested.</p>
+
+<p>Install it with:</p>
+
+<p><code>gem install taza</code></p>
+
+<p>As usual:</p>
+
+<ul>
+<li>see build history at <a href="http://travis-ci.org/#!/hammernight/taza/builds">Travis CI</a> (wait for a few seconds until older builds appear)</li>
+<li>see all the changes at <a href="https://github.com/hammernight/taza/commits/master">GitHub</a></li>
+<li>updated API documentation is at <a href="http://rubydoc.info/gems/taza">RubyDoc.info</a></li>
+</ul>
+
+<p>Sincerely,</p>
+
+<p><a href="https://github.com/hammernight/taza/contributors">Taza Contributors</a></p>
+
+<p><em>Posted originally at <a href="https://groups.google.com/forum/#!topic/watir-general/K6rJ3xRyDPg">watir-general</a> by Pedro Nascimento. Published here with permission.</em></p>
+
+<p>
+</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/taza-0-9-1-1',
+		  'title': 'Taza 0.9.1.1'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>
