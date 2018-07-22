@@ -1,25 +1,24 @@
-<div class = 'member'>
-  <div class = 'member__bio'>
-    <div>
-      <img class = 'member__pic' src = '{{ contributor.image }}'>
+<div class="unit one-third">
+    <img class="member-pic"
+         src="{{ contributor.image }}">
+    <div class="member-text">
+        <ul>
+            <li><a class="member-name" href="{{ contributor.website }}">{{
+                contributor.name}}</a>
+            <li>
+            <li>
+                {% if contributor.twitter != null %}
+                <a class="member-handle"
+                   href="http://twitter.com/{{ contributor.twitter }}">@{{contributor.twitter}}</a>
+                {% else %}
+                &nbsp;
+                {% endif %}
+            <li>
+            <li><p class="member-location">{{ contributor.location }}</p>
+            </li>
+        </ul>
     </div>
-    <ul>
-      <li><a class = 'member__name' href = '{{ contributor.website }}' target = '_blank' rel = 'noopener'>{{
-        contributor.name}}</a>
-      <li>
-      <li>
-        {% if contributor.twitter != null %}
-        <a class = 'member__handle' href = 'http://twitter.com/{{ contributor.twitter }}' target = '_blank' rel = 'noopener'>@{{contributor.twitter}}</a>
-        {% else %}
-        &nbsp;
-        {% endif %}
-      <li>
-      <li>
-        <p class = 'member__location'>{{ contributor.location }}</p>
-      </li>
-    </ul>
-  </div>
-  <p class = 'member__description'>
-    {{contributor.content  | remove: '<p>' | remove: '</p>'}}
-  </p>
+    <p class="member-description">
+        {{contributor.content  | remove: '<p>' | remove: '</p>'}}
+    </p>
 </div>

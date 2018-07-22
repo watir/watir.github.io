@@ -1,0 +1,419 @@
+---
+---
+
+//
+// IMPORTS
+//
+
+@import "reset";
+@import "variables";
+@import "gridism";
+// Syntax highlighting @import is at the bottom of this file
+
+/**************/
+/* BASE RULES */
+/**************/
+
+html {
+  font-size: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+	background: $white;
+  font: 18px/1.4 $body_font;
+  color: $darkGray;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 950px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header_font;
+  color: #51b1ee;
+  font-weight: bold;
+
+  line-height: 1.7;
+  //margin: 0.5em 0 15px;
+  padding: 0;
+}
+
+h1 {
+  font-size: 36px;
+  a {
+    color: inherit;
+  }
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+  color: $gray;
+}
+
+p {
+  margin: 15px 0;
+  font-size: 19px;
+}
+
+a {
+  color: #5aa7d7;
+  text-decoration: none;
+	cursor: pointer;
+  &:hover, &:active {
+    color: #58beff;
+  }
+}
+
+ul, ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ul, ul ol, ul ul, ol ol {
+  margin: 0;
+}
+
+ul ul, ol ul {
+  list-style-type: circle;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+// Fixes images in popup boxes from Google Translate
+.gmnoprint img {
+  max-width: none;
+}
+
+.date {
+  font-style: italic;
+  color: $gray;
+}
+
+// Specify the color of the selection
+::-moz-selection {
+  color: $black;
+  background: $lightGray;
+}
+::selection {
+  color: $black;
+  background: $lightGray;
+}
+
+// Nicolas Gallagher's micro clearfix hack
+// http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*********************/
+/* LAYOUT / SECTIONS */
+/*********************/
+
+//
+// header/nav
+//
+
+header {
+
+  h1,
+  nav { display: inline-block; }
+
+}
+
+.logo {
+
+  img {
+    float: left;
+    height: 35%;
+    width: 35%;
+  }
+
+  .tag-line {
+    position: relative;
+    top: 105px;
+    left: -125px;
+    color: #56819c;
+    font-family: $header_font;
+  }
+}
+
+.mobile-logo {
+
+  img {
+    display: block;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tag-line {
+    display: block;
+    position: relative;
+    text-align: center;
+    top: -25px;
+    left: 50px;
+    color: #56819c;
+    font-family: $header_font;
+  }
+
+}
+
+nav {
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li { display: inline-block; }
+}
+
+.main-nav {
+
+  li {
+    margin-right: 10px;
+
+    a {
+      font-weight: 900;
+      font-size: 14px;
+      padding: 0.5em 1em;
+      text-shadow: none;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: #5aa7d7;
+        color: #ebebeb;
+        text-shadow: 0 1px 3px rgba(0,0,0,.5);
+      }
+    }
+
+    &.current {
+
+      a {
+        background-color: #5aa7d7;
+        color: #ebebeb;
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+      }
+    }
+  }
+}
+
+.mobile-nav {
+
+  ul {
+    overflow: hidden;
+    margin: 0 auto;
+    //display: table;
+    text-align: center;
+  }
+
+  a {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 5px;
+
+    &:hover {
+      background-color: #5aa7d7;
+      color: #ebebeb;
+      text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    }
+  }
+
+  li {
+    display: table-cell;
+    padding: 5px 2px;
+    display: inline-block;
+  }
+
+  .current {
+
+    a {
+      background-color: #5aa7d7;
+      color: #ebebeb;
+      text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    }
+  }
+}
+
+//
+// intro
+//
+
+.intro {
+  position: relative;
+  padding: 1px;
+  border-style: solid;
+  border: 2px;
+  border-color: black;
+
+  li {
+    font-size: 18px;
+  }
+}
+
+.intro .background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url("/images/waves_background.png");
+  opacity: .4;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+}
+
+//
+// .main
+//
+
+.posts > .post {
+  padding-bottom: 2em;
+  border-bottom: 1px solid $lightGray;
+}
+
+.posts > .post:last-child {
+  padding-bottom: 1em;
+  border-bottom: none;
+}
+
+.post {
+  blockquote {
+    margin: 1.8em .8em;
+    border-left: 2px solid $gray;
+    padding: 0.1em 1em;
+    color: $gray;
+    font-size: 22px;
+    font-style: italic;
+  }
+
+  .comments {
+    margin-top: 10px;
+  }
+
+  .read-more {
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+}
+
+//
+// footer
+//
+
+.wrapper-footer {
+}
+
+footer {
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0 0 0;
+  text-align: center;
+  background-color: #9fd0ef;
+}
+
+//
+// Code Demo Block
+//
+
+.demo {
+  font-size: 12px;
+  text-align: left;
+  vertical-align: center;
+  margin-top: 25px;
+
+  @media screen and (max-width: 900px) {
+    margin-top: -15px;
+  }
+}
+
+//
+// contributors
+//
+
+.member-pic {
+  float: left;
+  padding-right: 5px;
+  border-radius: 50%;
+}
+
+.member-text {
+
+  margin-top: -15px;
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    margin-top: -5px;
+  }
+}
+
+.member-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.member-handle {
+  font-size: 14px;
+}
+
+.member-location {
+  font-size: 12px;
+}
+
+.member-description {
+  font-size: 16px;
+  margin-top: -7px;
+}
+
+// Settled on moving the import of syntax highlighting to the bottom of the CSS
+// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
+@import "highlights";
+@import "svg-icons";
