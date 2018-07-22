@@ -15,14 +15,13 @@ The default Ruby interpreters normally supplied on Mac
 and Linux are not adequate for running Watir and
 related Ruby technologies without making significant alterations to them.
 
-There are different options for supplying
-a good Ruby interpreter, but we have chosen rbenv as the most
-suitable Ruby interpreter.  
+There are different options for properly maintaining 
+a Ruby interpreter, but we have chosen rbenv as the most
+suitable Ruby interpreter for Mac and chruby for Linux.  
 
-Note that rbenv cannot exist on the same system as RVM.
-RVM is an acceptable Ruby interpreter if you prefer to use it,
-but if you prefer to use rbenv, be sure to uninstall RVM 
-completely.
+Note that RVM is an acceptable (if more complicated) way to 
+maintain a Ruby interpreter if you prefer to use it,
+but if you choose to use rbenv or chruby, be sure to uninstall RVM completely.
 
 
 ### Windows
