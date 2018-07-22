@@ -116,6 +116,8 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
-  - CNAME
+  - deploy.sh
+  - deploy_key.enc
+  - deploy_key
 include:
   - _pages

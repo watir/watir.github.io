@@ -1,0 +1,17 @@
+language: ruby
+branches:
+  only:
+  - source
+rvm:
+- 2.3.4
+before_install:
+- openssl aes-256-cbc -K $encrypted_1dd176ece64a_key -iv $encrypted_1dd176ece64a_iv -in deploy_key.enc -out deploy_key -d
+before_script:
+- chmod +x ./deploy.sh
+script: bash ./deploy.sh
+exclude:
+- vendor
+sudo: false
+env:
+  global:
+  - COMMIT_AUTHOR_EMAIL: watir.team@gmail.com
