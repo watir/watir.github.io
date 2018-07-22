@@ -65,6 +65,8 @@ See the full list of options [here](https://sites.google.com/a/chromium.org/chro
 b = Watir::Browser.new :chrome, options: {options: {detach: true}}
 {% endhighlight %}
 
+<!--- TODO: Create a separate Guide for this --->
+
 ### Using chrome on Heroku
 
 You can drive the chrome browser on heroku with a cedar-14 stack.  Check out this sample repo for more information on how to do this:
