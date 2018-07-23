@@ -6,14 +6,12 @@
     <ul>
       <li><a class = 'member__name' href = '{{ contributor.website }}' target = '_blank' rel = 'noopener'>{{
         contributor.name}}</a>
-      <li>
-      <li>
+      </li>
         {% if contributor.twitter != null %}
-        <a class = 'member__handle' href = 'http://twitter.com/{{ contributor.twitter }}' target = '_blank' rel = 'noopener'>@{{contributor.twitter}}</a>
-        {% else %}
-        &nbsp;
-        {% endif %}
       <li>
+        <a class = 'member__handle' href = 'http://twitter.com/{{ contributor.twitter }}' target = '_blank' rel = 'noopener'>@{{contributor.twitter}}</a>
+      </li>
+        {% endif %}
       <li>
         <p class = 'member__location'>{{ contributor.location }}</p>
       </li>
