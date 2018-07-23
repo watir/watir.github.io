@@ -1,6 +1,9 @@
 # Watir Website
 
-Watir.com is generated from the code in this repository using [Jekyll](https://github.com/jekyll/jekyll)
+The [Watir Website](http://watir.com) is generated from the code in this repository using [Jekyll](https://github.com/jekyll/jekyll)
+
+The code is in the `source` branch, and updates to it are built by Travis CI and the resulting static site
+files are stored in the `master` branch, which Github serves for us.
 
 ### Contributing
 Please help us keep our examples and tutorials up to date. 
