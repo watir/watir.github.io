@@ -29,6 +29,11 @@ rm -rf _site
 echo "Clone the existing code for this repo into _site/"
 git clone $REPO _site
 
+echo "Check out non-default branch"
+cd _site
+git checkout $TARGET_BRANCH
+cd ..
+
 echo "Build content with Jekyll"
 doCompile
 
@@ -55,5 +60,5 @@ echo "SSH Add key"
 eval `ssh-agent -s`
 ssh-add ../deploy_key
 
-echo "Push to Repo"
-git push $SSH_REPO
+echo "Push to Repo to master"
+git push $SSH_REPO $TARGET_BRANCH
