@@ -108,7 +108,13 @@ autopages:
       - "autopage_tags.html"
     title: ":tag" # :tag is replaced by the tag name
     permalink: "/tag/:tag"
-
+defaults:
+  -
+    scope:
+      path: "_posts"
+    values:
+      layout: "post"
+      permalink: /:title/
 
 # Exclude these files from your production _site
 exclude:
