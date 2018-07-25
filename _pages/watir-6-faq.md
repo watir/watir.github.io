@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Watir 6 FAQ
-permalink: /faq/
+permalink: /watir-6-faq/
 ---
 ### Frequently Asked Questions
 
