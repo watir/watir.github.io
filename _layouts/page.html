@@ -4,12 +4,23 @@ layout: default
 <div class = 'page grid'>
   <article>
     <h2 class = 'flex-out'>{{ page.title }}
-    {% if page.layout == 'guide' %} <a href = '{{ site.github.repo }}/edit/source/{{ page.relative_path }}'> <i class ='fas fa-edit' title = 'Edit on GitHub'></i></a> {%- endif -%}</h2>
+    {% if page.layout == 'guide' %}
+      <span>
+        <a href = '{{ site.github.repo }}/edit/source/{{ page.relative_path }}'><i class ='fas fa-edit' title = 'Edit Page'></i></a>
+        <span>&nbsp;</span>
+        <a href = '{{ site.github.repo }}/issues/new?title=Guide%20for%20{{ page.title }}'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
+      </span>
+    {%- endif -%}
+    </h2>
     {{ content }}
   </article>
   <aside>
-  {% unless page.lean %}
-    {% include sidebar.html %}
-  {% endunless %}
+    {% unless page.sidebar == 'none' %}
+      {% if page.layout == 'guide' %}
+        {% include sidebar_guides.html %}
+      {% else %}
+        {% include sidebar_main.html %}
+      {% endif %}
+    {% endunless %}
   </aside>
 </div>

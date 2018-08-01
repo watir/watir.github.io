@@ -81,6 +81,7 @@ plugins:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-paginate-v2
   - jekyll-redirect-from
+  - jekyll-last-modified-at
 permalink: /:categories/:title
 # Plugin: Pagination (jekyll-paginate-v2)
 pagination:
