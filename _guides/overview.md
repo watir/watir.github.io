@@ -5,6 +5,8 @@ permalink: /guides/overview/
 redirect_from: /docs/overview/
 ---
 
+<!--- TODO: This needs graphics and stuff --->
+
 Watir is a user focused way to test your websites. It mostly uses Selenium for
 browser automation, but it provides many more high level features that make
 it easy to write stable, maintainable tests.

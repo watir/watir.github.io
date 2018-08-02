@@ -50,3 +50,4 @@ profile['browser.helperApps.neverAsk.saveToDisk'] = 'application/pdf'
 b = Watir::Browser.new :firefox, profile: profile
 {% endhighlight %}
 
+<!--- TODO: Link to other guides with browser specific info --->

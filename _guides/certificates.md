@@ -5,6 +5,8 @@ permalink: /guides/certificates/
 redirect_from: /docs/certificates/
 ---
 
+<!--- TODO: Need to verify this code --->
+
 ### Firefox
 
 The Firefox driver properly handles untrusted certificates by default.
@@ -26,3 +28,5 @@ It is easy to ignore invalid Browser certificates in Google Chrome by passing a 
 {% highlight ruby %}
 Watir::Browser.new :chrome, switches: ['--ignore-certificate-errors']
 {% endhighlight %}
+
+<!--- TODO: Add code examples for other browsers --->

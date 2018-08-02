@@ -28,11 +28,8 @@ Additionally, it is worth noting that there are two locators defined in the WebD
  These are `:link_text` and `:partial_link_text`.
 With Watir you can locate any element by its text, not just links, and Watir already supports
  partial matches for all of its locators with Regular Expressions. 
-<p />
 
 ### Standard Watir Locators
-
-<p />
 
 #### ID 
 
@@ -41,16 +38,12 @@ browser.div(id: "header")
 browser.div(id: /header/)
 {% endhighlight %}
 
-<p />
-
 #### Name 
 
 {% highlight ruby %}
 browser.text_field(name: 'new_user_email')
 browser.text_field(name: /new_user_email/)
 {% endhighlight %}
-
-<p />
 
 #### Tag Name
 
@@ -62,8 +55,6 @@ browser.element(tag_name: 'div')
 browser.div
 {% endhighlight %}
 
-<p />
-
 #### Class Name
 
 {% highlight ruby %}
@@ -71,8 +62,6 @@ browser.div
 browser.text_field(class: 'name')
 browser.text_field(class: /name/)
 {% endhighlight %}
-
-<p />
 
 #### Text
 
@@ -82,8 +71,6 @@ browser.button(text: "Button 2")
 browser.button(text: /Button/)
 {% endhighlight %}
 
-<p />
-
 #### Visible Text 
 
 {% highlight ruby %}
@@ -92,8 +79,6 @@ browser.button(visible_text: "Button 2")
 browser.button(visible_text: /Button/)
 {% endhighlight %}
 
-<p />
-
 #### Data Attributes
 
 {% highlight ruby %}
@@ -101,16 +86,12 @@ browser.p(data_type: "ruby-library")
 browser.p(data_type: /ruby-library/)
 {% endhighlight %}
 
-<p />
-
 #### Aria Attributes
 
 {% highlight ruby %}
 browser.p(aria_label: "ruby-library")
 browser.p(aria_label: /ruby-library/)
 {% endhighlight %}
-
-<p />
 
 #### Valid or Custom Attributes 
 
@@ -121,8 +102,6 @@ browser.div(custom_attribute: "foo")
 browser.div(custom_attribute: /foo/)
 {% endhighlight %}
 
-<p />
-
 #### Label
 
 {% highlight ruby %}
@@ -130,8 +109,6 @@ browser.div(custom_attribute: /foo/)
 browser.text_field(label: 'With text'))
 browser.text_field(label: /With text/))
 {% endhighlight %}
-
-  <p />
 
 #### Index 
 * this can not be used to locate an element collection
@@ -141,8 +118,6 @@ browser.text_field(label: /With text/))
 browser.div(index: 2)
 {% endhighlight %}
 
-<p />
-
 #### Presence/Absence/Multiple Classes
 * this takes an Array of String or RegExp values
 
@@ -150,8 +125,6 @@ browser.div(index: 2)
 browser.text_field(class: ['order', 'should', 'matter', 'not'])
 browser.text_field(class: ['this', '!notthis'])
 {% endhighlight %}
-
-<p />
 
 #### Presence/Absence Attributes 
 * this takes a Boolean value
@@ -161,8 +134,6 @@ browser.div(data_bar: false)
 browser.div(data_foo: true)        
 {% endhighlight %}
 
-<p />
-
 #### Visible
 * this takes a Boolean value
 
@@ -170,8 +141,6 @@ browser.div(data_foo: true)
 browser.div(visible: true)
 browser.div(visible: false)
 {% endhighlight %}
-
-<p />
 
 #### Adjacent Nodes
 * these are not locators in the Selector Hash
@@ -187,8 +156,6 @@ anchor_element.siblings(selectors)
 anchor_element.child(selectors)
 anchor_element.children(selectors)
 {% endhighlight %}
-
-<p />
 
 ### Implementation Details
 

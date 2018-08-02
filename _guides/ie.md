@@ -50,3 +50,5 @@ If you want to customize it in your code here are valid options:
 args = ["--log-level=DEBUG", "--log-file=/foo"]
 Watir::Browser.new :ie, options: {args: args}
 {% endhighlight %}
+
+<!--- TODO: Link to other guides with browser specific info --->

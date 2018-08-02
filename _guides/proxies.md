@@ -5,13 +5,14 @@ permalink: /guides/proxies/
 redirect_from: /docs/proxies/
 ---
 
+<!--- TODO: Need to test all the things with proxies --->
+<!--- TODO: Examples for all browsers --->
+
 In many cases, you can specify a proxy to use with the `proxy: {}` option. While each browser driver handles this slightly differently, the following format works in Chrome or Firefox.
 
 ### Example: using a proxy in Chrome or Firefox
 
 {% highlight ruby %}
-require 'watir'
-
 proxy = {
   http: 'my.proxy.com:8080',
   ssl:  'my.proxy.com:8080'

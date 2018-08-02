@@ -19,6 +19,8 @@ Otherwise, you can download the drivers for the browser of your choice:
 * Microsoft Internet Explorer: [IEDriver](http://docs.seleniumhq.org/download)
 * Apple Safari: safaridriver (no download needed, it's pre-installed if you have Safari 10)
 
+<!--- TODO: Recommend using Safari Technology Preview --->
+
 For all browsers except for Safari, you then need to move the driver onto your PATH. 
 This can be especially tricky in Windows.
 

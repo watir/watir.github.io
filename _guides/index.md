@@ -5,6 +5,24 @@ permalink: guides/index.html
 redirect_from: docs/index.html
 ---
 
+<!--- TODO: Reorganize sections so there isn't a catch-all one at the end  --->
+<!--- TODO: Add Guide for Basic Element Actions  --->
+<!--- TODO: Add Guide for Element Collections Watir 6.6 --->
+<!--- TODO: Add Guide for Adjacent Location (Watir 6.7, 6.2)  --->
+<!--- TODO: Add Guide for Tables (Watir 6.7) --->
+<!--- TODO: Add Guide for Select Lists (value vs text; select_all, etc - Watir 6.8, 6.6, 6.3)  --->
+<!--- TODO: Add Guide for Label (Watir 6.8)  --->
+
+<!--- TODO: Add Guide for RadioSet (Watir 6.8)  --->
+<!--- TODO: Add Guide for Navigation  --->
+<!--- TODO: Add Guide for working with JavaScript in Watir  --->
+<!--- TODO: Add Guide for After Hooks  --->
+<!--- TODO: Add Guide for Capabilities (Watir 6.6) --->
+<!--- TODO: Add Guide for Logger  Watir 6.6 & 6.12 --->
+<!--- TODO: Add Guide for Element Flash  --->
+<!--- TODO: Add Guide for Act - Wait - Act  --->
+<!--- TODO: Add Guide for Upcoming Changes in Watir 7 (Removing Deprecations)  --->
+
 Complete documentation of every public class and method in the Watir codebase is
 available on [RubyDoc](http://www.rubydoc.info/gems/watir), often with examples.
  
@@ -19,7 +37,6 @@ let us know that there is a problem with the content. Also feel free to suggest
 * [Automation Pipeline](../guides/overview)
 * [Installing Drivers](../guides/drivers)
 * [Starting a Session](../guides/session)
-<p />
 
 ### Working with Different Browsers
 * [Chrome](../guides/chrome)
@@ -27,13 +44,11 @@ let us know that there is a problem with the content. Also feel free to suggest
 * [Internet Explorer](../guides/ie)
 * [Safari](../guides/safari)
 * [Edge](../guides/edge)
-<p />
 
 ### Working With Elements
 * [Supported Elements](../guides/elements)
 * [Locating elements](../guides/locating)
 * [Frames](../guides/frames)
-<p />
 
 ### Advanced Interactions
 * [Waiting](../guides/waiting)
