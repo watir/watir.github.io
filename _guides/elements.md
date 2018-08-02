@@ -10,12 +10,13 @@ their associated attributes. These classes are encapsulated to give easier acces
 specific attributes, making it easier to locate them, and providing custom features
 unique to them.
 
+<!--- TODO: There are more elements with special behaviors here; likely need separate pages for some --->
+
 Here are some basic examples for interacting with elements:
 
 ### Text Fields
 
 {% highlight ruby %}
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 t = b.text_field id: 'entry_1000000'
 t.exists?
@@ -26,7 +27,6 @@ t.value
 ### Select Lists – Combos
 
 {% highlight ruby %}
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 s = b.select_list id: 'entry_1000001'
 s.select 'Ruby'
@@ -36,7 +36,6 @@ s.selected_options
 ### Radios
 
 {% highlight ruby %}
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 r = b.radio value: 'A gem'
 r.exists?
@@ -47,7 +46,6 @@ r.set?
 ### Checkboxes
 
 {% highlight ruby %}
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 c = b.checkbox value: '1.9.2'
 c.exists?
@@ -58,7 +56,6 @@ c.set?
 ### Buttons
 
 {% highlight ruby %}
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 btn = b.button value: 'Submit'
 btn.exists?
@@ -68,7 +65,6 @@ btn.click
 ### Links
 
 {% highlight ruby %}
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 l = b.link text: 'Google Forms'
 l.exists?
@@ -78,7 +74,6 @@ l.click
 ### Divs & Spans
 
 {% highlight ruby %}
-require 'watir'
 b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
 d = b.div class: 'ss-form-desc ss-no-ignore-whitespace'
 d.exists?

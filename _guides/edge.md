@@ -20,3 +20,5 @@ matches your Windows Build number
 {% highlight ruby %}
 b = Watir::Browser.new :edge
 {% endhighlight %}
+
+<!--- TODO: Link to other guides with browser specific info --->

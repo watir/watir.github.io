@@ -5,37 +5,143 @@ permalink: /guides/waiting/
 redirect_from: /docs/waiting/
 ---
 
-Waiting is usually problematic when you have dynamic web interfaces, eg. web sites that have lots of AJAX.
+Properly synchronizing your code with the state of the browser has long been the biggest issue testers face
+when testing a dynamic website.
 
-### Explicit waits
+### Sleeps
 
-There are four built in methods that you can use to make your waiting experience more pleasant (and remove those evil sleep statements from your code)
+It is often discussed that hard coding `#sleep` is a bad practice. 
+Besides being an indication that your test suite doesn't have sufficient maturity, there are specific technical
+frustrations that come with hard coding sleeps. The biggest issue is that you are having to balance the concern
+of how long is long enough with having an additional and typically unnecessary set of 30 second sleeps 
+scattered everywhere throughout your code.
 
-* <code>Watir::Wait.until { ... }</code> where you can wait for a block to be true
-* <code>object.set</code> where you can do something when it’s present
-* <code>object.wait_until_present</code> where you just wait until something is present
-* <code>object.wait_while_present</code> where you just wait until something disappears
-* The default timeout for all these methods is 30 seconds, but your can pass an argument to any of these to increase (or decrease) it as needed.
+### Selenium Waits - Implicit & Explicit
+
+Selenium has two approaches to synchronization. The first is "implicit wait." Presumably this feature
+was inspired by the early versions of Watir which did a better job of automatically waiting for elements. 
+Using implicit waits
+ means telling the driver to apply a global value for how long to wait when attempting to locate an element if
+ it can't find the element. The idea behind implicit waits is good, but there are two main issues with this 
+ form of implementation, so Watir does not recommend and does not provide direct access for setting them.
+ 
+ * The wait happens during the locate instead of when trying to act on the element. This makes it impossible
+ to immediately query the state of an element before it is there.
+ * Implicit waits by themselves will not be sufficient to handle all of the synchronization issues in your code.
+ The combination of delegating waiting responsibilities to the driver and leveraging polling in the code
+  (explicit waits) can cause weirdness that is difficult to debug.
+
+The second and recommended approach to waiting in Selenium is to use explicit waits. This retains responsibility
+ for synchronization with your code. In this approach your code will continuously check to see if the supplied
+ condition is met, and continue with the next piece of the code when so. Watir waiting approaches all leverage
+ this idea of polling for the desired output from a supplied condition
+
+### When Present and When Enabled
+
+Prior to Watir 6.0, the best way to ensure that the code waited for the browser to be ready was to insert a 
+`#when_present` or `#when_enabled` method before the action.
 
 {% highlight ruby %}
-require 'watir'
-b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'
-b.text_field(id: 'entry_1000000').set 'your name'
-b.select_list(id: 'entry_1000001').wait_until_present
-b.select_list(id: 'entry_1000001').select('Ruby')
-b.button(value: 'Submit').click
-b.button(value: 'Submit').wait_while_present
-Watir::Wait.until { b.text.include? 'Thank you' }
+browser.text_field(title: 'Search').when_present.set 'Hello World!'
 {% endhighlight %}
 
-### Implicit waits
+The problem here is that you should never be using `#set` if you aren't sure the element will be there or
+enabled, so these `#when_present` calls are philosophically redundant.
 
-As an alternative, you can use the WebDriver’s implicit waits to specify a maximum time (in seconds) the script will try to find an element before timing out. This is done by setting the property of the underlying driver:
+As such, Watir 6.0 deprecated `#when_present` and `#when_enabled` and every action call on an element
+ effectively executes this logic by default.
+
+Note that Watir does its automatic waiting when taking actions, not when attempting to locate. This provides
+additional flexibility for querying the state of an element without needing unnecessary waits.
+
+### Watir Wait and Waitable Modules
+
+`Waitable` is the module that is included by `Browser`, `Alert`, `Window` and `Element`.
+This module provides access to two main methods: `#wait_until` and `#wait_while`. As of Watir 6, both of these methods
+accept `:timeout`, `:message` keyword parameters. Note that the `:interval` keyword was added in Watir 6.1 to 
+allow reducing how often the condition is polled, and as of Watir 6.12 you can use a `Proc` instance value for 
+`:message` if that is preferred to a `String`). Then as always, a block is passed in to establish what
+condition needs to be met. `#wait_until` will execute the block until a truthy result is returned, and
+`#wait_while` will execute the block until a falsy result is returned.
 
 {% highlight ruby %}
-require 'watir'
-b = Watir::Browser.new
-b.driver.manage.timeouts.implicit_wait = 3 # 3 seconds
-# Note that using implicit waits can make your tests slower
-# and more difficult to understand when they fail.
+browser.wait_until { |b| b.title == "Foo" }
+browser.window(title: "Foo")wait_while(&:exists?)
+browser.alert.wait_until { |a| a.text == "foo" }
+browser.button(name: 'submit').wait_until(&:enabled?)
+{% endhighlight %}
+
+Note that it is encouraged to use `#to_proc` syntax when possible:
+
+{% highlight ruby %}
+# Good
+browser.text_field(title: 'Search').wait_until(message: "Can't find it" &:present?)
+
+# Less Good
+browser.text_field(title: 'Search').wait_until(message: "Can't find it") { |el| el.present? }
+{% endhighlight %}
+
+The default timeout for Watir's Waits is 30 seconds. You can pass in the `:timeout` keyword parameter to 
+any of the wait methods, or you can change the global default with:
+{% highlight ruby %}
+Watir.default_timeout = 60
+{% endhighlight %}
+
+### Wait Until Present and Wait While Present
+
+There are two special waiting methods that apply only to Elements. As of Watir 6.2 for `#wait_while_present`
+and Watir 6.12 for `#wait_until_present`, these methods have subtly changed from their previous implementation.
+
+Most of the time you do not want to use these methods. In most circumstances you should use:
+
+{% highlight ruby %}
+browser.div(id: 'foo').wait_until(&:present?)
+browser.div(id: 'bar').wait_while(&:present?)
+{% endhighlight %}
+
+But what if you have this element:
+{% highlight html %}
+<div class="here">Foo</div>
+{% endhighlight %}
+
+and you locate it with this code:
+
+{% highlight ruby %}
+element = browser.div(class: "here")
+{% endhighlight %}
+
+and then some dynamic event caused the element class to change:
+
+{% highlight html %}
+<div class="not-here">Foo</div>
+{% endhighlight %}
+
+The element is still there, it just no longer corresponds to the selector Watir used to locate it.
+Because of how Watir caches elements for performance reasons, the following code will time out
+(Watir will just keep verifying that the cached element is still there):
+
+{% highlight ruby %}
+element.wait_while(&:present?)
+{% endhighlight %}
+
+In this case we want the element to be looked up from scratch during the polling, 
+which is what this does:
+
+{% highlight ruby %}
+element.wait_while_present
+{% endhighlight %}
+
+Similarly for `#wait_until_present`, the scenario is when an element is located, then goes away,
+and you want to wait for it to come back.
+
+This will throw a Stale Element exception:
+
+{% highlight ruby %}
+element.wait_until(&:present?)
+{% endhighlight %}
+
+This will return when the element has come back:
+
+{% highlight ruby %}
+element.wait_until_present
 {% endhighlight %}

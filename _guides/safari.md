@@ -32,3 +32,5 @@ To permit this, run /usr/bin/safaridriver once manually and complete the authent
 {% highlight ruby %}
 b = Watir::Browser.new :safari, technology_preview: true
 {% endhighlight %}
+
+<!--- TODO: Link to other guides with browser specific info --->

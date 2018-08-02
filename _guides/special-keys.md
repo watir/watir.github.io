@@ -6,7 +6,11 @@ redirect_from:
  - /docs/sending-special-keys/
 ---
 
-To send special keys to an element or browser page, you use the .send_keys method, with a symbolic representation of what you would like to send.
+<!--- TODO: Validate Examples --->
+<!--- TODO: These should be `#set` not `#send_keys` right? --->
+
+To send special keys to an element or browser page, you use the `#send_keys` method, with a symbolic representation of what 
+you would like to send.
 
 {% highlight ruby %}
 b.send_keys :enter

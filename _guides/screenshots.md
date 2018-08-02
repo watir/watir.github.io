@@ -5,6 +5,8 @@ permalink: /guides/screenshots/
 redirect_from: /docs/screenshots/
 ---
 
+<!--- TODO: Add info about Screenshot-stitch --->
+
 Watir has a pretty awesome screenshot capability, built right in.
 
 {% highlight ruby %}

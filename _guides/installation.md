@@ -9,7 +9,9 @@ Once you have [installed Ruby](../ruby), installing and using Watir is easy.
 
 From the command line, install the gem, which Ruby's way of packaging code:
 
-`gem install watir`
+{% highlight shell %}
+gem install watir
+{% endhighlight %}
 
 Now you can try it out by opening up an Interactive Ruby (irb) session.
 

@@ -1,13 +1,13 @@
 ---
 layout: guide
-title: Javascript Dialogs
+title: Javascript Popups
 permalink: /guides/alerts/
 redirect_from: /docs/alerts/
 ---
 
 JavaScript dialogs are fairly common in web applications.
 
-Watir has an inbuilt library for handling the dialogs, and capturing values from the dialogs.
+Watir has an inbuilt library for handling these dialogs, and capturing values.
 
 ### Javascript Alerts
 

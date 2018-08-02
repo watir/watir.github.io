@@ -10,7 +10,7 @@ html {
 }
 
 body {
-	background: $white;
+  background: $white;
   font-size: 16px;
   font-family: $body_font;
   color: $darkGray;
@@ -28,6 +28,14 @@ main{
 }
 article {
   max-width: 667px;
+}
+blockquote {
+  margin: 1.8em .8em;
+  border-left: 2px solid $gray;
+  padding: 0.1em 1em;
+  color: $gray;
+  font-size: 22px;
+  font-style: italic;
 }
 aside{
   padding: 15px;
@@ -65,10 +73,12 @@ h2 {
 }
 
 h3 {
+  padding-top: 12.5px;
   font-size: 1.36rem;
 }
 
 h4 {
+  padding-top: 12.5px;
   font-size: 1.25rem;
   color: $gray;
 }
@@ -119,6 +129,7 @@ em, i {
 }
 pre, figure,code{
   max-width: 100%;
+  font-size: 14px;
 }
 pre{
   word-break: break-all;
