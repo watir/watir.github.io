@@ -1,0 +1,20 @@
+---
+layout: default
+title: Companies Using Watir
+sidebar: none
+permalink: /users/
+---
+
+<!--- TODO: Make prettier; maybe like this? https://css-tricks.com/seamless-responsive-photo-grid/ -->
+
+<h3>These companies use or have used Watir (in alphabetical order):</h3>
+<p></p>
+<div>
+    {% for user in site.users %}
+        <a href="{{ user.website }}"><img src="{{ user.image }}" height="51" target="_blank"></a>
+    {% endfor %}
+</div>
+<p></p>
+<h4>If you would like to add your company to the list send us a logo, link to the home page and (if possible) a
+    link to the page that says you are using Watir.
+</h4>

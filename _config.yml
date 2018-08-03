@@ -23,6 +23,8 @@ collections:
     foo: bar
   guides:
     output: true
+  users:
+    output: true
 
 # Includes an icon in the footer for each username you enter
 footer-links:
