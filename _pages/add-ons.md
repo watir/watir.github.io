@@ -4,6 +4,8 @@ title: Add-ons
 permalink: /add-ons/
 ---
 
+<!--- TODO: Add, Delete and Reorganize this --->
+
 ### Integration
 
 * [watir-rails](https://github.com/watir/watir-rails) for using Watir with Rails.

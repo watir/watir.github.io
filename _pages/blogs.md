@@ -4,6 +4,8 @@ title: Blogs
 permalink: /blog-list/
 ---
 
+<!--- TODO: Review blog content --->
+
 Resources with Watir, Ruby or otherwise useful content:
 
 <ul>
