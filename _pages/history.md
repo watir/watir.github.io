@@ -6,14 +6,14 @@ permalink: /history/
 
 Watir grew out of Ruby code written by Chris Morris in 2001 to control Internet Explorer through its 
 [COM interface](https://en.wikipedia.org/wiki/Component_Object_Model).(<strong>[1](https://web.archive.org/web/20040611154239/http://www.clabs.org/wtr/index.cgi?page=/AboutWtr)</strong>) 
-In 2003 Paul Rogers and Bret Pettichord began using this code to to 
+In 2003 Paul Rogers and Bret Pettichord began using this code to 
 test websites and open sourced the project under the name 
 WTR.(<strong>[2](https://github.com/watir/watir-classic/commit/aca359)</strong>) An 
 [Agile XP conference](https://web.archive.org/web/20041013084540/http://www.xpuniverse.com:80/schedule/T15)
 in August of 2004 prompted the team to rename the project to Watir and redesign the code base using 
 [TDD principles](https://en.wikipedia.org/wiki/Test-driven_development), re-using existing code where 
 possible.(<strong>[3](https://web.archive.org/web/20041011114632/http://www.io.com/~wazmo/blog/archives/2004_08.html)</strong>) 
-The first commit with the new name is September 30,
+The first commit with the new name is from September 30,
  2004.(<strong>[4](https://github.com/watir/watir-classic/commit/7c7a8a)</strong>) 
 
 Bret was working at Thoughtworks at this time and was introduced
@@ -30,8 +30,8 @@ Fun fact: Jason made a list of potential names for his project, but when Thought
   and Selenium is known to be a [cure for Mercury poisoning](https://www.ncbi.nlm.nih.gov/pubmed/1304229).
   Jason returned to find his project named for him, but it's certainly proved to be an excellent brand name.
 
-Original versions of Selenium were focused on being a test framework with its own 
-test runner and Domain Specific Language. It had some technological limitations and issues with flexibility, 
+Original versions of Selenium were focused on being a test framework with its own HTML table based 
+Domain Specific Language (DSL). It had some technological limitations and issues with flexibility, 
 as well as offering multiple ways of doing similar things. Its big advantage was its support
 for all of the various browsers that were starting to steal market share from Microsoft. 
 To keep up with Selenium, various groups created browser specific projects for Watir including
@@ -52,9 +52,28 @@ than various testing features.(<strong>[6](http://www.seleniumhq.org/about/histo
 Selenium completely overhauled its interface for its version 2.0 release in order to adopt it. 
 WebDriver’s object oriented driver implementation, though, is very similar to Watir's original approach.
 So, ironically, it was much more straightforward for Watir users to switch to a WebDriver
-implementation than it was for Selenium users. Jari Bakken implemented WebDriver in Ruby for 
-both Selenium and Watir projects. With the cross browser capabilities of WebDriver, 
-the browser specific Watir projects became obsolete.
+implementation than it was for Selenium users. 
+
+When Jari Bakken, a Watir developer, was exposed to WebDriver in 2009, he began developing a Ruby implementation of it 
+for both Selenium and Watir. Jari had already written [Celerity](https://github.com/jarib/celerity), 
+a JRuby project to implement a wrapper for HtmlUnit, to provide a headless testing option with the same API as Watir. 
+With his work on watir-webdriver, he decided to take the Celerity specs and make them usable for both 
+projects.([7](https://github.com/watir/watirspec/tree/9443ea77ab998b4f676a120221b460dcab421933)). 
+In doing so he created the WatirSpec repository which could be used by any of the Ruby-based projects that 
+implemented the Watir API.
+
+The functionality being provided by WebDriver caused the Watir team to add features and change its conventions 
+when it made sense to do so. The big backward-incompatible change in the [Watir 2.0](http://watir.com/watir-2-0/) 
+(released in August of 2011) was the move from one-indexing to zero-indexing. 
+Indexing “like a person” makes sense until you have to constantly figure out if you are working with a 
+Watir Collection or a Ruby Array (or with WebDriver). The challenge of bringing Watir into complete 
+compliance with the WatirSpec was taken up by  Jarmo Pertman and culminated in the release 
+of [Watir 3.0](http://watir.com/watir-3-released/) in April 2012.
+
+To encourage the use of watir-webdriver, Hugh McGowan renamed the Watir code base “watir-classic” and 
+released Watir 4.0 in September 2012 as a [meta-gem](https://github.com/watir/watir_meta#about). 
+This release defaulted to using the watir-classic implementation for Internet Explorer and using the 
+watir-webdriver implementation for all other browsers.
 
 In January of 2015 Jari decided to step down as maintainer of the selenium-webdriver and watir-webdriver
 gems.(<strong>[7](https://groups.google.com/forum/#!msg/selenium-developers/h2Ie4FNHmq4/OBsaatq5y6gJ)</strong>).
