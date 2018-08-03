@@ -29,4 +29,9 @@ layout: default
       {%- endfor -%}
     </div>
   </div>
+  <div>
+    {% unless page.tweet == null %}
+    <a href = 'https://twitter.com/watir_team/status/{{ page.tweet }}'>Thoughts about this article? Let us know!</a>
+    {% endunless %}
+  </div>
 </article>
