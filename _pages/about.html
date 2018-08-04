@@ -1,0 +1,33 @@
+---
+layout: default
+title: About Watir
+permalink: /about/
+---
+
+<h2 class = 'flex-out'>{{ page.title }}</h2>
+
+<p>Fun Fact: Watir was one of the most popular projects on RubyForge 10-15 years ago.</p>
+<p>Read all about the <a href="/history">History of the Watir Project</a>.</p>
+
+{% assign active_contributors = site.contributors | where: 'active', 'true' %}
+{% assign alumni_contributors = site.contributors | where: 'active', 'false' %}
+
+<h4>Watir Contributors</h4>
+<p>The Watir Community has been very fortunate to have had the support of many wonderful
+people over the years. It's not just writing the code, but answering people's questions, creating
+documentation and organizing conferences. Thank you to everyone who has been part of the Watir Team
+over the years.</p>
+
+<h3>Current Team</h3>
+<div class = 'members'>
+{% for contributor in active_contributors %}
+  {% include contributor.html %}
+{% endfor %}
+</div>
+
+<h3>Team Alumni</h3>
+<div class = 'members'>
+{% for contributor in alumni_contributors %}
+  {% include contributor.html %}
+{% endfor %}
+</div>

@@ -14,13 +14,13 @@ layout: default
     </h2>
     {{ content }}
   </article>
-  <aside>
-    {% unless page.sidebar == 'none' %}
+  {% unless page.sidebar == 'none' %}
+    <aside>
       {% if page.layout == 'guide' %}
         {% include sidebar_guides.html %}
       {% else %}
         {% include sidebar_main.html %}
       {% endif %}
-    {% endunless %}
-  </aside>
+    </aside>
+  {% endunless %}
 </div>

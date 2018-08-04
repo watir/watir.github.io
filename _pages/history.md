@@ -14,21 +14,21 @@ in August of 2004 prompted the team to rename the project to Watir and redesign 
 [TDD principles](https://en.wikipedia.org/wiki/Test-driven_development), re-using existing code where 
 possible.(<strong>[3](https://web.archive.org/web/20041011114632/http://www.io.com/~wazmo/blog/archives/2004_08.html)</strong>) 
 The first commit with the new name is from September 30,
- 2004.(<strong>[4](https://github.com/watir/watir-classic/commit/7c7a8a)</strong>) 
+2004.(<strong>[4](https://github.com/watir/watir-classic/commit/7c7a8a)</strong>) 
 
-Bret was working at Thoughtworks at this time and was introduced
+Bret was working at ThoughtWorks at this time and was introduced
 to the work Jason Huggins was doing with leveraging JavaScript in the browser for testing using
 a program that was initially called JavaScriptTestRunner,
 and would eventually became known as 
 Selenium.(<strong>[5](https://web.archive.org/web/20140519003122/http://rubyforge.org/pipermail/wtr-general/2004-August/000228.html)</strong>) 
-Fun fact: Jason made a list of potential names for his project, but when Thoughtworks needed
-  to present an agenda that included discussing this technology at a conference in Australia, Jason wasn't
-  available to provide the official name. Paul Hammant and Bret looked at the list, 
-  and Bret's background in the QA community caused him to recognize the humor in calling the project
-  Selenium. The primary expensive commercial UI testing solution at the time was owned by 
-  [Mercury Interactive](https://en.wikipedia.org/wiki/Mercury_Interactive) 
-  and Selenium is known to be a [cure for Mercury poisoning](https://www.ncbi.nlm.nih.gov/pubmed/1304229).
-  Jason returned to find his project named for him, but it's certainly proved to be an excellent brand name.
+Fun fact: Jason made a list of potential names for his project, but when ThoughtWorks needed
+to present an agenda that included discussing this technology at a conference in Australia, Jason wasn't
+available to provide the official name. Paul Hammant and Bret looked at the list, 
+and Bret's background in the QA community caused him to recognize the humor in calling the project
+Selenium. The primary expensive commercial UI testing solution at the time was owned by 
+[Mercury Interactive](https://en.wikipedia.org/wiki/Mercury_Interactive) 
+and Selenium is known to be a [cure for Mercury poisoning](https://www.ncbi.nlm.nih.gov/pubmed/1304229).
+Jason returned to find his project named for him, but it's certainly proved to be an excellent brand name.
 
 Original versions of Selenium were focused on being a test framework with its own HTML table based 
 Domain Specific Language (DSL). It had some technological limitations and issues with flexibility, 
@@ -67,7 +67,7 @@ when it made sense to do so. The big backward-incompatible change in the [Watir 
 (released in August of 2011) was the move from one-indexing to zero-indexing. 
 Indexing “like a person” makes sense until you have to constantly figure out if you are working with a 
 Watir Collection or a Ruby Array (or with WebDriver). The challenge of bringing Watir into complete 
-compliance with the WatirSpec was taken up by  Jarmo Pertman and culminated in the release 
+compliance with the WatirSpec was taken up by Jarmo Pertman and culminated in the release 
 of [Watir 3.0](http://watir.com/watir-3-released/) in April 2012.
 
 To encourage the use of watir-webdriver, Hugh McGowan renamed the Watir code base “watir-classic” and 
@@ -79,22 +79,22 @@ In January of 2015 Jari decided to step down as maintainer of the selenium-webdr
 gems.(<strong>[7](https://groups.google.com/forum/#!msg/selenium-developers/h2Ie4FNHmq4/OBsaatq5y6gJ)</strong>).
 Alex Rodionov had been an active contributor for the previous three years and took over primary ownership of
 the project with assistance from Titus Fortner who was working with Bret at Blackbaud at that time
- and had just been officially added to the development team.
+and had just been officially added to the development team.
 
 When the W3C started creating a standard [specification for WebDriver](http://w3c.github.io/webdriver/webdriver-spec.html),
- all of the major browser vendors got on board to implement a driver for their respective browsers. 
- Additionally, Microsoft released the Edge browser to replace Internet Explorer.
-  The combination of these things made the original implementation of
- Watir (watir-classic) increasingly obsolete. As such, in 2016 Titus spearheaded a move for
- Watir to rebrand itself, deprecate both watir-classic and watir-webdriver, 
- and release Watir 6.0 with an updated version of the Selenium-backed code. Based on numerous conversations
- with Bret about the original ideology behind Watir, Titus updated Watir to become
- less like an alternative implementation of Selenium, and more fully leverage the Watir API to 
- remove extra configurations and add default waiting behaviors that better adhered to the original spirit of Watir. 
+all of the major browser vendors got on board to implement a driver for their respective browsers. 
+Additionally, Microsoft released the Edge browser to replace Internet Explorer.
+The combination of these things made the original implementation of
+Watir (watir-classic) increasingly obsolete. As such, in 2016 Titus spearheaded a move for
+Watir to rebrand itself, deprecate both watir-classic and watir-webdriver, 
+and release Watir 6.0 with an updated version of the Selenium-backed code. Based on numerous conversations
+with Bret about the original ideology behind Watir, Titus updated Watir to become
+less like an alternative implementation of Selenium, and more fully leverage the Watir API to 
+remove extra configurations and add default waiting behaviors that better adhered to the original spirit of Watir. 
 
 All of this is to say that instead of being a competitor to Selenium, the current version of
 Watir relies on the Selenium code for the browser automation capabilities of WebDriver. Think of
 Selenium as a Browser Automation Library and Watir as a Test Automation Library. Selenium provides
 the means for a user to interact with a browser with a "do what I say" approach,
- whereas Watir leverages Selenium to allow a user to accomplish a "do what I mean" approach to testing
- the UI.
+whereas Watir leverages Selenium to allow a user to accomplish a "do what I mean" approach to testing
+the UI.
