@@ -44,15 +44,19 @@ Selenium also had the advantage of easily supporting development in multiple pro
 As a result, Watir was also adapted into Java with [Watij](https://sourceforge.net/projects/watij/) and
 .NET with [Watin](https://www.codeproject.com/Tips/658947/Watin-An-Automation-Testing-in-NET).
 
-When WebDriver was created by Simon Stewart in 2007 (also at Thoughtworks at that time), it provided
- an alternate solution to the issues Selenium faced. It boasted a cleaner
-API and did not rely extensively on JavaScript. It was more of a toolkit 
-than a framework, and focused more on direct browser automation commands 
-than various testing features.(<strong>[6](http://www.seleniumhq.org/about/history.jsp)</strong>) 
-Selenium completely overhauled its interface for its version 2.0 release in order to adopt it. 
-WebDriver’s object oriented driver implementation, though, is very similar to Watir's original approach.
-So, ironically, it was much more straightforward for Watir users to switch to a WebDriver
-implementation than it was for Selenium users. 
+WebDriver was created by Simon Stewart in 2007 (also at ThoughtWorks at that time) and it provided
+solutions to some of the major issues Selenium faced. Rather than applying a single 
+JavaScript implementation for all browsers, it required creating a unique driver for each browser
+that would have more power and flexibility. The code base boasted a cleaner API and was less of a testing
+framework than a toolkit of direct browser automation 
+commands.(<strong>[6](http://www.seleniumhq.org/about/history.jsp)</strong>) 
+
+As the WebDriver drivers matured, Selenium found the WebDriver solutions appealing enough to agree to 
+merge the projects.
+While Selenium 2.0 effectively emulated Selenium 1.0 (RC) for backward compatibility, adopting WebDriver’s 
+object oriented driver approach required significant code updates.
+Since Watir had always used the "driver" approach, Watir users ironically had much fewer adjustments to make in
+their code than Selenium users did in order to be able to leverage the full power of WebDriver.
 
 When Jari Bakken, a Watir developer, was exposed to WebDriver in 2009, he began developing a Ruby implementation of it 
 for both Selenium and Watir. Jari had already written [Celerity](https://github.com/jarib/celerity), 
@@ -76,20 +80,20 @@ This release defaulted to using the watir-classic implementation for Internet Ex
 watir-webdriver implementation for all other browsers.
 
 In January of 2015 Jari decided to step down as maintainer of the selenium-webdriver and watir-webdriver
-gems.(<strong>[7](https://groups.google.com/forum/#!msg/selenium-developers/h2Ie4FNHmq4/OBsaatq5y6gJ)</strong>).
+gems.(<strong>[8](https://groups.google.com/forum/#!msg/selenium-developers/h2Ie4FNHmq4/OBsaatq5y6gJ)</strong>).
 Alex Rodionov had been an active contributor for the previous three years and took over primary ownership of
 the project with assistance from Titus Fortner who was working with Bret at Blackbaud at that time
 and had just been officially added to the development team.
 
-When the W3C started creating a standard [specification for WebDriver](http://w3c.github.io/webdriver/webdriver-spec.html),
-all of the major browser vendors got on board to implement a driver for their respective browsers. 
-Additionally, Microsoft released the Edge browser to replace Internet Explorer.
-The combination of these things made the original implementation of
-Watir (watir-classic) increasingly obsolete. As such, in 2016 Titus spearheaded a move for
-Watir to rebrand itself, deprecate both watir-classic and watir-webdriver, 
-and release Watir 6.0 with an updated version of the Selenium-backed code. Based on numerous conversations
-with Bret about the original ideology behind Watir, Titus updated Watir to become
-less like an alternative implementation of Selenium, and more fully leverage the Watir API to 
+With Microsoft releasing the Edge browser and announcing that no new features would be added
+to Internet Explorer, the need for the watir-classic code to be actively maintained dramatically diminished.
+Also at this time there was significant confusion around what Watir was and what gems should be used; it was not
+uncommon for Watir users to say they were running with "Watir WebDriver, not Watir." Since the tester-focused
+API has always been the key distinguishing feature for Watir, not the implementation, the project needed
+to refocus and disambiguate. In 2016 Titus spearheaded this move, deprecating both watir-classic and watir-webdriver
+gems and releasing Watir 6.0 with a new logo, a new website and an updated version of the Selenium-backed code. 
+Based on numerous conversations with Bret about the original ideology behind Watir, Titus updated Watir to become
+less like an alternative implementation of Selenium, and to more fully leverage the Watir API to 
 remove extra configurations and add default waiting behaviors that better adhered to the original spirit of Watir. 
 
 All of this is to say that instead of being a competitor to Selenium, the current version of
