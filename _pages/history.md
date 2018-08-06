@@ -75,9 +75,9 @@ compliance with the WatirSpec was taken up by Jarmo Pertman and culminated in th
 of [Watir 3.0](http://watir.com/watir-3-released/) in April 2012.
 
 To encourage the use of watir-webdriver, Hugh McGowan renamed the Watir code base “watir-classic” and 
-released Watir 4.0 in September 2012 as a [meta-gem](https://github.com/watir/watir_meta#about). 
-This release defaulted to using the watir-classic implementation for Internet Explorer and using the 
-watir-webdriver implementation for all other browsers.
+created a ["meta" repository](https://github.com/watir/watir_meta#about) with code that defaulted to using 
+the watir-classic implementation for Internet Explorer and using the watir-webdriver implementation 
+for all other browsers. This code was released as Watir 4.0 in Sepetember 2012.
 
 In January of 2015 Jari decided to step down as maintainer of the selenium-webdriver and watir-webdriver
 gems.(<strong>[8](https://groups.google.com/forum/#!msg/selenium-developers/h2Ie4FNHmq4/OBsaatq5y6gJ)</strong>).
