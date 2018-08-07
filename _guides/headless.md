@@ -41,6 +41,6 @@ Both Chrome and Firefox have implemented headless modes for their browsers that 
 Recognize that this option does not include all of the browser code, so not all of the browser features
 are implemented, and this will not be an exact replication of what a user will see in a real browser.
 
-[Headless on Chrome](/guides/firefox/#headless)
+[Headless on Chrome](/guides/chrome/#headless)
 
 [Headless on Firefox](/guides/firefox/#headless)
