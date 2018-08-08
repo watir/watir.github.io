@@ -1,30 +1,27 @@
 ---
 layout: page
-title: Add-ons
+title: Watir Ecosystem
 permalink: /add-ons/
 ---
 
-<!--- TODO: Add, Delete and Reorganize this --->
+<!--- Updated Aug 8, 2018 --->
 
-### Integration
-
+### Integrations
 * [watir-rails](https://github.com/watir/watir-rails) for using Watir with Rails.
 * [watir-rspec](https://github.com/watir/watir-rspec) for writing your tests with RSpec.
-* [watir-robot](https://github.com/semperos/watir-robot) for using Watir with Robot Framework.
-* [watir-timecop](https://github.com/p0deje/watir-timecop) for making Watir compatible with Timecop.
 
-### Frameworks
-
+### Page Object Frameworks
+* [insite](https://github.com/jfitisoff/insite)
 * [page-object](https://github.com/cheezy/page-object)
 * [test-page](https://github.com/jarmo/test-page)
-* [test-factory](https://github.com/rSmart/TestFactory)
-* [watirmark](https://github.com/convio/watirmark)
 * [watirsome](https://github.com/p0deje/watirsome)
 
-### Other
-
-* [watir-webdriver-performance](https://github.com/90kts/watir-webdriver-performance) for monitoring web application performance.
-* [watir-scroll](https://github.com/p0deje/watir-scroll) for scrolling emulation
+### Other Libraries
+* [watigiri](https://github.com/titusfortner/watigiri) for seamlessly using Nokogiri with Watir
 * [watir-dom-wait](https://github.com/p0deje/watir-dom-wait) for element waiting based on DOM change
-* [watir-get-image-content](https://github.com/orangeudav/watir-get-image-content) for getting image content
 * [watir-extensions-element-screenshot](https://github.com/ansoni/watir-extensions-element-screenshot) for making screenshot of specific element
+* [watir-get-image-content](https://github.com/orangeudav/watir-get-image-content) for getting image content
+* [watir-ng](https://github.com/jdenen/watir-ng) for identifying watir elements with AngularJS ng directives
+* [watir-scroll](https://github.com/p0deje/watir-scroll) for scrolling emulation
+* [watir-webdriver-performance](https://github.com/90kts/watir-webdriver-performance) for monitoring web application performance
+* [watir_drops](https://github.com/titusfortner/watir_drops) for easy modeling of specific web application information
