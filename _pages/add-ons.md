@@ -15,6 +15,7 @@ permalink: /add-ons/
 * [page-object](https://github.com/cheezy/page-object)
 * [test-page](https://github.com/jarmo/test-page)
 * [watirsome](https://github.com/p0deje/watirsome)
+* [watir_pump](https://github.com/bwilczek/watir_pump)
 
 ### Other Libraries
 * [watigiri](https://github.com/titusfortner/watigiri) for seamlessly using Nokogiri with Watir
