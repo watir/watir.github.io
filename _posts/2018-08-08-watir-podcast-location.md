@@ -8,4 +8,4 @@ comments: true
 tags: [Podcast]
 ---
 
-Watir Podcasts can be found on our [google driver now.](https://drive.google.com/drive/folders/1PU_GNxU5XyZ8PwX0Srj45DA-elCkHXln).
+Watir Podcasts can be found on our [Google Drive now](https://drive.google.com/drive/folders/1PU_GNxU5XyZ8PwX0Srj45DA-elCkHXln?usp=sharing).
