@@ -4,9 +4,10 @@ title: Podcasts
 permalink: /podcasts/
 ---
 
+<p></p>
 {% for podcast in site.podcasts reversed %}
 
-<h4><a href="{{podcast.url}}">Episode {{ podcast.number }}</a></h4>
+<h3><a href="{{podcast.url}}">Episode {{ podcast.number }}</a></h3>
 <h6>  {{podcast.subtitle}}</h6>
 
 {% endfor %}

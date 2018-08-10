@@ -10,7 +10,11 @@ layout: default
         <span>&nbsp;</span>
         <a href = '{{ site.github.repo }}/issues/new?title=Guide%20for%20{{ page.title }}'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
       </span>
-    {%- endif -%}
+    {% elsif page.layout == 'podcast' %}
+      <span>
+        <a href='/podcasts'>Return to Podcast Index</a>
+      </span>
+      {%- endif -%}
     </h2>
     {{ content }}
   </article>
