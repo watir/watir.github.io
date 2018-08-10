@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Major Website Content Updates
 date: 2018-08-03
 author: Titus Fortner
