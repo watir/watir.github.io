@@ -1,0 +1,12 @@
+---
+layout: page
+title: Podcasts
+permalink: /podcasts/
+---
+
+{% for podcast in site.podcasts reversed %}
+
+<h4><a href="{{podcast.url}}">Episode {{ podcast.number }}</a></h4>
+<h6>  {{podcast.subtitle}}</h6>
+
+{% endfor %}

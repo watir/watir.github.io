@@ -1,0 +1,40 @@
+---
+layout: page
+---
+<script src="http://cdn.podlove.org/web-player/embed.js"></script>
+
+{% assign podcast = page %}
+
+<p id="episode{{ podcast.number }}"></p>
+
+<script>
+    podlovePlayer('#episode{{ podcast.number }}', {
+        title: 'Episode {{ podcast.number }}',
+        subtitle: '{{ podcast.subtitle }}',
+        summary: '{{ podcast.summary | remove: '<p>' | remove: '</p>' | rstrip}}',
+        publicationDate: '{{podcast.date}}',
+        poster: 'https://raw.githubusercontent.com/watir/watir_logo/master/Icon/Icon.jpg',
+        show: {
+            title: 'Watir Podcast',
+            subtitle: 'The Podcast about Watir',
+            summary: 'Test automation podcasts mostly relating to the ruby library Watir.',
+            poster: 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png',
+            url: 'https://watir.com'
+        },
+        duration: '{{ podcast.duration }}',
+        audio: [{
+            url: '{{ podcast.location }}',
+            mimeType: 'audio/mp3',
+            size: '{{ podcast.size }}',
+            title: 'Audio MP3'
+        }],
+        reference: {
+            config: '//podlove-player.surge.sh/fixtures/example.json',
+            share: '//podlove-player.surge.sh/share'
+        },
+        contributors: [{
+            name: 'Dave McNulla',
+            avatar: '/images/contributors/dave_73.jpeg'
+        }]
+    });
+</script>
