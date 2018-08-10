@@ -28,13 +28,12 @@ layout: page
             size: '{{ podcast.size }}',
             title: 'Audio MP3'
         }],
-        reference: {
-            config: '//podlove-player.surge.sh/fixtures/example.json',
-            share: '//podlove-player.surge.sh/share'
-        },
         contributors: [{
             name: 'Dave McNulla',
-            avatar: '/images/contributors/dave_73.jpeg'
+            avatar: '/images/contributors/dave_73.jpeg',
+            role: { id: '9', slug: 'team', title: 'Team' },
+            group: { id: '1', slug: 'onair', title: 'Host' },
+            comment: null
         }]
     });
 </script>
