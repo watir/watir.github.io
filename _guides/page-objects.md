@@ -197,8 +197,7 @@ See also:
 **Page Object gems that work with Watir-webdriver**
 * [Cheezy's Page Object gem for Watir-webdriver and Selenium](https://github.com/cheezy/page-object)
 * [The rSmart Test-Factory gem for Page & Data objects using Watir-webdriver](https://github.com/rSmart/TestFactory)
-* [Watir Page Helper](http://watirmelon.com/2011/05/05/introducing-the-watir-page-helper-gem/)
-* [LoadableComponent](http://github.com/jarib/loadable_component)
+* [WatirPump: Page Object gem - a fresh approach from 2018](https://github.com/bwilczek/watir_pump)
 
 **Blog postings related to Page Objects and Watir-webdriver**
 * cheezyworld's series on UI testing [part 1](http://www.cheezyworld.com/2010/11/09/ui-tests-not-brittle/), [part 2](http://www.cheezyworld.com/2010/11/13/ui-tests-part-two/), [part 3](http://www.cheezyworld.com/2010/11/19/ui-tests-introducing-a-simple-dsl/), [part 4](http://www.cheezyworld.com/2010/11/21/ui-tests-default-dat/), [part 5](http://www.cheezyworld.com/2010/12/16/ui-tests-putting-it-all-together/)
