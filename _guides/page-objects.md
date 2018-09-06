@@ -202,11 +202,10 @@ See also:
 **Blog postings related to Page Objects and Watir-webdriver**
 * cheezyworld's series on UI testing [part 1](http://www.cheezyworld.com/2010/11/09/ui-tests-not-brittle/), [part 2](http://www.cheezyworld.com/2010/11/13/ui-tests-part-two/), [part 3](http://www.cheezyworld.com/2010/11/19/ui-tests-introducing-a-simple-dsl/), [part 4](http://www.cheezyworld.com/2010/11/21/ui-tests-default-dat/), [part 5](http://www.cheezyworld.com/2010/12/16/ui-tests-putting-it-all-together/)
 * Watermelon blog article on ['roll your own' page objects](http://watirmelon.com/2012/06/04/roll-your-own-page-objects/)
+* [WatirPump: Page Object library for Ruby and Watir](https://blog.bwilczek.eu/introducing-watirpump-a-new-page-object-library-for-ruby-and-watir)
 
 **Blog postings related to Page Objects and webdriver/Selenium**
 * [Page Objects on the Selenium Wiki](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)
 * [Page Objects in Python](http://www.pragprog.com/magazines/2010-08/page-objects-in-python)
-* [Automated Testing using Page Objects and WebDriver](http://www.peternewhook.com/2010/09/automated-testing-pageobjects-webdriver/)
-* [Acceptance tests with JBehave, Selenium and Page Objects](http://blog.m.artins.net/acceptance-tests-with-jbehave-selenium-page-objects/)
 * [Using the Page Object pattern](http://www.slideshare.net/dantebriones/using-the-page-object-pattern)
-* [Selenium 2/Web Driver - the land where Page Objects are king!](http://www.wakaleo.com/blog/selenium-2-web-driver-the-land-where-page-objects-are-king)
+
