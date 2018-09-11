@@ -6,14 +6,14 @@ author: Bartek Wilczek
 author_url: https://github.com/bwilczek
 comments: true
 tweet: 
-tags: [WatirPump, Addons, Blogs]
+tags: [Addons, Blogs]
 ---
 
-A brand new approach to Page Object pattern is here. Say hello to [WatirPump](https://github.com/bwilczek/watir_pump)!
+A brand new approach to Page Object pattern is here. Say hello to WatirPump
 
 <!--more-->
 
-The new library provides features, that allow for creation of clean and maintainable web application models:
+The [new library](https://github.com/bwilczek/watir_pump) provides features, that allow for creation of clean and maintainable web application models:
 
 * DSL to declare elements and actions on them
 * Reusable, nestable components
