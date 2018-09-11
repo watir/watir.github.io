@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing WatirPump: a new Page Object library
+title: Introducing WatirPump
 date: 2018-09-07
 author: Bartek Wilczek
 author_url: https://github.com/bwilczek
