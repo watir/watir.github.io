@@ -82,6 +82,3 @@ The JavaScript atom used by most of the drivers is called `isShown`
 * present - Watir determines if the element both "exists" and is "visible"
 * hidden - A filtering option used by Watir & Capybara for elements that are "displayed"
 * [interactable](https://w3c.github.io/webdriver/#dfn-interactable) - Attempting to determine if an action can be taken
-
-See the [Changelog](https://github.com/watir/watir/blob/master/CHANGES.md) 
-for the complete history of updates.
