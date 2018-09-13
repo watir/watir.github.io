@@ -1,0 +1,17 @@
+---
+layout: page
+title: Podcast Archives
+permalink: /podcasts/
+---
+
+<p>From 2008 through 2013 and then again from 2016 - 2017, Watir had a mostly monthly podcast
+interviewing people from the Watir community and discussing things relevant to Test Automation. The podcast
+was started and hosted by Zeljko Filipin, with Dave McNulla coming on board to co-host and then take
+over the project.</p>
+
+{% for podcast in site.podcasts reversed %}
+
+<h3><a href="{{podcast.url}}">Episode {{ podcast.number }}</a></h3>
+<h6>  {{podcast.subtitle}}</h6>
+
+{% endfor %}

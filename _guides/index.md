@@ -20,7 +20,7 @@ redirect_from: docs/index.html
 <!--- TODO: Add Guide for Capabilities (Watir 6.6) --->
 <!--- TODO: Add Guide for Logger  Watir 6.6 & 6.12 --->
 <!--- TODO: Add Guide for Element Flash  --->
-<!--- TODO: Add Guide for Act - Wait - Act  --->
+<!--- TODO: Add Guide for Act - Wait - Act (6.4 & 6.11) --->
 <!--- TODO: Add Guide for Upcoming Changes in Watir 7 (Removing Deprecations)  --->
 
 Complete documentation of every public class and method in the Watir codebase is

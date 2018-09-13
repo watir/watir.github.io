@@ -6,17 +6,23 @@ permalink: /history/
 
 Watir grew out of Ruby code written by Chris Morris in 2001 to control Internet Explorer through its 
 [COM interface](https://en.wikipedia.org/wiki/Component_Object_Model).(<strong>[1](https://web.archive.org/web/20040611154239/http://www.clabs.org/wtr/index.cgi?page=/AboutWtr)</strong>) 
-In 2003 Paul Rogers and Bret Pettichord began using this code to 
-test websites and open sourced the project under the name 
-WTR.(<strong>[2](https://github.com/watir/watir-classic/commit/aca359)</strong>) An 
+This library was called cliec. In 2003 Bret Pettichord and Brian Marick began using this code as the basis for a
+course they were teaching on test automation. Inspired by this course, but needing something capable of working
+with more advanced websites, Paul Rogers created his own library and called it WTR (Web Testing in 
+Ruby).(<strong>[2](https://github.com/watir/watir-classic/commit/aca359)</strong>) This library had more functionality
+ but a poorer API. Bret and Paul got together at the 
 [Agile XP conference](https://web.archive.org/web/20041013084540/http://www.xpuniverse.com:80/schedule/T15)
-in August of 2004 prompted the team to rename the project to Watir and redesign the code base using 
-[TDD principles](https://en.wikipedia.org/wiki/Test-driven_development), re-using existing code where 
-possible.(<strong>[3](https://web.archive.org/web/20041011114632/http://www.io.com/~wazmo/blog/archives/2004_08.html)</strong>) 
-The first commit with the new name is from September 30,
-2004.(<strong>[4](https://github.com/watir/watir-classic/commit/7c7a8a)</strong>) 
+in August of 2004 to take the best parts of cliec and WTR and created a cleaner API using 
+[TDD principles](https://en.wikipedia.org/wiki/Test-driven_development).(<strong>[3](https://web.archive.org/web/20041011114632/http://www.io.com/~wazmo/blog/archives/2004_08.html)</strong>) 
+The first commit with the new name is from September 30, 2004.(<strong>[4](https://github.com/watir/watir-classic/commit/7c7a8a)</strong>) 
 
-Bret was working at ThoughtWorks at this time and was introduced
+From the earliest days of the project Watir has had people dedicated to building a community around it.
+This endeavor has been mostly independent from writing the code. Early on this was handled by Jonathan Kohl 
+who took on the role of writing the initial documentation, creating code examples and guides in addition to
+general promotion. Other people filling this role over the years includes Chris McMahon, Zeljko Filipin,
+Alister Scott, and David McNulla. 
+
+Bret joined ThoughtWorks in 2004 and was introduced
 to the work Jason Huggins was doing with leveraging JavaScript in the browser for testing using
 a program that was initially called JavaScriptTestRunner,
 and would eventually became known as 

@@ -23,6 +23,8 @@ collections:
     foo: bar
   guides:
     output: true
+  podcasts:
+    output: true
   users:
     output: true
 
