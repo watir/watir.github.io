@@ -8,8 +8,10 @@ comments: true
 tags: [Watir7]
 ---
 
-Dude, Where's My Element? An explanation of the `stale_visible` and `stale_present` deprecations
+Dude, Where's My Element? An explanation of the `stale_exists`, `stale_visible` and `stale_present` deprecations
 <!--more-->
+
+** Update 2018-10-19: this article has been updated to include the `stale_exists` deprecation 
 
 ### Selenium Elements vs Watir Elements
 
@@ -64,10 +66,10 @@ Instead of `wait_while(&:present?)` use this instead: `wait_until(&:stale?)`.
 
 ### Deprecation Warnings
 
-Watir is now logging deprecation notices for `stale_present` and `stale_visible` in preparation
+Watir is now logging deprecation notices for `stale_exists`, `stale_present` and `stale_visible` in preparation
 for a Watir 7 release.
 
-If you are using `#present?`, `#visible?` or some form of `wait_while` with either of these methods, and
+If you are using `#exists?`, `#present?`, `#visible?` or some form of `wait_while` with these methods, and
 you are receiving this notice, be aware that your tests might break in Watir 7. Keep in mind
 how Watir considers elements, and make use of `#stale?` if your usage does not match Watir's usage.
 
@@ -80,5 +82,5 @@ Watir.logger.ignore(:deprecations)
 
 To turn off these specific notices:
 {% highlight ruby %}
-Watir.logger.ignore(%i[stale_present stale_visible])
+Watir.logger.ignore(%i[stale exists stale_present stale_visible])
 {% endhighlight %}
