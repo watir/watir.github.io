@@ -89,59 +89,6 @@ Watir.default_timeout = 60
 
 ### Wait Until Present and Wait While Present
 
-There are two special waiting methods that apply only to Elements. As of Watir 6.2 for `#wait_while_present`
-and Watir 6.12 for `#wait_until_present`, these methods have subtly changed from their previous implementation.
-
-Most of the time you do not want to use these methods. In most circumstances you should use:
-
-{% highlight ruby %}
-browser.div(id: 'foo').wait_until(&:present?)
-browser.div(id: 'bar').wait_while(&:present?)
-{% endhighlight %}
-
-But what if you have this element:
-{% highlight html %}
-<div class="here">Foo</div>
-{% endhighlight %}
-
-and you locate it with this code:
-
-{% highlight ruby %}
-element = browser.div(class: "here")
-{% endhighlight %}
-
-and then some dynamic event caused the element class to change:
-
-{% highlight html %}
-<div class="not-here">Foo</div>
-{% endhighlight %}
-
-The element is still there, it just no longer corresponds to the selector Watir used to locate it.
-Because of how Watir caches elements for performance reasons, the following code will time out
-(Watir will just keep verifying that the cached element is still there):
-
-{% highlight ruby %}
-element.wait_while(&:present?)
-{% endhighlight %}
-
-In this case we want the element to be looked up from scratch during the polling, 
-which is what this does:
-
-{% highlight ruby %}
-element.wait_while_present
-{% endhighlight %}
-
-Similarly for `#wait_until_present`, the scenario is when an element is located, then goes away,
-and you want to wait for it to come back.
-
-This will throw a Stale Element exception:
-
-{% highlight ruby %}
-element.wait_until(&:present?)
-{% endhighlight %}
-
-This will return when the element has come back:
-
-{% highlight ruby %}
-element.wait_until_present
-{% endhighlight %}
+As of 6.15 `#wait_while_present` and `#wait_until_present` are deprecated. For versions 6.2 through 6.14
+these methods had subtly different behavior from `.wait_until(&:present?)` & `.wait_while(&:present?)`.
+This is no longer the case and these methods should no longer be used.
