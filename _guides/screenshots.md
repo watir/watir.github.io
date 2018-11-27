@@ -20,8 +20,6 @@ browser.screenshot.png
 browser.screenshot.base64
 {% endhighlight %}
 
-The great thing about this is it gives you a screen shot of the entire page, not just above the fold.
-
 If you’re using Cucumber also, you can easily embed this in your html report output by adding the following to your env.rb file:
 
 {% highlight ruby %}
