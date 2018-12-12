@@ -37,6 +37,7 @@ let us know that there is a problem with the content. Also feel free to suggest
 * [Automation Pipeline](../guides/overview)
 * [Installing Drivers](../guides/drivers)
 * [Starting a Session](../guides/session)
+* [Example Code - Form Filling](../guides/form-example)
 
 ### Working with Different Browsers
 * [Chrome](../guides/chrome)
