@@ -60,8 +60,8 @@ source ~/.bash_profile
 
 Copy and paste this into the terminal:
 {% highlight shell %}
-rbenv install 2.5.1
-rbenv local 2.5.1
+rbenv install 2.5.3
+rbenv local 2.5.3
 {% endhighlight %}
 
 ### Linux
@@ -79,7 +79,7 @@ wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/arc
 tar -xzvf ruby-install-0.6.0.tar.gz
 cd ruby-install-0.6.0/
 sudo make install
-ruby-install ruby 2.5.1
+ruby-install ruby 2.5.3
 {% endhighlight %}
   
 **Install [chruby](https://github.com/postmodern/chruby#readme)**
@@ -104,5 +104,5 @@ Save file and Close TextEdit
 Copy and paste this into the terminal and hit enter:
 {% highlight shell %}
 source ~/.bash_profile
-chruby 2.5.1
+chruby 2.5.3
 {% endhighlight %}
