@@ -123,6 +123,7 @@ defaults:
 
 # Exclude these files from your production _site
 exclude:
+  - vendor
   - Gemfile
   - Gemfile.lock
   - LICENSE
