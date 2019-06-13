@@ -26,6 +26,7 @@ permalink: /add-ons/
 * [watir-get-image-content](https://github.com/orangeudav/watir-get-image-content) for getting image content
 * [WatirModel](https://github.com/titusfortner/watir_model) for abstracting data to use in Page Objects
 * [watir-webdriver-performance](https://github.com/90kts/watir-webdriver-performance) for monitoring web application performance
+* [screen-recorder](https://github.com/kapoorlakshya/screen-recorder) for video recording your test executions. Works on Windows, Linux, and macOS.
 
 ### Ruby Selenium Libraries
 * [SeleniumStatistics](https://github.com/titusfortner/selenium_statistics) count the wire calls made in your code
