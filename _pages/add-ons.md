@@ -18,6 +18,7 @@ permalink: /add-ons/
 * [watirsome](https://github.com/p0deje/watirsome)
 
 ### Other Libraries
+* [screen-recorder](https://github.com/kapoorlakshya/screen-recorder) for video recording your test executions. Works on Windows, Linux, and macOS.
 * [TapWatir](https://github.com/watir/tap_watir) drive a mobile application with Watir
 * [Watigiri](https://github.com/titusfortner/watigiri) for seamlessly using Nokogiri with Watir
 * [WatirAngular](https://github.com/titusfortner/watir_angular) allows injecting Angular Wait code
@@ -26,7 +27,6 @@ permalink: /add-ons/
 * [watir-get-image-content](https://github.com/orangeudav/watir-get-image-content) for getting image content
 * [WatirModel](https://github.com/titusfortner/watir_model) for abstracting data to use in Page Objects
 * [watir-webdriver-performance](https://github.com/90kts/watir-webdriver-performance) for monitoring web application performance
-* [screen-recorder](https://github.com/kapoorlakshya/screen-recorder) for video recording your test executions. Works on Windows, Linux, and macOS.
 
 ### Ruby Selenium Libraries
 * [SeleniumStatistics](https://github.com/titusfortner/selenium_statistics) count the wire calls made in your code
