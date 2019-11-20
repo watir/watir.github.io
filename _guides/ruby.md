@@ -51,17 +51,17 @@ Copy and paste this into the terminal and hit enter:
 
 Copy and paste this into the terminal:
 {% highlight shell %}
-brew install rbenv
+brew install readline rbenv ruby-install
 rbenv init
 touch ~/.bash_profile
 echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 source ~/.bash_profile
 {% endhighlight %}
 
-Copy and paste this into the terminal:
+Copy and paste this into the terminal (update version to latest release if desired):
 {% highlight shell %}
-rbenv install 2.5.3
-rbenv local 2.5.3
+rbenv install 2.6.5
+rbenv local 2.6.5
 {% endhighlight %}
 
 ### Linux
