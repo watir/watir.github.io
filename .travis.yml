@@ -6,6 +6,7 @@ rvm:
 - 2.3.4
 before_install:
 - openssl aes-256-cbc -K $encrypted_1dd176ece64a_key -iv $encrypted_1dd176ece64a_iv -in deploy_key.enc -out deploy_key -d
+- gem install bundler
 before_script:
 - chmod +x ./deploy.sh
 script: bash ./deploy.sh
