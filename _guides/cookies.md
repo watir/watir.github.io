@@ -31,6 +31,6 @@ browser.cookies.delete 'foo'
 # Load from a File
 browser.cookies.load '.cookies'
 
-# Delete All cooies
+# Delete All cookies
 browser.cookies.clear
 {% endhighlight %}
