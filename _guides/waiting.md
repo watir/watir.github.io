@@ -66,7 +66,7 @@ condition needs to be met. `#wait_until` will execute the block until a truthy r
 
 {% highlight ruby %}
 browser.wait_until { |b| b.title == "Foo" }
-browser.window(title: "Foo")wait_while(&:exists?)
+browser.window(title: "Foo").wait_while(&:exists?)
 browser.alert.wait_until { |a| a.text == "foo" }
 browser.button(name: 'submit').wait_until(&:enabled?)
 {% endhighlight %}
@@ -75,7 +75,7 @@ Note that it is encouraged to use `#to_proc` syntax when possible:
 
 {% highlight ruby %}
 # Good
-browser.text_field(title: 'Search').wait_until(message: "Can't find it" &:present?)
+browser.text_field(title: 'Search').wait_until(message: "Can't find it", &:present?)
 
 # Less Good
 browser.text_field(title: 'Search').wait_until(message: "Can't find it") { |el| el.present? }
