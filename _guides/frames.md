@@ -26,7 +26,7 @@ for iframes to be nested inside of iframes.
 
 {% highlight ruby %}
 b.iframe(id: 'outside').iframe(id: 'inside').div.text
-b.iframe(id: 'second').text_field.set 'foo"
+b.iframe(id: 'second').text_field.set 'foo'
 b.iframe(id: 'outside').button.click
 {% endhighlight %}
 
