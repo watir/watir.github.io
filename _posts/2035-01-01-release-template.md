@@ -30,5 +30,5 @@ gem "watir", "~> X.XX"
 
 ### New Thing Three
 
-See the [Changelog](https://github.com/watir/watir/blob/master/CHANGES.md) 
+See the [Changelog](https://github.com/watir/watir/blob/main/CHANGES.md) 
 for the complete history of updates.
