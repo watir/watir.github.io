@@ -3,7 +3,7 @@ layout: post
 title: Major Website Content Updates
 date: 2018-08-03
 author: Titus Fortner
-author_url: http://watirtight.com/
+author_url: https://titusfortner.com/
 comments: true
 tweet: 1025531027849015298
 tags: [Website]

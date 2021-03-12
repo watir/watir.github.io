@@ -3,7 +3,7 @@ layout: post
 title: Refreshed Website
 date: 2018-07-23
 author: Titus Fortner
-author_url: http://watirtight.com/
+author_url: https://titusfortner.com/
 tweet: 1021511740801122315
 comments: true
 tags: [Website]

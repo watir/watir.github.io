@@ -3,7 +3,7 @@ layout: post
 title: New and Improved Website
 date: 2016-08-04
 author: Titus Fortner
-author_url: http://watirtight.com/
+author_url: https://titusfortner.com/
 comments: true
 tags: [Website]
 ---

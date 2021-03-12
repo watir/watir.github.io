@@ -3,7 +3,7 @@ layout: post
 title: Element Existentialism
 date: 2018-07-17
 author: Titus Fortner
-author_url: http://watirtight.com/
+author_url: https://titusfortner.com/
 comments: true
 tags: [Blogs]
 ---

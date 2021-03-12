@@ -3,7 +3,7 @@ layout: post
 title: Ruby Open Source Testing Code Hackathon
 date: 2017-08-24
 author: Titus Fortner
-author_url: http://watirtight.com/
+author_url: https://titusfortner.com/
 comments: true
 tweet: 900904090762399744
 tags: [Blogs]

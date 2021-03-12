@@ -3,7 +3,7 @@ layout: post
 title: Updated Guides and Request for Help
 date: 2017-08-10
 author: Titus Fortner
-author_url: http://watirtight.com/
+author_url: https://titusfortner.com/
 comments: true
 tags: [Blogs]
 ---

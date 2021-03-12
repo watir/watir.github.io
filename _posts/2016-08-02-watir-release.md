@@ -3,7 +3,7 @@ layout: post
 title: Gem Update
 date: 2016-08-02
 author: Titus Fortner
-author_url: http://watirtight.com/
+author_url: https://titusfortner.com/
 comments: true
 tags: [Releases]
 ---

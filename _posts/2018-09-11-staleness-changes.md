@@ -3,7 +3,7 @@ layout: post
 title: Stale Element Behavior Changes
 date: 2018-09-11
 author: Titus Fortner
-author_url: http://watirtight.com/
+author_url: https://titusfortner.com/
 comments: true
 tags: [Watir7]
 ---
