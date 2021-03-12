@@ -33,9 +33,8 @@ Send a question to the [Watir-General](https://groups.google.com/forum/#!forum/w
 
 #### Is it easiest to just have a conversation with us?
 
-Join the #watir channel on the Selenium Slack account.
- You can join by submitting [this form](http://seleniumhq.herokuapp.com). 
- You will be sent an invitation with instructions on how to join.
+Join the #watir channel on the 
+[Selenium Slack](https://join.slack.com/t/seleniumhq/shared_invite/zt-f7jwg1n7-RVw4v4sMA7Zjufira_~EVw). 
 
 ### Guidelines for Questions and Posts
 
