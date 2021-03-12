@@ -3,6 +3,7 @@ layout: guide
 title: Chrome
 permalink: /guides/chrome/
 redirect_from: /docs/chrome/
+modified_date: 2021-03-12
 ---
 
 ### ChromeDriver
@@ -14,36 +15,31 @@ Chrome is the default, so you don't even have to specify it unless you need to a
 {% highlight ruby %}
 b = Watir::Browser.new
 {% endhighlight %}
-{% highlight ruby %}
-b = Watir::Browser.new :chrome, opts
-{% endhighlight %}
-
-
-### Headless
-Chrome has a new headless feature that can be accessed directly with: 
-
-{% highlight ruby %}
-b = Watir::Browser.new :chrome, headless: true
-{% endhighlight %}
-
-It is still under active development so not all features work yet (alerts, window
-switching, etc)
 
 ### Chrome Options
+*Note: this documentation has been updated for Watir 6.19, and is focused on
+supporting the updates made for Selenium 4.*
 
-The options hash can be created with the following parameters:
+For non-browser specific capabilities take a look at our [Capabilities Guide](../capabilities)
+In addition to those, there are 
+[a number of Chrome specific settings](http://chromedriver.chromium.org/capabilities#TOC-Recognized-capabilities)
+that will change how Chrome operates during the test run. 
 
+Watir will build the options for you when you pass in a Hash that is based on
+[Selenium's `Chrome::Options` class](https://github.com/SeleniumHQ/selenium/blob/trunk/rb/lib/selenium/webdriver/chrome/options.rb)
+
+Commonly used settings include:
 * :args - an Array of command-line arguments to use when starting Chrome
 * :binary - a String representing the Path to the Chrome Browser executable to use
 * :prefs - a Hash with each entry consisting of the name of the preference and its value
 * :extensions - an Array of Strings listing the paths to (.crx) Chrome extensions to install on startup
-* :options - a Hash for raw options
-* :emulation -  A Hash for raw emulation options
-
+* :emulation -  A Hash for [raw emulation options](http://chromedriver.chromium.org/mobile-emulation). 
+  (*it is important to note that the key must be `:emulation`, not `:mobile_emulation`*)
 
 ### Preferences
 Information on configuring preferences can be found [here](https://www.chromium.org/administrators/configuring-other-preferences)
 
+Example:
 {% highlight ruby %}
 prefs = {
   download: {
@@ -55,37 +51,29 @@ prefs = {
 b = Watir::Browser.new :chrome, options: {prefs: prefs}
 {% endhighlight %}
 
-### Switches
+### Arguments
 See the full list of switches [here](https://peter.sh/experiments/chromium-command-line-switches/)
 
+Example:
 {% highlight ruby %}
-args = ['--ignore-certificate-errors', '--disable-popup-blocking', '--disable-translate']
+args = ['--disable-translate']
 b = Watir::Browser.new :chrome, options: {args: args}
 {% endhighlight %}
 
-### Raw Options
-See the full list of options [here](https://sites.google.com/a/chromium.org/chromedriver/capabilities#TOC-chromeOptions-object)
+### Headless
+Chrome provides a headless mode, which Watir provides access to with a top level capability:
 
 {% highlight ruby %}
-b = Watir::Browser.new :chrome, options: {options: {detach: true}}
+b = Watir::Browser.new :chrome, headless: true
 {% endhighlight %}
+Caveats:
+* This isn't a "full" browser, so not all features may work
+* It is unlikely to speed up your tests by much in most cases
+* If you are using Linux you are likely better off using the [headless gem](../headless)
 
-<!--- TODO: Create a separate Guide for this --->
-
-### Using chrome on Heroku
-
-You can drive the chrome browser on heroku with a cedar-14 stack.  Check out this sample repo for more information on how to do this:
-https://github.com/jormon/minimal-chrome-on-heroku-xvfb
-
-You can also run using a headless chrome on the heroku-16 stack.  Here's an example of that working: 
-https://github.com/jormon/minimal-chrome-on-heroku
-
-<!--- TODO: Link to other guides with browser specific info --->
-
-<!--- 
-* Certificates
-* Downloads
-* Headless
-* Mobile Emulation?
-* Proxies
--->
+[comment]: <> (Additional things to add:)
+[comment]: <> (* Certificates)
+[comment]: <> (* Downloads)
+[comment]: <> (* Headless)
+[comment]: <> (* Mobile Emulation?)
+[comment]: <> (* Proxies)

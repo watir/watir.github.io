@@ -3,6 +3,7 @@ layout: guide
 title: Internet Explorer
 permalink: /guides/ie/
 redirect_from: /docs/ie/
+modified_date: 2021-03-12
 ---
 
 ### IEDriverServer
@@ -24,27 +25,28 @@ Additional set up suggestions can be found [here](https://github.com/SeleniumHQ/
 
 ### Internet Explorer Options
 
-Watir uses your standard IE settings and config, so you can manually adjust IE to how you want it before running your tests, 
+*Note: this documentation has been updated for Watir 6.19, and is focused on
+supporting the updates made for Selenium 4.*
+
+For non-browser capabilities take a look at our [Capabilities Guide](../capabilities)
+Watir uses your standard IE settings and config, so you can manually adjust IE to how you want it before running your tests,
 and it will pick up these settings.
 
-If you want to customize it in your code here are valid options:
+Watir will build the options for you when you pass in a Hash that is based on
+[Selenium's `IE::Options` class](https://github.com/SeleniumHQ/selenium/blob/trunk/rb/lib/selenium/webdriver/ie/options.rb).
+That is where you will find documentation for the various things that can 
+be adjusted programatically by Watir for your test execution.
 
+Commonly used settings include:
 * :args           
-* :browser_attach_timeout
 * :element_scroll_behavior
 * :full_page_screenshot
 * :ensure_clean_session
-* :file_upload_dialog_timeout
-* :force_create_process_api
-* :force_shell_windows_api
 * :ignore_protected_mode_settings
 * :ignore_zoom_level
 * :initial_browser_url
-* :native_events
 * :persistent_hover
 * :require_window_focus
-* :use_per_process_proxy
-* :validate_cookie_document_type
 
 {% highlight ruby %}
 args = ["--log-level=DEBUG", "--log-file=/foo"]

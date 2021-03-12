@@ -3,16 +3,17 @@ layout: guide
 title: Drivers
 permalink: /guides/drivers/
 redirect_from: /docs/drivers/
+modified_date: 2021-03-12
 ---
 
 As described in the [Automation Pipeline](../overview) document, a driver
 must be present on the same machine as the browser you are automating.
 
-If you are running locally, you can use the [webdrivers gem](https://github.com/titusfortner/webdrivers)
+We recommend using the [webdrivers gem](https://github.com/titusfortner/webdrivers)
 to automatically ensure that the latest driver is downloaded, and placed in a location
 where Selenium can access it.
 
-Otherwise, you can download the drivers for the browser of your choice:
+If you want to set things manually, you can download the drivers for the browser of your choice:
 * Google Chrome: [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 * Mozilla Firefox: [geckodriver](https://github.com/mozilla/geckodriver/releases)
 * Microsoft Edge: [Microsoft WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
@@ -21,8 +22,8 @@ Otherwise, you can download the drivers for the browser of your choice:
 
 <!--- TODO: Recommend using Safari Technology Preview --->
 
-For all browsers except for Safari, you then need to move the driver onto your PATH. 
-This can be especially tricky in Windows.
+For all browsers except for Safari, you then need to add the path to your driver 
+to the PATH Environment Variable. This can be especially tricky in Windows.
 
 Alternately, you can avoid dealing with drivers entirely and use an online service 
 provider to manage everything for you.
