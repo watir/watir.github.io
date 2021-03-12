@@ -3,4 +3,8 @@ layout: page
 ---
 {{ content }}
 <p></p>
-<h5>Last Updated: {{ page.last_modified_at | date: '%B %d, %Y' }}</h5>
+{% if page.modified_date != null %}
+<h5>Last Updated: {{ page.modified_date | date: '%B %d, %Y' }}</h5>
+{% else %}
+<h5>Last Updated: February 10, 2016</h5>
+{% endif %}
