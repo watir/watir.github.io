@@ -3,6 +3,7 @@ layout: guide
 title: Page Objects
 permalink: /guides/page-objects/
 redirect_from: /docs/page-objects/
+modified_date: 2018-08-04
 ---
 
 <!--- TODO: This code needs to be re-verified  --->

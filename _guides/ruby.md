@@ -3,6 +3,7 @@ layout: guide
 title: Installing Ruby
 permalink: /guides/ruby/
 redirect_from: /docs/ruby/
+modified_date: 2019-11-19
 ---
 
 ### Introduction
@@ -60,8 +61,8 @@ source ~/.bash_profile
 
 Copy and paste this into the terminal (update version to latest release if desired):
 {% highlight shell %}
-rbenv install 2.6.5
-rbenv local 2.6.5
+rbenv install 3.0.0
+rbenv local 3.0.0
 {% endhighlight %}
 
 ### Linux
@@ -75,11 +76,11 @@ sudo apt-get install git
 **Install [ruby-install](https://github.com/postmodern/ruby-install#readme)**
 Copy and paste this into the terminal:
 {% highlight shell %}
-wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
-tar -xzvf ruby-install-0.6.0.tar.gz
-cd ruby-install-0.6.0/
+wget -O ruby-install-0.8.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.8.1.tar.gz
+tar -xzvf ruby-install-0.8.1.tar.gz
+cd ruby-install-0.8.1/
 sudo make install
-ruby-install ruby 2.5.3
+ruby-install ruby 3.0.0
 {% endhighlight %}
   
 **Install [chruby](https://github.com/postmodern/chruby#readme)**
@@ -104,5 +105,5 @@ Save file and Close TextEdit
 Copy and paste this into the terminal and hit enter:
 {% highlight shell %}
 source ~/.bash_profile
-chruby 2.5.3
+chruby 3.0.0
 {% endhighlight %}

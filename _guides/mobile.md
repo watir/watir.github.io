@@ -3,6 +3,7 @@ layout: guide
 title: Mobile Devices
 permalink: /guides/mobile/
 redirect_from: /docs/mobile/
+modified_date: 2018-08-02
 ---
 
 There is an effort underway to implement a Watir API wrapper for Appium to test Native Mobile Applications.

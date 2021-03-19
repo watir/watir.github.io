@@ -3,6 +3,7 @@ layout: guide
 title: Browser Windows
 permalink: /guides/windows/
 redirect_from: /docs/windows/
+modified_date: 2021-02-26
 ---
 
 When a new browser window is opened, you need to switch over to it in order to interact

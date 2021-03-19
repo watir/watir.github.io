@@ -3,6 +3,7 @@ layout: guide
 title: Javascript Popups
 permalink: /guides/alerts/
 redirect_from: /docs/alerts/
+modified_date: 2018-08-02
 ---
 
 JavaScript dialogs are fairly common in web applications.

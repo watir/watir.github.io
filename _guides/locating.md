@@ -3,6 +3,7 @@ layout: guide
 title: Locating Elements
 permalink: /guides/locating/
 redirect_from: /docs/locating/
+modified_date: 2018-07-30
 ---
 
 One of the most important features of Watir is the many varied ways it allows users to locate elements.

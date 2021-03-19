@@ -3,6 +3,7 @@ layout: guide
 title: Frames
 permalink: /guides/frames/
 redirect_from: /docs/frames/
+modified_date: 2018-08-04
 ---
 
 Think of an IFrame as a page of HTML inside of another page of HTML. They will look

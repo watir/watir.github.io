@@ -3,6 +3,7 @@ layout: guide
 title: Browser Downloads
 permalink: /guides/downloads/
 redirect_from: /docs/downloads/
+modified_date: 2018-08-02
 ---
 
 Downloads are problematic in Watir because they require interacting with the Operating System,

@@ -3,6 +3,7 @@ layout: guide
 title: Automation Pipeline
 permalink: /guides/overview/
 redirect_from: /docs/overview/
+modified_date: 2017-10-17
 ---
 
 <!--- TODO: This needs graphics and stuff --->

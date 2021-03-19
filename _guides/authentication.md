@@ -3,6 +3,7 @@ layout: guide
 title: Basic Browser Authentication
 permalink: /guides/authentication/
 redirect_from: /docs/authentication/
+modified_date: 2018-08-02
 ---
 
 The easiest and most elegant way to handle [basic browser authentication](http://en.wikipedia.org/wiki/Basic_access_authentication) 

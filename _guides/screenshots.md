@@ -3,6 +3,7 @@ layout: guide
 title: Screenshots
 permalink: /guides/screenshots/
 redirect_from: /docs/screenshots/
+modified_date: 2017-01-19
 ---
 
 <!--- TODO: Add info about Screenshot-stitch --->

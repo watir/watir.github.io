@@ -3,6 +3,7 @@ layout: guide
 title: Headless
 permalink: /guides/headless/
 redirect_from: /docs/headless/
+modified_date: 2018-08-06
 ---
 
 There are several options for running your tests headlessly. The first thing to consider is whether

@@ -3,6 +3,7 @@ layout: guide
 title: Browser Proxies
 permalink: /guides/proxies/
 redirect_from: /docs/proxies/
+modified_date: 2018-02-27
 ---
 
 <!--- TODO: Need to test all the things with proxies --->

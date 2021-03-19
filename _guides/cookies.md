@@ -3,6 +3,7 @@ layout: guide
 title: Cookies
 permalink: /guides/cookies/
 redirect_from: /docs/cookies/
+modified_date: 2018-08-02
 ---
 
 The biggest "gotcha" when working with cookies is that you need to actually be on the domain

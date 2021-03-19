@@ -3,6 +3,7 @@ layout: guide
 title: Waiting
 permalink: /guides/waiting/
 redirect_from: /docs/waiting/
+modified_date: 2018-11-07
 ---
 
 Properly synchronizing your code with the state of the browser has long been the biggest issue testers face

@@ -3,6 +3,7 @@ layout: guide
 title: Measure Page Performance
 permalink: /guides/performance/
 redirect_from: /docs/performance/
+modified_date: 2018-08-02
 ---
 
 <!--- TODO: Do an independent analysis of this gem; compare to selenium statistics, etc --->

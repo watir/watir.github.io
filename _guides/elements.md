@@ -3,6 +3,7 @@ layout: guide
 title: Web Elements
 permalink: /guides/elements/
 redirect_from: /docs/elements/
+modified_date: 2017-01-19
 ---
 
 Watir automatically generates classes and methods for all HTML5.1 and SVG2 supported elements and 

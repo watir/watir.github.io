@@ -3,6 +3,7 @@ layout: guide
 title: WYSIWYG Editors
 permalink: /guides/wysiwyg/
 redirect_from: /docs/wysiwyg/
+modified_date: 2018-08-02
 ---
 
 <!--- TODO: Add info on `#make_editable` if that method appears in Watir 6.13  --->

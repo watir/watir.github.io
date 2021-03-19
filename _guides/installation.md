@@ -3,6 +3,7 @@ layout: guide
 title: Installing Watir
 permalink: /guides/installation/
 redirect_from: /docs/installation/
+modified_date: 2018-08-02
 ---
 
 Once you have [installed Ruby](../ruby), installing and using Watir is easy.
