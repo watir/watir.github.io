@@ -30,7 +30,7 @@
     </script>
 </head>
 <body>
-<h2>Add user</h2>
+<h2 id="add" data-test="header">Add user</h2>
 <form name="user_new" id="new_user" class="user">
     <fieldset>
         <label for="first_name" id="first_label" onclick="WatirSpec.addMessage('label')">First name</label>
@@ -44,7 +44,13 @@
             <option value="" disabled selected>select your country</option>
             <option class="scandinavia" value="1">Denmark</option>
             <option id="nor" class="scandinavia" value="2">Norway</option>
-            <option class="scandinavia" value="3">Sweden</option>
+            <option class="scandinavia" value="3" label="Sverige" >Sweden</option>
+        </select> <br />
+        <label for="languages">Languages</label>
+        <select name="languages" id="languages" multiple="multiple">
+            <option id="danish" value="1">Danish</option>
+            <option selected="selected" value="2" label="EN">English</option>
+            <option selected="selected" value="3" label="NO">Norwegian</option>
         </select> <br />
     </fieldset>
 

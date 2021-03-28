@@ -2,10 +2,8 @@
 layout: guide
 title: Watir Example - Form Filling
 permalink: /guides/form-example/
-modified_date: 2018-12-12
+modified_date: 2021-03-28
 ---
-
-<!--- TODO: Add links to Additional Guides for working with the special form elements below  --->
 
 ### Install these gems from the command line
 
@@ -26,64 +24,50 @@ ruby watir-example.rb
 irb
 {% endhighlight %}
 
-### Watir Code
+### Watir Code Example
+
+You can get more detailed information about working with these different elements in our
+[Web Elements Guide](/guides/elements/#special-handling-of-specific-elements)
 
 {% highlight ruby %}
+# Require the gems we want to use
 require 'watir'
 require 'webdrivers'
 require 'faker'
 
-# Initalize the Browser
+# Initialize the Browser
 browser = Watir::Browser.new
 
 # Navigate to Page
-browser.goto 'a.testaddressbook.com'
+browser.goto 'watir.com/examples/simple_form.html'
 
-# Authenticate and Navigate to the Form
-browser.link(id: 'sign-in').click
-browser.text_field(data_test: 'email').set 'watir_example@example.com'
-browser.text_field(data_test: 'password').set 'password'
-browser.button(name: 'commit').click
-browser.link(data_test: 'addresses').click
-browser.link(data_test: 'create').click
+# Fill out Text Field Names
+browser.text_field(id: 'first_name').set 'Luke'
+browser.text_field(id: 'last_name').set 'Perry'
 
-# This uses the Faker gem to give us Random Data.
+# Use Random Email Address via Faker gem
 # Read more about Faker gem here: https://github.com/stympy/faker#readme
+random_email = Faker::Internet.email
+browser.text_field(id: 'email').set random_email
 
-browser.text_field(id: 'address_first_name').set Faker::Name.first_name
-browser.text_field(id: 'address_last_name').set Faker::Name.last_name
-browser.text_field(id: 'address_street_address').set Faker::Address.street_address
-browser.text_field(id: 'address_secondary_address').set Faker::Address.secondary_address
-browser.text_field(id: 'address_city').set Faker::Address.city
+# Select List:
+browser.select(id: 'country').select 'Norway'
 
-# select list elements can select by either text or value
-browser.select_list(id: 'address_state').select Faker::Address.state
+# Checkboxes:
+browser.checkbox(id: 'interests_cars').click
+browser.checkbox(id: 'interests_dentistry').click
 
-browser.text_field(id: 'address_zip_code').set Faker::Address.zip_code
+# Radio Button:
+browser.radio(id: 'newsletter_no').click
 
-# radio buttons can be selected with `text` or `label` locators
-browser.radio(text: 'Canada').set
+# Use RadioSet instead of Radio Button:
+browser.radio_set(name: 'newsletter').select('Yes')
 
-# Date Field elements accept Date objects
-birthday = Faker::Date.birthday
-browser.date_field.set birthday
+# Click Button:
+browser.button(id: 'submitButton').click
 
-age = Date.today.year - birthday.year
-browser.text_field(id: 'address_age').set age
-
-browser.text_field(id: 'address_website').set Faker::Internet.url
-
-# File Field elements upload files with the `#set` method, but require the full system path
-file_name = 'watir_example.text'
-File.write(file_name, '')
-path = File.expand_path(file_name)
-browser.file_field(id: 'address_picture').set path
-
-# Checkboxes can be selected by `label` or `text` locators
-browser.checkbox(label: 'Dancing').set
-
-browser.textarea(id: 'address_note').set 'See, filling out a form with Watir is easy!'
-browser.button(data_test: 'submit').click
-
-browser.close
+# Evaluate Results:
+browser.p(id: 'name').text == 'Hello Luke Perry,' # => true
+browser.p(id: 'newsletter').text == "You will be receiving our newsletter at #{random_email}" # => true
+browser.p(id: 'activities').text == 'We hope you continue to enjoy cars, dentistry in Norway' # => true
 {% endhighlight %}
