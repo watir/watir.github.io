@@ -2,7 +2,7 @@
 layout: guide
 title: Capabilities
 permalink: /guides/capabilities/
-modified_date: 2021-03-12
+modified_date: 2021-05-05
 ---
 
 ***Note: If you are having an issue updating to Watir 6.19, please
@@ -18,7 +18,7 @@ modified_date: 2021-03-12
 
 ### Watir Browser Defaults
 
-The default Watir browser, without any arguments, uses Chrome on your
+The default initialization of `Watir::Browser`, without any arguments, uses Chrome on your
 local machine with all of the driver default settings.
 
 The most obvious desired customization is by browser,
@@ -37,7 +37,7 @@ Watir::Browser.new :safari
 Watir 6.6 tried to make it easier to do everything with `Watir::Capabilities`,
 but ended up making a number of edge cases even more difficult.
 
-Watir 6.19 fixes this up by using a more focused API and noting deprecations in preparation for Watir 7.
+Watir 6.19 fixed this by using a more focused API and noting deprecations in preparation for Watir 7.
 
 #### W3C Capabilities
 According to the W3C, there are only [10 top-level capabilities](https://w3c.github.io/webdriver/#capabilities)
@@ -62,10 +62,12 @@ The remaining capabilities are set to indicate how you want the driver to behave
       for most Watir users
     * `:normal` value - this is the default behavior that waits for a document readiness state of "complete'
 * `:proxy` - allows user to define a proxy for site traffic to be routed through
-* `:timeouts` - Watir users now have more control of setting timeouts.
-    * `:implicit` key - do not set a value for this, it will cause problems with Watir's waiting strategy
-    * `:script` key - how long to wait for a script to finish executing (default 30 seconds)
-    * `:page_load` key - when using the `#goto` method how long to wait for a page to finish loading (default 300 seconds)
+* `:timeouts` - Note: as of Watir 7.0.0beta3, users should not set the `:timeouts` value directly.
+  Also, the default w3c expected unit is microseconds, but Watir expects seconds and will do the conversion.
+  Please See the example below for how to properly set these values in Watir 7.
+    * `:implicit` timeout - Watir prevents this setting since it conflicts with Watir's waiting strategy
+    * `:script` timeout - how long to wait for a script to finish executing (default 30 seconds)
+    * `:page_load` timeout - when using the `#goto` method how long to wait for a page to finish loading (default 300 seconds)
 * `:strict_file_interactability` - defaults to false; set it to true if you are concerned about your file type input fields
   being visible when using `#upload`
 * `:unhandled_prompt_behavior` - what the driver should do when it encounters an Alert
@@ -88,8 +90,8 @@ The remaining capabilities are set to indicate how you want the driver to behave
 W3C Capabilities can be set with the `:options` key as follows:
 {% highlight ruby %}
 browser_opts = {accept_insecure_certs: true,
-                timeouts: {page_load: 100,
-                           script: 30},
+                page_load_timeout: 100,
+                script_timeout: 30},
                 page_load_strategy: :eager}
 b = Watir::Browser.new :chrome, options: browser_opts
 {% endhighlight %}
@@ -115,8 +117,8 @@ b = Watir::Browser.new :chrome, options: browser_opts
 Note that you can combine W3C and Browser specific keys in the same Hash:
 {% highlight ruby %}
 browser_opts = {accept_insecure_certs: true,
-                timeouts: {page_load: 100,
-                           script: 30},
+                page_load_timeout: 100,
+                script_timeout: 30},
                 page_load_strategy: :eager,
                 exclude_switches: ['disable-popup-blocking'],
                 args: ['start-fullscreen'],
@@ -126,7 +128,7 @@ b = Watir::Browser.new :chrome, options: browser_opts
 
 #### Service Provider Capabilities
 Service providers have their own capabilities, and they have to use name spaced keywords.
-Sauce Labs uses `sauce:options` and BrowserStack uses `bstack:options`.
+Sauce Labs uses `sauce:options`, BrowserStack uses `bstack:options`, and Selenoid uses `selenoid:options`.
 
 To add custom service provider capabilities, add a hash of the capabilities inside the provider's
 custom keyword, inside the `:options` Hash. Note that since the keyword has a colon, it needs to
@@ -134,8 +136,8 @@ have quotes around it. Also note that using a service provider requires specifyi
 that in the next section).
 {% highlight ruby %}
 browser_opts = {accept_insecure_certs: true,
-                timeouts: {page_load: 100,
-                           script: 30},
+                page_load_timeout: 100, 
+                script_timeout: 30},
                 page_load_strategy: :eager,
                 exclude_switches: ['disable-popup-blocking'],
                 args: ['start-fullscreen'],
@@ -156,7 +158,7 @@ locally or on another machine), or via a service provider
 (like Sauce Labs or Browser Stack).
 
 To route commands via a server or service provider, simply pass in the location of the
-default endpoint with the `:url` parameter:
+server's endpoint with the `:url` parameter:
 {% highlight ruby %}
 b = Watir::Browser.new :chrome, url: 'https://my-remote-server.com/wd/hub'
 {% endhighlight %}
@@ -164,13 +166,13 @@ b = Watir::Browser.new :chrome, url: 'https://my-remote-server.com/wd/hub'
 If `:url` is not specified, Watir assumes you want to execute your tests locally.
 It will use Selenium code to determine the
 [installed driver](../drivers) associated with the chosen Browser, start it up,
-and set it to be the recipient of the commands. You can customize how the
-driver is started by specifying:
+and set it to be the recipient of the commands. 
+
+To customize how the driver is started, use the `:service` parameter with these keywords:
 * `:path` - the path of the driver;
 * `:port` - the port the driver should start on
 * `:args` - the list of command line switches to start the driver with.
-  You can get a list of valid arguments by running --help command on
-  any driver:
+  You can get a list of valid arguments for each driver via the command line with the --help argument:
 
 {% highlight bash %}
 chromedriver --help
