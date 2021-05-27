@@ -46,7 +46,7 @@ let us know that there is a problem with the content. Also feel free to suggest
 * [Locating elements](../guides/locating)
 * [Buttons (Button)](../guides/buttons)
 * [CheckBoxes (CheckBox)](../guides/checkboxes)
-* [Dropdowns (Select & Option)](../dropdowns)
+* [Dropdowns (Select & Option)](../guides/dropdowns)
 * [Frames (Frame & IFrame)](../guides/frames)
 * [Links (Anchor)](../guides/links)
 * [Radio Buttons (Radio & RadioSet)](../guides/radios)
