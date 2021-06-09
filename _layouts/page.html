@@ -4,7 +4,7 @@ layout: default
 <div class = 'page grid'>
   <article>
     <h2 class = 'flex-out'>{{ page.title }}
-    {% if page.layout == 'guide' %}
+    {% if page.layout == 'guide' or page.layout == 'nerodia' %}
       <span>
         <a href = '{{ site.github.repo }}/edit/source/{{ page.relative_path }}'><i class ='fas fa-edit' title = 'Edit Page'></i></a>
         <span>&nbsp;</span>
@@ -22,6 +22,8 @@ layout: default
     <aside>
       {% if page.layout == 'guide' %}
         {% include sidebar_guides.html %}
+      {% elsif page.layout == 'nerodia' %}
+        {% include sidebar_nerodia.html %}
       {% else %}
         {% include sidebar_main.html %}
       {% endif %}
