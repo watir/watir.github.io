@@ -1,6 +1,6 @@
 ---
 layout: nerodia
-title: Installing Watir
+title: Installing Nerodia
 permalink: /nerodia/installation/
 modified_date: 2021-06-09
 ---
