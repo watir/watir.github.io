@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Capabilities – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Capabilities" />
+    <meta property="twitter:title" content="Capabilities" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <div class = 'page grid'>
+  <article>
+    <h2 class = 'flex-out'>Capabilities
+    
+      <span>
+        <a href = 'https://github.com/watir/watir.github.io/edit/source/_guides/capabilities.md'><i class ='fas fa-edit' title = 'Edit Page'></i></a>
+        <span>&nbsp;</span>
+        <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Capabilities'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
+      </span>
+    </h2>
+    <p><strong><em>Note: If you are having an issue updating to Watir 6.19, please
+<a href="../../help/#oh-you-mean-you-need-help-with-something">contact us</a> so we can help!</em></strong></p>
+
+<h4 id="contents">Contents</h4>
+<ul>
+  <li><a href="#watir-browser-defaults">Browser Defaults</a></li>
+  <li><a href="#browser-options">What the Browser Does</a></li>
+  <li><a href="#where-code-is-sent">Where Code is Sent</a> (driver, server, etc)</li>
+  <li><a href="#how-the-code-is-sent">How Code is Sent</a></li>
+  <li><a href="#bonus-features">Bonus Features</a></li>
+  <li><a href="#selenium-classes">Selenium Classes</a></li>
+</ul>
+
+<h3 id="watir-browser-defaults">Watir Browser Defaults</h3>
+
+<p>The default initialization of <code class="highlighter-rouge">Watir::Browser</code>, without any arguments, uses Chrome on your
+local machine with all of the driver default settings.</p>
+
+<p>The most obvious desired customization is by browser,
+which you can pass in as the first argument:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="c1"># ==&gt; (uses Chrome)</span>
+<span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:edge</span>
+<span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:firefox</span>
+<span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:internet_explorer</span>
+<span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:safari</span></code></pre></figure>
+
+<h3 id="browser-options">Browser Options</h3>
+<p><strong>Use the <code class="highlighter-rouge">:options</code> parameter</strong></p>
+
+<p>Watir 6.6 tried to make it easier to do everything with <code class="highlighter-rouge">Watir::Capabilities</code>,
+but ended up making a number of edge cases even more difficult.</p>
+
+<p>Watir 6.19 fixed this by using a more focused API and noting deprecations in preparation for Watir 7.</p>
+
+<h4 id="w3c-capabilities">W3C Capabilities</h4>
+<p>According to the W3C, there are only <a href="https://w3c.github.io/webdriver/#capabilities">10 top-level capabilities</a>
+allowed.
+Some of these are set to ensure you are getting the session you want.
+Other than browser name, most of these are only useful when using a Selenium Grid or Service.
+Note that if you specify any of these, the driver must ensure that everything matches
+or else you’ll get an error:</p>
+<ul>
+  <li><code class="highlighter-rouge">:browser_name</code></li>
+  <li><code class="highlighter-rouge">:browser_version</code></li>
+  <li><code class="highlighter-rouge">:platform_name</code></li>
+  <li><code class="highlighter-rouge">:set_window_rect</code></li>
+</ul>
+
+<p>The remaining capabilities are set to indicate how you want the driver to behave.</p>
+<ul>
+  <li><code class="highlighter-rouge">:accept_insecure_certs</code> - whether to trust self-signed certificates; defaults to false</li>
+  <li><code class="highlighter-rouge">:page_load_strategy</code> - what the driver should wait for after a navigation has called
+Important: this only applies to when you are using the <code class="highlighter-rouge">#goto</code> method, and does not
+have any effect from navigation based on page interactions (like clicking a link)
+    <ul>
+      <li><code class="highlighter-rouge">:none</code> value - does not wait for anything; Because Watir waits for elements before interacting with them,
+this may speed up your tests without causing additional failures</li>
+      <li><code class="highlighter-rouge">:eager</code> value - waits for the document readiness state to be “interactive”; this is probably the best setting
+for most Watir users</li>
+      <li><code class="highlighter-rouge">:normal</code> value - this is the default behavior that waits for a document readiness state of “complete’</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">:proxy</code> - allows user to define a proxy for site traffic to be routed through</li>
+  <li><code class="highlighter-rouge">:timeouts</code> - Note: as of Watir 7.0.0beta3, users should not set the <code class="highlighter-rouge">:timeouts</code> value directly.
+Also, the default w3c expected unit is microseconds, but Watir expects seconds and will do the conversion.
+Please See the example below for how to properly set these values in Watir 7.
+    <ul>
+      <li><code class="highlighter-rouge">:implicit</code> timeout - Watir prevents this setting since it conflicts with Watir’s waiting strategy</li>
+      <li><code class="highlighter-rouge">:script</code> timeout - how long to wait for a script to finish executing (default 30 seconds)</li>
+      <li><code class="highlighter-rouge">:page_load</code> timeout - when using the <code class="highlighter-rouge">#goto</code> method how long to wait for a page to finish loading (default 300 seconds)</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">:strict_file_interactability</code> - defaults to false; set it to true if you are concerned about your file type input fields
+being visible when using <code class="highlighter-rouge">#upload</code></li>
+  <li><code class="highlighter-rouge">:unhandled_prompt_behavior</code> - what the driver should do when it encounters an Alert
+    <ul>
+      <li><code class="highlighter-rouge">:dismiss</code> value - Use this if your site has intermittent alerts pop up that your test does not care about and you can’t turn off</li>
+      <li><code class="highlighter-rouge">:accept</code> value - Use this if your site requires accepting alerts for you to run your tests, and your tests do not care about them</li>
+      <li><code class="highlighter-rouge">:ignore</code> value -  If there is an alert on the page and you send any browser command that isn’t related to the
+alert, your code will raise an exception. If you rescue the exception, you can continue the test by switching to
+the alert and handling it as desired before continuing. This is the option that provides the most control to the
+user and is therefore the default that Watir sets. Note that this is the only setting that allows you to query
+whether an alert has popped up in a way that doesn’t change the state of the alert</li>
+      <li><code class="highlighter-rouge">:dismiss_and_notify</code> value - This is the WebDriver default, but Watir overrides it and sets <code class="highlighter-rouge">:ignore</code>.
+This setting raises the exception just like in <code class="highlighter-rouge">:ignore</code>, but then automatically dismisses the alert. So
+if you rescue the exception, you don’t then have to switch to the alert to manage it, you can directly continue with
+your test. This is the worst of either alternate settings above.
+Either you don’t care about whether there is an alert and should use <code class="highlighter-rouge">dismiss</code>, or you do care about it, and should be
+able to choose what you to about it (<code class="highlighter-rouge">:ignore</code>).</li>
+      <li><code class="highlighter-rouge">:accept_and_notify</code> value - similar to <code class="highlighter-rouge">:dismiss_and_notify</code> except that the alerts are accepted instead of dismissed
+after raising an exception. It is similarly a bad idea.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>W3C Capabilities can be set with the <code class="highlighter-rouge">:options</code> key as follows:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser_opts</span> <span class="o">=</span> <span class="p">{</span><span class="ss">accept_insecure_certs: </span><span class="kp">true</span><span class="p">,</span>
+                <span class="ss">page_load_timeout: </span><span class="mi">100</span><span class="p">,</span>
+                <span class="ss">script_timeout: </span><span class="mi">30</span><span class="p">},</span>
+                <span class="ss">page_load_strategy: :eager</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">options: </span><span class="n">browser_opts</span></code></pre></figure>
+
+<h4 id="browser-specific-capabilities">Browser Specific Capabilities</h4>
+<p>In addition to the W3C Capabilities that all browsers support, each browser vendor has their own list of
+settings that can be adjusted.
+Check out the details of those specific capabilities in the respective Watir Guides:</p>
+<ul>
+  <li><a href="../chrome">Chrome</a></li>
+  <li><a href="../edge">Edge</a></li>
+  <li><a href="../firefox">Firefox</a></li>
+  <li><a href="../ie">Internet Explorer</a></li>
+  <li><a href="../safari">Safari</a></li>
+</ul>
+
+<p>An example of using these browser vendor specific capabilities looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser_opts</span> <span class="o">=</span> <span class="p">{</span><span class="ss">exclude_switches: </span><span class="p">[</span><span class="s1">'disable-popup-blocking'</span><span class="p">],</span>
+                <span class="ss">args: </span><span class="p">[</span><span class="s1">'start-fullscreen'</span><span class="p">],</span>
+                <span class="ss">detach: </span><span class="kp">true</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">options: </span><span class="n">browser_opts</span></code></pre></figure>
+
+<p>Note that you can combine W3C and Browser specific keys in the same Hash:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser_opts</span> <span class="o">=</span> <span class="p">{</span><span class="ss">accept_insecure_certs: </span><span class="kp">true</span><span class="p">,</span>
+                <span class="ss">page_load_timeout: </span><span class="mi">100</span><span class="p">,</span>
+                <span class="ss">script_timeout: </span><span class="mi">30</span><span class="p">},</span>
+                <span class="ss">page_load_strategy: :eager</span><span class="p">,</span>
+                <span class="ss">exclude_switches: </span><span class="p">[</span><span class="s1">'disable-popup-blocking'</span><span class="p">],</span>
+                <span class="ss">args: </span><span class="p">[</span><span class="s1">'start-fullscreen'</span><span class="p">],</span>
+                <span class="ss">detach: </span><span class="kp">true</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">options: </span><span class="n">browser_opts</span></code></pre></figure>
+
+<h4 id="service-provider-capabilities">Service Provider Capabilities</h4>
+<p>Service providers have their own capabilities, and they have to use name spaced keywords.
+Sauce Labs uses <code class="highlighter-rouge">sauce:options</code>, BrowserStack uses <code class="highlighter-rouge">bstack:options</code>, and Selenoid uses <code class="highlighter-rouge">selenoid:options</code>.</p>
+
+<p>To add custom service provider capabilities, add a hash of the capabilities inside the provider’s
+custom keyword, inside the <code class="highlighter-rouge">:options</code> Hash. Note that since the keyword has a colon, it needs to
+have quotes around it. Also note that using a service provider requires specifying their url (more on
+that in the next section).</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser_opts</span> <span class="o">=</span> <span class="p">{</span><span class="ss">accept_insecure_certs: </span><span class="kp">true</span><span class="p">,</span>
+                <span class="ss">page_load_timeout: </span><span class="mi">100</span><span class="p">,</span> 
+                <span class="ss">script_timeout: </span><span class="mi">30</span><span class="p">},</span>
+                <span class="ss">page_load_strategy: :eager</span><span class="p">,</span>
+                <span class="ss">exclude_switches: </span><span class="p">[</span><span class="s1">'disable-popup-blocking'</span><span class="p">],</span>
+                <span class="ss">args: </span><span class="p">[</span><span class="s1">'start-fullscreen'</span><span class="p">],</span>
+                <span class="ss">detach: </span><span class="kp">true</span><span class="p">,</span>
+                <span class="s1">'sauce:options'</span><span class="p">:</span> <span class="p">{</span><span class="ss">username: </span><span class="no">ENV</span><span class="p">[</span><span class="s1">'SAUCE_USERNAME'</span><span class="p">],</span>
+                                  <span class="ss">access_key: </span><span class="no">ENV</span><span class="p">[</span><span class="s1">'SAUCE_ACCESS_KEY'</span><span class="p">],</span>
+                                  <span class="ss">name: </span><span class="n">test_name</span><span class="p">,</span>
+                                  <span class="ss">build: </span><span class="n">build_name</span><span class="p">,</span>
+                                  <span class="ss">idle_timeout: </span><span class="mi">60</span><span class="p">}}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">options: </span><span class="n">browser_opts</span><span class="p">,</span> <span class="ss">url: </span><span class="s1">'https://ondemand.us-west-1.saucelabs.com'</span></code></pre></figure>
+
+<h3 id="where-code-is-sent">Where Code is Sent</h3>
+<p><strong>Use the <code class="highlighter-rouge">:url</code> <em>or</em> <code class="highlighter-rouge">:service</code> parameter</strong></p>
+
+<p>You can execute tests on your local machine, via a Selenium server (either
+locally or on another machine), or via a service provider
+(like Sauce Labs or Browser Stack).</p>
+
+<p>To route commands via a server or service provider, simply pass in the location of the
+server’s endpoint with the <code class="highlighter-rouge">:url</code> parameter:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">url: </span><span class="s1">'https://my-remote-server.com/wd/hub'</span></code></pre></figure>
+
+<p>If <code class="highlighter-rouge">:url</code> is not specified, Watir assumes you want to execute your tests locally.
+It will use Selenium code to determine the
+<a href="../drivers">installed driver</a> associated with the chosen Browser, start it up,
+and set it to be the recipient of the commands.</p>
+
+<p>To customize how the driver is started, use the <code class="highlighter-rouge">:service</code> parameter with these keywords:</p>
+<ul>
+  <li><code class="highlighter-rouge">:path</code> - the path of the driver;</li>
+  <li><code class="highlighter-rouge">:port</code> - the port the driver should start on</li>
+  <li><code class="highlighter-rouge">:args</code> - the list of command line switches to start the driver with.
+You can get a list of valid arguments for each driver via the command line with the –help argument:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">chromedriver <span class="nt">--help</span>
+geckodriver <span class="nt">--help</span>
+msedgedriver <span class="nt">--help</span>
+safaridriver <span class="nt">--help</span></code></pre></figure>
+
+<p>An example of setting service arguments with the <code class="highlighter-rouge">:service</code> parameter is:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">service_opts</span> <span class="o">=</span> <span class="p">{</span><span class="ss">path: </span><span class="s1">'/path/to/drivers/chromedriver'</span><span class="p">,</span> 
+                <span class="ss">port: </span><span class="s1">'12345'</span><span class="p">,</span> 
+                <span class="ss">args: </span><span class="p">[</span><span class="s1">'--verbose'</span><span class="p">,</span> <span class="s1">'--log-path=/path/to/logs/chromedriver.log'</span><span class="p">]}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">service: </span><span class="n">service_opts</span></code></pre></figure>
+
+<h3 id="how-the-code-is-sent">How the Code is Sent</h3>
+<p><strong>Use the <code class="highlighter-rouge">:http_client</code> parameter</strong></p>
+
+<p>The WebDriver protocol is based on using an HTTP client to send JSON packets to various endpoints.
+As of Watir 6.19, we are using our own custom client: <code class="highlighter-rouge">Watir:HttpClient</code>.
+All it is doing differently is adding some header information to
+indicate to browser services that Watir is being used and including the version.
+If you are using your own HttpClient, consider
+subclassing the Watir one, or
+[tell us](<a href="../../help/#oh-you-mean-you-need-help-with-something">contact us</a>
+what you’d like to see us add.</p>
+
+<p>The settings that can be adjusted for the HTTP Client are:</p>
+<ul>
+  <li><code class="highlighter-rouge">:read_timeout</code> - the amount of time to wait for data to be received</li>
+  <li><code class="highlighter-rouge">:open_timeout</code> - the amount of time to wait for a connection to be opened</li>
+</ul>
+
+<p>These both default to 60 seconds in <code class="highlighter-rouge">Watir:HttpClient</code>.</p>
+
+<p>An example of setting service parameters is:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">client_opts</span> <span class="o">=</span> <span class="p">{</span><span class="ss">read_timeout: </span><span class="mi">120</span><span class="p">,</span>
+               <span class="ss">open_timeout: </span><span class="mi">30</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">http_client: </span><span class="n">client_opts</span></code></pre></figure>
+
+<h3 id="bonus-features">Bonus Features</h3>
+
+<p>Watir wants to provide more convenience functionality than Selenium by default.
+As such, we’re going to provide “special” features that generate the
+underlying capabilities for common things that people might be interested in.
+If there are things you want to see here let us know.</p>
+
+<h4 id="headless">Headless</h4>
+<p>Headless mode is supported in Chrome &amp; Firefox. You can turn on headless by
+sending the following:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">headless: </span><span class="kp">true</span></code></pre></figure>
+
+<p>or</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:firefox</span><span class="p">,</span> <span class="ss">headless: </span><span class="kp">true</span></code></pre></figure>
+
+<p>Caveats:</p>
+<ul>
+  <li>A headless browser isn’t a “full” browser, so not all features may work</li>
+  <li>It is unlikely to speed up your tests by much in most cases</li>
+  <li>You will get an error if you specify <code class="highlighter-rouge">:headless</code> on a browser that does not support it</li>
+</ul>
+
+<h4 id="safari-technology-preview">Safari Technology Preview</h4>
+
+<p>See the <a href="../safari">Safari Guide</a>
+for details on why you would want to use this setting.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:safari</span><span class="p">,</span> <span class="ss">technology_preview: </span><span class="kp">true</span></code></pre></figure>
+
+<ul>
+  <li>You will get an error if you set this with any browser other than Safari</li>
+</ul>
+
+<h3 id="selenium-classes">Selenium Classes</h3>
+<p>While we recommend using Hashes and letting Watir convert things for you,
+you are more than welcome to use Selenium classes directly as necessary:</p>
+
+<h4 id="driver">Driver</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">driver</span> <span class="o">=</span> <span class="no">Selenium</span><span class="o">::</span><span class="no">WebDriver</span><span class="o">::</span><span class="no">Chrome</span><span class="o">::</span><span class="no">Driver</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">driver</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="options">Options</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">options</span> <span class="o">=</span> <span class="no">Selenium</span><span class="o">::</span><span class="no">WebDriver</span><span class="o">::</span><span class="no">Chrome</span><span class="o">::</span><span class="no">Options</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:chrome</span><span class="p">,</span> <span class="ss">options: </span><span class="n">options</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="capabilities">Capabilities</h4>
+<p>Note: <code class="highlighter-rouge">Capabilities</code> should only be used if you want to specify the exact
+JSON for the driver to receive, without any conversions (e.g., keywords are camelCase and <code class="highlighter-rouge">String</code> instances, etc)</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">capabilities</span> <span class="o">=</span> <span class="no">Selenium</span><span class="o">::</span><span class="no">WebDriver</span><span class="o">::</span><span class="no">Remote</span><span class="o">::</span><span class="no">Capabilities</span><span class="p">.</span><span class="nf">chrome</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:chrome</span><span class="p">,</span> <span class="ss">options: </span><span class="n">capabilities</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="service">Service</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">service</span> <span class="o">=</span> <span class="no">Selenium</span><span class="o">::</span><span class="no">WebDriver</span><span class="o">::</span><span class="no">Chrome</span><span class="o">::</span><span class="no">Service</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:chrome</span><span class="p">,</span> <span class="ss">service: </span><span class="n">service</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="httpclient">HttpClient</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">client</span> <span class="o">=</span> <span class="no">Selenium</span><span class="o">::</span><span class="no">WebDriver</span><span class="o">::</span><span class="no">Remote</span><span class="o">::</span><span class="no">Http</span><span class="o">::</span><span class="no">Default</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:chrome</span> <span class="ss">http_client: </span><span class="n">client</span><span class="p">)</span></code></pre></figure>
+
+<!--- TODO: Link to other guides with browser specific info --->
+
+<!--- 
+* Certificates
+* Downloads
+* Headless
+* Mobile Emulation?
+* Proxies
+-->
+
+<p></p>
+
+<h5>Last Updated: May 05, 2021</h5>
+
+
+  </article>
+  
+    <aside>
+      
+        <h3>Watir Guides</h3>
+
+<!--- TODO: Reorganize sections so there isn't a catch-all one at the end  --->
+<!--- TODO: Add Guide for Element Collections Watir 6.6 --->
+<!--- TODO: Add Guide for Adjacent Location (Watir 6.7, 6.2)  --->
+<!--- TODO: Add Guide for Tables (Watir 6.7) --->
+<!--- TODO: Add Guide for Label (Watir 6.8)  --->
+
+<!--- TODO: Add Guide for Navigation  --->
+<!--- TODO: Add Guide for working with JavaScript in Watir  --->
+<!--- TODO: Add Guide for After Hooks  --->
+<!--- TODO: Add Guide for Logger  Watir 6.6 & 6.12 --->
+<!--- TODO: Add Guide for Element Flash  --->
+<!--- TODO: Add Guide for Act - Wait - Act (6.4 & 6.11) --->
+
+<h4>Getting Started</h4>
+<ul>
+    <li><a href="/guides/ruby">Installing Ruby</a></li>
+    <li><a href="/guides/installation">Installing Watir</a></li>
+    <li><a href="/guides/overview">Automation Pipeline</a></li>
+    <li><a href="/guides/drivers">Installing Drivers</a></li>
+    <li><a href="/guides/session">Starting a Session</a></li>
+</ul>
+
+<h4>Supported Browsers</h4>
+<ul>
+    <li><a href="/guides/chrome">Chrome</a></li>
+    <li><a href="/guides/firefox">Firefox</a></li>
+    <li><a href="/guides/ie">Internet Explorer</a></li>
+    <li><a href="/guides/safari">Safari</a></li>
+    <li><a href="/guides/edge">Edge</a></li>
+</ul>
+
+<h4>Working with Elements</h4>
+<ul>
+    <li><a href="/guides/elements">Supported Elements</a></li>
+    <li><a href="/guides/locating">Locating elements</a></li>
+    <li><a href="/guides/buttons">Buttons</a></li>
+    <li><a href="/guides/checkboxes">Check Boxes</a></li>
+    <li><a href="/guides/dropdowns">Dropdowns</a></li>
+    <li><a href="/guides/frames">Frames</a></li>
+    <li><a href="/guides/links">Links</a></li>
+    <li><a href="/guides/radios">Radio Buttons</a></li>
+    <li><a href="/guides/text_inputs">Text Inputs</a></li>
+</ul>
+
+<h4>Advanced Interactions</h4>
+<ul>
+    <li><a href="/guides/waiting">Automatic Waits</a></li>
+    <li><a href="/guides/headless">Headless</a></li>
+    <li><a href="/guides/mobile">Mobile Testing</a></li>
+    <li><a href="/guides/authentication">Basic Authentication</a></li>
+    <li><a href="/guides/certificates">Browser Certificates</a></li>
+    <li><a href="/guides/downloads">Downloads</a></li>
+    <li><a href="/guides/windows">Browser Windows</a></li>
+    <li><a href="/guides/proxies">Proxies</a></li>
+    <li><a href="/guides/cookies">Cookies</a></li>
+    <li><a href="/guides/alerts">Alerts</a></li>
+    <li><a href="/guides/performance">Measuring Performance</a></li>
+    <li><a href="/guides/page-objects">Page Objects</a></li>
+    <li><a href="/guides/screenshots">Screenshots</a></li>
+    <li><a href="/guides/special-keys">Special Keys</a></li>
+    <li><a href="/guides/wysiwyg">WYSIWYG Editors</a></li>
+</ul>
+
+
+      
+    </aside>
+  
+</div>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/guides/capabilities/',
+		  'title': 'Capabilities'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

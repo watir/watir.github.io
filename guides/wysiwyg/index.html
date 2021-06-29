@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WYSIWYG Editors – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="WYSIWYG Editors" />
+    <meta property="twitter:title" content="WYSIWYG Editors" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <div class = 'page grid'>
+  <article>
+    <h2 class = 'flex-out'>WYSIWYG Editors
+    
+      <span>
+        <a href = 'https://github.com/watir/watir.github.io/edit/source/_guides/wysiwyg.md'><i class ='fas fa-edit' title = 'Edit Page'></i></a>
+        <span>&nbsp;</span>
+        <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20WYSIWYG Editors'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
+      </span>
+    </h2>
+    <!--- TODO: Add info on `#make_editable` if that method appears in Watir 6.13  --->
+<!--- TODO: Figure out how to get the JS Solutions working  --->
+
+<p>The recommended way to enter text into a WYSIWYG editor using Watir is to locate
+the iFrame, then find the  and use the <code class="highlighter-rouge">#send_keys</code> method.</p>
+
+<p>Alternately you can execute javascript on the browser object that sets the value of the 
+WYSIWYG editor.</p>
+
+<h3 id="ckeditor">CKEditor</h3>
+
+<p>Recommended:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">goto</span> <span class="s1">'http://nightly.ckeditor.com/18-08-02-06-04/standard/samples/'</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">iframe</span><span class="p">.</span><span class="nf">body</span><span class="p">.</span><span class="nf">wd</span><span class="p">.</span><span class="nf">clear</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">iframe</span><span class="p">.</span><span class="nf">body</span><span class="p">.</span><span class="nf">send_keys</span> <span class="s2">"foo"</span></code></pre></figure>
+
+<blockquote>
+  <p>Note that this example no longer works. If anyone has a working example, please update this code</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:firefox</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">goto</span> <span class="s1">'http://nightly.ckeditor.com/18-08-02-06-04/standard/samples/'</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">execute_script</span><span class="p">(</span><span class="s2">"CKEDITOR.instances['editor1'].setData('hello world');"</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">frame</span><span class="p">(</span><span class="ss">title: </span><span class="s1">'Rich text editor, editor1, press ALT 0 for help.'</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">send_keys</span> <span class="s1">'hello world again'</span></code></pre></figure>
+
+<h3 id="tinymce-editor">TinyMCE Editor</h3>
+
+<p>Recommended:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">goto</span> <span class="s1">'http://tinymce.moxiecode.com/tryit/full.php'</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">iframe</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'cp_embed_NGegZK'</span><span class="p">).</span><span class="nf">iframe</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'result-iframe'</span><span class="p">)</span>
+<span class="n">wysiwg</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">iframe</span><span class="p">.</span><span class="nf">body</span>
+<span class="n">wysiwg</span><span class="p">.</span><span class="nf">wd</span><span class="p">.</span><span class="nf">clear</span>
+<span class="n">wysiwg</span><span class="p">.</span><span class="nf">send_keys</span> <span class="s2">"hello world"</span></code></pre></figure>
+
+<blockquote>
+  <p>Note that this example no longer works. If anyone has a working example, please update this code</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">goto</span> <span class="s1">'http://tinymce.moxiecode.com/tryit/full.php'</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">execute_script</span><span class="p">(</span><span class="s2">"tinyMCE.get('content').execCommand('mceSetContent',false, 'hello world' );"</span><span class="p">)</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">frame</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'content_ifr'</span><span class="p">).</span><span class="nf">send_keys</span> <span class="s1">'hello world again'</span></code></pre></figure>
+
+
+<p></p>
+
+<h5>Last Updated: August 02, 2018</h5>
+
+
+  </article>
+  
+    <aside>
+      
+        <h3>Watir Guides</h3>
+
+<!--- TODO: Reorganize sections so there isn't a catch-all one at the end  --->
+<!--- TODO: Add Guide for Element Collections Watir 6.6 --->
+<!--- TODO: Add Guide for Adjacent Location (Watir 6.7, 6.2)  --->
+<!--- TODO: Add Guide for Tables (Watir 6.7) --->
+<!--- TODO: Add Guide for Label (Watir 6.8)  --->
+
+<!--- TODO: Add Guide for Navigation  --->
+<!--- TODO: Add Guide for working with JavaScript in Watir  --->
+<!--- TODO: Add Guide for After Hooks  --->
+<!--- TODO: Add Guide for Logger  Watir 6.6 & 6.12 --->
+<!--- TODO: Add Guide for Element Flash  --->
+<!--- TODO: Add Guide for Act - Wait - Act (6.4 & 6.11) --->
+
+<h4>Getting Started</h4>
+<ul>
+    <li><a href="/guides/ruby">Installing Ruby</a></li>
+    <li><a href="/guides/installation">Installing Watir</a></li>
+    <li><a href="/guides/overview">Automation Pipeline</a></li>
+    <li><a href="/guides/drivers">Installing Drivers</a></li>
+    <li><a href="/guides/session">Starting a Session</a></li>
+</ul>
+
+<h4>Supported Browsers</h4>
+<ul>
+    <li><a href="/guides/chrome">Chrome</a></li>
+    <li><a href="/guides/firefox">Firefox</a></li>
+    <li><a href="/guides/ie">Internet Explorer</a></li>
+    <li><a href="/guides/safari">Safari</a></li>
+    <li><a href="/guides/edge">Edge</a></li>
+</ul>
+
+<h4>Working with Elements</h4>
+<ul>
+    <li><a href="/guides/elements">Supported Elements</a></li>
+    <li><a href="/guides/locating">Locating elements</a></li>
+    <li><a href="/guides/buttons">Buttons</a></li>
+    <li><a href="/guides/checkboxes">Check Boxes</a></li>
+    <li><a href="/guides/dropdowns">Dropdowns</a></li>
+    <li><a href="/guides/frames">Frames</a></li>
+    <li><a href="/guides/links">Links</a></li>
+    <li><a href="/guides/radios">Radio Buttons</a></li>
+    <li><a href="/guides/text_inputs">Text Inputs</a></li>
+</ul>
+
+<h4>Advanced Interactions</h4>
+<ul>
+    <li><a href="/guides/waiting">Automatic Waits</a></li>
+    <li><a href="/guides/headless">Headless</a></li>
+    <li><a href="/guides/mobile">Mobile Testing</a></li>
+    <li><a href="/guides/authentication">Basic Authentication</a></li>
+    <li><a href="/guides/certificates">Browser Certificates</a></li>
+    <li><a href="/guides/downloads">Downloads</a></li>
+    <li><a href="/guides/windows">Browser Windows</a></li>
+    <li><a href="/guides/proxies">Proxies</a></li>
+    <li><a href="/guides/cookies">Cookies</a></li>
+    <li><a href="/guides/alerts">Alerts</a></li>
+    <li><a href="/guides/performance">Measuring Performance</a></li>
+    <li><a href="/guides/page-objects">Page Objects</a></li>
+    <li><a href="/guides/screenshots">Screenshots</a></li>
+    <li><a href="/guides/special-keys">Special Keys</a></li>
+    <li><a href="/guides/wysiwyg">WYSIWYG Editors</a></li>
+</ul>
+
+
+      
+    </aside>
+  
+</div>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/guides/wysiwyg/',
+		  'title': 'WYSIWYG Editors'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

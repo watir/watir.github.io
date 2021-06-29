@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 6.15 – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Watir 6.15" />
+    <meta property="twitter:title" content="Watir 6.15" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watir 6.15
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'https://titusfortner.com' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on November  7, 2018
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>Watir 6.15 is now available on RubyGems. A few new element methods, new contributors, 
+and some minor performance improvements. The equivalent functionality in Python 
+has also been released in Nerodia 0.12.
+<!--more--></p>
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watir</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watir"</span><span class="p">,</span> <span class="s2">"~&gt; 6.15"</span></code></pre></figure>
+
+<p><strong><em>to install Nerodia (Python)</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="no">U</span> <span class="n">nerodia</span></code></pre></figure>
+
+<p>For more information visit: https://github.com/watir/nerodia/blob/master/README.rst</p>
+
+<ul>
+  <li><strong>Thanks to Ryan Baumann for his contribution to our project</strong></li>
+  <li><strong>Thanks also to Thomas Walpole from Capybara for helping us improve our Regular Expression matching</strong></li>
+</ul>
+
+<h3 id="new-element-methods">New Element Methods</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">Elements#selected_text</code>: This is the reflexive method to <code class="highlighter-rouge">Element#select_text</code>.</li>
+  <li><code class="highlighter-rouge">Element#classes</code>: Since <code class="highlighter-rouge">Element#class_name</code> returns a <code class="highlighter-rouge">String</code> of all of the classes 
+for the given element with white space, it makes more sense to be able to return an <code class="highlighter-rouge">Array</code> of class values if there are
+multiple classes expected.</li>
+  <li><code class="highlighter-rouge">Element#obscured?</code>: The intent here is to evaluate whether <code class="highlighter-rouge">Element#click</code> will result in a 
+<code class="highlighter-rouge">ElementClickInterceptedError</code> before having to make the click in the first place.</li>
+</ul>
+
+<h3 id="locator-updates">Locator Updates</h3>
+
+<p>A major feature of Watir over using Selenium directly is the extended number of locators available. Watir
+allows you to combine multiple locators to more accurately describe a unique element without needing to resort to
+writing difficult to read (and likely brittle) XPath or CSS strings. 
+Watir takes a <code class="highlighter-rouge">Hash</code> of locators and runs it through a <code class="highlighter-rouge">SelectorBuilder</code> implementation. 
+By default this is implementated with XPath.
+This class will convert the provided <code class="highlighter-rouge">Hash</code> into an ugly but accurate XPath locator that the end user thankfully never 
+needs to look at but is exactly what the driver needs to locate the element. Any locators that can not be 
+entirely converted into a single XPath expression (things pertaining to visibility, or values with complicated 
+Regular Expressions), the <code class="highlighter-rouge">Locator</code> class will use whatever could be built into a partially matching XPath expression, 
+locate all elements that match it, 
+and then iterate through each of those elements attempting to match the remaining locators.</p>
+
+<p>The new code in this version will locate more elements on the first try without requiring iteration, 
+and does a better job filtering out the number of elements that need to be iterated over when using complex <code class="highlighter-rouge">Regexp</code>.</p>
+
+<p><strong>Tips on using <code class="highlighter-rouge">Regexp</code> values in locators:</strong></p>
+
+<ul>
+  <li>Use only word characters: For instance <code class="highlighter-rouge">/random-/</code> should be preferred when possible over more complex ways of 
+matching, like: <code class="highlighter-rouge">/random-\d\d\d/</code></li>
+  <li>“Starts with” can also be entirely captured in one call, so you can do <code class="highlighter-rouge">/^random-/</code> if that addition makes it unique</li>
+  <li>If you need to use more anything more complicated, make it as specific as possible to minimize the number of 
+elements that need to be iterated over to find the exact element you are looking for.</li>
+</ul>
+
+<p>See the <a href="https://github.com/watir/watir/blob/main/CHANGES.md">Changelog</a> 
+for the complete history of updates.</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+  <div>
+    
+    <a href = 'https://twitter.com/watir_team/status/1060539826829697024'>Thoughts about this article? Let us know!</a>
+    
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watir-6-15/',
+		  'title': 'Watir 6.15'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>
