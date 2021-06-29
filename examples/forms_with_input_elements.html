@@ -137,9 +137,8 @@
             <input type="submit" name="new_user_submit_disabled" id="disabled_button" value="Disabled" disabled="disabled" data-locator="disabled" />
             <input type="checkbox" name="new_user_submit_disabled" id="toggle_button_checkbox" onclick="var elem = document.getElementById('disabled_button'); elem.disabled = !elem.disabled" />
         </fieldset>
-        <span id="hidden_file">
-            <input type="file" id="hidden_file_input" style="opacity: 0;"/>
-        </span>
+        <input type="file" id="transparent_file_input" style="opacity: 0;"/>
+        <input type="file" id="hidden_file_input" style="display: none"/>
     </form>
     <h2>Delete user</h2>
     <form id="delete_user" action="tables.html" method="POST">
