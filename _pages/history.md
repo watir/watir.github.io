@@ -88,7 +88,7 @@ for all other browsers. This code was implemented by Jarmo and released as Watir
 In January of 2015 Jari decided to step down as maintainer of the selenium-webdriver and watir-webdriver
 gems.(<strong>[8](https://groups.google.com/forum/#!msg/selenium-developers/h2Ie4FNHmq4/OBsaatq5y6gJ)</strong>).
 Alex Rodionov had been an active contributor for the previous three years and took over primary ownership of
-the project with assistance from Titus Fortner who was working with Bret at Blackbaud at that time
+the project with assistance from Titus Fortner. Titus was working with Bret at Blackbaud at that time
 and had just been officially added to the development team.
 
 With Microsoft releasing the Edge browser and announcing that no new features would be added
@@ -102,9 +102,18 @@ Based on numerous conversations with Bret about the original ideology behind Wat
 less like an alternative implementation of Selenium, and to more fully leverage the Watir API to 
 remove extra configurations and add default waiting behaviors that better adhered to the original spirit of Watir. 
 
-All of this is to say that instead of being a competitor to Selenium, the current version of
-Watir relies on the Selenium code for the browser automation capabilities of WebDriver. Think of
+Instead of being a competitor to Selenium, Watir 6 relied on the Selenium code for the 
+browser automation capabilities of WebDriver. Think of
 Selenium as a Browser Automation Library and Watir as a Test Automation Library. Selenium provides
 the means for a user to interact with a browser with a "do what I say" approach,
 whereas Watir leverages Selenium to allow a user to accomplish a "do what I mean" approach to testing
 the UI.
+
+Soon after the release of Watir 6, a Sauce Labs user complained about how much slower Watir
+was performing on that platform. Titus had recently started working at Sauce and found that there were
+indeed a lot of performance improvements that could be made. 
+The various 6.x releases mostly consisted of eeking out as much performance optimization as possible while
+still providing the same reliability. Various new and interesting functionality was added over time.
+Not much development was done on Watir after the final version of Selenium 3 was released
+until Selenium 4 was released as a beta in early 2021. Watir 7.0 was released the week after Selenium 4.0
+in October 2021.
