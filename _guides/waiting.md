@@ -66,7 +66,7 @@ condition needs to be met. `#wait_until` will execute the block until a truthy r
 
 {% highlight ruby %}
 browser.wait_until { |b| b.title == "Foo" }
-browser.window(title: "Foo")wait_while(&:exists?)
+browser.window(title: "Foo").wait_while(&:exists?)
 browser.alert.wait_until { |a| a.text == "foo" }
 browser.button(name: 'submit').wait_until(&:enabled?)
 {% endhighlight %}
