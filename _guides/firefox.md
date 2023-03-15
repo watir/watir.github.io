@@ -19,6 +19,22 @@ version available to have the most complete feature set.
 b = Watir::Browser.new :firefox
 {% endhighlight %}
 
+### Headless
+
+Firefox has a headless feature that can be accessed directly with: 
+
+{% highlight ruby %}
+b = Watir::Browser.new :firefox, headless: true
+{% endhighlight %}
+
+However this syntax is deprecated by Selenium so the following syntax should be prefered.
+
+{% highlight ruby %}
+b = Watir::Browser.new :firefox, options: {args: ['-headless']}
+{% endhighlight %}
+
+It also possible to use [the Headless gem](/guides/headless/).
+
 ### Firefox Options
 All options are explained on the [geckodriver page](https://github.com/mozilla/geckodriver#webdriver-capabilities)
 
