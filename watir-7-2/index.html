@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 7.2 – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Watir 7.2" />
+    <meta property="twitter:title" content="Watir 7.2" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watir 7.2
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'https://titusfortner.com/' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on December 24, 2022
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>Watir 7.2 is now available on RubyGems. Shadow DOM! Advanced Scrolling! Bug Fixes!
+Minimum requirements of Selenium 4.2 and Ruby 2.7
+<!--more--></p>
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watir</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watir"</span><span class="p">,</span> <span class="s2">"~&gt; 7.2"</span></code></pre></figure>
+
+<h3 id="shadow-dom">Shadow DOM</h3>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM">Shadow DOM</a> 
+implementations have increased considerably in the past few years.
+There are 3 parts to accessing Shadow DOM content - identifying the host element,
+switching to the shadow_root of that element, and then locating children elements from there.</p>
+
+<p>For example:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shadow_host</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'shadow_host'</span><span class="p">)</span>
+<span class="n">shadow_root</span> <span class="o">=</span> <span class="n">shadow_host</span><span class="p">.</span><span class="nf">shadow_root</span>
+<span class="n">_shadow_content</span> <span class="o">=</span> <span class="n">shadow_root</span><span class="p">.</span><span class="nf">span</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'shadow_content'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Shadow DOM is a bit tricky with Watir, because it does not support Watir’s standard approach
+for locating elements. <a href="http://jkotests.wordpress.com/">Justin</a> figured out a good solution
+for this to get it working. A more performant approach might be possible.</p>
+
+<h3 id="advanced-scrolling">Advanced Scrolling</h3>
+
+<p>Watir incorporated <a href="https://twitter.com/p0deje">Alex’s</a> excellent <code class="highlighter-rouge">watir-scroll.gem</code>
+in <a href="http://watir.com/watir-6-16/#scrolling">Watir 6.16</a>. It uses JavaScript to
+move the entire page by the desired amount.</p>
+
+<p>This does not work if you have nested frames or need to scroll a portion of the screen.
+This release includes <code class="highlighter-rouge">Scroll#from</code>, which allows you to set that origin. Think of it like
+moving the mouse to a specific point on the screen and then using a scroll wheel.</p>
+
+<p>Using this from your browser:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">browser</span><span class="p">.</span><span class="nf">scroll</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">).</span><span class="nf">by</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">225</span><span class="p">)</span>
+</code></pre></div></div>
+<p>This sets the origin (“moves the mouse”) starting from the upper left of the browser viewport 
+11 pixels down and 8 pixels to the right. From that origin, it then scrolls down 225 pixels.</p>
+
+<p>From the element:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">browser</span><span class="p">.</span><span class="nf">footer</span><span class="p">.</span><span class="nf">scroll</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">).</span><span class="nf">by</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</code></pre></div></div>
+<p>This sets the origin (“moves the mouse”) starting from the “in-view centerpoint” of the element,
+50 pixels up. From that origin, it then scrolls down 200 pixels.</p>
+
+<p>To bring the element into viewport using the official driver approach instead of JavaScript, 
+scroll to <code class="highlighter-rouge">:viewport</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">browser</span><span class="p">.</span><span class="nf">footer</span><span class="p">.</span><span class="nf">scroll</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="ss">:viewport</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Finally, I did not replace the <code class="highlighter-rouge">Scroll#by</code> implementation because there are too many issues
+with the way the browsers are currently implementing it.</p>
+
+<h3 id="capabilities-fixes">Capabilities Fixes</h3>
+
+<p>There were several scenarios I thought were implemented in 7.0 that it turns out were not.</p>
+
+<p>You can now initialize your browser session by passing in a <code class="highlighter-rouge">Hash</code> like this:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="ss">browser_name: </span><span class="s1">'firefox'</span><span class="p">,</span> <span class="ss">prefs: </span><span class="p">{</span><span class="ss">foo: </span><span class="s1">'bar'</span><span class="p">}}</span>
+<span class="n">service</span> <span class="o">=</span> <span class="p">{</span><span class="ss">port: </span><span class="mi">1234</span><span class="p">}</span>
+<span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">options: </span><span class="n">options</span><span class="p">,</span> <span class="ss">service: </span><span class="n">service</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Watir will figure out what browser to use based on the other information provided, and will
+default to “chrome.”</p>
+
+<h3 id="deprecating-selenium-capabilities">Deprecating Selenium Capabilities</h3>
+
+<p>Selenium is moving away from supporting <code class="highlighter-rouge">Selenium::WebDriver::Remote::Capabilities</code> and so is Watir!
+You can either use a Selenium class browser option object (e.g., <code class="highlighter-rouge">Selenium::WebDriver::Chrome::Options</code>),
+or a <code class="highlighter-rouge">Hash</code> that Watir will use to construct that Options class instance for you. 
+Either way, the inputs are more controlled, and it will error if you
+are requesting something that isn’t supported. (which is how it is supposed to be!)</p>
+
+<p>So, do not use <code class="highlighter-rouge">:capabilities</code> argument or Selenium <code class="highlighter-rouge">Capabilities</code> classes any longer.</p>
+
+<p>See the <a href="https://github.com/watir/watir/blob/main/CHANGES.md">Changelog</a> 
+for the complete history of updates.</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+  <div>
+    
+    <a href = 'https://twitter.com/watir_team/status/1606687746093088768'>Thoughts about this article? Let us know!</a>
+    
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watir-7-2/',
+		  'title': 'Watir 7.2'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

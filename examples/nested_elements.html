@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Nested Elements</title>
+</head>
+
+<body>
+    <span id="grandparent_span">
+        <div id="grandparent" class="ancestor" data-locator="grandparent">
+            <span class="parent" class="ancestor" id="parent_span" data-locator="grandparent span">
+                <div id="parent" class="ancestor" data-locator="parent">
+                    <div id="first_sibling" data-locator="first sibling">
+                        <span id="child_span" data-locator="child span">
+                            <div id="oldest_child">
+                                <span id="grandson_span">
+                                    <div id="first_grandson"></div>
+                                    <div id="second_grandson"></div>
+                                </span>
+                            </div>
+                            <div id="middle_child"></div>
+                            <div id="youngest_child"></div>
+                        </span>
+                    </div>
+                    <span class="a" id="between_siblings1" data-locator="between_siblings1"></span>
+                    <div class="b" id="second_sibling" data-locator="second_sibling">Second</div>
+                    <span class="a" id="between_siblings2" data-locator="between_siblings2"></span>
+                    <div class="a b" id="third_sibling" data-locator="third_sibling">Third</div>
+                </div>
+            </span>
+        </div>
+    </span>
+    <div>
+        <grandelement id="custom_grandparent">
+            <parentelement id="custom_parent">
+                <div id="regular_child"></div>
+                <childelement id="custom_child" class="custom_child a"></childelement>
+                <childelement class="custom_child b"></childelement>
+                <childelement class="custom_child c"></childelement>
+            </parentelement>
+        </grandelement>
+    </div>
+</body>
+</html>

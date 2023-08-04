@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Locating Elements – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Locating Elements" />
+    <meta property="twitter:title" content="Locating Elements" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <div class = 'page grid'>
+  <article>
+    <h2 class = 'flex-out'>Locating Elements
+    
+      <span>
+        <a href = 'https://github.com/watir/watir.github.io/edit/source/_nerodia/locating.md'><i class ='fas fa-edit' title = 'Edit Page'></i></a>
+        <span>&nbsp;</span>
+        <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Locating Elements'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
+      </span>
+    </h2>
+    <p>One of the most important features of Nerodia is the many varied ways it allows users to locate elements.
+The Nerodia location API is designed to be easily read and understood by users (humans).
+Elements are located by creating Selector Keywords, which Nerodia translates into the potentially
+complicated information the driver needs to know to identify the element.</p>
+
+<p>The special cases will be highlighted below, but Nerodia Locators:</p>
+
+<ol>
+  <li>Accept <code class="highlighter-rouge">String</code> values for exact matching</li>
+  <li>Accept compiled regex values for partial matching</li>
+  <li>Can be mixed with any other Nerodia Locator</li>
+  <li>Can be used to find the first matching element, or all matching elements as part of a collection</li>
+</ol>
+
+<p>Firstly, like Selenium, Nerodia supports the full power of directly using <code class="highlighter-rouge">:css</code> &amp; <code class="highlighter-rouge">:xpath</code> selectors. When
+ either of these are used, they must be the only one provided in the Selector Hash. 
+ Nerodia’s goal, however, is to minimize the need to rely on these powerful locators. 
+ XPath in particular can be difficult to read and can be easy to 
+write in a brittle fashion, so Nerodia encourages the approach of “No More XPath!”</p>
+
+<p>Additionally, it is worth noting that there are two locators defined in the WebDriver specification
+ that Nerodia does not directly support because it provides the same functionality by alternate means.<br />
+ These are <code class="highlighter-rouge">:link_text</code> and <code class="highlighter-rouge">:partial_link_text</code>.
+With Nerodia you can locate any element by its text, not just links, and Nerodia already supports
+ partial matches for all of its locators with Regular Expressions.</p>
+
+<h3 id="standard-nerodia-locators">Standard Nerodia Locators</h3>
+
+<h4 id="id">ID</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">"header"</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="name">Name</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">text_field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span> <span class="s">'new_user_email'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="tag-name">Tag Name</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># while this works:
+</span><span class="n">browser</span><span class="p">.</span><span class="n">element</span><span class="p">(</span><span class="n">tag_name</span><span class="o">=</span> <span class="s">'div'</span><span class="p">)</span>
+ 
+<span class="c1"># it is highly recommended to leverage this locator by using the element's associated method:
+</span><span class="n">browser</span><span class="p">.</span><span class="n">div</span></code></pre></figure>
+
+<h4 id="class-name">Class Name</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># This is for locating with a single class only
+</span><span class="n">browser</span><span class="p">.</span><span class="n">text_field</span><span class="p">(</span><span class="n">class_name</span><span class="o">=</span><span class="s">'name'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="text">Text</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># evaluates what is in the DOM, not what a user can see on the page
+</span><span class="n">browser</span><span class="p">.</span><span class="n">button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span> <span class="s">"Button 2"</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="visible-text">Visible Text</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># attempts to evaluate based on what a user can see on the page
+</span><span class="n">browser</span><span class="p">.</span><span class="n">button</span><span class="p">(</span><span class="n">visible_text</span><span class="o">=</span><span class="s">"Button 2"</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="data-attributes">Data Attributes</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">p</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="s">"python-library"</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="aria-attributes">Aria Attributes</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">p</span><span class="p">(</span><span class="n">aria_label</span><span class="o">=</span> <span class="s">"python-library"</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="valid-or-custom-attributes">Valid or Custom Attributes</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">text_field</span><span class="p">({</span><span class="s">'aria-labelledby'</span><span class="p">:</span> <span class="s">'elastic.0'</span><span class="p">})</span></code></pre></figure>
+
+<h4 id="label">Label</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># locate based on the value of the associated label element (not attribute)
+</span><span class="n">browser</span><span class="p">.</span><span class="n">text_field</span><span class="p">(</span><span class="n">label</span><span class="o">=</span> <span class="s">'With text'</span><span class="p">))</span></code></pre></figure>
+
+<h4 id="index">Index</h4>
+<ul>
+  <li>this can not be used to locate an element collection</li>
+  <li>when combined with other locators, index is the last filter to be applied)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">index</span><span class="o">=</span> <span class="mi">2</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="presenceabsencemultiple-classes">Presence/Absence/Multiple Classes</h4>
+<ul>
+  <li>this takes an Array of String values</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">text_field</span><span class="p">(</span><span class="n">class_name</span><span class="o">=</span><span class="p">[</span><span class="s">'order'</span><span class="p">,</span> <span class="s">'should'</span><span class="p">,</span> <span class="s">'matter'</span><span class="p">,</span> <span class="s">'not'</span><span class="p">])</span>
+<span class="n">browser</span><span class="p">.</span><span class="n">text_field</span><span class="p">(</span><span class="n">class_name</span><span class="o">=</span><span class="p">[</span><span class="s">'this'</span><span class="p">,</span> <span class="s">'!notthis'</span><span class="p">])</span></code></pre></figure>
+
+<h4 id="presenceabsence-attributes">Presence/Absence Attributes</h4>
+<ul>
+  <li>this takes a Boolean value</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">data_bar</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">data_foo</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>       </code></pre></figure>
+
+<h4 id="visible">Visible</h4>
+<ul>
+  <li>this takes a Boolean value</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browser</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="adjacent-nodes">Adjacent Nodes</h4>
+<ul>
+  <li>these are not locators in the Selector Hash</li>
+  <li>these are methods that accept a Selector Hash</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">anchor_element</span><span class="p">.</span><span class="n">parent</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+
+<span class="n">anchor_element</span><span class="p">.</span><span class="n">previous_sibling</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+<span class="n">anchor_element</span><span class="p">.</span><span class="n">following_sibling</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+<span class="n">anchor_element</span><span class="p">.</span><span class="n">siblings</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+
+<span class="n">anchor_element</span><span class="p">.</span><span class="n">child</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span>
+<span class="n">anchor_element</span><span class="p">.</span><span class="n">children</span><span class="p">(</span><span class="n">selectors</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="implementation-details">Implementation Details</h3>
+
+<p>Most of the time Nerodia can translate the Selectors into a single XPath expression to quickly identify the element.
+ You can get a sense for what this looks like by checking out our sample app <a href="http://xpathify.herokuapp.com/">XPathify</a>.
+Instances where this can not be done include when the usage of <code class="highlighter-rouge">:visible</code>, <code class="highlighter-rouge">:visible_text</code> or <code class="highlighter-rouge">:index</code> locators. 
+In that case Nerodia locates potentially matching elements and iterates over them to provide the requested result.</p>
+
+<p></p>
+
+<h5>Last Updated: June 09, 2021</h5>
+
+
+  </article>
+  
+    <aside>
+      
+        <h3>Nerodia Guides</h3>
+
+<h4>Getting Started</h4>
+<ul>
+    <li><a href="/nerodia/installation">Installing Nerodia</a></li>
+</ul>
+
+<h4>Working with Elements</h4>
+<ul>
+    <li><a href="/nerodia/locating">Locating elements</a></li>
+</ul>
+
+
+      
+    </aside>
+  
+</div>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/nerodia/locating/',
+		  'title': 'Locating Elements'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

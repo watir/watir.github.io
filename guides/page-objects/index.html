@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Objects – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Page Objects" />
+    <meta property="twitter:title" content="Page Objects" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <div class = 'page grid'>
+  <article>
+    <h2 class = 'flex-out'>Page Objects
+    
+      <span>
+        <a href = 'https://github.com/watir/watir.github.io/edit/source/_guides/page-objects.md'><i class ='fas fa-edit' title = 'Edit Page'></i></a>
+        <span>&nbsp;</span>
+        <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Page Objects'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
+      </span>
+    </h2>
+    <!--- TODO: This code needs to be re-verified  --->
+
+<p>The Page Object pattern is a way to represent pages and their elements in reusable classes. 
+Page Objects eliminate duplication by building an abstraction that allows you to write browser tests for 
+maximum maintainability and robustness.</p>
+
+<p>The Page Object pattern originated in WebDriver, and a great explanation (with examples in Java) 
+can be found <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects">here</a>.</p>
+
+<p>You create a Page object for each page of your application, which has methods that represent the services 
+available on a given page. You should encapsulate all the implementation details of the 
+system (i.e. HTML elements, waiting for the DOM to update etc) in these objects. 
+Your test code (i.e. RSpec code blocks, Cucumber step definitions) should never access the 
+underlying Browser instance or deal with HTML elements directly.</p>
+
+<p>In essence, you should have the mindset that your test code should not need to change if your 
+web app was rewritten as a desktop app - you would simply need another implementation of the page 
+object layer. Although strictly speaking a set of pages isn’t necessarily a good way to model a 
+desktop application, having this in mind makes it easy to decide what should go where.</p>
+
+<p>The examples below assumes you are familiar with <a href="http://rspec.info/">RSpec</a> way of doing test assertions.</p>
+
+<p>Consider this script:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">browser</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">goto</span> <span class="s2">"http://example.com/login"</span>
+
+  <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"user"</span><span class="p">).</span><span class="nf">set</span> <span class="s2">"Mom"</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"pass"</span><span class="p">).</span><span class="nf">set</span> <span class="s2">"s3cr3t"</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"login"</span><span class="p">).</span><span class="nf">click</span>
+
+  <span class="no">Watir</span><span class="o">::</span><span class="no">Wait</span><span class="p">.</span><span class="nf">until</span> <span class="p">{</span> <span class="n">browser</span><span class="p">.</span><span class="nf">title</span> <span class="o">==</span> <span class="s2">"Your Profile"</span> <span class="p">}</span>
+  <span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"logged-in"</span><span class="p">).</span><span class="nf">should</span> <span class="n">exist</span></code></pre></figure>
+
+<p>With page objects, this could become:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">site</span> <span class="o">=</span> <span class="no">Site</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+
+  <span class="n">login_page</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">login_page</span><span class="p">.</span><span class="nf">open</span>
+  <span class="n">user_page</span> <span class="o">=</span> <span class="n">login_page</span><span class="p">.</span><span class="nf">login_as</span> <span class="s2">"Mom"</span><span class="p">,</span> <span class="s2">"s3cr3t"</span>
+
+  <span class="n">user_page</span><span class="p">.</span><span class="nf">should</span> <span class="n">be_logged_in</span></code></pre></figure>
+
+<p>An implementation of this could be:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+  <span class="k">class</span> <span class="nc">BrowserContainer</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">browser</span><span class="p">)</span>
+      <span class="vi">@browser</span> <span class="o">=</span> <span class="n">browser</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">class</span> <span class="nc">Site</span> <span class="o">&lt;</span> <span class="no">BrowserContainer</span>
+    <span class="k">def</span> <span class="nf">login_page</span>
+      <span class="vi">@login_page</span> <span class="o">=</span> <span class="no">LoginPage</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@browser</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">user_page</span>
+      <span class="vi">@user_page</span> <span class="o">=</span> <span class="no">UserPage</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@browser</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">close</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">close</span>
+    <span class="k">end</span>
+  <span class="k">end</span> <span class="c1"># Site</span>
+
+  <span class="k">class</span> <span class="nc">LoginPage</span> <span class="o">&lt;</span> <span class="no">BrowserContainer</span>
+    <span class="no">URL</span> <span class="o">=</span> <span class="s2">"http://example.com/login"</span>
+
+    <span class="k">def</span> <span class="nf">open</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">goto</span> <span class="no">URL</span>
+      <span class="nb">self</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">login_as</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">pass</span><span class="p">)</span>
+      <span class="n">user_field</span><span class="p">.</span><span class="nf">set</span> <span class="n">user</span>
+      <span class="n">password_field</span><span class="p">.</span><span class="nf">set</span> <span class="n">pass</span>
+
+      <span class="n">login_button</span><span class="p">.</span><span class="nf">click</span>
+
+      <span class="n">next_page</span> <span class="o">=</span> <span class="no">UserPage</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@browser</span><span class="p">)</span>
+      <span class="no">Watir</span><span class="o">::</span><span class="no">Wait</span><span class="p">.</span><span class="nf">until</span> <span class="p">{</span> <span class="n">next_page</span><span class="p">.</span><span class="nf">loaded?</span> <span class="p">}</span>
+
+      <span class="n">next_page</span>
+    <span class="k">end</span>
+
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">user_field</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"user"</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">password_field</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">text_field</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"pass"</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">login_button</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"login"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span> <span class="c1"># LoginPage</span>
+
+  <span class="k">class</span> <span class="nc">UserPage</span> <span class="o">&lt;</span> <span class="no">BrowserContainer</span>
+    <span class="k">def</span> <span class="nf">logged_in?</span>
+      <span class="n">logged_in_element</span><span class="p">.</span><span class="nf">exists?</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">loaded?</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">title</span> <span class="o">==</span> <span class="s2">"Your Profile"</span>
+    <span class="k">end</span>
+
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">logged_in_element</span>
+      <span class="vi">@browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"logged-in"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span> <span class="c1"># UserPage</span></code></pre></figure>
+
+<p>This can then be integrated with other tools. For example, using Cucumber you could have this in env.rb:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+<span class="nb">require</span> <span class="s2">"watir-webdriver"</span>
+<span class="nb">require</span> <span class="s2">"/path/to/site"</span>
+
+<span class="k">module</span> <span class="nn">SiteHelper</span>
+  <span class="k">def</span> <span class="nf">site</span>
+    <span class="vi">@site</span> <span class="o">||=</span> <span class="p">(</span>
+      <span class="no">Site</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:firefox</span><span class="p">))</span>
+    <span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">World</span><span class="p">(</span><span class="no">SiteHelper</span><span class="p">)</span></code></pre></figure>
+
+<p>And this step definition:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+ <span class="no">Given</span> <span class="sr">/I have successfully logged in/</span> <span class="k">do</span>
+   <span class="n">login_page</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">login_page</span><span class="p">.</span><span class="nf">open</span>
+
+   <span class="n">user_page</span> <span class="o">=</span> <span class="n">login_page</span><span class="p">.</span><span class="nf">login_as</span> <span class="s2">"Mom"</span><span class="p">,</span> <span class="s2">"s3cr3t"</span>
+   <span class="n">user_page</span><span class="p">.</span><span class="nf">should</span> <span class="n">be_logged_in</span>
+ <span class="k">end</span></code></pre></figure>
+
+<p>Assertions/expectations should be kept in your test code. Don’t use assertions
+in your page objects; instead ask them about their state, and assert on the result. E.g.:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+
+  <span class="c1">#</span>
+  <span class="c1"># bad example</span>
+  <span class="c1">#</span>
+
+  <span class="k">class</span> <span class="nc">SomePage</span>
+    <span class="k">def</span> <span class="nf">assert_loaded</span>
+      <span class="k">raise</span> <span class="s2">"not loaded"</span> <span class="k">unless</span> <span class="n">some_element</span><span class="p">.</span><span class="nf">exists?</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"should be loaded"</span> <span class="k">do</span>
+    <span class="n">page</span><span class="p">.</span><span class="nf">assert_loaded</span>
+  <span class="k">end</span>
+
+  <span class="c1">#</span>
+  <span class="c1"># good example</span>
+  <span class="c1">#</span>
+
+  <span class="k">class</span> <span class="nc">SomePage</span>
+    <span class="k">def</span> <span class="nf">loaded?</span>
+      <span class="n">some_element</span><span class="p">.</span><span class="nf">exists?</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"should be loaded"</span> <span class="k">do</span>
+    <span class="n">page</span><span class="p">.</span><span class="nf">should</span> <span class="n">be_loaded</span>
+  <span class="k">end</span></code></pre></figure>
+
+<p>See also:</p>
+
+<p><strong>Page Object gems that work with Watir-webdriver</strong></p>
+<ul>
+  <li><a href="https://github.com/cheezy/page-object">Cheezy’s Page Object gem for Watir-webdriver and Selenium</a></li>
+  <li><a href="https://github.com/rSmart/TestFactory">The rSmart Test-Factory gem for Page &amp; Data objects using Watir-webdriver</a></li>
+  <li><a href="https://github.com/bwilczek/watir_pump">WatirPump: Page Object gem - a fresh approach from 2018</a></li>
+</ul>
+
+<p><strong>Blog postings related to Page Objects and Watir-webdriver</strong></p>
+<ul>
+  <li>cheezyworld’s series on UI testing <a href="http://www.cheezyworld.com/2010/11/09/ui-tests-not-brittle/">part 1</a>, <a href="http://www.cheezyworld.com/2010/11/13/ui-tests-part-two/">part 2</a>, <a href="http://www.cheezyworld.com/2010/11/19/ui-tests-introducing-a-simple-dsl/">part 3</a>, <a href="http://www.cheezyworld.com/2010/11/21/ui-tests-default-dat/">part 4</a>, <a href="http://www.cheezyworld.com/2010/12/16/ui-tests-putting-it-all-together/">part 5</a></li>
+  <li>Watermelon blog article on <a href="http://watirmelon.com/2012/06/04/roll-your-own-page-objects/">‘roll your own’ page objects</a></li>
+  <li><a href="https://blog.bwilczek.eu/introducing-watirpump-a-new-page-object-library-for-ruby-and-watir">WatirPump: Page Object library for Ruby and Watir</a></li>
+</ul>
+
+<p><strong>Blog postings related to Page Objects and webdriver/Selenium</strong></p>
+<ul>
+  <li><a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects">Page Objects on the Selenium Wiki</a></li>
+  <li><a href="http://www.pragprog.com/magazines/2010-08/page-objects-in-python">Page Objects in Python</a></li>
+  <li><a href="http://www.slideshare.net/dantebriones/using-the-page-object-pattern">Using the Page Object pattern</a></li>
+</ul>
+
+
+<p></p>
+
+<h5>Last Updated: August 04, 2018</h5>
+
+
+  </article>
+  
+    <aside>
+      
+        <h3>Watir Guides</h3>
+
+<!--- TODO: Reorganize sections so there isn't a catch-all one at the end  --->
+<!--- TODO: Add Guide for Element Collections Watir 6.6 --->
+<!--- TODO: Add Guide for Adjacent Location (Watir 6.7, 6.2)  --->
+<!--- TODO: Add Guide for Tables (Watir 6.7) --->
+<!--- TODO: Add Guide for Label (Watir 6.8)  --->
+
+<!--- TODO: Add Guide for Navigation  --->
+<!--- TODO: Add Guide for working with JavaScript in Watir  --->
+<!--- TODO: Add Guide for After Hooks  --->
+<!--- TODO: Add Guide for Logger  Watir 6.6 & 6.12 --->
+<!--- TODO: Add Guide for Element Flash  --->
+<!--- TODO: Add Guide for Act - Wait - Act (6.4 & 6.11) --->
+
+<h4>Getting Started</h4>
+<ul>
+    <li><a href="/guides/ruby">Installing Ruby</a></li>
+    <li><a href="/guides/installation">Installing Watir</a></li>
+    <li><a href="/guides/overview">Automation Pipeline</a></li>
+    <li><a href="/guides/drivers">Installing Drivers</a></li>
+    <li><a href="/guides/session">Starting a Session</a></li>
+</ul>
+
+<h4>Supported Browsers</h4>
+<ul>
+    <li><a href="/guides/chrome">Chrome</a></li>
+    <li><a href="/guides/firefox">Firefox</a></li>
+    <li><a href="/guides/ie">Internet Explorer</a></li>
+    <li><a href="/guides/safari">Safari</a></li>
+    <li><a href="/guides/edge">Edge</a></li>
+</ul>
+
+<h4>Working with Elements</h4>
+<ul>
+    <li><a href="/guides/elements">Supported Elements</a></li>
+    <li><a href="/guides/locating">Locating elements</a></li>
+    <li><a href="/guides/buttons">Buttons</a></li>
+    <li><a href="/guides/checkboxes">Check Boxes</a></li>
+    <li><a href="/guides/dropdowns">Dropdowns</a></li>
+    <li><a href="/guides/frames">Frames</a></li>
+    <li><a href="/guides/links">Links</a></li>
+    <li><a href="/guides/radios">Radio Buttons</a></li>
+    <li><a href="/guides/text_inputs">Text Inputs</a></li>
+</ul>
+
+<h4>Advanced Interactions</h4>
+<ul>
+    <li><a href="/guides/waiting">Automatic Waits</a></li>
+    <li><a href="/guides/headless">Headless</a></li>
+    <li><a href="/guides/mobile">Mobile Testing</a></li>
+    <li><a href="/guides/authentication">Basic Authentication</a></li>
+    <li><a href="/guides/certificates">Browser Certificates</a></li>
+    <li><a href="/guides/downloads">Downloads</a></li>
+    <li><a href="/guides/windows">Browser Windows</a></li>
+    <li><a href="/guides/proxies">Proxies</a></li>
+    <li><a href="/guides/cookies">Cookies</a></li>
+    <li><a href="/guides/alerts">Alerts</a></li>
+    <li><a href="/guides/performance">Measuring Performance</a></li>
+    <li><a href="/guides/page-objects">Page Objects</a></li>
+    <li><a href="/guides/screenshots">Screenshots</a></li>
+    <li><a href="/guides/special-keys">Special Keys</a></li>
+    <li><a href="/guides/wysiwyg">WYSIWYG Editors</a></li>
+</ul>
+
+
+      
+    </aside>
+  
+</div>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/guides/page-objects/',
+		  'title': 'Page Objects'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

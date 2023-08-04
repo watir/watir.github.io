@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 6.16 – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Watir 6.16" />
+    <meta property="twitter:title" content="Watir 6.16" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watir 6.16
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'https://titusfortner.com' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on December 16, 2018
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>Watir 6.16 is now available on RubyGems. Extensive scrolling functionality has been added from Alex’s
+ watir-scroll gem and Element Location has been overhauled again for some performance improvements.
+<!--more--></p>
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watir</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watir"</span><span class="p">,</span> <span class="s2">"~&gt; 6.16"</span></code></pre></figure>
+
+<h3 id="scrolling">Scrolling</h3>
+
+<p>The Watir team has frequently recommended Alex’s <a href="https://github.com/p0deje/watir-scroll">watir-scroll.gem</a> 
+to our users. After some discussion it was decided to maintain that functionality directly in Watir. 
+If you are already using the latest version of watir-scroll, you can remove it from your gemfile and 
+everything will just work, as the API has stayed exactly the same.</p>
+
+<p>If you aren’t already using it, you should check to see if this functionality might be useful for you, it is 
+invaluable when working with static css styles, “infinite scroll” pages, and elements inside of scroll bars.</p>
+
+<h3 id="element-location">Element Location</h3>
+
+<p>A lot of work has gone into completely redoing the locator class implementations the past couple months.
+In addition to the code being much cleaner, in many cases Watir can now locate nested elements with
+a single wire call instead of requiring multiple calls. If you use a lot of nested elements or
+Page Sections as part of your page object implementation, you might see a minor performance improvement.</p>
+
+<p>An interesting comparison of wire calls for the following code:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Clicking an Element nested 4 deep</span>
+<span class="n">fieldset</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="nf">body</span><span class="p">.</span><span class="nf">form</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'user_new'</span><span class="p">).</span><span class="nf">fieldset</span><span class="p">(</span><span class="ss">index: </span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fieldset</span><span class="p">.</span><span class="nf">checkbox</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'new_user_interests_books'</span><span class="p">).</span><span class="nf">click</span></code></pre></figure>
+
+<h4 id="watir-63-original-approach-with-lots-of-wire-calls">Watir 6.3 (Original approach with lots of wire calls)</h4>
+
+<ul>
+  <li>33 Wire Calls: Window, Windows, Frame, Locate, Name, Enabled, Locate, Name, Enabled, Locate All, 
+  Name, Enabled, Locate, Name, Type, Enabled, Enabled, Enabled, Window, Windows, Frame, Enabled, 
+  Displayed, Enabled, Displayed, Enabled, Displayed, Enabled, Displayed, Enabled, Enabled, Click</li>
+</ul>
+
+<h4 id="watir-64-big-performance-update-summer-of-2017">Watir 6.4 (Big performance update Summer of 2017)</h4>
+<ul>
+  <li>6 Wire Calls: Locate, Locate, Locate All, Locate, Enabled, Click</li>
+</ul>
+
+<h4 id="watir-610-reorganized-things-which-made-this-use-case-worse">Watir 6.10 (Reorganized things which made this use case worse)</h4>
+<ul>
+  <li>13 Wire Calls: Locate, Locate, Name, Locate All, Name, Name, Name, Name, Name, Locate, 
+  Enabled, Enabled, Click</li>
+</ul>
+
+<h4 id="watir-611-big-performance-update-spring-of-2018">Watir 6.11 (Big performance update Spring of 2018)</h4>
+<ul>
+  <li>6 Wire Calls: Locate, Locate, Locate All, Locate, Enabled, Click</li>
+</ul>
+
+<h4 id="watir-613-optimized-element-location-in-collections">Watir 6.13 (Optimized element location in collections)</h4>
+<ul>
+  <li>5 Wire Calls: Locate, Locate, Locate, Enabled, Click</li>
+</ul>
+
+<h4 id="watir-616-combined-nested-elements-into-one-location-wire-call">Watir 6.16 (Combined nested elements into one location wire call)</h4>
+<ul>
+  <li>3 Wire Calls: Locate, Enabled, Click</li>
+</ul>
+
+<h3 id="locator-extension-classes-updated">Locator Extension Classes Updated</h3>
+
+<p>This only applies to add-on gems like <code class="highlighter-rouge">watizzle.gem</code> <code class="highlighter-rouge">watir_css.gem</code> and <code class="highlighter-rouge">watigiri.gem</code>, but
+the classes and methods that such gems implement will either need to be changed 
+or have the Watir version restricted.</p>
+
+<p>See the <a href="https://github.com/watir/watir/blob/main/CHANGES.md">Changelog</a> 
+for the complete history of updates.</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+  <div>
+    
+    <a href = 'https://twitter.com/watir_team/status/1074381222606974977'>Thoughts about this article? Let us know!</a>
+    
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watir-6-16/',
+		  'title': 'Watir 6.16'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

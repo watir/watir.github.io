@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Browser Certificates – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Browser Certificates" />
+    <meta property="twitter:title" content="Browser Certificates" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <div class = 'page grid'>
+  <article>
+    <h2 class = 'flex-out'>Browser Certificates
+    
+      <span>
+        <a href = 'https://github.com/watir/watir.github.io/edit/source/_guides/certificates.md'><i class ='fas fa-edit' title = 'Edit Page'></i></a>
+        <span>&nbsp;</span>
+        <a href = 'https://github.com/watir/watir.github.io/issues/new?title=Guide%20for%20Browser Certificates'><i class ='fas fa-bug' title = 'Report Problem'></i></a>
+      </span>
+    </h2>
+    <!--- TODO: Need to verify this code --->
+
+<h3 id="firefox">Firefox</h3>
+
+<p>The Firefox driver properly handles untrusted certificates by default.</p>
+
+<p>If you have a trusted certificate, but there is some other certificate error such as a hostname mismatch (eg. using a production certificate in test), you should do the following:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">profile</span> <span class="o">=</span> <span class="no">Selenium</span><span class="o">::</span><span class="no">WebDriver</span><span class="o">::</span><span class="no">Firefox</span><span class="o">::</span><span class="no">Profile</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">profile</span><span class="p">.</span><span class="nf">assume_untrusted_certificate_issuer</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:firefox</span><span class="p">,</span> <span class="ss">profile: </span><span class="n">profile</span></code></pre></figure>
+
+<p>The reason this is needed is explained <a href="https://github.com/SeleniumHQ/selenium/wiki/Untrusted-SSL-Certificates#implementation-details">here</a>.</p>
+
+<h3 id="chrome">Chrome</h3>
+
+<p>It is easy to ignore invalid Browser certificates in Google Chrome by passing a command line switch:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span> <span class="ss">:chrome</span><span class="p">,</span> <span class="ss">switches: </span><span class="p">[</span><span class="s1">'--ignore-certificate-errors'</span><span class="p">]</span></code></pre></figure>
+
+<!--- TODO: Add code examples for other browsers --->
+
+<p></p>
+
+<h5>Last Updated: February 10, 2016</h5>
+
+
+  </article>
+  
+    <aside>
+      
+        <h3>Watir Guides</h3>
+
+<!--- TODO: Reorganize sections so there isn't a catch-all one at the end  --->
+<!--- TODO: Add Guide for Element Collections Watir 6.6 --->
+<!--- TODO: Add Guide for Adjacent Location (Watir 6.7, 6.2)  --->
+<!--- TODO: Add Guide for Tables (Watir 6.7) --->
+<!--- TODO: Add Guide for Label (Watir 6.8)  --->
+
+<!--- TODO: Add Guide for Navigation  --->
+<!--- TODO: Add Guide for working with JavaScript in Watir  --->
+<!--- TODO: Add Guide for After Hooks  --->
+<!--- TODO: Add Guide for Logger  Watir 6.6 & 6.12 --->
+<!--- TODO: Add Guide for Element Flash  --->
+<!--- TODO: Add Guide for Act - Wait - Act (6.4 & 6.11) --->
+
+<h4>Getting Started</h4>
+<ul>
+    <li><a href="/guides/ruby">Installing Ruby</a></li>
+    <li><a href="/guides/installation">Installing Watir</a></li>
+    <li><a href="/guides/overview">Automation Pipeline</a></li>
+    <li><a href="/guides/drivers">Installing Drivers</a></li>
+    <li><a href="/guides/session">Starting a Session</a></li>
+</ul>
+
+<h4>Supported Browsers</h4>
+<ul>
+    <li><a href="/guides/chrome">Chrome</a></li>
+    <li><a href="/guides/firefox">Firefox</a></li>
+    <li><a href="/guides/ie">Internet Explorer</a></li>
+    <li><a href="/guides/safari">Safari</a></li>
+    <li><a href="/guides/edge">Edge</a></li>
+</ul>
+
+<h4>Working with Elements</h4>
+<ul>
+    <li><a href="/guides/elements">Supported Elements</a></li>
+    <li><a href="/guides/locating">Locating elements</a></li>
+    <li><a href="/guides/buttons">Buttons</a></li>
+    <li><a href="/guides/checkboxes">Check Boxes</a></li>
+    <li><a href="/guides/dropdowns">Dropdowns</a></li>
+    <li><a href="/guides/frames">Frames</a></li>
+    <li><a href="/guides/links">Links</a></li>
+    <li><a href="/guides/radios">Radio Buttons</a></li>
+    <li><a href="/guides/text_inputs">Text Inputs</a></li>
+</ul>
+
+<h4>Advanced Interactions</h4>
+<ul>
+    <li><a href="/guides/waiting">Automatic Waits</a></li>
+    <li><a href="/guides/headless">Headless</a></li>
+    <li><a href="/guides/mobile">Mobile Testing</a></li>
+    <li><a href="/guides/authentication">Basic Authentication</a></li>
+    <li><a href="/guides/certificates">Browser Certificates</a></li>
+    <li><a href="/guides/downloads">Downloads</a></li>
+    <li><a href="/guides/windows">Browser Windows</a></li>
+    <li><a href="/guides/proxies">Proxies</a></li>
+    <li><a href="/guides/cookies">Cookies</a></li>
+    <li><a href="/guides/alerts">Alerts</a></li>
+    <li><a href="/guides/performance">Measuring Performance</a></li>
+    <li><a href="/guides/page-objects">Page Objects</a></li>
+    <li><a href="/guides/screenshots">Screenshots</a></li>
+    <li><a href="/guides/special-keys">Special Keys</a></li>
+    <li><a href="/guides/wysiwyg">WYSIWYG Editors</a></li>
+</ul>
+
+
+      
+    </aside>
+  
+</div>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/guides/certificates/',
+		  'title': 'Browser Certificates'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

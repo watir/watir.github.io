@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 6.18 – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Watir 6.18" />
+    <meta property="twitter:title" content="Watir 6.18" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watir 6.18
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'http://titusfortner.com' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on February 26, 2021
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>Watir 6.18 is now available on RubyGems. As (one of?) the last 6.x release before
+Watir 7, this release adds some deprecations necessary for us to add the 
+improvements we want for Watir 7. Most changes are for browser windows, with
+some updates to select lists and element collections.</p>
+
+<!--more-->
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watir</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watir"</span><span class="p">,</span> <span class="s2">"~&gt; 6.18"</span></code></pre></figure>
+
+<h3 id="browser-windows">Browser Windows</h3>
+<p>The biggest deprecation is <code class="highlighter-rouge">:index</code> as a window locator, and the use of indexing
+(<code class="highlighter-rouge">#[]</code>, <code class="highlighter-rouge">#first</code>, <code class="highlighter-rouge">#last</code>) on window collections. You can read 
+<a href="../guides/windows/#locating-by-index-is-no-longer-supported">the explanation here</a>.</p>
+
+<p>Because the vast majority of the time, there is only one other window you need to
+work with, there is now a <code class="highlighter-rouge">Browser#switch_window</code> method. It can only be used if 
+there are 2 windows, and all it does is switch to the other window. This should be
+sufficient for the vast majority of users:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">switch_window</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">button</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'close'</span><span class="p">).</span><span class="nf">click</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">switch_window</span></code></pre></figure>
+
+<p>Still, it’s only fair to add a locator since one is being taken away.
+Introducing the new <code class="highlighter-rouge">:element</code> locator which allows you to select a window 
+based on a unique element on the page:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">window</span><span class="p">(</span><span class="ss">element: </span><span class="n">browser</span><span class="p">.</span><span class="nf">div</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'my-element'</span><span class="p">))</span></code></pre></figure>
+
+<p>Also, to make sure people don’t continue to use indexing with an <code class="highlighter-rouge">Array</code> of <code class="highlighter-rouge">Window</code> instances,
+<code class="highlighter-rouge">Browser#windows</code> now returns a new <code class="highlighter-rouge">WindowCollection</code> object with the
+deprecation notices. This object will
+let us do some interesting things in the future, but right off it’s hooked up
+to use Watir’s powerful waiting functionality, so you can do things like:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">link</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'open-third-window'</span><span class="p">).</span><span class="nf">click</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">windows</span><span class="p">.</span><span class="nf">wait_until</span><span class="p">(</span><span class="ss">size: </span><span class="mi">3</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="waiting-for-multiple-elements">Waiting for Multiple Elements</h3>
+
+<p>Many users do a lot of work with collections of elements instead of
+specific elements, which means that many of Watir’s best synchronization
+functionality has not been available to them. Similar to what we did
+with <code class="highlighter-rouge">WindowCollection</code>, we’ve hooked up <code class="highlighter-rouge">ElementCollection</code> to use
+Watir’s waiting features. You can now do things like:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">elements</span><span class="p">(</span><span class="ss">divs: </span><span class="sr">/foo/</span><span class="p">).</span><span class="nf">wait_until</span><span class="p">(</span><span class="ss">size: </span><span class="mi">3</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">elements</span><span class="p">(</span><span class="ss">divs: </span><span class="sr">/foo/</span><span class="p">).</span><span class="nf">wait_until</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:exists?</span><span class="p">)</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">elements</span><span class="p">(</span><span class="ss">divs: </span><span class="sr">/foo/</span><span class="p">).</span><span class="nf">wait_while</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:empty?</span><span class="p">)</span></code></pre></figure>
+
+<p>To accomplish this, Watir will now relocate the collection whenever
+an enumerable method is used. It shouldn’t be an issue for you unless you are doing a lot of
+size calls on the same collection. Indexing and iterating with <code class="highlighter-rouge">ElementCollection#to_a</code> won’t
+be affected.</p>
+
+<h3 id="so-long-select-all">So Long Select All</h3>
+<p>There is a lot of overhead to treating a select list like it might
+be a multiple select list, especially when multiple select lists are not very common. 
+Way back in Watir 6.6 I had this 
+<a href="http://watir.com/watir-6-6/#select-lists">brilliant idea for optimizing Select Lists</a>.
+If we use <code class="highlighter-rouge">Select#select</code> for non-multiple select lists and
+<code class="highlighter-rouge">Select#select_all</code> for multiple select lists, it makes it really easy to
+only do the performance expensive things when needed.</p>
+
+<p>Except…
+It turns out that we couldn’t easily completely stop using <code class="highlighter-rouge">#select</code> for multiple
+select lists, and there are some advantages for automatic form filling implementations
+to have everything necessary go through one method. So, <code class="highlighter-rouge">Select#select_all</code> and <code class="highlighter-rouge">Select#select_all!</code>
+are now deprecated, and I apologize for making people move to them only to ask them to
+move back away from them.</p>
+
+<p>If you are working with a multiple select list and you want to select multiple
+things, you now need to pass in what you want to be selected as an <code class="highlighter-rouge">Array</code>, even
+if it is just one thing (like a <code class="highlighter-rouge">Regexp</code> instance):</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">browser</span><span class="p">.</span><span class="nf">select_list</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'languages'</span><span class="p">).</span><span class="nf">select</span><span class="p">([</span><span class="sr">/ish/</span><span class="p">])</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">select_list</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'languages'</span><span class="p">).</span><span class="nf">select</span><span class="p">([</span><span class="sr">/ish/</span><span class="p">,</span> <span class="s1">'Latin'</span><span class="p">])</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">select_list</span><span class="p">(</span><span class="ss">id: </span><span class="s1">'languages'</span><span class="p">).</span><span class="nf">select</span><span class="p">([</span><span class="s1">'English'</span><span class="p">,</span> <span class="s1">'Swedish'</span><span class="p">])</span></code></pre></figure>
+
+<p>See the <a href="https://github.com/watir/watir/blob/main/CHANGES.md">Changelog</a> 
+for the complete history of updates.</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+  <div>
+    
+    <a href = 'https://twitter.com/watir_team/status/1365344362750742528'>Thoughts about this article? Let us know!</a>
+    
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watir-6-18/',
+		  'title': 'Watir 6.18'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

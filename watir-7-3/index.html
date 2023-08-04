@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir 7.3 – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Watir 7.3" />
+    <meta property="twitter:title" content="Watir 7.3" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Watir 7.3
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'https://titusfortner.com/' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on August  4, 2023
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>Watir 7.3 is now available on RubyGems. Two small features and some maintenance. 
+<!--more--></p>
+
+<p><strong><em>To install:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">watir</span></code></pre></figure>
+
+<p><strong><em>or in your Gemfile:</em></strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"watir"</span><span class="p">,</span> <span class="s2">"~&gt; 7.3"</span></code></pre></figure>
+
+<h3 id="new-features">New Features</h3>
+
+<p>Two small feature additions for this release:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">DateField</code> and <code class="highlighter-rouge">DateTimeField</code> can be set with anything responding to <code class="highlighter-rouge">#strftime</code> instead of specific objects.</li>
+  <li>Cookies can set values for <code class="highlighter-rouge">http_only</code> and <code class="highlighter-rouge">same_site</code></li>
+</ul>
+
+<h3 id="watir-and-selenium">Watir and Selenium</h3>
+
+<p>Selenium has been churning out releases and making changes over the past year, mostly removing code that Watir
+doesn’t use, and requiring users to change things to what Watir is already doing.
+Watir continues to be an effective way to leverage the browser automation power of Selenium
+with the opinions and synchronization required to more easily maintain your test suites.</p>
+
+<p>Technically, Watir 7.3 only requires Selenium 4.2 or greater (necessary for the new scrolling features), but
+it is highly recommended that you upgrade to the latest version of Selenium. 
+Selenium 4.11 natively manages drivers better than the webdrivers gem, with more features coming,
+so you can stop requiring webdrivers and just let Selenium handle it.
+To keep up with the latest changes in Selenium that are available to Watir users, pay attention to the
+<a href="https://www.selenium.dev/blog/">Selenium blog</a></p>
+
+<h3 id="watir-and-bidi">Watir and BiDi</h3>
+
+<p>The primary functionality in Selenium that Watir has been ignoring so far is related to 
+<a href="https://www.selenium.dev/documentation/webdriver/bidirectional/">BiDirectional</a> /
+Chrome DevTools Protocol features.
+The CDP implementation in Selenium is a temporary placeholder while the w3c browser tools
+working group completes the specification for <a href="https://w3c.github.io/webdriver-bidi/">WebDriver BiDi</a>.
+Watir users can access the current features at any time by referencing the Selenium code and using the
+Selenium driver which can be obtained by:  <code class="highlighter-rouge">driver = browser.wd</code>.</p>
+
+<p>BiDi is the future of browser automation, and the Watir team is keeping a close eye on 
+the state of the technology, and will figure out how best to support these features within the Watir API when they 
+become standardized and as future versions of Selenium (think Selenium 5.0 and 6.0) make more use of them.</p>
+
+<p>See the <a href="https://github.com/watir/watir/blob/main/CHANGES.md">Changelog</a> 
+for the complete history of updates.</p>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/releases/' class = 'more more--round'>Releases</a></div>
+  </div>
+  <div>
+    
+    <a href = 'https://twitter.com/watir_team/status/1687499048591179776'>Thoughts about this article? Let us know!</a>
+    
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/watir-7-3/',
+		  'title': 'Watir 7.3'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

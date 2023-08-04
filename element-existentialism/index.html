@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Element Existentialism – Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+    <meta property="og:title" content="Element Existentialism" />
+    <meta property="twitter:title" content="Element Existentialism" />
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><main id = 'main' role = 'main' class = 'container'>
+      <article>
+  <h3>
+    <a href = ''>
+      Element Existentialism
+    </a>
+  </h3>
+  <p class = 'blog__meta'>
+    
+      Written by: <a href = 'https://titusfortner.com/' target = '_blank' rel = 'noopener'> Titus Fortner</a>
+    
+    on July 17, 2018
+  </p>
+  <div class = 'post-content'>
+    <p>
+    <p>To Be, or Not to Be… an Element
+<!--more--></p>
+
+<h3 id="tldr">TL/DR</h3>
+
+<p><code class="highlighter-rouge">Element#visible?</code> will soon do the same thing as <code class="highlighter-rouge">Element#present?</code>, which has the potential to cause problems if
+you rescue <code class="highlighter-rouge">UnknownObjectException</code> or <code class="highlighter-rouge">UnknownFrameException</code> in your code. While we aren’t officially 
+deprecating <code class="highlighter-rouge">#visible?</code>, we recommend that you make sure that you need to be using any existence check in the first place 
+(see point #1 in the next section), and if you do, switch to using <code class="highlighter-rouge">#present?</code> instead.</p>
+
+<h3 id="what-matters">What Matters</h3>
+
+<p>There are a bunch of different terms that mean slightly different things when it comes to whether an element “exists”.
+See the <a href="#terminology">Terminology section</a> below for the meaning of the terms used in quotes in this article.</p>
+
+<p>There are two major use cases for evaluating whether an element is there.</p>
+<ol>
+  <li>Ensure it is usable before taking an action on it
+    <ul>
+      <li>This is what we implemented as the default for Watir 6. We intentionally maintained a distinction 
+between taking an action on an element and locating the element. The goal is to allow the instantaneous querying of 
+the condition or status of an element at any time, while also making every effort to take the requested action. If
+you are using the <code class="highlighter-rouge">#visible?</code> method as part of a wait, it is likely an unnecessary call at this point and safe to remove.</li>
+    </ul>
+  </li>
+  <li>Validate the user can see it
+    <ul>
+      <li>For this we don’t actually care if an element “exists” in the DOM, if it isn’t also “displayed,” so we need to explore
+what this means.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Justin Ko has a <a href="https://jkotests.wordpress.com/2012/11/02/checking-for-an-element-exists-visible-present/">great synopsis</a>
+of the three applicable predicate methods for a Watir element. Of these three, “exist” is typically insufficient
+for our needs and “visible” is redundant. In the US Legislature, a Representative has three options for a vote: 
+“aye”, “no,” and “present.” I like that this connotation of “present” is the one that Watir chose to use, as it 
+indicates that the member is in plain sight on the floor of Congress and in a state ready and able to take action.</p>
+
+<p>For comparison, <a href="https://github.com/teamcapybara/capybara/">Capybara</a> makes no distinction between <code class="highlighter-rouge">#exist?</code>, <code class="highlighter-rouge">#visible?</code> and <code class="highlighter-rouge">#present?</code>, 
+there is only <code class="highlighter-rouge">#find</code> and this method will only locate “displayed” elements. 
+To locate an element that “exists” but is not “displayed,” the
+user must pass in <code class="highlighter-rouge">hidden: true</code>. I like that Watir makes it easier to locate and query elements without needing to 
+know their state ahead of time, but we also have more options and more confusion than we want or need.</p>
+
+<h3 id="clarifying-confusions">Clarifying Confusions</h3>
+
+<h5 id="q-what-does-watirelementvisible-do-that-watirelementpresent-does-not">Q: What does <code class="highlighter-rouge">Watir::Element#visible?</code> do that <code class="highlighter-rouge">Watir::Element#present?</code> does not?</h5>
+<p>A: Nothing except throw an exception when the element does not “exist” in the DOM.</p>
+
+<h5 id="q-does-present-or-visible-change-if-i-scroll-the-element-out-of-view">Q: Does <code class="highlighter-rouge">#present?</code> or <code class="highlighter-rouge">#visible?</code> change if I scroll the element out of view?</h5>
+<p>A: No. These methods are ultimately implemented by the atom <code class="highlighter-rouge">isShown</code>, and only attempts to answer the question of whether it 
+ can be seen by the user assuming that the element is moved into the viewport first, even if it has not been.</p>
+
+<h5 id="q-if-present-returns-true-does-that-mean-the-element-is-interactable">Q: If <code class="highlighter-rouge">#present?</code> returns <code class="highlighter-rouge">true</code>, does that mean the element is interactable?</h5>
+<p>A: Unfortunately, not necessarily. It is possible that attempting to click the element will give a “click intercepted” error 
+or an “element not interactable” error. Future versions of the w3c specification are likely going to provide
+ endpoints to evaluate whether this is true without taking the action, and future versions of Watir will make it easier
+ to set default handling behaviors for these issues. At this point it might still be messy, so 
+ <a href="http://watir.com/help/">reach out to us</a> if you get stuck trying to handle this situation.</p>
+
+<h5 id="q-if-present-returns-true-does-that-mean-the-element-is-actually-able-to-be-seen-by-the-user">Q: If <code class="highlighter-rouge">#present?</code> returns <code class="highlighter-rouge">true</code>, does that mean the element is actually able to be seen by the user?</h5>
+<p>A: Unfortunately, also not necessarily. The W3C WebDriver specification ended up not even trying to determine
+<a href="https://w3c.github.io/webdriver/#element-displayedness">what makes an element displayed</a>. For more details, you
+can watch David Burns <a href="https://www.youtube.com/watch?v=hTa1KI6fQpg&amp;index=12&amp;list=PLPJWVzLeEy93T9EBvfn9KAmrYYez3oGcD">speak about this</a>
+ at the Selenium Conference in London a couple years ago.</p>
+
+<h3 id="terminology">Terminology</h3>
+
+<ul>
+  <li><a href="https://drafts.csswg.org/css-device-adapt/#the-viewport">viewport</a> - 
+the subset of the page that can be viewed by the user at a given time (this will vary by device, window size, etc)</li>
+  <li><a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementiddisplayed">displayed</a> - 
+Selenium’s JSON Wire Protocol Endpoint called from <code class="highlighter-rouge">isDisplayed</code> method</li>
+  <li><a href="https://github.com/SeleniumHQ/selenium/blob/e09e28f016c9f53196cf68d6f71991c5af4a35d4/javascript/atoms/dom.js#L437">shown</a> - 
+The JavaScript atom used by most of the drivers is called <code class="highlighter-rouge">isShown</code></li>
+  <li>exists - Watir’s oldest boolean method that determines if an element is in the DOM regardless of state</li>
+  <li>visible - Assuming that an element “exists,” Watir uses Selenium to determine if it is “displayed”</li>
+  <li>present - Watir determines if the element both “exists” and is “visible”</li>
+  <li>hidden - A filtering option used by Watir &amp; Capybara for elements that are “displayed”</li>
+  <li><a href="https://w3c.github.io/webdriver/#dfn-interactable">interactable</a> - Attempting to determine if an action can be taken</li>
+</ul>
+
+    </p>
+  </div>
+  <div class = 'mb-2'>   
+    <h4>Tags:</h4>
+    <div class = 'mb-2 mt-2'><a href = '/tag/blogs/' class = 'more more--round'>Blogs</a></div>
+  </div>
+  <div>
+    
+  </div>
+</article>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/element-existentialism/',
+		  'title': 'Element Existentialism'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>

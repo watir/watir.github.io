@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Watir Project</title>
+
+    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+">
+    <meta property="og:description" content="Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" />
+    
+
+    
+    <meta name="author" content="Watir Project" />
+    
+
+    
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Watir Project - Watir stands for Web Application Testing In Ruby. It facilitates the writing of automated tests by mimicking the behavior of a user interacting with a website.
+" href="/feed.xml" />
+
+<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+  <body>
+    <header><div class = 'header'>
+  <div class = 'logo'>
+    <a href = '/'>
+      <img src = 'https://raw.githubusercontent.com/watir/watir_logo/master/Logo/Watir_logo.png'/>
+    </a>
+    <span  class = 'hide-on-mobiles tag-line'>Powered by Selenium</span>
+    <span class = 'nav__toggle'><i class="fas fa-bars"></i></span>
+  </div>
+  <nav class = 'nav'><a href = '/blog/'
+      
+      >
+      News
+    </a><a href = '/guides/'
+      
+      >
+      Guides
+    </a><a href = '/nerodia/'
+      
+      >
+      Nerodia
+    </a><a href = '/help/'
+      
+      >
+      Help
+    </a><a href = '/about/'
+      
+      >
+      About
+    </a><div class = 'custom_search'><script>
+  (function() {
+    var cx = '014642898046425907042:wbdfsycyxqa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search></div>
+  </nav>
+</div></header><div class = 'intro'>
+  <div class = 'container grid grid-2'>
+    <div>
+      <h2>Watir is...</h2>
+      <span>An open source Ruby library for automating tests. Watir interacts with a
+      browser the same way people do: clicking links, filling out forms and validating
+      text.</span>
+      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/guides/#getting-started">Get Started Now...</a></h5>
+    </div>
+    <div class = 'demo'>
+      <pre><figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">'watir'</span>
+
+<span class="n">browser</span> <span class="o">=</span> <span class="no">Watir</span><span class="o">::</span><span class="no">Browser</span><span class="p">.</span><span class="nf">new</span>
+
+<span class="n">browser</span><span class="p">.</span><span class="nf">goto</span> <span class="s1">'watir.com'</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">link</span><span class="p">(</span><span class="ss">text: </span><span class="s1">'Guides'</span><span class="p">).</span><span class="nf">click</span>
+
+<span class="nb">puts</span> <span class="n">browser</span><span class="p">.</span><span class="nf">title</span>
+<span class="c1"># =&gt; 'Guides – Watir Project'</span>
+<span class="n">browser</span><span class="p">.</span><span class="nf">close</span></code></pre></figure>
+</pre>
+    </div>
+  </div>
+</div><main id = 'main' role = 'main' class = 'container'>
+      <div class = 'page grid'>
+  <article>
+    <h2 class = 'flex-out'>
+    </h2>
+    <div><div>
+    <h3><a href = '/watir-7-3/'>Watir 7.3</a></h3>
+    Watir 7.3 is now available on RubyGems. Two small features and some maintenance.
+
+
+    <br />
+    <a href = '/watir-7-3/' class = 'more'>Continue Reading...</a>
+    <br />
+    <span class = 'blog__meta'>
+      
+        Written by: <a href = 'https://titusfortner.com/'> Titus Fortner</a>
+      
+      on August  4, 2023
+    </span>
+    <p></p>
+  </div>
+  <div>
+    <h3><a href = '/watir-7-2/'>Watir 7.2</a></h3>
+    Watir 7.2 is now available on RubyGems. Shadow DOM! Advanced Scrolling! Bug Fixes!
+Minimum requirements of Selenium 4.2 and Ruby 2.7
+
+
+    <br />
+    <a href = '/watir-7-2/' class = 'more'>Continue Reading...</a>
+    <br />
+    <span class = 'blog__meta'>
+      
+        Written by: <a href = 'https://titusfortner.com/'> Titus Fortner</a>
+      
+      on December 24, 2022
+    </span>
+    <p></p>
+  </div>
+  <div>
+    <h3><a href = '/watir-7-1/'>Watir 7.1</a></h3>
+    Watir 7.1.0 is now available on RubyGems. This release re-works a few things related to scrolling.
+
+
+    <br />
+    <a href = '/watir-7-1/' class = 'more'>Continue Reading...</a>
+    <br />
+    <span class = 'blog__meta'>
+      
+        Written by: <a href = 'https://titusfortner.com/'> Titus Fortner</a>
+      
+      on November 15, 2021
+    </span>
+    <p></p>
+  </div>
+  
+  <div class = 'pager'>
+    <a href = '/blog/' class = 'more'>More news...</a>
+  </div>
+</div>
+
+  </article>
+  
+    <aside>
+      
+        <h4>Getting Started</h4>
+  <ul>
+    <li><a href="/guides/">Watir Guides</a></li>
+    <li><a href="http://www.rubydoc.info/gems/watir/">Watir Documentation</a></li>
+    <li><a href="/watir-6-faq/">Watir 6 FAQ</a></li>
+    <li><a href="/guides/form-example/">Watir Example</a></li>
+  </ul>
+
+<h4>Community Support</h4>
+<ul>
+  <li style="display: none"><a href="">Donations</a></li>
+  <li style="display: none"><a href="">Sponsors</a></li>
+  <li><a href="/users/">Companies Using Watir</a></li>
+</ul>
+
+<h4>Watir Ecosystem</h4>
+<ul>
+    <li><a href="https://github.com/watir/nerodia/">Nerodia (Watir in Python!)</a></li>
+    <li><a href="/add-ons/#integrations">Integrations (Rails, RSpec)</a></li>
+    <li><a href="/add-ons/#page-object-libraries">Page Object Libraries</a></li>
+    <li><a href="/add-ons/#other-libraries">Other Libraries</a></li>
+</ul>
+
+<h4>Additional Resources</h4>
+<ul>
+<li><a href="/podcasts/">The Watir Podcast</a></li>
+<li><a href="/blog-list/">Blogs</a></li>
+<li><a href="/books/">Books</a></li>
+</ul>
+
+      
+    </aside>
+  
+</div>
+
+    </main>
+    <footer class = 'footer'>
+<div class = 'container footer__inner'>
+    
+  <a href = 'https://github.com/watir' class = 'footer__link'><i class = 'fab fa-github' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'https://www.twitter.com/watir_team' class = 'footer__link'><i class = 'fab fa-twitter' target = '_blank' rel = 'noopener'></i></a>
+
+  <a href = 'http://stackoverflow.com/tags/watir' class = 'footer__link'><i class = 'fab fa-stack-overflow' target = '_blank' rel = 'noopener'></i></a>
+
+    <p><i class="far fa-copyright"></i> <span id = 'year'></span> Watir</p>
+</div></footer>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75293890-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/',
+		  'title': ''
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+<script src = '/assets/index.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script></body>
+</html>
