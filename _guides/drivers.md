@@ -13,7 +13,7 @@ to automatically ensure that the latest driver is downloaded, and placed in a lo
 where Selenium can access it.
 
 Otherwise, you can download the drivers for the browser of your choice:
-* Google Chrome: [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+* Google Chrome: [chromedriver](https://googlechromelabs.github.io/chrome-for-testing/)
 * Mozilla Firefox: [geckodriver](https://github.com/mozilla/geckodriver/releases)
 * Microsoft Edge: [Microsoft WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 * Microsoft Internet Explorer: [IEDriver](http://docs.seleniumhq.org/download)
